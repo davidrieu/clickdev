@@ -193,7 +193,7 @@ export function HeroSection() {
             aria-hidden
           />
 
-          <HeroParticles className="absolute right-[1%] top-[8%] z-[1] hidden h-[min(320px,50vw)] w-[min(320px,50vw)] md:block" />
+          <HeroParticles className="absolute -right-[10%] top-[0%] z-[1] hidden h-[min(900px,min(92vw,88dvh))] w-[min(900px,min(92vw,88dvh))] md:block lg:-right-[6%] lg:top-[2%]" />
         </>
       ) : null}
 
