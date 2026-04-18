@@ -30,7 +30,7 @@ export function SectionAurora({ variant = "soft" }: SectionAuroraProps) {
         transition={{ duration: 14, repeat: Infinity, ease: "easeInOut" }}
       />
       <motion.div
-        className="absolute -left-[20%] top-[10%] h-[min(300px,48vw)] w-[min(300px,48vw)] rounded-full bg-success/18 blur-[85px]"
+        className="absolute -left-[20%] top-[10%] h-[min(300px,48vw)] w-[min(300px,48vw)] rounded-full bg-terracotta/16 blur-[85px]"
         animate={{
           x: [0, -26, 20, 0],
           y: [0, 36, -20, 0],

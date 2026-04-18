@@ -102,13 +102,13 @@ export function heroWordVariantExpressive(reduceMotion: boolean | null): Variant
     };
   }
   return {
-    hidden: { opacity: 0, y: 48, rotateX: -42, filter: "blur(14px)" },
+    hidden: { opacity: 0, y: 26, rotateX: -16, filter: "blur(11px)" },
     visible: {
       opacity: 1,
       y: 0,
       rotateX: 0,
       filter: "blur(0px)",
-      transition: { duration: 0.72, ease: easeOutProduct },
+      transition: { duration: 0.64, ease: easeOutProduct },
     },
   };
 }

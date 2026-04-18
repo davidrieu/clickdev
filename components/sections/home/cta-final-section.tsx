@@ -37,7 +37,7 @@ export function CtaFinalSection() {
           transition={{ duration: 9.5, repeat: Infinity, ease: "easeInOut" }}
         />
         <motion.div
-          className="absolute -right-1/4 bottom-0 h-[100%] w-1/2 rounded-full bg-success/16 blur-3xl"
+          className="absolute -right-1/4 bottom-0 h-[100%] w-1/2 rounded-full bg-terracotta/14 blur-3xl"
           animate={
             reduceMotion
               ? undefined

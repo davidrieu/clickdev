@@ -18,21 +18,12 @@ export const metadata: Metadata = {
     "Sites, apps mobiles, IA, SEO & CRM sur mesure pour marques ambitieuses. 10 ans d’expérience, 80+ projets. Demandez un devis.",
 };
 
-function formatHeroMonthLabel(): string {
-  const raw = new Intl.DateTimeFormat("fr-FR", {
-    month: "long",
-    year: "numeric",
-  }).format(new Date());
-  return raw.charAt(0).toUpperCase() + raw.slice(1);
-}
-
 export default async function HomePage() {
-  const monthLabel = formatHeroMonthLabel();
   const latestPosts = await getLatestPostsForHome();
 
   return (
     <>
-      <HeroSection monthLabel={monthLabel} />
+      <HeroSection />
       <TrustBar />
       <ServicesSection />
       <CaseStudiesSection />

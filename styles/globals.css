@@ -16,7 +16,8 @@
   --ink-muted: #5f5f5a;
   --terracotta: #d97757;
   --terracotta-soft: #e8a58b;
-  --success: #7dd87d;
+  /* Accent unique : même teinte que le terracotta (plus de vert UI). */
+  --success: var(--terracotta);
 }
 
 /* shadcn / Base UI — thème sombre (html.dark) */

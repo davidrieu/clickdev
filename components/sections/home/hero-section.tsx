@@ -1,5 +1,6 @@
 "use client";
 
+import { useId } from "react";
 import Link from "next/link";
 import {
   motion,
@@ -8,7 +9,6 @@ import {
   useSpring,
   useTransform,
 } from "framer-motion";
-import { Badge } from "@/components/ui/badge";
 import { buttonVariants } from "@/components/ui/button";
 import { MetricBlock } from "@/components/blocks/metric-block";
 import {
@@ -36,18 +36,19 @@ const heroSubcopy = [
   "Accor, Greenweez, Spreadshirt et 80+ entreprises me font confiance.",
 ] as const;
 
-type HeroSectionProps = {
-  monthLabel: string;
-};
+/** Grain SVG discret (immersion sans surcharge visuelle). */
+const noiseDataUri =
+  "url(\"data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.05'/%3E%3C/svg%3E\")";
 
-export function HeroSection({ monthLabel }: HeroSectionProps) {
+export function HeroSection() {
   const reduceMotion = useReducedMotion();
   const duration = reduceMotion ? 0 : 0.48;
+  const orbitGradId = `hero-orbit-${useId().replace(/:/g, "")}`;
 
   const mouseX = useMotionValue(0.5);
   const mouseY = useMotionValue(0.5);
-  const springX = useSpring(mouseX, { stiffness: 42, damping: 30, restDelta: 0.001 });
-  const springY = useSpring(mouseY, { stiffness: 42, damping: 30, restDelta: 0.001 });
+  const springX = useSpring(mouseX, { stiffness: 52, damping: 32, restDelta: 0.001 });
+  const springY = useSpring(mouseY, { stiffness: 52, damping: 32, restDelta: 0.001 });
 
   const orb1x = useTransform(springX, [0, 1], [-72, 72]);
   const orb1y = useTransform(springY, [0, 1], [-48, 48]);
@@ -57,6 +58,9 @@ export function HeroSection({ monthLabel }: HeroSectionProps) {
   const orb3y = useTransform(springY, [0, 1], [20, -26]);
   const orb4x = useTransform(springX, [0, 1], [-20, 36]);
   const orb4y = useTransform(springY, [0, 1], [-24, 28]);
+
+  const contentX = useTransform(springX, [0, 1], [12, -12]);
+  const contentY = useTransform(springY, [0, 1], [8, -8]);
 
   function handleHeroMouseMove(e: React.MouseEvent<HTMLElement>) {
     if (reduceMotion) return;
@@ -74,8 +78,8 @@ export function HeroSection({ monthLabel }: HeroSectionProps) {
   const blurReveal = (delay: number) => ({
     hidden: {
       opacity: reduceMotion ? 1 : 0,
-      y: reduceMotion ? 0 : 22,
-      filter: reduceMotion ? "blur(0px)" : "blur(12px)",
+      y: reduceMotion ? 0 : 18,
+      filter: reduceMotion ? "blur(0px)" : "blur(11px)",
     },
     visible: {
       opacity: 1,
@@ -90,10 +94,10 @@ export function HeroSection({ monthLabel }: HeroSectionProps) {
   });
 
   const wordVariant = heroWordVariantExpressive(reduceMotion);
-  const headingContainer = heroHeadingContainer(reduceMotion, 0.046, 0.08);
+  const headingContainer = heroHeadingContainer(reduceMotion, 0.036, 0.1);
   const statsContainer = staggerContainer(reduceMotion, 0.1, 0.72);
   const statItem = staggerItemReveal(reduceMotion);
-  const subcopyContainer = staggerContainer(reduceMotion, 0.07, 0.42);
+  const subcopyContainer = staggerContainer(reduceMotion, 0.08, 0.52);
   const subcopyLine = staggerItemReveal(reduceMotion);
 
   return (
@@ -107,155 +111,138 @@ export function HeroSection({ monthLabel }: HeroSectionProps) {
         <>
           <div className="pointer-events-none absolute inset-0" aria-hidden>
             <motion.div
-              className="absolute -right-[15%] top-[8%]"
+              className="absolute -right-[15%] top-[8%] will-change-transform"
               style={{ x: orb1x, y: orb1y }}
             >
               <motion.div
-                className="h-[min(420px,55vw)] w-[min(420px,55vw)] rounded-full bg-terracotta/30 blur-[100px]"
+                className="h-[min(420px,55vw)] w-[min(420px,55vw)] rounded-full bg-terracotta/28 blur-[110px]"
                 animate={{
-                  scale: [1, 1.22, 1.06, 1.18, 1],
-                  opacity: [0.32, 0.62, 0.44, 0.58, 0.32],
-                  x: [0, 26, -18, 22, 0],
-                  y: [0, -20, 14, -10, 0],
+                  scale: [1, 1.18, 1.04, 1.12, 1],
+                  opacity: [0.28, 0.55, 0.38, 0.5, 0.28],
+                  x: [0, 22, -16, 18, 0],
+                  y: [0, -18, 12, -9, 0],
                 }}
-                transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
+                transition={{ duration: 14, repeat: Infinity, ease: "easeInOut" }}
               />
             </motion.div>
             <motion.div
-              className="absolute -left-[10%] bottom-[5%]"
+              className="absolute -left-[10%] bottom-[5%] will-change-transform"
               style={{ x: orb2x, y: orb2y }}
             >
               <motion.div
-                className="h-[min(380px,50vw)] w-[min(380px,50vw)] rounded-full bg-success/26 blur-[90px]"
+                className="h-[min(380px,50vw)] w-[min(380px,50vw)] rounded-full bg-terracotta/20 blur-[100px]"
                 animate={{
-                  scale: [1, 1.16, 1.04, 1.14, 1],
-                  opacity: [0.22, 0.52, 0.34, 0.48, 0.22],
-                  x: [0, -20, 24, -14, 0],
-                  y: [0, 28, -16, 20, 0],
+                  scale: [1, 1.14, 1.03, 1.1, 1],
+                  opacity: [0.18, 0.46, 0.3, 0.42, 0.18],
+                  x: [0, -18, 20, -12, 0],
+                  y: [0, 24, -14, 16, 0],
                 }}
                 transition={{
-                  duration: 9.5,
+                  duration: 12,
                   repeat: Infinity,
                   ease: "easeInOut",
-                  delay: 0.4,
+                  delay: 0.5,
                 }}
               />
             </motion.div>
             <motion.div
-              className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2"
+              className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 will-change-transform"
               style={{ x: orb3x, y: orb3y }}
             >
               <motion.div
-                className="h-[min(600px,80vw)] w-[min(600px,80vw)] rounded-full bg-gradient-to-br from-terracotta/12 via-terracotta-soft/10 to-success/10 blur-[120px]"
+                className="h-[min(620px,82vw)] w-[min(620px,82vw)] rounded-full bg-gradient-to-br from-terracotta/14 via-terracotta-soft/11 to-terracotta/7 blur-[130px]"
                 animate={{
                   rotate: [0, 360],
-                  scale: [1, 1.08, 1.04, 1.1, 1],
-                  opacity: [0.45, 0.75, 0.55, 0.7, 0.45],
+                  scale: [1, 1.06, 1.02, 1.08, 1],
+                  opacity: [0.4, 0.68, 0.5, 0.62, 0.4],
                 }}
                 transition={{
-                  rotate: { duration: 72, repeat: Infinity, ease: "linear" },
-                  scale: { duration: 8, repeat: Infinity, ease: "easeInOut" },
-                  opacity: { duration: 8, repeat: Infinity, ease: "easeInOut" },
+                  rotate: { duration: 88, repeat: Infinity, ease: "linear" },
+                  scale: { duration: 11, repeat: Infinity, ease: "easeInOut" },
+                  opacity: { duration: 11, repeat: Infinity, ease: "easeInOut" },
                 }}
               />
             </motion.div>
             <motion.div
-              className="absolute left-[8%] top-[38%]"
+              className="absolute left-[8%] top-[38%] will-change-transform"
               style={{ x: orb4x, y: orb4y }}
             >
               <motion.div
-                className="h-[min(200px,38vw)] w-[min(200px,38vw)] rounded-full bg-terracotta-soft/35 blur-[72px]"
+                className="h-[min(220px,40vw)] w-[min(220px,40vw)] rounded-full bg-terracotta-soft/32 blur-[80px]"
                 animate={{
-                  scale: [1, 1.35, 1.1, 1.28, 1],
-                  opacity: [0.25, 0.55, 0.35, 0.5, 0.25],
-                  x: [0, 18, -22, 12, 0],
-                  y: [0, -14, 20, -8, 0],
+                  scale: [1, 1.28, 1.08, 1.22, 1],
+                  opacity: [0.2, 0.48, 0.32, 0.44, 0.2],
+                  x: [0, 16, -18, 10, 0],
+                  y: [0, -12, 18, -7, 0],
                 }}
                 transition={{
-                  duration: 7.2,
+                  duration: 9,
                   repeat: Infinity,
                   ease: "easeInOut",
-                  delay: 0.2,
+                  delay: 0.25,
                 }}
               />
             </motion.div>
           </div>
-          <motion.div
+
+          <div
+            className="pointer-events-none absolute inset-0 z-[1] bg-[radial-gradient(ellipse_75%_60%_at_50%_-10%,rgba(217,119,87,0.09),transparent_55%),radial-gradient(ellipse_55%_45%_at_100%_50%,transparent_40%,rgba(13,13,13,0.55)_100%)]"
             aria-hidden
-            className="pointer-events-none absolute right-[6%] top-[18%] hidden h-56 w-56 rounded-full border border-line/25 md:block lg:h-72 lg:w-72"
-            animate={{ rotate: [0, 360] }}
-            transition={{ duration: 56, repeat: Infinity, ease: "linear" }}
           />
-          <motion.div
+          <div
+            className="pointer-events-none absolute inset-0 z-[1] mix-blend-overlay opacity-[0.55]"
+            style={{ backgroundImage: noiseDataUri }}
             aria-hidden
-            className="pointer-events-none absolute right-[8%] top-[22%] hidden h-40 w-40 rounded-full border border-terracotta/15 md:block"
-            animate={{ rotate: [360, 0] }}
-            transition={{ duration: 38, repeat: Infinity, ease: "linear" }}
           />
+
+          <motion.svg
+            aria-hidden
+            className="pointer-events-none absolute right-[2%] top-[10%] z-[1] hidden h-[min(300px,48vw)] w-[min(300px,48vw)] md:block"
+            viewBox="0 0 200 200"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.35, duration: 1.1, ease: easeOutProduct }}
+          >
+            <defs>
+              <linearGradient id={orbitGradId} x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stopColor="rgba(217,119,87,0.45)" />
+                <stop offset="55%" stopColor="rgba(232,165,139,0.2)" />
+                <stop offset="100%" stopColor="rgba(217,119,87,0.08)" />
+              </linearGradient>
+            </defs>
+            <motion.g style={{ transformOrigin: "100px 100px" }} animate={{ rotate: 360 }} transition={{ duration: 52, repeat: Infinity, ease: "linear" }}>
+              <circle
+                cx="100"
+                cy="100"
+                r="88"
+                fill="none"
+                stroke={`url(#${orbitGradId})`}
+                strokeWidth="0.65"
+                strokeDasharray="5 16"
+                className="opacity-90"
+              />
+            </motion.g>
+            <motion.g style={{ transformOrigin: "100px 100px" }} animate={{ rotate: -360 }} transition={{ duration: 70, repeat: Infinity, ease: "linear" }}>
+              <circle
+                cx="100"
+                cy="100"
+                r="74"
+                fill="none"
+                stroke="rgba(217,119,87,0.18)"
+                strokeWidth="0.5"
+                strokeDasharray="2 20"
+              />
+            </motion.g>
+          </motion.svg>
         </>
       ) : null}
 
-      <div className="relative mx-auto max-w-[1600px] px-4 md:px-8">
-        <div className="relative max-w-4xl">
-          {!reduceMotion ? (
-            <motion.div
-              aria-hidden
-              className="pointer-events-none absolute -left-6 top-24 h-px w-24 origin-left bg-gradient-to-r from-transparent via-terracotta/40 to-transparent md:-left-10 md:top-32 md:w-32"
-              initial={{ opacity: 0, scaleX: 0 }}
-              animate={{ opacity: 1, scaleX: 1 }}
-              transition={{ delay: 0.35, duration: 0.7, ease: easeOutProduct }}
-            />
-          ) : null}
-
-          <motion.div variants={blurReveal(0)} initial="hidden" animate="visible">
-            <motion.div
-              animate={reduceMotion ? undefined : { y: [0, -3, 0] }}
-              transition={{
-                duration: 5.5,
-                repeat: Infinity,
-                ease: "easeInOut",
-              }}
-            >
-              <Badge
-                variant="outline"
-                className="relative h-auto gap-2 overflow-hidden rounded-full border-line bg-bg-2/85 py-1.5 pl-2 pr-3 font-mono text-[11px] uppercase tracking-widest text-ink-dim shadow-[0_0_0_1px_rgba(217,119,87,0.12)] backdrop-blur-sm"
-              >
-                {!reduceMotion ? (
-                  <motion.span
-                    aria-hidden
-                    className="pointer-events-none absolute inset-y-0 -left-1/4 w-[150%] bg-[linear-gradient(105deg,transparent_38%,rgba(255,255,255,0.08)_50%,transparent_62%)]"
-                    initial={{ x: "-20%" }}
-                    animate={{ x: ["-20%", "45%"] }}
-                    transition={{
-                      duration: 2.8,
-                      repeat: Infinity,
-                      ease: "linear",
-                      repeatDelay: 1.6,
-                    }}
-                  />
-                ) : null}
-                <motion.span
-                  className="relative z-[1] size-2 shrink-0 rounded-full bg-success shadow-[0_0_0_4px_rgba(125,216,125,0.25)]"
-                  aria-hidden
-                  animate={
-                    reduceMotion
-                      ? undefined
-                      : { scale: [1, 1.22, 1], opacity: [1, 0.72, 1] }
-                  }
-                  transition={{
-                    duration: 2.2,
-                    repeat: Infinity,
-                    ease: "easeInOut",
-                  }}
-                />
-                <span className="relative z-[1]">
-                  Disponible pour de nouveaux projets — {monthLabel}
-                </span>
-              </Badge>
-            </motion.div>
-          </motion.div>
-
-          <div className="mt-8 [perspective:1200px]">
+      <div className="relative z-[2] mx-auto max-w-[1600px] px-4 md:px-8">
+        <motion.div
+          className="relative max-w-4xl will-change-transform"
+          style={reduceMotion ? undefined : { x: contentX, y: contentY }}
+        >
+          <div className="mt-1 [perspective:1200px] md:mt-0">
             <motion.h1
               id="hero-heading"
               className="font-serif text-[clamp(1.875rem,3.2vw+0.6rem,3rem)] font-medium leading-[1.15] tracking-[-0.02em] text-ink [transform-style:preserve-3d] md:tracking-[-0.03em]"
@@ -295,21 +282,11 @@ export function HeroSection({ monthLabel }: HeroSectionProps) {
             </motion.h1>
           </div>
 
-          {!reduceMotion ? (
-            <motion.div
-              aria-hidden
-              className="mt-4 h-1 max-w-[min(22rem,88vw)] origin-left rounded-full bg-gradient-to-r from-terracotta via-terracotta-soft to-success/80"
-              initial={{ scaleX: 0, opacity: 0 }}
-              animate={{ scaleX: 1, opacity: 1 }}
-              transition={{ delay: 0.92, duration: 0.95, ease: easeOutProduct }}
-            />
-          ) : null}
-
           <motion.p
             variants={subcopyContainer}
             initial="hidden"
             animate="visible"
-            className="mt-8 flex max-w-2xl flex-col gap-1.5 text-lg leading-relaxed text-ink-dim md:text-xl"
+            className="mt-8 flex max-w-2xl flex-col gap-1.5 text-lg leading-relaxed text-ink-dim md:mt-10 md:text-xl"
           >
             {heroSubcopy.map((line) => (
               <motion.span
@@ -323,23 +300,31 @@ export function HeroSection({ monthLabel }: HeroSectionProps) {
           </motion.p>
 
           <motion.div
-            variants={blurReveal(reduceMotion ? 0 : 0.58)}
+            variants={blurReveal(reduceMotion ? 0 : 0.42)}
             initial="hidden"
             animate="visible"
             className="mt-10 flex flex-col gap-3 sm:flex-row sm:items-center"
           >
             <motion.div
-              whileHover={reduceMotion ? undefined : { scale: 1.04 }}
-              whileTap={reduceMotion ? undefined : { scale: 0.97 }}
-              transition={{ type: "spring", stiffness: 400, damping: 16 }}
+              whileHover={reduceMotion ? undefined : { scale: 1.03 }}
+              whileTap={reduceMotion ? undefined : { scale: 0.98 }}
+              transition={{ type: "spring", stiffness: 420, damping: 18 }}
             >
-              <Link href="/devis/" className={cn(buttonVariants({ size: "cta" }))}>
+              <Link
+                href="/devis/"
+                className={cn(
+                  buttonVariants({ size: "cta" }),
+                  "shadow-none transition-shadow duration-300",
+                  !reduceMotion &&
+                    "hover:shadow-[0_0_48px_-12px_rgba(217,119,87,0.38)] focus-visible:shadow-[0_0_48px_-12px_rgba(217,119,87,0.38)]",
+                )}
+              >
                 Démarrer un projet →
               </Link>
             </motion.div>
             <motion.div
-              whileHover={reduceMotion ? undefined : { x: 6 }}
-              transition={{ type: "spring", stiffness: 380, damping: 22 }}
+              whileHover={reduceMotion ? undefined : { x: 5 }}
+              transition={{ type: "spring", stiffness: 400, damping: 24 }}
             >
               <Link
                 href="/realisations/"
@@ -352,7 +337,7 @@ export function HeroSection({ monthLabel }: HeroSectionProps) {
               </Link>
             </motion.div>
           </motion.div>
-        </div>
+        </motion.div>
 
         <motion.div
           className="mt-20 border-t border-line pt-12 md:mt-24 md:pt-16"

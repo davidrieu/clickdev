@@ -38,7 +38,7 @@ export function AboutDavidSection() {
                 className="absolute -inset-[2px] rounded-lg opacity-70 blur-md"
                 style={{
                   background:
-                    "conic-gradient(from 0deg, transparent, rgba(217,119,87,0.5), transparent 40%, rgba(125,216,125,0.35), transparent 70%)",
+                    "conic-gradient(from 0deg, transparent, rgba(217,119,87,0.5), transparent 40%, rgba(232,165,139,0.38), transparent 70%)",
                 }}
                 animate={{ rotate: [0, 360] }}
                 transition={{ duration: 28, repeat: Infinity, ease: "linear" }}
