@@ -14,17 +14,15 @@ type Props = {
 };
 
 /**
- * Colonne centrale : padding marketing + max-width cohérente.
+ * Colonne centrale : padding + max-width (layout « doc » plat, sans carte globale).
  */
 export function MarketingPageContainer({ children, width = "article", className }: Props) {
   return (
     <div
       className={cn(
-        "relative z-[1] mx-auto",
+        "relative z-[1] mx-auto w-full",
         MARKETING_PAGE_PAD,
         marketingMaxWidthClass[width],
-        /* Cadre « verre » + halo : plus premium que la simple carte bordée. */
-        "sm:rounded-[28px] sm:border sm:border-line/55 sm:bg-gradient-to-b sm:from-bg-2/[0.42] sm:via-bg-2/[0.22] sm:to-bg/[0.55] sm:shadow-[0_48px_120px_-52px_rgba(0,0,0,0.88),inset_0_1px_0_0_rgba(255,255,255,0.055)] sm:backdrop-blur-[14px]",
         className,
       )}
     >

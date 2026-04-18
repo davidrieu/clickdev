@@ -21,14 +21,9 @@ export function MarketingArticleShell({ aurora = "medium", children, className }
       className={cn("relative overflow-hidden border-b border-line/80", className)}
     >
       {aurora !== "none" ? (
-        <SectionAurora variant={aurora === "soft" ? "soft" : "medium"} />
+        <SectionAurora variant={aurora === "soft" ? "subtle" : "soft"} />
       ) : null}
       <MarketingAmbientLayer />
-      {/* Voile de profondeur (statique) — complète l’aurora sans la remplacer. */}
-      <div
-        aria-hidden
-        className="pointer-events-none absolute inset-0 z-0 bg-[linear-gradient(165deg,rgba(217,119,87,0.06)_0%,transparent_40%,rgba(13,13,13,0.38)_100%)]"
-      />
       {children}
     </article>
   );

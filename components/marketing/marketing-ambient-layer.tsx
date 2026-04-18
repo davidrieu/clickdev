@@ -4,7 +4,7 @@ import { useId } from "react";
 import { motion, useReducedMotion } from "framer-motion";
 
 /**
- * Fond marketing : grille SVG + halos très lents (effet « produit » sans surcharger le texte).
+ * Fond marketing discret : grille légère + halos très atténués (lisibilité type doc produit).
  */
 export function MarketingAmbientLayer() {
   const reduceMotion = useReducedMotion();
@@ -13,7 +13,7 @@ export function MarketingAmbientLayer() {
   return (
     <div className="pointer-events-none absolute inset-0 z-0 overflow-hidden" aria-hidden>
       <svg
-        className="absolute -left-[12%] top-0 h-full w-[min(140%,1200px)] opacity-[0.14] md:opacity-[0.18]"
+        className="absolute -left-[12%] top-0 h-full w-[min(140%,1200px)] opacity-[0.05] md:opacity-[0.07]"
         viewBox="0 0 600 900"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
@@ -33,7 +33,7 @@ export function MarketingAmbientLayer() {
           strokeWidth="1.1"
           vectorEffect="non-scaling-stroke"
         />
-        <g opacity="0.45">
+        <g opacity="0.22">
           {Array.from({ length: 14 }).map((_, i) => (
             <line
               key={`v-${i}`}
@@ -53,18 +53,18 @@ export function MarketingAmbientLayer() {
       {!reduceMotion ? (
         <>
           <motion.div
-            className="absolute -right-[18%] top-[8%] h-[min(420px,55vw)] w-[min(420px,55vw)] rounded-full bg-terracotta/20 blur-[120px]"
-            animate={{ opacity: [0.12, 0.28, 0.16], scale: [1, 1.08, 1], x: [0, 22, -12, 0] }}
+            className="absolute -right-[18%] top-[8%] h-[min(420px,55vw)] w-[min(420px,55vw)] rounded-full bg-terracotta/12 blur-[120px]"
+            animate={{ opacity: [0.05, 0.12, 0.07], scale: [1, 1.06, 1], x: [0, 18, -10, 0] }}
             transition={{ duration: 22, repeat: Infinity, ease: "easeInOut" }}
           />
           <motion.div
-            className="absolute -left-[8%] bottom-[6%] h-[min(320px,48vw)] w-[min(320px,48vw)] rounded-full bg-terracotta/12 blur-[100px]"
-            animate={{ opacity: [0.08, 0.22, 0.12], scale: [1, 1.06, 1], y: [0, -18, 10, 0] }}
+            className="absolute -left-[8%] bottom-[6%] h-[min(320px,48vw)] w-[min(320px,48vw)] rounded-full bg-terracotta/8 blur-[100px]"
+            animate={{ opacity: [0.04, 0.1, 0.06], scale: [1, 1.04, 1], y: [0, -14, 8, 0] }}
             transition={{ duration: 18, repeat: Infinity, ease: "easeInOut", delay: 1.2 }}
           />
         </>
       ) : (
-        <div className="absolute -right-[18%] top-[8%] h-[min(380px,50vw)] w-[min(380px,50vw)] rounded-full bg-terracotta/14 blur-[110px]" />
+        <div className="absolute -right-[18%] top-[8%] h-[min(380px,50vw)] w-[min(380px,50vw)] rounded-full bg-terracotta/8 blur-[110px]" />
       )}
     </div>
   );
