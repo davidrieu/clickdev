@@ -52,7 +52,7 @@ export function StackExpertisesSection() {
                 href={item.href}
                 className="flex min-h-[4.5rem] items-center justify-center rounded-lg border border-line bg-bg px-3 py-4 text-center transition-colors hover:bg-bg-2 md:min-h-[5rem]"
               >
-                <span className="font-serif text-base italic text-ink md:text-lg">
+                <span className="font-serif text-base font-medium text-ink md:text-lg">
                   {item.label}
                 </span>
               </Link>

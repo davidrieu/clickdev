@@ -49,7 +49,7 @@ export function AboutDavidSection() {
               className="mt-3 font-serif text-3xl font-normal tracking-tight text-ink md:text-4xl lg:text-[2.75rem] lg:leading-tight"
             >
               Derrière Clickdev,{" "}
-              <em className="text-terracotta not-italic">David Rieu</em>
+              <span className="font-semibold text-terracotta">David Rieu</span>
             </h2>
             <p className="mt-6 text-base leading-relaxed text-ink-dim md:text-lg">
               Je travaille avec des équipes marketing, produit et tech qui veulent un

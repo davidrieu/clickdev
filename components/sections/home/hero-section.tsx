@@ -62,11 +62,11 @@ export function HeroSection({ monthLabel }: HeroSectionProps) {
             variants={fadeUp}
             initial="hidden"
             animate="visible"
-            className="mt-8 font-serif text-[clamp(2.25rem,8vw,6.5rem)] leading-[1.05] font-normal tracking-tight text-ink"
+            className="mt-8 font-serif text-[clamp(1.875rem,3.2vw+0.6rem,3rem)] font-medium leading-[1.12] tracking-[-0.02em] text-ink md:tracking-[-0.03em]"
           >
             Développeur freelance pour e-commerce,{" "}
-            <em className="text-terracotta not-italic">marketplaces</em> et outils
-            métiers qui performent.
+            <span className="font-semibold text-terracotta">marketplaces</span> et
+            outils métiers qui performent.
           </motion.h1>
 
           <motion.p

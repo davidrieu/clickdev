@@ -48,7 +48,7 @@ export function ProcessSection() {
                   ease: [0.22, 1, 0.36, 1] as const,
                 }}
               >
-                <span className="font-serif text-5xl leading-none italic text-terracotta md:text-6xl lg:text-7xl">
+                <span className="font-serif text-5xl font-semibold leading-none tracking-tighter text-terracotta md:text-6xl lg:text-7xl">
                   {n}
                 </span>
                 <div>

@@ -1,16 +1,11 @@
-import {
-  Bricolage_Grotesque,
-  Instrument_Serif,
-  JetBrains_Mono,
-} from "next/font/google";
+import { Bricolage_Grotesque, JetBrains_Mono, Outfit } from "next/font/google";
 
-/** Titres & display — brief §6 (italique pour mots-clés) */
-export const fontDisplay = Instrument_Serif({
+/** Titres & display — sans géométrique (lisible, actuelle) */
+export const fontHeading = Outfit({
   subsets: ["latin", "latin-ext"],
-  variable: "--font-instrument-serif",
+  variable: "--font-outfit",
   display: "swap",
-  style: ["normal", "italic"],
-  weight: ["400"],
+  weight: ["400", "500", "600", "700"],
 });
 
 /** Corps — brief §6 (400 / emphasis 600) */
@@ -30,7 +25,7 @@ export const fontMono = JetBrains_Mono({
 });
 
 export const fontVariablesClassName = [
-  fontDisplay.variable,
+  fontHeading.variable,
   fontBody.variable,
   fontMono.variable,
 ].join(" ");
