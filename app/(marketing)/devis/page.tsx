@@ -18,7 +18,7 @@ import { cn } from "@/lib/utils";
 export const metadata: Metadata = {
   title: "Demander un devis — projet web, mobile, IA, SEO ou CRM",
   description:
-    "Formulaire structuré : type de projet, contexte, budget, délai. Maillage vers contact, à propos, réalisations et pages silo pour qualifier avant envoi.",
+    "Formulaire structuré : type de projet, contexte, budget, délai. Liens vers contact, à propos, réalisations et pages d’offres pour qualifier avant envoi.",
 };
 
 export default function DevisPage() {
@@ -72,7 +72,7 @@ export default function DevisPage() {
 
         <ContextualInternalLinks
           className="mt-14 border-t border-line pt-12"
-          eyebrow="Maillage interne"
+          eyebrow="Pour aller plus loin"
           title="Pages utiles avant / après envoi"
           intro="Six liens pour continuer à qualifier votre besoin ou valider le style de travail — sans quitter l’écosystème du site."
           links={devisContextLinks}

@@ -50,7 +50,7 @@ export default function AProposPage() {
           </MarketingBodyParagraph>
           <MarketingBodyParagraph>
             Le positionnement SEO &amp; GEO du site n’est pas anecdotique : appliquer sur mon propre domaine ce que je
-            prêche (maillage interne, FAQ, contenus factuels, TL;DR) sert de preuve — utile quand vous évaluez un
+            prêche (liens entre pages utiles, FAQ, contenus factuels, TL;DR) sert de preuve — utile quand vous évaluez un
             partenaire sur le silo{" "}
             <Link href="/seo/" className="text-terracotta underline-offset-4 hover:underline">
               SEO &amp; GEO
@@ -113,7 +113,7 @@ export default function AProposPage() {
 
         <ContextualInternalLinks
           className="mt-16 border-t border-line pt-12 md:mt-20 md:pt-16"
-          eyebrow="Maillage interne"
+          eyebrow="Pour aller plus loin"
           title="Poursuivre sur les offres et preuves"
           intro="Six liens contextualisés vers les silos et pages les plus demandés — la suite logique après une page À propos orientée décision."
           links={aProposContextLinks}
@@ -125,7 +125,7 @@ export default function AProposPage() {
             ariaLabelledBy="a-propos-faq"
             headingId="a-propos-faq"
             title="Questions fréquentes"
-            subtitle="Format court utile pour lecteurs humains et pour le GEO."
+            subtitle="Questions fréquentes sur le mode d’intervention, les formats de mission et le démarrage."
             items={aProposFaq}
           />
         </div>

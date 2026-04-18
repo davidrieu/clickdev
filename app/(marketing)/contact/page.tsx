@@ -17,7 +17,7 @@ import { contactLinks } from "@/lib/constants/navigation";
 export const metadata: Metadata = {
   title: "Contact — David Rieu (Clickdev), freelance web & mobile",
   description:
-    "Écrire à bonjour@clickdev.fr, réserver un créneau ou passer par le devis structuré. Maillage vers offres SEO, e-commerce, IA et réalisations.",
+    "Écrire à bonjour@clickdev.fr, réserver un créneau ou passer par le devis structuré. Liens vers offres SEO, e-commerce, IA et réalisations.",
 };
 
 export default function ContactPage() {
@@ -76,7 +76,7 @@ export default function ContactPage() {
 
         <ContextualInternalLinks
           className="mt-14 border-t border-line pt-12"
-          eyebrow="Maillage interne"
+          eyebrow="Pour aller plus loin"
           title="Où aller ensuite sur le site"
           intro="Liens choisis pour qualifier votre besoin sans vous perdre dans le menu — chaque destination prolonge une intention différente."
           links={contactContextLinks}

@@ -11,7 +11,7 @@ type Props = {
 };
 
 export function ContextualInternalLinks({
-  eyebrow = "Maillage interne",
+  eyebrow = "Pour aller plus loin",
   title,
   intro,
   links,

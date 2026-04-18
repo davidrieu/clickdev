@@ -19,7 +19,7 @@ import { cn } from "@/lib/utils";
 export const metadata: Metadata = {
   title: "Blog — guides techniques, SEO, e-commerce & IA",
   description:
-    "Articles Sanity : comparatifs, budgets, perf, SEO et IA. Maillage vers silos Sites, SEO, IA et réalisations — listing dynamique à venir.",
+    "Articles Sanity : comparatifs, budgets, perf, SEO et IA. Liens vers les offres Sites, SEO, IA et réalisations — listing dynamique à venir.",
 };
 
 export default function BlogIndexPage() {
@@ -33,7 +33,7 @@ export default function BlogIndexPage() {
         <MarketingLead>
           Le blog capte le trafic informationnel amont : comparatifs de stacks, budgets réalistes, checklists de
           refonte, SEO technique, intégrations IA et retours d’expérience terrain. Les contenus sont pensés pour être
-          utiles à la lecture humaine et pour le GEO — sections claires, faits vérifiables, liens vers sources externes
+          utiles à la lecture et aux moteurs (y compris réponses assistées) — sections claires, faits vérifiables, liens vers sources externes
           lorsque pertinent, et renvoi vers les{" "}
           <Link href="/sites-internet/" className="text-terracotta underline-offset-4 hover:underline">
             pages silo
@@ -43,7 +43,7 @@ export default function BlogIndexPage() {
         <MarketingBodyParagraph>
           La home affiche déjà un aperçu des derniers posts publiés depuis Sanity lorsque le contenu existe. Ce listing
           évoluera vers pagination, filtres par catégorie et recherche plein texte lorsque le volume d’articles
-          augmentera — la structure URL restera propre pour le maillage interne et les sitemaps.
+          augmentera — la structure URL restera propre pour les liens entre pages et les sitemaps.
         </MarketingBodyParagraph>
         <MarketingBodyParagraph>
           Thèmes typiques alignés sur le brief éditorial : WordPress vs Next.js, coût d’une marketplace, Core Web
@@ -54,7 +54,7 @@ export default function BlogIndexPage() {
 
         <ContextualInternalLinks
           className="mt-14 border-t border-line pt-12"
-          eyebrow="Maillage interne"
+          eyebrow="Pour aller plus loin"
           title="Ressources liées sur Clickdev"
           intro="En attendant le listing dynamique complet, ces pages structurent le même savoir-faire que le blog, sous un angle commercial ou méthodologique."
           links={blogContextLinks}
@@ -66,6 +66,7 @@ export default function BlogIndexPage() {
             ariaLabelledBy="blog-faq"
             headingId="blog-faq"
             title="FAQ blog"
+            subtitle="Réponses courtes sur le fonctionnement du blog et la republication de contenus."
             items={blogFaq}
           />
         </div>

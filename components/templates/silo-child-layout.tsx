@@ -47,8 +47,8 @@ export function SiloChildLayout({
           <ContextualInternalLinks
             className="mt-16 border-t border-line pt-12 md:mt-20 md:pt-16"
             eyebrow="Pour aller plus loin"
-            title="Maillage interne — parcours utiles depuis cette page"
-            intro="Chaque lien est choisi pour prolonger votre réflexion (stack, risques SEO, maintenance ou preuves terrain), pas pour remplir une colonne."
+            title="Pistes utiles depuis cette page"
+            intro="Liens choisis pour prolonger votre lecture : sujets techniques proches, preuves terrain ou prochaine étape concrète (devis, audit). Chaque destination répond à une intention différente."
             links={internalLinks}
           />
         ) : null}
@@ -63,7 +63,7 @@ export function SiloChildLayout({
               ariaLabelledBy="silo-child-faq-heading"
               headingId="silo-child-faq-heading"
               title="Questions fréquentes"
-              subtitle="Réponses directes — format utile pour la lecture humaine et pour le référencement assisté par IA (GEO)."
+              subtitle="Réponses courtes et vérifiables : critères de décision, risques fréquents et suites possibles avant un échange ou une demande de devis."
               items={faq}
             />
           </div>

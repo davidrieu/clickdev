@@ -18,7 +18,7 @@ import { cn } from "@/lib/utils";
 export const metadata: Metadata = {
   title: "Réalisations — études de cas e-commerce, apps & outils métiers",
   description:
-    "Portfolio Sanity : contexte, stack, résultats. Maillage vers offres Sites, IA, SEO et blog — preuves pour E-E-A-T.",
+    "Portfolio Sanity : contexte, stack, résultats. Liens vers offres Sites, IA, SEO et blog — preuves pour E-E-A-T.",
 };
 
 export default async function RealisationsPage() {
@@ -39,15 +39,14 @@ export default async function RealisationsPage() {
         <MarketingBodyParagraph className="max-w-3xl">
           Les cartes mises en avant sur la home pointent vers les mêmes URLs{" "}
           <code className="font-mono text-xs text-ink-muted">/realisations/[slug]/</code> lorsque les documents
-          existent — ce qui renforce le maillage interne entre intention commerciale (home) et preuve détaillée (page
-          étude).
+          existent — ce qui renforce la continuité entre intention commerciale (home) et preuve détaillée (page étude).
         </MarketingBodyParagraph>
 
         <RealisationsView items={items} />
 
         <ContextualInternalLinks
           className="mt-16 border-t border-line pt-12"
-          eyebrow="Maillage interne"
+          eyebrow="Pour aller plus loin"
           title="Continuer la lecture hors portfolio"
           intro="Six liens vers les silos et pages qui contextualisent le plus souvent les projets listés ici."
           links={realisationsContextLinks}

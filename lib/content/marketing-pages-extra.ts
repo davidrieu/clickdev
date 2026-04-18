@@ -40,7 +40,7 @@ export const aProposContextLinks: SiloContextualLink[] = [
     href: "/seo/geo-generative-engine-optimization/",
     label: "GEO",
     description:
-      "Cohérent avec la façon dont ce site est rédigé : faits, TL;DR, FAQ, maillage.",
+      "Cohérent avec la façon dont ce site est rédigé : faits, TL;DR, FAQ, liens entre pages utiles.",
   },
   {
     href: "/realisations/",
