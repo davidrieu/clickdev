@@ -3,9 +3,19 @@
 import Link from "next/link";
 import { motion, useReducedMotion } from "framer-motion";
 import { homeStackItems } from "@/lib/constants/home-stack";
+import {
+  staggerContainer,
+  staggerItemReveal,
+  viewportOnceTight,
+} from "@/lib/motion/home";
+
+const MotionLink = motion.create(Link);
 
 export function StackExpertisesSection() {
   const reduceMotion = useReducedMotion();
+  const head = staggerItemReveal(reduceMotion);
+  const grid = staggerContainer(reduceMotion, 0.045, 0.04);
+  const cell = staggerItemReveal(reduceMotion);
 
   return (
     <section
@@ -14,13 +24,10 @@ export function StackExpertisesSection() {
     >
       <div className="mx-auto max-w-[1600px] px-4 md:px-8">
         <motion.div
-          initial={reduceMotion ? false : { opacity: 0, y: 14 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-60px" }}
-          transition={{
-            duration: reduceMotion ? 0 : 0.45,
-            ease: [0.22, 1, 0.36, 1] as const,
-          }}
+          variants={head}
+          initial="hidden"
+          whileInView="visible"
+          viewport={viewportOnceTight}
           className="max-w-3xl"
         >
           <h2
@@ -35,30 +42,29 @@ export function StackExpertisesSection() {
           </p>
         </motion.div>
 
-        <ul className="mt-12 grid grid-cols-2 gap-3 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 lg:gap-4">
-          {homeStackItems.map((item, i) => (
-            <motion.li
-              key={item.href}
-              initial={reduceMotion ? false : { opacity: 0, y: 12 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-32px" }}
-              transition={{
-                duration: reduceMotion ? 0 : 0.35,
-                delay: reduceMotion ? 0 : i * 0.04,
-                ease: [0.22, 1, 0.36, 1] as const,
-              }}
-            >
-              <Link
+        <motion.ul
+          className="mt-12 grid grid-cols-2 gap-3 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 lg:gap-4"
+          variants={grid}
+          initial="hidden"
+          whileInView="visible"
+          viewport={viewportOnceTight}
+        >
+          {homeStackItems.map((item) => (
+            <motion.li key={item.href} variants={cell}>
+              <MotionLink
                 href={item.href}
-                className="flex min-h-[4.5rem] items-center justify-center rounded-lg border border-line bg-bg px-3 py-4 text-center transition-colors hover:bg-bg-2 md:min-h-[5rem]"
+                className="flex min-h-[4.5rem] items-center justify-center rounded-lg border border-line bg-bg px-3 py-4 text-center transition-colors hover:border-line-2 hover:bg-bg-2 md:min-h-[5rem]"
+                whileHover={reduceMotion ? undefined : { y: -4, scale: 1.02 }}
+                whileTap={reduceMotion ? undefined : { scale: 0.98 }}
+                transition={{ type: "spring", stiffness: 400, damping: 20 }}
               >
                 <span className="font-serif text-base font-medium text-ink md:text-lg">
                   {item.label}
                 </span>
-              </Link>
+              </MotionLink>
             </motion.li>
           ))}
-        </ul>
+        </motion.ul>
       </div>
     </section>
   );

@@ -121,6 +121,71 @@ html {
   --radius-4xl: calc(var(--radius) + 24px);
 }
 
+/* Bandeau logos — défilement infini (désactivé si prefers-reduced-motion). */
+@keyframes trust-marquee {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+  to {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+@keyframes about-shimmer {
+  0% {
+    transform: translateX(-60%);
+  }
+  100% {
+    transform: translateX(60%);
+  }
+}
+
+@layer components {
+  .trust-marquee-mask {
+    -webkit-mask-image: linear-gradient(
+      to right,
+      transparent,
+      black 6%,
+      black 94%,
+      transparent
+    );
+    mask-image: linear-gradient(
+      to right,
+      transparent,
+      black 6%,
+      black 94%,
+      transparent
+    );
+  }
+
+  .trust-marquee-track {
+    display: flex;
+    width: max-content;
+    gap: 3.5rem;
+    animation: trust-marquee 52s linear infinite;
+  }
+
+  .trust-marquee-track:hover {
+    animation-play-state: paused;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .trust-marquee-track {
+      animation: none;
+    }
+  }
+
+  .about-photo-shimmer {
+    animation: about-shimmer 3.8s ease-in-out infinite;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .about-photo-shimmer {
+      animation: none;
+    }
+  }
+}
+
 @layer base {
   * {
     @apply border-border outline-ring/50;

@@ -3,10 +3,17 @@
 import Link from "next/link";
 import { motion, useReducedMotion } from "framer-motion";
 import { buttonVariants } from "@/components/ui/button";
+import {
+  staggerContainer,
+  staggerItemReveal,
+  viewportOnceTight,
+} from "@/lib/motion/home";
 import { cn } from "@/lib/utils";
 
 export function AboutDavidSection() {
   const reduceMotion = useReducedMotion();
+  const grid = staggerContainer(reduceMotion, 0.12, 0.02);
+  const block = staggerItemReveal(reduceMotion);
 
   return (
     <section
@@ -14,33 +21,45 @@ export function AboutDavidSection() {
       aria-labelledby="about-heading"
     >
       <div className="mx-auto max-w-[1600px] px-4 md:px-8">
-        <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-20">
+        <motion.div
+          className="grid items-center gap-12 lg:grid-cols-2 lg:gap-20"
+          variants={grid}
+          initial="hidden"
+          whileInView="visible"
+          viewport={viewportOnceTight}
+        >
           <motion.div
-            className="relative mx-auto aspect-[4/5] w-full max-w-md overflow-hidden rounded-lg border border-line bg-bg-3 lg:mx-0 lg:max-w-none"
-            initial={reduceMotion ? false : { opacity: 0, x: -12 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, margin: "-60px" }}
-            transition={{
-              duration: reduceMotion ? 0 : 0.5,
-              ease: [0.22, 1, 0.36, 1] as const,
-            }}
+            variants={block}
+            className="relative mx-auto aspect-[4/5] w-full max-w-md lg:mx-0 lg:max-w-none"
           >
-            <span className="absolute inset-0 flex items-center justify-center p-6 text-center font-mono text-[11px] uppercase leading-relaxed tracking-widest text-ink-muted">
-              Photo / vidéo
-              <br />
-              (shooting à planifier)
-            </span>
+            {!reduceMotion ? (
+              <motion.div
+                aria-hidden
+                className="absolute -inset-[2px] rounded-lg opacity-70 blur-md"
+                style={{
+                  background:
+                    "conic-gradient(from 0deg, transparent, rgba(217,119,87,0.5), transparent 40%, rgba(125,216,125,0.35), transparent 70%)",
+                }}
+                animate={{ rotate: [0, 360] }}
+                transition={{ duration: 28, repeat: Infinity, ease: "linear" }}
+              />
+            ) : null}
+            <div className="relative flex aspect-[4/5] w-full items-center justify-center overflow-hidden rounded-lg border border-line bg-bg-3">
+              <span className="absolute inset-0 flex items-center justify-center p-6 text-center font-mono text-[11px] uppercase leading-relaxed tracking-widest text-ink-muted">
+                Photo / vidéo
+                <br />
+                (shooting à planifier)
+              </span>
+              {!reduceMotion ? (
+                <div
+                  aria-hidden
+                  className="about-photo-shimmer pointer-events-none absolute inset-0 w-[180%] -translate-x-1/4 bg-[linear-gradient(105deg,transparent_42%,rgba(255,255,255,0.07)_50%,transparent_58%)]"
+                />
+              ) : null}
+            </div>
           </motion.div>
 
-          <motion.div
-            initial={reduceMotion ? false : { opacity: 0, x: 12 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, margin: "-60px" }}
-            transition={{
-              duration: reduceMotion ? 0 : 0.5,
-              ease: [0.22, 1, 0.36, 1] as const,
-            }}
-          >
+          <motion.div variants={block}>
             <p className="font-mono text-[11px] font-medium uppercase tracking-widest text-ink-muted">
               À propos
             </p>
@@ -61,17 +80,23 @@ export function AboutDavidSection() {
               de résultats mesurables. Basé en France, j’accompagne des marques en
               Europe et au-delà.
             </p>
-            <Link
-              href="/a-propos/"
-              className={cn(
-                buttonVariants({ variant: "ghost", size: "lg" }),
-                "mt-8 inline-flex w-fit",
-              )}
+            <motion.div
+              whileHover={reduceMotion ? undefined : { x: 3 }}
+              transition={{ type: "spring", stiffness: 400, damping: 22 }}
+              className="mt-8 inline-flex"
             >
-              En savoir plus
-            </Link>
+              <Link
+                href="/a-propos/"
+                className={cn(
+                  buttonVariants({ variant: "ghost", size: "lg" }),
+                  "w-fit",
+                )}
+              >
+                En savoir plus
+              </Link>
+            </motion.div>
           </motion.div>
-        </div>
+        </motion.div>
       </div>
     </section>
   );

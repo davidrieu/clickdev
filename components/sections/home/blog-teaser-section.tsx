@@ -1,5 +1,13 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
+import { motion, useReducedMotion } from "framer-motion";
+import {
+  staggerContainer,
+  staggerItemReveal,
+  viewportOnceTight,
+} from "@/lib/motion/home";
 import type { SanityPostTeaser } from "@/types/sanity-post";
 
 type BlogTeaserSectionProps = {
@@ -21,7 +29,12 @@ function formatPostDate(iso: string | null): string | null {
 }
 
 export function BlogTeaserSection({ posts }: BlogTeaserSectionProps) {
+  const reduceMotion = useReducedMotion();
   const validPosts = posts.filter((p) => p.slug);
+  const head = staggerItemReveal(reduceMotion);
+  const linkBlock = staggerItemReveal(reduceMotion);
+  const grid = staggerContainer(reduceMotion, 0.1, 0.04);
+  const card = staggerItemReveal(reduceMotion);
 
   return (
     <section
@@ -30,7 +43,13 @@ export function BlogTeaserSection({ posts }: BlogTeaserSectionProps) {
     >
       <div className="mx-auto max-w-[1600px] px-4 md:px-8">
         <div className="flex flex-col justify-between gap-6 md:flex-row md:items-end">
-          <div className="max-w-3xl">
+          <motion.div
+            variants={head}
+            initial="hidden"
+            whileInView="visible"
+            viewport={viewportOnceTight}
+            className="max-w-3xl"
+          >
             <h2
               id="blog-teaser-heading"
               className="font-serif text-3xl font-normal tracking-tight text-ink md:text-4xl lg:text-[2.75rem] lg:leading-tight"
@@ -40,17 +59,32 @@ export function BlogTeaserSection({ posts }: BlogTeaserSectionProps) {
             <p className="mt-4 text-base leading-relaxed text-ink-dim md:text-lg">
               Notes techniques, retours d’expérience et veille — alimenté depuis Sanity.
             </p>
-          </div>
-          <Link
-            href="/blog/"
-            className="font-mono text-[11px] font-medium uppercase tracking-widest text-terracotta underline-offset-4 hover:underline"
+          </motion.div>
+          <motion.div
+            variants={linkBlock}
+            initial="hidden"
+            whileInView="visible"
+            viewport={viewportOnceTight}
+            whileHover={reduceMotion ? undefined : { x: 3 }}
+            transition={{ type: "spring", stiffness: 400, damping: 22 }}
           >
-            Tous les articles →
-          </Link>
+            <Link
+              href="/blog/"
+              className="font-mono text-[11px] font-medium uppercase tracking-widest text-terracotta underline-offset-4 hover:underline"
+            >
+              Tous les articles →
+            </Link>
+          </motion.div>
         </div>
 
         {validPosts.length === 0 ? (
-          <p className="mt-14 rounded-lg border border-dashed border-line bg-bg-2/50 px-6 py-12 text-center text-ink-dim">
+          <motion.p
+            className="mt-14 rounded-lg border border-dashed border-line bg-bg-2/50 px-6 py-12 text-center text-ink-dim"
+            variants={head}
+            initial="hidden"
+            whileInView="visible"
+            viewport={viewportOnceTight}
+          >
             Les prochains articles seront publiés ici. En attendant,{" "}
             <Link
               href="/devis/"
@@ -59,23 +93,34 @@ export function BlogTeaserSection({ posts }: BlogTeaserSectionProps) {
               parlons de votre projet
             </Link>
             .
-          </p>
+          </motion.p>
         ) : (
-          <ul className="mt-12 grid gap-8 md:grid-cols-2 lg:grid-cols-3 lg:gap-10">
+          <motion.ul
+            className="mt-12 grid gap-8 md:grid-cols-2 lg:grid-cols-3 lg:gap-10"
+            variants={grid}
+            initial="hidden"
+            whileInView="visible"
+            viewport={viewportOnceTight}
+          >
             {validPosts.map((post) => {
               const href = `/blog/${post.slug}/`;
               const dateLabel = formatPostDate(post.publishedAt);
               return (
-                <li key={post._id}>
-                  <article className="group flex h-full flex-col overflow-hidden rounded-lg border border-line bg-bg transition-colors hover:bg-bg-2">
+                <motion.li
+                  key={post._id}
+                  variants={card}
+                  whileHover={reduceMotion ? undefined : { y: -6 }}
+                  transition={{ type: "spring", stiffness: 380, damping: 22 }}
+                >
+                  <article className="group flex h-full flex-col overflow-hidden rounded-lg border border-line bg-bg transition-colors hover:border-line-2 hover:bg-bg-2">
                     <Link href={href} className="block shrink-0">
-                      <div className="relative aspect-[16/10] bg-bg-3">
+                      <div className="relative aspect-[16/10] overflow-hidden bg-bg-3">
                         {post.coverImage ? (
                           <Image
                             src={post.coverImage}
                             alt={post.coverAlt ?? post.title ?? "Illustration article"}
                             fill
-                            className="object-cover transition-transform duration-500 group-hover:scale-[1.02]"
+                            className="object-cover transition-transform duration-500 group-hover:scale-[1.05]"
                             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                           />
                         ) : (
@@ -117,10 +162,10 @@ export function BlogTeaserSection({ posts }: BlogTeaserSectionProps) {
                       </Link>
                     </div>
                   </article>
-                </li>
+                </motion.li>
               );
             })}
-          </ul>
+          </motion.ul>
         )}
       </div>
     </section>

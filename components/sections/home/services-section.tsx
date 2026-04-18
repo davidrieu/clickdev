@@ -3,9 +3,17 @@
 import { motion, useReducedMotion } from "framer-motion";
 import { ServiceCard } from "@/components/blocks/service-card";
 import { homeServices } from "@/lib/constants/home-services";
+import {
+  staggerContainer,
+  staggerItemReveal,
+  viewportOnceTight,
+} from "@/lib/motion/home";
 
 export function ServicesSection() {
   const reduceMotion = useReducedMotion();
+  const head = staggerItemReveal(reduceMotion);
+  const list = staggerContainer(reduceMotion, 0.09, 0.02);
+  const item = staggerItemReveal(reduceMotion);
 
   return (
     <section
@@ -14,13 +22,10 @@ export function ServicesSection() {
     >
       <div className="mx-auto max-w-[1600px] px-4 md:px-8">
         <motion.div
-          initial={reduceMotion ? false : { opacity: 0, y: 14 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-60px" }}
-          transition={{
-            duration: reduceMotion ? 0 : 0.45,
-            ease: [0.22, 1, 0.36, 1] as const,
-          }}
+          variants={head}
+          initial="hidden"
+          whileInView="visible"
+          viewport={viewportOnceTight}
         >
           <h2
             id="services-heading"
@@ -30,23 +35,19 @@ export function ServicesSection() {
           </h2>
         </motion.div>
 
-        <ul className="mt-12 grid list-none grid-cols-1 gap-6 md:grid-cols-2 md:gap-8 xl:grid-cols-3 xl:gap-8">
+        <motion.ul
+          className="mt-12 grid list-none grid-cols-1 gap-6 md:grid-cols-2 md:gap-8 xl:grid-cols-3 xl:gap-8"
+          variants={list}
+          initial="hidden"
+          whileInView="visible"
+          viewport={viewportOnceTight}
+        >
           {homeServices.map((service, i) => (
-            <motion.li
-              key={service.href}
-              initial={reduceMotion ? false : { opacity: 0, y: 18 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-40px" }}
-              transition={{
-                duration: reduceMotion ? 0 : 0.4,
-                delay: reduceMotion ? 0 : i * 0.06,
-                ease: [0.22, 1, 0.36, 1] as const,
-              }}
-            >
+            <motion.li key={service.href} variants={item}>
               <ServiceCard index={i} service={service} />
             </motion.li>
           ))}
-        </ul>
+        </motion.ul>
       </div>
     </section>
   );

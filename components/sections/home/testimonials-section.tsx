@@ -2,9 +2,17 @@
 
 import { motion, useReducedMotion } from "framer-motion";
 import { homeTestimonials } from "@/lib/constants/home-testimonials";
+import {
+  staggerContainer,
+  staggerItemReveal,
+  viewportOnceTight,
+} from "@/lib/motion/home";
 
 export function TestimonialsSection() {
   const reduceMotion = useReducedMotion();
+  const head = staggerItemReveal(reduceMotion);
+  const grid = staggerContainer(reduceMotion, 0.1, 0.03);
+  const card = staggerItemReveal(reduceMotion);
 
   return (
     <section
@@ -13,13 +21,10 @@ export function TestimonialsSection() {
     >
       <div className="mx-auto max-w-[1600px] px-4 md:px-8">
         <motion.div
-          initial={reduceMotion ? false : { opacity: 0, y: 14 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-60px" }}
-          transition={{
-            duration: reduceMotion ? 0 : 0.45,
-            ease: [0.22, 1, 0.36, 1] as const,
-          }}
+          variants={head}
+          initial="hidden"
+          whileInView="visible"
+          viewport={viewportOnceTight}
           className="max-w-3xl"
         >
           <h2
@@ -33,19 +38,27 @@ export function TestimonialsSection() {
           </p>
         </motion.div>
 
-        <ul className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-3 lg:gap-8">
-          {homeTestimonials.map((t, i) => (
+        <motion.ul
+          className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-3 lg:gap-8"
+          variants={grid}
+          initial="hidden"
+          whileInView="visible"
+          viewport={viewportOnceTight}
+        >
+          {homeTestimonials.map((t) => (
             <motion.li
               key={`${t.name}-${t.company}`}
-              initial={reduceMotion ? false : { opacity: 0, y: 16 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-32px" }}
-              transition={{
-                duration: reduceMotion ? 0 : 0.4,
-                delay: reduceMotion ? 0 : i * 0.06,
-                ease: [0.22, 1, 0.36, 1] as const,
-              }}
-              className="flex flex-col rounded-lg border border-line bg-bg p-6 md:p-8"
+              variants={card}
+              whileHover={
+                reduceMotion
+                  ? undefined
+                  : {
+                      y: -8,
+                      boxShadow: "0 28px 56px -32px rgba(0,0,0,0.55)",
+                    }
+              }
+              transition={{ type: "spring", stiffness: 360, damping: 22 }}
+              className="flex flex-col rounded-lg border border-line bg-bg p-6 transition-colors hover:border-line-2 md:p-8"
             >
               <blockquote className="flex flex-1 flex-col">
                 <p className="font-serif text-lg italic leading-relaxed text-ink md:text-xl">
@@ -61,7 +74,7 @@ export function TestimonialsSection() {
               </blockquote>
             </motion.li>
           ))}
-        </ul>
+        </motion.ul>
       </div>
     </section>
   );

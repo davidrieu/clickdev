@@ -4,9 +4,12 @@ import Link from "next/link";
 import { motion, useReducedMotion } from "framer-motion";
 import { CaseStudyRow } from "@/components/blocks/case-study-row";
 import { homeFeaturedCaseStudies } from "@/lib/constants/home-case-studies";
+import { staggerItemReveal, viewportOnceTight } from "@/lib/motion/home";
 
 export function CaseStudiesSection() {
   const reduceMotion = useReducedMotion();
+  const head = staggerItemReveal(reduceMotion);
+  const foot = staggerItemReveal(reduceMotion);
 
   return (
     <section
@@ -15,13 +18,10 @@ export function CaseStudiesSection() {
     >
       <div className="mx-auto max-w-[1600px] px-4 md:px-8">
         <motion.div
-          initial={reduceMotion ? false : { opacity: 0, y: 14 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-60px" }}
-          transition={{
-            duration: reduceMotion ? 0 : 0.45,
-            ease: [0.22, 1, 0.36, 1] as const,
-          }}
+          variants={head}
+          initial="hidden"
+          whileInView="visible"
+          viewport={viewportOnceTight}
           className="max-w-3xl"
         >
           <h2
@@ -37,37 +37,31 @@ export function CaseStudiesSection() {
         </motion.div>
 
         <div className="mt-4 md:mt-6">
-          {homeFeaturedCaseStudies.map((study, i) => (
-            <motion.div
-              key={study.href}
-              initial={reduceMotion ? false : { opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-48px" }}
-              transition={{
-                duration: reduceMotion ? 0 : 0.45,
-                delay: reduceMotion ? 0 : i * 0.08,
-                ease: [0.22, 1, 0.36, 1] as const,
-              }}
-            >
-              <CaseStudyRow study={study} />
-            </motion.div>
+          {homeFeaturedCaseStudies.map((study) => (
+            <CaseStudyRow key={study.href} study={study} />
           ))}
         </div>
 
         <motion.div
           className="mt-4 text-center md:mt-8 md:text-left"
-          initial={reduceMotion ? false : { opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: reduceMotion ? 0 : 0.4 }}
+          variants={foot}
+          initial="hidden"
+          whileInView="visible"
+          viewport={viewportOnceTight}
         >
-          <Link
-            href="/realisations/"
-            className="inline-flex items-center gap-1 font-medium text-terracotta transition-transform hover:translate-x-0.5"
+          <motion.div
+            whileHover={reduceMotion ? undefined : { x: 4 }}
+            transition={{ type: "spring", stiffness: 380, damping: 20 }}
+            className="inline-flex"
           >
-            Voir toutes les réalisations
-            <span aria-hidden>→</span>
-          </Link>
+            <Link
+              href="/realisations/"
+              className="inline-flex items-center gap-1 font-medium text-terracotta"
+            >
+              Voir toutes les réalisations
+              <span aria-hidden>→</span>
+            </Link>
+          </motion.div>
         </motion.div>
       </div>
     </section>
