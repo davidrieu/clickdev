@@ -85,6 +85,13 @@ export const maintenanceLinks: NavChild[] = [
   { label: "Infogérance", href: "/maintenance/infogerance/" },
 ];
 
+/** Même forme que `NavSilo` pour réutiliser les templates pages filles `/maintenance/[slug]`. */
+export const maintenanceNavSilo: NavSilo = {
+  label: "Maintenance & TMA",
+  href: "/maintenance/",
+  children: maintenanceLinks,
+};
+
 export const footerCompany: NavChild[] = [
   { label: "À propos", href: "/a-propos/" },
   { label: "Réalisations", href: "/realisations/" },

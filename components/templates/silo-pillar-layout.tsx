@@ -7,6 +7,8 @@ import { cn } from "@/lib/utils";
 export type SiloPillarSection = {
   heading: string;
   paragraphs: string[];
+  /** Sous-parties H3 sous le H2 (densité éditoriale / scan SEO). */
+  subsections?: { heading: string; paragraphs: string[] }[];
 };
 
 export type SiloPillarLayoutProps = {
@@ -91,6 +93,21 @@ export function SiloPillarLayout({
               >
                 {p}
               </p>
+            ))}
+            {s.subsections?.map((sub) => (
+              <div key={sub.heading} className="mt-10">
+                <h3 className="font-serif text-xl font-medium tracking-tight text-ink md:text-2xl">
+                  {sub.heading}
+                </h3>
+                {sub.paragraphs.map((p, i) => (
+                  <p
+                    key={`${sub.heading}-${i}`}
+                    className="mt-4 text-base leading-relaxed text-ink-dim md:text-lg"
+                  >
+                    {p}
+                  </p>
+                ))}
+              </div>
             ))}
           </section>
         ))}

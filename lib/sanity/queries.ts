@@ -43,3 +43,51 @@ export const caseStudiesFeaturedQuery = /* groq */ `
     "thumbnail": thumbnail.asset->url
   }
 `;
+
+export const caseStudiesListQuery = /* groq */ `
+  *[_type == "caseStudy" && defined(slug.current)] | order(order asc, publishedAt desc) {
+    _id,
+    title,
+    "slug": slug.current,
+    client,
+    year,
+    category,
+    featuredMetric,
+    "thumbnail": thumbnail.asset->url
+  }
+`;
+
+export const caseStudySlugsQuery = /* groq */ `
+  *[_type == "caseStudy" && defined(slug.current)].slug.current
+`;
+
+export const caseStudyBySlugQuery = /* groq */ `
+  *[_type == "caseStudy" && slug.current == $slug][0] {
+    _id,
+    title,
+    "slug": slug.current,
+    client,
+    year,
+    category,
+    tagline,
+    featuredMetric,
+    liveUrl,
+    role,
+    duration,
+    technologies,
+    sectors,
+    metrics,
+    metaTitle,
+    metaDescription,
+    "thumbnail": thumbnail.asset->url,
+    "heroImage": heroImage.asset->url,
+    context,
+    solution,
+    results,
+    challenges,
+    "gallery": gallery[]{
+      "url": image.asset->url,
+      caption
+    }
+  }
+`;

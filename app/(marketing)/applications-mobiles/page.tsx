@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { SiloPillarBottom } from "@/components/templates/silo-pillar-bottom";
 import { SiloPillarLayout } from "@/components/templates/silo-pillar-layout";
 import { mainNavSilos } from "@/lib/constants/navigation";
 import {
@@ -17,6 +18,7 @@ export default function ApplicationsMobilesPage() {
     <SiloPillarLayout
       {...siloLayoutBody(applicationsMobilesPillar)}
       childLinks={silo?.children}
+      afterSections={<SiloPillarBottom siloHref="/applications-mobiles/" />}
     />
   );
 }
