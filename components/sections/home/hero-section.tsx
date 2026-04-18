@@ -1,6 +1,5 @@
 "use client";
 
-import { useId } from "react";
 import Link from "next/link";
 import {
   motion,
@@ -11,6 +10,7 @@ import {
 } from "framer-motion";
 import { buttonVariants } from "@/components/ui/button";
 import { MetricBlock } from "@/components/blocks/metric-block";
+import { HeroParticles } from "@/components/sections/home/hero-particles";
 import {
   easeOutProduct,
   heroHeadingContainer,
@@ -43,8 +43,6 @@ const noiseDataUri =
 export function HeroSection() {
   const reduceMotion = useReducedMotion();
   const duration = reduceMotion ? 0 : 0.48;
-  const orbitGradId = `hero-orbit-${useId().replace(/:/g, "")}`;
-
   const mouseX = useMotionValue(0.5);
   const mouseY = useMotionValue(0.5);
   const springX = useSpring(mouseX, { stiffness: 52, damping: 32, restDelta: 0.001 });
@@ -195,45 +193,7 @@ export function HeroSection() {
             aria-hidden
           />
 
-          <motion.svg
-            aria-hidden
-            className="pointer-events-none absolute right-[2%] top-[10%] z-[1] hidden h-[min(300px,48vw)] w-[min(300px,48vw)] md:block"
-            viewBox="0 0 200 200"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.35, duration: 1.1, ease: easeOutProduct }}
-          >
-            <defs>
-              <linearGradient id={orbitGradId} x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%" stopColor="rgba(217,119,87,0.45)" />
-                <stop offset="55%" stopColor="rgba(232,165,139,0.2)" />
-                <stop offset="100%" stopColor="rgba(217,119,87,0.08)" />
-              </linearGradient>
-            </defs>
-            <motion.g style={{ transformOrigin: "100px 100px" }} animate={{ rotate: 360 }} transition={{ duration: 52, repeat: Infinity, ease: "linear" }}>
-              <circle
-                cx="100"
-                cy="100"
-                r="88"
-                fill="none"
-                stroke={`url(#${orbitGradId})`}
-                strokeWidth="0.65"
-                strokeDasharray="5 16"
-                className="opacity-90"
-              />
-            </motion.g>
-            <motion.g style={{ transformOrigin: "100px 100px" }} animate={{ rotate: -360 }} transition={{ duration: 70, repeat: Infinity, ease: "linear" }}>
-              <circle
-                cx="100"
-                cy="100"
-                r="74"
-                fill="none"
-                stroke="rgba(217,119,87,0.18)"
-                strokeWidth="0.5"
-                strokeDasharray="2 20"
-              />
-            </motion.g>
-          </motion.svg>
+          <HeroParticles className="absolute right-[1%] top-[8%] z-[1] hidden h-[min(320px,50vw)] w-[min(320px,50vw)] md:block" />
         </>
       ) : null}
 
