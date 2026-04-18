@@ -1,6 +1,7 @@
 "use client";
 
 import { motion, useReducedMotion } from "framer-motion";
+import { SectionAurora } from "@/components/effects/section-aurora";
 import { homeFaqItems } from "@/lib/constants/home-faq";
 import { staggerItemReveal, viewportOnceTight } from "@/lib/motion/home";
 import { FaqHomeAccordion } from "./faq-home-accordion";
@@ -25,14 +26,15 @@ export function FaqSection() {
 
   return (
     <section
-      className="border-b border-line/80 py-20 md:py-28 lg:py-[120px]"
+      className="relative overflow-hidden border-b border-line/80 py-20 md:py-28 lg:py-[120px]"
       aria-labelledby="faq-heading"
     >
+      <SectionAurora variant="soft" />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
       />
-      <div className="mx-auto max-w-[720px] px-4 md:px-8">
+      <div className="relative z-[1] mx-auto max-w-[720px] px-4 md:px-8">
         <motion.div
           variants={head}
           initial="hidden"

@@ -49,12 +49,14 @@ export function HeroSection({ monthLabel }: HeroSectionProps) {
   const springX = useSpring(mouseX, { stiffness: 42, damping: 30, restDelta: 0.001 });
   const springY = useSpring(mouseY, { stiffness: 42, damping: 30, restDelta: 0.001 });
 
-  const orb1x = useTransform(springX, [0, 1], [-52, 52]);
-  const orb1y = useTransform(springY, [0, 1], [-36, 36]);
-  const orb2x = useTransform(springX, [0, 1], [36, -44]);
-  const orb2y = useTransform(springY, [0, 1], [28, -32]);
-  const orb3x = useTransform(springX, [0, 1], [-18, 22]);
-  const orb3y = useTransform(springY, [0, 1], [14, -18]);
+  const orb1x = useTransform(springX, [0, 1], [-72, 72]);
+  const orb1y = useTransform(springY, [0, 1], [-48, 48]);
+  const orb2x = useTransform(springX, [0, 1], [48, -58]);
+  const orb2y = useTransform(springY, [0, 1], [36, -42]);
+  const orb3x = useTransform(springX, [0, 1], [-28, 32]);
+  const orb3y = useTransform(springY, [0, 1], [20, -26]);
+  const orb4x = useTransform(springX, [0, 1], [-20, 36]);
+  const orb4y = useTransform(springY, [0, 1], [-24, 28]);
 
   function handleHeroMouseMove(e: React.MouseEvent<HTMLElement>) {
     if (reduceMotion) return;
@@ -103,22 +105,20 @@ export function HeroSection({ monthLabel }: HeroSectionProps) {
     >
       {!reduceMotion ? (
         <>
-          <div
-            className="hero-mesh pointer-events-none absolute inset-0 opacity-[0.65]"
-            aria-hidden
-          />
           <div className="pointer-events-none absolute inset-0" aria-hidden>
             <motion.div
               className="absolute -right-[15%] top-[8%]"
               style={{ x: orb1x, y: orb1y }}
             >
               <motion.div
-                className="h-[min(420px,55vw)] w-[min(420px,55vw)] rounded-full bg-terracotta/25 blur-[100px]"
+                className="h-[min(420px,55vw)] w-[min(420px,55vw)] rounded-full bg-terracotta/30 blur-[100px]"
                 animate={{
-                  scale: [1, 1.12, 1],
-                  opacity: [0.35, 0.55, 0.35],
+                  scale: [1, 1.22, 1.06, 1.18, 1],
+                  opacity: [0.32, 0.62, 0.44, 0.58, 0.32],
+                  x: [0, 26, -18, 22, 0],
+                  y: [0, -20, 14, -10, 0],
                 }}
-                transition={{ duration: 14, repeat: Infinity, ease: "easeInOut" }}
+                transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
               />
             </motion.div>
             <motion.div
@@ -126,16 +126,18 @@ export function HeroSection({ monthLabel }: HeroSectionProps) {
               style={{ x: orb2x, y: orb2y }}
             >
               <motion.div
-                className="h-[min(380px,50vw)] w-[min(380px,50vw)] rounded-full bg-success/20 blur-[90px]"
+                className="h-[min(380px,50vw)] w-[min(380px,50vw)] rounded-full bg-success/26 blur-[90px]"
                 animate={{
-                  scale: [1, 1.08, 1],
-                  opacity: [0.25, 0.45, 0.25],
+                  scale: [1, 1.16, 1.04, 1.14, 1],
+                  opacity: [0.22, 0.52, 0.34, 0.48, 0.22],
+                  x: [0, -20, 24, -14, 0],
+                  y: [0, 28, -16, 20, 0],
                 }}
                 transition={{
-                  duration: 11,
+                  duration: 9.5,
                   repeat: Infinity,
                   ease: "easeInOut",
-                  delay: 1,
+                  delay: 0.4,
                 }}
               />
             </motion.div>
@@ -144,9 +146,37 @@ export function HeroSection({ monthLabel }: HeroSectionProps) {
               style={{ x: orb3x, y: orb3y }}
             >
               <motion.div
-                className="h-[min(600px,80vw)] w-[min(600px,80vw)] rounded-full bg-terracotta/5 blur-[120px]"
-                animate={{ rotate: [0, 360] }}
-                transition={{ duration: 120, repeat: Infinity, ease: "linear" }}
+                className="h-[min(600px,80vw)] w-[min(600px,80vw)] rounded-full bg-gradient-to-br from-terracotta/12 via-terracotta-soft/10 to-success/10 blur-[120px]"
+                animate={{
+                  rotate: [0, 360],
+                  scale: [1, 1.08, 1.04, 1.1, 1],
+                  opacity: [0.45, 0.75, 0.55, 0.7, 0.45],
+                }}
+                transition={{
+                  rotate: { duration: 72, repeat: Infinity, ease: "linear" },
+                  scale: { duration: 8, repeat: Infinity, ease: "easeInOut" },
+                  opacity: { duration: 8, repeat: Infinity, ease: "easeInOut" },
+                }}
+              />
+            </motion.div>
+            <motion.div
+              className="absolute left-[8%] top-[38%]"
+              style={{ x: orb4x, y: orb4y }}
+            >
+              <motion.div
+                className="h-[min(200px,38vw)] w-[min(200px,38vw)] rounded-full bg-terracotta-soft/35 blur-[72px]"
+                animate={{
+                  scale: [1, 1.35, 1.1, 1.28, 1],
+                  opacity: [0.25, 0.55, 0.35, 0.5, 0.25],
+                  x: [0, 18, -22, 12, 0],
+                  y: [0, -14, 20, -8, 0],
+                }}
+                transition={{
+                  duration: 7.2,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                  delay: 0.2,
+                }}
               />
             </motion.div>
           </div>

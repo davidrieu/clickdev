@@ -2,6 +2,7 @@
 
 import { motion, useReducedMotion } from "framer-motion";
 import { ServiceCard } from "@/components/blocks/service-card";
+import { SectionAurora } from "@/components/effects/section-aurora";
 import { homeServices } from "@/lib/constants/home-services";
 import {
   staggerContainer,
@@ -17,10 +18,11 @@ export function ServicesSection() {
 
   return (
     <section
-      className="border-b border-line/80 py-20 md:py-28 lg:py-[120px]"
+      className="relative overflow-hidden border-b border-line/80 py-20 md:py-28 lg:py-[120px]"
       aria-labelledby="services-heading"
     >
-      <div className="mx-auto max-w-[1600px] px-4 md:px-8">
+      <SectionAurora variant="medium" />
+      <div className="relative z-[1] mx-auto max-w-[1600px] px-4 md:px-8">
         <motion.div
           variants={head}
           initial="hidden"

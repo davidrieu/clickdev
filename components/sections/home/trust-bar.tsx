@@ -1,6 +1,7 @@
 "use client";
 
 import { motion, useReducedMotion } from "framer-motion";
+import { SectionAurora } from "@/components/effects/section-aurora";
 import { staggerItemReveal, viewportOnceTight } from "@/lib/motion/home";
 
 /** Noms affichés en wordmark typographique — remplacement par SVG au fil de l’eau (brief §7). */
@@ -23,10 +24,11 @@ export function TrustBar() {
 
   return (
     <section
-      className="border-b border-line/80 bg-bg-2 py-14 md:py-16 lg:py-20"
+      className="relative overflow-hidden border-b border-line/80 bg-bg-2 py-14 md:py-16 lg:py-20"
       aria-label="Ils me font confiance"
     >
-      <div className="mx-auto max-w-[1600px] px-4 md:px-8">
+      <SectionAurora variant="soft" />
+      <div className="relative z-[1] mx-auto max-w-[1600px] px-4 md:px-8">
         <motion.p
           className="font-mono text-[11px] font-medium uppercase tracking-widest text-ink-muted"
           variants={titleVariants}

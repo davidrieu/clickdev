@@ -23,39 +23,57 @@ export function CtaFinalSection() {
     >
       <div className="pointer-events-none absolute inset-0 opacity-95" aria-hidden>
         <motion.div
-          className="absolute -left-1/4 top-0 h-[120%] w-1/2 rounded-full bg-terracotta/15 blur-3xl"
+          className="absolute -left-1/4 top-0 h-[120%] w-1/2 rounded-full bg-terracotta/22 blur-3xl"
           animate={
             reduceMotion
               ? undefined
               : {
-                  scale: [1, 1.08, 1],
-                  x: [0, 18, 0],
-                  opacity: [0.85, 1, 0.85],
+                  scale: [1, 1.16, 1.05, 1.14, 1],
+                  x: [0, 36, -22, 28, 0],
+                  y: [0, -24, 16, -12, 0],
+                  opacity: [0.55, 0.92, 0.68, 0.88, 0.55],
                 }
           }
-          transition={{ duration: 9, repeat: Infinity, ease: "easeInOut" }}
+          transition={{ duration: 9.5, repeat: Infinity, ease: "easeInOut" }}
         />
         <motion.div
-          className="absolute -right-1/4 bottom-0 h-[100%] w-1/2 rounded-full bg-success/10 blur-3xl"
+          className="absolute -right-1/4 bottom-0 h-[100%] w-1/2 rounded-full bg-success/16 blur-3xl"
           animate={
             reduceMotion
               ? undefined
               : {
-                  scale: [1, 1.1, 1],
-                  y: [0, -14, 0],
-                  opacity: [0.75, 1, 0.75],
+                  scale: [1, 1.12, 1.06, 1.15, 1],
+                  x: [0, -28, 20, -16, 0],
+                  y: [0, -32, 22, -18, 0],
+                  opacity: [0.45, 0.85, 0.6, 0.78, 0.45],
                 }
           }
           transition={{
-            duration: 7.5,
+            duration: 8.2,
             repeat: Infinity,
             ease: "easeInOut",
-            delay: 0.8,
+            delay: 0.5,
           }}
         />
+        {!reduceMotion ? (
+          <motion.div
+            className="absolute left-1/2 top-1/2 h-[min(420px,70vw)] w-[min(420px,70vw)] -translate-x-1/2 -translate-y-1/2 rounded-full bg-terracotta-soft/16 blur-[100px]"
+            animate={{
+              scale: [1, 1.22, 1.06, 1.18, 1],
+              opacity: [0.32, 0.62, 0.42, 0.55, 0.32],
+              x: [0, 20, -16, 14, 0],
+              y: [0, -18, 12, -10, 0],
+            }}
+            transition={{
+              duration: 11,
+              repeat: Infinity,
+              ease: "easeInOut",
+            }}
+          />
+        ) : null}
       </div>
 
-      <div className="relative mx-auto max-w-[960px] px-4 text-center md:px-8">
+      <div className="relative z-[1] mx-auto max-w-[960px] px-4 text-center md:px-8">
         <motion.div
           variants={content}
           initial="hidden"

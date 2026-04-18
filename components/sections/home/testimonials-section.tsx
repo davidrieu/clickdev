@@ -1,6 +1,7 @@
 "use client";
 
 import { motion, useReducedMotion } from "framer-motion";
+import { SectionAurora } from "@/components/effects/section-aurora";
 import { homeTestimonials } from "@/lib/constants/home-testimonials";
 import {
   staggerContainer,
@@ -16,10 +17,11 @@ export function TestimonialsSection() {
 
   return (
     <section
-      className="border-b border-line/80 py-20 md:py-28 lg:py-[120px]"
+      className="relative overflow-hidden border-b border-line/80 py-20 md:py-28 lg:py-[120px]"
       aria-labelledby="testimonials-heading"
     >
-      <div className="mx-auto max-w-[1600px] px-4 md:px-8">
+      <SectionAurora variant="soft" />
+      <div className="relative z-[1] mx-auto max-w-[1600px] px-4 md:px-8">
         <motion.div
           variants={head}
           initial="hidden"

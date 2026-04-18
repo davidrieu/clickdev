@@ -3,6 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { motion, useReducedMotion } from "framer-motion";
+import { SectionAurora } from "@/components/effects/section-aurora";
 import {
   staggerContainer,
   staggerItemReveal,
@@ -38,10 +39,11 @@ export function BlogTeaserSection({ posts }: BlogTeaserSectionProps) {
 
   return (
     <section
-      className="border-b border-line/80 py-20 md:py-28 lg:py-[120px]"
+      className="relative overflow-hidden border-b border-line/80 py-20 md:py-28 lg:py-[120px]"
       aria-labelledby="blog-teaser-heading"
     >
-      <div className="mx-auto max-w-[1600px] px-4 md:px-8">
+      <SectionAurora variant="soft" />
+      <div className="relative z-[1] mx-auto max-w-[1600px] px-4 md:px-8">
         <div className="flex flex-col justify-between gap-6 md:flex-row md:items-end">
           <motion.div
             variants={head}
