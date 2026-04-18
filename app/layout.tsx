@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Toaster } from "@/components/ui/sonner";
 import { fontVariablesClassName } from "@/lib/fonts";
 import { cn } from "@/lib/utils";
 import "../styles/globals.css";
@@ -18,7 +19,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="fr" className={cn("dark", fontVariablesClassName)}>
-      <body>{children}</body>
+      <body>
+        {children}
+        <Toaster />
+      </body>
     </html>
   );
 }

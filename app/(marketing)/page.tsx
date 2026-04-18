@@ -10,17 +10,18 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
+import { Phase16UiDemos } from "@/components/blocks/phase-16-ui-demos";
 
 export default function HomePage() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-center gap-8 p-8">
+    <main className="flex min-h-screen flex-col items-center justify-center gap-8 p-8 pb-24">
       <p className="font-serif text-2xl italic text-ink">
         Clickdev <span className="text-terracotta">typo</span>
       </p>
 
       <div className="flex flex-wrap items-center justify-center gap-3">
         <Badge variant="secondary" className="font-mono uppercase tracking-widest">
-          Phase 1.5
+          Phase 1.6
         </Badge>
         <Badge variant="outline">shadcn · Base UI</Badge>
       </div>
@@ -41,8 +42,8 @@ export default function HomePage() {
           </CardDescription>
         </CardHeader>
         <CardContent className="text-ink-dim">
-          Les primitives suivantes arrivent en Phase 1.6 (Accordion, Dialog,
-          formulaires, Toast).
+          Phase 1.6 ajoute Accordion, Dialog, Input, Textarea, Select et Sonner
+          (toasts). Prochaine étape : Sanity (Phase 1.7).
         </CardContent>
         <CardFooter className="gap-2">
           <Link
@@ -53,6 +54,8 @@ export default function HomePage() {
           </Link>
         </CardFooter>
       </Card>
+
+      <Phase16UiDemos />
 
       <p className="font-mono text-[11px] uppercase tracking-widest text-ink-muted">
         eyebrow · metadata
