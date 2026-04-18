@@ -21,7 +21,7 @@ export default function HomePage() {
 
       <div className="flex flex-wrap items-center justify-center gap-3">
         <Badge variant="secondary" className="font-mono uppercase tracking-widest">
-          Phase 1.6
+          Phase 1.7
         </Badge>
         <Badge variant="outline">shadcn · Base UI</Badge>
       </div>
@@ -42,8 +42,9 @@ export default function HomePage() {
           </CardDescription>
         </CardHeader>
         <CardContent className="text-ink-dim">
-          Phase 1.6 ajoute Accordion, Dialog, Input, Textarea, Select et Sonner
-          (toasts). Prochaine étape : Sanity (Phase 1.7).
+          Phase 1.7 : schémas Sanity (post, caseStudy, testimonial, author), studio sur
+          /studio, client + GROQ. Prochaine étape : layout global Nav + Footer (Phase
+          1.8).
         </CardContent>
         <CardFooter className="gap-2">
           <Link
