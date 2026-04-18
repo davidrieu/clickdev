@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { SectionAurora } from "@/components/effects/section-aurora";
 import { CaseStudyDetail } from "@/components/sections/realisations/case-study-detail";
 import { getCaseStudyBySlug, getCaseStudySlugs } from "@/lib/sanity/get-case-studies";
 
@@ -28,12 +27,5 @@ export default async function CaseStudyPage({ params }: Props) {
   const study = await getCaseStudyBySlug(slug);
   if (!study) notFound();
 
-  return (
-    <div className="relative overflow-hidden">
-      <SectionAurora variant="soft" />
-      <div className="relative z-[1]">
-        <CaseStudyDetail study={study} />
-      </div>
-    </div>
-  );
+  return <CaseStudyDetail study={study} />;
 }

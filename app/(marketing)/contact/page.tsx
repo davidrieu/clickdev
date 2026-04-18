@@ -1,12 +1,18 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { ContextualInternalLinks } from "@/components/seo/contextual-internal-links";
-import { SectionAurora } from "@/components/effects/section-aurora";
-import { buttonVariants } from "@/components/ui/button";
+import { MarketingArticleShell } from "@/components/templates/marketing-article-shell";
+import { MarketingDualCta } from "@/components/templates/marketing-dual-cta";
+import {
+  MarketingBodyParagraph,
+  MarketingEyebrow,
+  MarketingLead,
+  MarketingPageTitle,
+} from "@/components/templates/marketing-editorial";
+import { MarketingPageContainer } from "@/components/templates/marketing-page-container";
 import { contactContextLinks } from "@/lib/content/marketing-pages-extra";
 import { calBookingUrl } from "@/lib/constants/site";
 import { contactLinks } from "@/lib/constants/navigation";
-import { cn } from "@/lib/utils";
 
 export const metadata: Metadata = {
   title: "Contact — David Rieu (Clickdev), freelance web & mobile",
@@ -16,26 +22,20 @@ export const metadata: Metadata = {
 
 export default function ContactPage() {
   return (
-    <article className="relative overflow-hidden border-b border-line/80">
-      <SectionAurora variant="soft" />
-      <div className="relative z-[1] mx-auto max-w-[720px] px-4 py-20 md:px-8 md:py-28 lg:py-[120px]">
-        <p className="font-mono text-[11px] font-medium uppercase tracking-widest text-ink-muted">
-          Contact
-        </p>
-        <h1 className="mt-4 font-serif text-[clamp(2rem,5vw,3rem)] font-medium leading-tight tracking-tight text-ink">
-          Parlons de votre projet
-        </h1>
-        <p className="mt-6 text-lg leading-relaxed text-ink-dim md:text-xl">
-          Pour un besoin projet (e-commerce, marketplace, app, outil métier, audit SEO, intégration IA), le
-          formulaire{" "}
+    <MarketingArticleShell aurora="soft">
+      <MarketingPageContainer width="reading">
+        <MarketingEyebrow>Contact</MarketingEyebrow>
+        <MarketingPageTitle variant="display">Parlons de votre projet</MarketingPageTitle>
+        <MarketingLead>
+          Pour un besoin projet (e-commerce, marketplace, app, outil métier, audit SEO, intégration IA), le formulaire{" "}
           <Link href="/devis/" className="text-terracotta underline-offset-4 hover:underline">
             Demander un devis
           </Link>{" "}
           reste le canal le plus efficace : périmètre, budget indicatif, stack et calendrier permettent une réponse
           actionnable plutôt qu’un échange vague. Pour une question courte, un partenariat presse, ou un sujet
           nécessitant un NDA avant de partager des accès, l’e-mail direct ou un créneau calendrier fonctionnent mieux.
-        </p>
-        <p className="mt-4 text-base leading-relaxed text-ink-dim md:text-lg">
+        </MarketingLead>
+        <MarketingBodyParagraph>
           Si vous arrivez depuis une page silo (par exemple{" "}
           <Link href="/ia/integration-ia/" className="text-terracotta underline-offset-4 hover:underline">
             Intégration IA
@@ -48,9 +48,9 @@ export default function ContactPage() {
           <Link href="/sites-internet/marketplace/" className="text-terracotta underline-offset-4 hover:underline">
             Marketplace
           </Link>
-          ), indiquez-le : je contextualise la réponse et je peux renvoyer vers la bonne section du site pour
-          gagner du temps.
-        </p>
+          ), indiquez-le : je contextualise la réponse et je peux renvoyer vers la bonne section du site pour gagner du
+          temps.
+        </MarketingBodyParagraph>
 
         <ul className="mt-10 space-y-6 text-base text-ink">
           <li>
@@ -82,18 +82,12 @@ export default function ContactPage() {
           links={contactContextLinks}
         />
 
-        <div className="mt-12 flex flex-col gap-3 sm:flex-row">
-          <Link href="/devis/" className={cn(buttonVariants({ size: "cta" }))}>
-            Demander un devis →
-          </Link>
-          <Link
-            href="/a-propos/"
-            className={cn(buttonVariants({ variant: "ghost", size: "lg" }), "justify-center")}
-          >
-            À propos
-          </Link>
-        </div>
-      </div>
-    </article>
+        <MarketingDualCta
+          className="mt-12 md:mt-14 md:pt-12"
+          primary={{ href: "/devis/", label: "Demander un devis →" }}
+          secondary={{ href: "/a-propos/", label: "À propos" }}
+        />
+      </MarketingPageContainer>
+    </MarketingArticleShell>
   );
 }

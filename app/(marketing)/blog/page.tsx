@@ -2,7 +2,15 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { ContextualInternalLinks } from "@/components/seo/contextual-internal-links";
 import { PageFaqAccordion } from "@/components/seo/page-faq-accordion";
-import { SectionAurora } from "@/components/effects/section-aurora";
+import { MarketingArticleShell } from "@/components/templates/marketing-article-shell";
+import { MarketingEndButtonRow } from "@/components/templates/marketing-dual-cta";
+import {
+  MarketingBodyParagraph,
+  MarketingEyebrow,
+  MarketingLead,
+  MarketingPageTitle,
+} from "@/components/templates/marketing-editorial";
+import { MarketingPageContainer } from "@/components/templates/marketing-page-container";
 import { buttonVariants } from "@/components/ui/button";
 import { blogContextLinks, blogFaq } from "@/lib/content/marketing-pages-extra";
 import { faqPageJsonLd } from "@/lib/seo/faq-json-ld";
@@ -18,34 +26,31 @@ export default function BlogIndexPage() {
   const faqLd = faqPageJsonLd(blogFaq);
 
   return (
-    <article className="relative overflow-hidden border-b border-line/80">
-      <SectionAurora variant="soft" />
-      <div className="relative z-[1] mx-auto max-w-[840px] px-4 py-20 md:px-8 md:py-28 lg:py-[120px]">
-        <p className="font-mono text-[11px] font-medium uppercase tracking-widest text-ink-muted">Blog</p>
-        <h1 className="mt-4 font-serif text-[clamp(2rem,5vw,3rem)] font-medium leading-tight tracking-tight text-ink">
-          Articles &amp; notes
-        </h1>
-        <p className="mt-6 text-lg leading-relaxed text-ink-dim md:text-xl">
+    <MarketingArticleShell aurora="soft">
+      <MarketingPageContainer width="wide">
+        <MarketingEyebrow>Blog</MarketingEyebrow>
+        <MarketingPageTitle variant="display">Articles &amp; notes</MarketingPageTitle>
+        <MarketingLead>
           Le blog capte le trafic informationnel amont : comparatifs de stacks, budgets réalistes, checklists de
           refonte, SEO technique, intégrations IA et retours d’expérience terrain. Les contenus sont pensés pour être
-          utiles à la lecture humaine et pour le GEO — sections claires, faits vérifiables, liens vers sources
-          externes lorsque pertinent, et renvoi vers les{" "}
+          utiles à la lecture humaine et pour le GEO — sections claires, faits vérifiables, liens vers sources externes
+          lorsque pertinent, et renvoi vers les{" "}
           <Link href="/sites-internet/" className="text-terracotta underline-offset-4 hover:underline">
             pages silo
           </Link>{" "}
           lorsqu’un article doit se prolonger en offre commerciale.
-        </p>
-        <p className="mt-4 text-base leading-relaxed text-ink-dim md:text-lg">
-          La home affiche déjà un aperçu des derniers posts publiés depuis Sanity lorsque le contenu existe. Ce
-          listing évoluera vers pagination, filtres par catégorie et recherche plein texte lorsque le volume
-          d’articles augmentera — la structure URL restera propre pour le maillage interne et les sitemaps.
-        </p>
-        <p className="mt-4 text-base leading-relaxed text-ink-dim md:text-lg">
+        </MarketingLead>
+        <MarketingBodyParagraph>
+          La home affiche déjà un aperçu des derniers posts publiés depuis Sanity lorsque le contenu existe. Ce listing
+          évoluera vers pagination, filtres par catégorie et recherche plein texte lorsque le volume d’articles
+          augmentera — la structure URL restera propre pour le maillage interne et les sitemaps.
+        </MarketingBodyParagraph>
+        <MarketingBodyParagraph>
           Thèmes typiques alignés sur le brief éditorial : WordPress vs Next.js, coût d’une marketplace, Core Web
-          Vitals, e-commerce headless, intégration IA e-commerce, RAG expliqué simplement, migrations SEO. Chaque
-          article doit pouvoir envoyer le lecteur vers une action mesurable (devis, audit, ou page silo) sans casser
-          la confiance.
-        </p>
+          Vitals, e-commerce headless, intégration IA e-commerce, RAG expliqué simplement, migrations SEO. Chaque article
+          doit pouvoir envoyer le lecteur vers une action mesurable (devis, audit, ou page silo) sans casser la
+          confiance.
+        </MarketingBodyParagraph>
 
         <ContextualInternalLinks
           className="mt-14 border-t border-line pt-12"
@@ -65,15 +70,15 @@ export default function BlogIndexPage() {
           />
         </div>
 
-        <div className="mt-12 flex flex-col gap-3 sm:flex-row">
-          <Link href="/" className={cn(buttonVariants({ variant: "ghost", size: "lg" }))}>
+        <MarketingEndButtonRow>
+          <Link href="/" className={cn(buttonVariants({ variant: "ghost", size: "lg" }), "justify-center")}>
             ← Retour à l’accueil
           </Link>
-          <Link href="/devis/" className={cn(buttonVariants({ size: "cta" }))}>
+          <Link href="/devis/" className={cn(buttonVariants({ size: "cta" }), "justify-center")}>
             Demander un devis
           </Link>
-        </div>
-      </div>
-    </article>
+        </MarketingEndButtonRow>
+      </MarketingPageContainer>
+    </MarketingArticleShell>
   );
 }

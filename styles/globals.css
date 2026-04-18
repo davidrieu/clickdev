@@ -195,4 +195,9 @@ html {
   body {
     @apply min-h-dvh bg-background font-sans text-base leading-normal text-foreground antialiased;
   }
+
+  ::selection {
+    background: color-mix(in srgb, var(--terracotta) 38%, transparent);
+    color: var(--ink);
+  }
 }

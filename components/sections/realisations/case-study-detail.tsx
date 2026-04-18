@@ -1,9 +1,15 @@
 import Image from "next/image";
-import Link from "next/link";
 import { BlockContent } from "@/components/portable/block-content";
-import { buttonVariants } from "@/components/ui/button";
+import { MarketingArticleShell } from "@/components/templates/marketing-article-shell";
+import { MarketingDualCta } from "@/components/templates/marketing-dual-cta";
+import {
+  MarketingBackLink,
+  MarketingEyebrow,
+  MarketingPageTitle,
+  MarketingSectionTitle,
+} from "@/components/templates/marketing-editorial";
+import { MarketingPageContainer } from "@/components/templates/marketing-page-container";
 import type { SanityCaseStudyDetail } from "@/types/sanity-case-study";
-import { cn } from "@/lib/utils";
 
 const CATEGORY_LABEL: Record<string, string> = {
   website: "Site web",
@@ -20,25 +26,19 @@ type CaseStudyDetailProps = {
 
 export function CaseStudyDetail({ study }: CaseStudyDetailProps) {
   const categoryLabel = study.category ? (CATEGORY_LABEL[study.category] ?? study.category) : null;
+  const eyebrowParts = [
+    study.client ?? "Étude de cas",
+    study.year != null ? String(study.year) : null,
+    categoryLabel,
+  ].filter(Boolean);
 
   return (
-    <article className="border-b border-line/80">
-      <div className="mx-auto max-w-[960px] px-4 py-16 md:px-8 md:py-24 lg:py-[100px]">
-        <nav aria-label="Fil d’Ariane" className="font-mono text-[11px] uppercase tracking-wider text-ink-muted">
-          <Link href="/realisations/" className="text-terracotta underline-offset-4 hover:underline">
-            ← Réalisations
-          </Link>
-        </nav>
+    <MarketingArticleShell aurora="soft">
+      <MarketingPageContainer width="article">
+        <MarketingBackLink href="/realisations/">← Réalisations</MarketingBackLink>
 
-        <p className="mt-6 font-mono text-[11px] font-medium uppercase tracking-widest text-ink-muted">
-          {study.client ?? "Étude de cas"}
-          {study.year != null ? ` · ${study.year}` : ""}
-          {categoryLabel ? ` · ${categoryLabel}` : ""}
-        </p>
-
-        <h1 className="mt-4 font-serif text-[clamp(2rem,5vw,3.25rem)] font-medium leading-tight tracking-tight text-ink">
-          {study.title}
-        </h1>
+        <MarketingEyebrow className="mt-6">{eyebrowParts.join(" · ")}</MarketingEyebrow>
+        <MarketingPageTitle variant="pillar">{study.title}</MarketingPageTitle>
 
         {study.tagline ? (
           <p className="mt-6 text-xl leading-relaxed text-ink-dim md:text-2xl">{study.tagline}</p>
@@ -103,14 +103,14 @@ export function CaseStudyDetail({ study }: CaseStudyDetailProps) {
 
         {study.context ? (
           <section className="mt-16 border-t border-line pt-12">
-            <h2 className="font-serif text-2xl font-medium text-ink">Contexte & enjeux</h2>
+            <MarketingSectionTitle>Contexte & enjeux</MarketingSectionTitle>
             <BlockContent value={study.context} />
           </section>
         ) : null}
 
         {study.challenges && study.challenges.length > 0 ? (
           <section className="mt-16 border-t border-line pt-12">
-            <h2 className="font-serif text-2xl font-medium text-ink">Défis</h2>
+            <MarketingSectionTitle>Défis</MarketingSectionTitle>
             <ul className="mt-6 space-y-6">
               {study.challenges.map((c, i) => (
                 <li key={`${c.title}-${i}`}>
@@ -126,20 +126,26 @@ export function CaseStudyDetail({ study }: CaseStudyDetailProps) {
 
         {study.solution ? (
           <section className="mt-16 border-t border-line pt-12">
-            <h2 className="font-serif text-2xl font-medium text-ink">Solution</h2>
+            <MarketingSectionTitle>Solution</MarketingSectionTitle>
             <BlockContent value={study.solution} />
           </section>
         ) : null}
 
         {study.gallery && study.gallery.some((g) => g.url) ? (
           <section className="mt-16 border-t border-line pt-12">
-            <h2 className="font-serif text-2xl font-medium text-ink">Galerie</h2>
+            <MarketingSectionTitle>Galerie</MarketingSectionTitle>
             <ul className="mt-8 grid gap-6 sm:grid-cols-2">
               {study.gallery.map((g, i) =>
                 g.url ? (
                   <li key={`${g.url}-${i}`} className="overflow-hidden rounded-lg border border-line">
                     <div className="relative aspect-video bg-bg-3">
-                      <Image src={g.url} alt={g.caption ?? ""} fill className="object-cover" sizes="(max-width: 768px) 100vw, 50vw" />
+                      <Image
+                        src={g.url}
+                        alt={g.caption ?? ""}
+                        fill
+                        className="object-cover"
+                        sizes="(max-width: 768px) 100vw, 50vw"
+                      />
                     </div>
                     {g.caption ? (
                       <p className="p-3 text-xs text-ink-muted">{g.caption}</p>
@@ -153,23 +159,16 @@ export function CaseStudyDetail({ study }: CaseStudyDetailProps) {
 
         {study.results ? (
           <section className="mt-16 border-t border-line pt-12">
-            <h2 className="font-serif text-2xl font-medium text-ink">Résultats</h2>
+            <MarketingSectionTitle>Résultats</MarketingSectionTitle>
             <BlockContent value={study.results} />
           </section>
         ) : null}
 
-        <div className="mt-16 flex flex-col gap-3 border-t border-line pt-12 sm:flex-row">
-          <Link href="/devis/" className={cn(buttonVariants({ size: "cta" }))}>
-            Projet similaire →
-          </Link>
-          <Link
-            href="/realisations/"
-            className={cn(buttonVariants({ variant: "ghost", size: "lg" }), "justify-center")}
-          >
-            Autres réalisations
-          </Link>
-        </div>
-      </div>
-    </article>
+        <MarketingDualCta
+          primary={{ href: "/devis/", label: "Projet similaire →" }}
+          secondary={{ href: "/realisations/", label: "Autres réalisations" }}
+        />
+      </MarketingPageContainer>
+    </MarketingArticleShell>
   );
 }

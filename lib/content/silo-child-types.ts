@@ -1,7 +1,7 @@
-import type { SiloPillarSection } from "@/components/templates/silo-pillar-layout";
+import type { MarketingSectionBlock } from "@/lib/types/marketing-prose";
 
 /** Alias : sections enfants = sections piliers (H2 + paragraphes + sous-H3 optionnels). */
-export type SiloChildSection = SiloPillarSection;
+export type SiloChildSection = MarketingSectionBlock;
 
 export type SiloFaqItem = { question: string; answer: string };
 
