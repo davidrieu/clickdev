@@ -1,66 +1,32 @@
-import Link from "next/link";
-import { Badge } from "@/components/ui/badge";
-import { Button, buttonVariants } from "@/components/ui/button";
-import { cn } from "@/lib/utils";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
-import { Phase16UiDemos } from "@/components/blocks/phase-16-ui-demos";
+import type { Metadata } from "next";
+import { HeroSection } from "@/components/sections/home/hero-section";
+
+export const metadata: Metadata = {
+  title: "Développeur freelance e-commerce, marketplaces & outils métiers",
+  description:
+    "Sites, apps mobiles, IA, SEO & CRM sur mesure pour marques ambitieuses. 10 ans d’expérience, 80+ projets. Demandez un devis.",
+};
+
+function formatHeroMonthLabel(): string {
+  const raw = new Intl.DateTimeFormat("fr-FR", {
+    month: "long",
+    year: "numeric",
+  }).format(new Date());
+  return raw.charAt(0).toUpperCase() + raw.slice(1);
+}
 
 export default function HomePage() {
+  const monthLabel = formatHeroMonthLabel();
+
   return (
-    <main className="flex min-h-screen flex-col items-center justify-center gap-8 p-8 pb-24">
-      <p className="font-serif text-2xl italic text-ink">
-        Clickdev <span className="text-terracotta">typo</span>
-      </p>
-
-      <div className="flex flex-wrap items-center justify-center gap-3">
-        <Badge variant="secondary" className="font-mono uppercase tracking-widest">
-          Phase 1.8
-        </Badge>
-        <Badge variant="outline">shadcn · Base UI</Badge>
-      </div>
-
-      <div className="flex flex-wrap items-center justify-center gap-3">
-        <Button size="cta">Demander un devis</Button>
-        <Button variant="ghost" size="lg">
-          Voir les réalisations
-        </Button>
-      </div>
-
-      <Card className="w-full max-w-md border-border">
-        <CardHeader>
-          <CardTitle>Composants de base</CardTitle>
-          <CardDescription>
-            Button (default + ghost, taille CTA pill), Badge, Card — thème aligné sur le
-            brief.
-          </CardDescription>
-        </CardHeader>
-        <CardContent className="text-ink-dim">
-          Phase 1.8 : navigation sticky (72px, dropdowns desktop, drawer mobile) +
-          footer sitemap (maillage interne). La Phase 1 est bouclée après validation
-          globale.
-        </CardContent>
-        <CardFooter className="gap-2">
-          <Link
-            href="/devis"
-            className={cn(buttonVariants({ variant: "outline", size: "sm" }))}
-          >
-            /devis
-          </Link>
-        </CardFooter>
-      </Card>
-
-      <Phase16UiDemos />
-
-      <p className="font-mono text-[11px] uppercase tracking-widest text-ink-muted">
-        eyebrow · metadata
-      </p>
-    </main>
+    <>
+      <HeroSection monthLabel={monthLabel} />
+      <section className="border-b border-line/80 py-16 text-center">
+        <p className="mx-auto max-w-md text-sm text-ink-muted">
+          Suite de la page d’accueil (trust bar, services, réalisations, etc.) — phases
+          2.2+.
+        </p>
+      </section>
+    </>
   );
 }
