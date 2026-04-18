@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { HeroSection } from "@/components/sections/home/hero-section";
+import { CaseStudiesSection } from "@/components/sections/home/case-studies-section";
 import { ServicesSection } from "@/components/sections/home/services-section";
 import { TrustBar } from "@/components/sections/home/trust-bar";
 
@@ -25,6 +26,7 @@ export default function HomePage() {
       <HeroSection monthLabel={monthLabel} />
       <TrustBar />
       <ServicesSection />
+      <CaseStudiesSection />
     </>
   );
 }
