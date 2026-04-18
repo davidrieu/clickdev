@@ -4,14 +4,15 @@ import { cn } from "@/lib/utils";
 
 export function MarketingEyebrow({ children, className }: { children: ReactNode; className?: string }) {
   return (
-    <p
-      className={cn(
-        "font-mono text-[11px] font-medium uppercase tracking-widest text-ink-muted",
-        className,
-      )}
-    >
-      {children}
-    </p>
+    <div className={cn("flex items-center gap-3", className)}>
+      <span
+        className="h-px w-10 shrink-0 bg-gradient-to-r from-terracotta via-terracotta/70 to-transparent md:w-14"
+        aria-hidden
+      />
+      <p className="font-mono text-[11px] font-medium uppercase tracking-widest text-ink-muted">
+        {children}
+      </p>
+    </div>
   );
 }
 
@@ -75,7 +76,7 @@ export function MarketingBodyParagraph({
 
 export function MarketingTldr({ items }: { items: string[] }) {
   return (
-    <aside className="mt-10 rounded-lg border border-line bg-bg-3 p-6 md:p-8">
+    <aside className="mt-10 rounded-lg border border-line/80 border-l-[3px] border-l-terracotta/55 bg-gradient-to-br from-bg-3/90 to-bg-3/50 p-6 shadow-[inset_0_1px_0_0_rgba(255,255,255,0.03)] md:p-8">
       <p className="font-mono text-[10px] font-medium uppercase tracking-widest text-ink-muted">
         TL;DR
       </p>
@@ -90,11 +91,11 @@ export function MarketingTldr({ items }: { items: string[] }) {
 
 export function MarketingBackLink({ href, children }: { href: string; children: ReactNode }) {
   return (
-    <nav
-      aria-label="Fil d’Ariane"
-      className="font-mono text-[11px] uppercase tracking-wider text-ink-muted"
-    >
-      <Link href={href} className="text-terracotta underline-offset-4 hover:underline">
+    <nav aria-label="Fil d’Ariane">
+      <Link
+        href={href}
+        className="inline-flex items-center rounded-full border border-line/80 bg-bg-3/70 px-3.5 py-2 font-mono text-[11px] uppercase tracking-wider text-terracotta transition-[color,background-color,border-color] hover:border-terracotta/45 hover:bg-bg-3 hover:text-terracotta-soft"
+      >
         {children}
       </Link>
     </nav>
@@ -107,6 +108,7 @@ export function MarketingSectionTitle({ children, className }: { children: React
     <h2
       className={cn(
         "font-serif text-2xl font-medium tracking-tight text-ink md:text-3xl",
+        "after:mt-4 after:block after:h-px after:w-14 after:bg-gradient-to-r after:from-terracotta/80 after:to-transparent md:after:w-16",
         className,
       )}
     >
@@ -143,7 +145,7 @@ export function MarketingRelatedPagesNav({
   if (links.length === 0) return null;
   return (
     <nav
-      className="mt-10 rounded-lg border border-line bg-bg-2/80 p-5 md:p-6"
+      className="mt-10 rounded-lg border border-line border-t-terracotta/30 border-t-2 bg-bg-2/85 p-5 shadow-[inset_0_1px_0_0_rgba(255,255,255,0.03)] md:p-6"
       aria-label="Pages du silo"
     >
       <p className="font-mono text-[10px] font-medium uppercase tracking-widest text-ink-muted">

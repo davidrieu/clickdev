@@ -22,6 +22,11 @@ export function MarketingArticleShell({ aurora = "medium", children, className }
       {aurora !== "none" ? (
         <SectionAurora variant={aurora === "soft" ? "soft" : "medium"} />
       ) : null}
+      {/* Voile chaud statique : lisible même si l’aurora est absente (reduced motion). */}
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-0 z-0 bg-[linear-gradient(165deg,rgba(217,119,87,0.085)_0%,transparent_38%,rgba(13,13,13,0.35)_100%)]"
+      />
       {children}
     </article>
   );
