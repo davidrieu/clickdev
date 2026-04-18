@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { fontVariablesClassName } from "@/lib/fonts";
 import "../styles/globals.css";
 
 export const metadata: Metadata = {
@@ -15,8 +16,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="fr">
-      <body className="antialiased">{children}</body>
+    <html lang="fr" className={fontVariablesClassName}>
+      <body className="font-sans text-base leading-normal antialiased">{children}</body>
     </html>
   );
 }

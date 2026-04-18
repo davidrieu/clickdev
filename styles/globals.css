@@ -19,7 +19,7 @@
   --foreground: var(--ink);
 }
 
-/* Typo de base — corps 16px / 1.5 (polices display/body/mono en Phase 1.4) */
+/* Typo : familles via next/font sur <html> — brief §6 */
 html {
   color-scheme: dark;
 }
@@ -28,9 +28,7 @@ body {
   min-height: 100dvh;
   background-color: var(--bg);
   color: var(--ink);
-  font-size: 16px;
   line-height: 1.5;
-  font-family: var(--font-sans);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -51,9 +49,10 @@ body {
   --color-background: var(--bg);
   --color-foreground: var(--ink);
 
-  /* Polices : stack système jusqu’à next/font (Phase 1.4) */
-  --font-sans: ui-sans-serif, system-ui, sans-serif;
-  --font-mono: ui-monospace, "Cascadia Code", "Source Code Pro", monospace;
+  /* Polices — variables injectées par next/font (lib/fonts.ts) */
+  --font-sans: var(--font-bricolage-grotesque), ui-sans-serif, system-ui, sans-serif;
+  --font-serif: var(--font-instrument-serif), ui-serif, "New York", serif;
+  --font-mono: var(--font-jetbrains-mono), ui-monospace, monospace;
 
   /* Rayons — brief section 6 */
   --radius-card: 8px;
