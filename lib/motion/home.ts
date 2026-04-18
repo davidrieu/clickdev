@@ -71,14 +71,44 @@ export function heroWordVariant(reduceMotion: boolean | null): Variants {
   };
 }
 
-export function heroHeadingContainer(reduceMotion: boolean | null): Variants {
+export function heroHeadingContainer(
+  reduceMotion: boolean | null,
+  stagger = 0.042,
+  delayChildren = 0.12,
+): Variants {
   return {
     hidden: {},
     visible: {
       transition: {
-        staggerChildren: reduceMotion ? 0 : 0.042,
-        delayChildren: reduceMotion ? 0 : 0.12,
+        staggerChildren: reduceMotion ? 0 : stagger,
+        delayChildren: reduceMotion ? 0 : delayChildren,
       },
+    },
+  };
+}
+
+/** Mots du hero — entrée plus théâtrale (3D + déblur). */
+export function heroWordVariantExpressive(reduceMotion: boolean | null): Variants {
+  if (reduceMotion) {
+    return {
+      hidden: { opacity: 1, y: 0, rotateX: 0, filter: "none" },
+      visible: {
+        opacity: 1,
+        y: 0,
+        rotateX: 0,
+        filter: "none",
+        transition: { duration: 0 },
+      },
+    };
+  }
+  return {
+    hidden: { opacity: 0, y: 48, rotateX: -42, filter: "blur(14px)" },
+    visible: {
+      opacity: 1,
+      y: 0,
+      rotateX: 0,
+      filter: "blur(0px)",
+      transition: { duration: 0.72, ease: easeOutProduct },
     },
   };
 }

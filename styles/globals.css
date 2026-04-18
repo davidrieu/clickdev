@@ -140,6 +140,19 @@ html {
   }
 }
 
+@keyframes hero-mesh-move {
+  0% {
+    background-position:
+      0 0,
+      0 0;
+  }
+  100% {
+    background-position:
+      56px 56px,
+      56px 56px;
+  }
+}
+
 @layer components {
   .trust-marquee-mask {
     -webkit-mask-image: linear-gradient(
@@ -181,6 +194,22 @@ html {
 
   @media (prefers-reduced-motion: reduce) {
     .about-photo-shimmer {
+      animation: none;
+    }
+  }
+
+  .hero-mesh {
+    background-image:
+      linear-gradient(rgba(255, 255, 255, 0.028) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255, 255, 255, 0.028) 1px, transparent 1px);
+    background-size:
+      56px 56px,
+      56px 56px;
+    animation: hero-mesh-move 28s linear infinite;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .hero-mesh {
       animation: none;
     }
   }
