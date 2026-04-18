@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { HeroSection } from "@/components/sections/home/hero-section";
+import { TrustBar } from "@/components/sections/home/trust-bar";
 
 export const metadata: Metadata = {
   title: "Développeur freelance e-commerce, marketplaces & outils métiers",
@@ -21,12 +22,7 @@ export default function HomePage() {
   return (
     <>
       <HeroSection monthLabel={monthLabel} />
-      <section className="border-b border-line/80 py-16 text-center">
-        <p className="mx-auto max-w-md text-sm text-ink-muted">
-          Suite de la page d’accueil (trust bar, services, réalisations, etc.) — phases
-          2.2+.
-        </p>
-      </section>
+      <TrustBar />
     </>
   );
 }
