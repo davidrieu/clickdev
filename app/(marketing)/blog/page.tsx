@@ -1,15 +1,11 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { MarketingHeroStage } from "@/components/marketing/marketing-hero-stage";
 import { ContextualInternalLinks } from "@/components/seo/contextual-internal-links";
 import { PageFaqAccordion } from "@/components/seo/page-faq-accordion";
 import { MarketingArticleShell } from "@/components/templates/marketing-article-shell";
 import { MarketingEndButtonRow } from "@/components/templates/marketing-dual-cta";
-import {
-  MarketingBodyParagraph,
-  MarketingEyebrow,
-  MarketingLead,
-  MarketingPageTitle,
-} from "@/components/templates/marketing-editorial";
+import { MarketingBodyParagraph } from "@/components/templates/marketing-editorial";
 import { MarketingPageContainer } from "@/components/templates/marketing-page-container";
 import { buttonVariants } from "@/components/ui/button";
 import { blogContextLinks, blogFaq } from "@/lib/content/marketing-pages-extra";
@@ -28,18 +24,23 @@ export default function BlogIndexPage() {
   return (
     <MarketingArticleShell aurora="soft">
       <MarketingPageContainer width="wide">
-        <MarketingEyebrow>Blog</MarketingEyebrow>
-        <MarketingPageTitle variant="display">Articles &amp; notes</MarketingPageTitle>
-        <MarketingLead>
-          Le blog capte le trafic informationnel amont : comparatifs de stacks, budgets réalistes, checklists de
-          refonte, SEO technique, intégrations IA et retours d’expérience terrain. Les contenus sont pensés pour être
-          utiles à la lecture et aux moteurs (y compris réponses assistées) — sections claires, faits vérifiables, liens vers sources externes
-          lorsque pertinent, et renvoi vers les{" "}
-          <Link href="/sites-internet/" className="text-terracotta underline-offset-4 hover:underline">
-            pages silo
-          </Link>{" "}
-          lorsqu’un article doit se prolonger en offre commerciale.
-        </MarketingLead>
+        <MarketingHeroStage
+          variant="display"
+          eyebrow="Blog"
+          title="Articles & notes"
+          lead={
+            <>
+              Le blog capte le trafic informationnel amont : comparatifs de stacks, budgets réalistes, checklists de
+              refonte, SEO technique, intégrations IA et retours d’expérience terrain. Les contenus sont pensés pour être
+              utiles à la lecture et aux moteurs (y compris réponses assistées) — sections claires, faits vérifiables,
+              liens vers sources externes lorsque pertinent, et renvoi vers les{" "}
+              <Link href="/sites-internet/" className="text-terracotta underline-offset-4 hover:underline">
+                pages silo
+              </Link>{" "}
+              lorsqu’un article doit se prolonger en offre commerciale.
+            </>
+          }
+        />
         <MarketingBodyParagraph>
           La home affiche déjà un aperçu des derniers posts publiés depuis Sanity lorsque le contenu existe. Ce listing
           évoluera vers pagination, filtres par catégorie et recherche plein texte lorsque le volume d’articles

@@ -23,8 +23,8 @@ export function MarketingPageContainer({ children, width = "article", className 
         "relative z-[1] mx-auto",
         MARKETING_PAGE_PAD,
         marketingMaxWidthClass[width],
-        /* À partir de sm : bloc « éditorial » encadré, visible sur toutes les pages marketing. */
-        "sm:rounded-2xl sm:border sm:border-line/60 sm:bg-bg-2/35 sm:shadow-[0_36px_100px_-48px_rgba(0,0,0,0.82),inset_0_1px_0_0_rgba(255,255,255,0.04)]",
+        /* Cadre « verre » + halo : plus premium que la simple carte bordée. */
+        "sm:rounded-[28px] sm:border sm:border-line/55 sm:bg-gradient-to-b sm:from-bg-2/[0.42] sm:via-bg-2/[0.22] sm:to-bg/[0.55] sm:shadow-[0_48px_120px_-52px_rgba(0,0,0,0.88),inset_0_1px_0_0_rgba(255,255,255,0.055)] sm:backdrop-blur-[14px]",
         className,
       )}
     >

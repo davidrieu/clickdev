@@ -1,16 +1,11 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { MarketingHeroStage } from "@/components/marketing/marketing-hero-stage";
 import { ContextualInternalLinks } from "@/components/seo/contextual-internal-links";
 import { PageFaqAccordion } from "@/components/seo/page-faq-accordion";
 import { MarketingArticleShell } from "@/components/templates/marketing-article-shell";
 import { MarketingDualCta } from "@/components/templates/marketing-dual-cta";
-import {
-  MarketingBodyParagraph,
-  MarketingEyebrow,
-  MarketingLead,
-  MarketingPageTitle,
-  MarketingSectionTitle,
-} from "@/components/templates/marketing-editorial";
+import { MarketingBodyParagraph, MarketingSectionTitle } from "@/components/templates/marketing-editorial";
 import { MarketingPageContainer } from "@/components/templates/marketing-page-container";
 import { aProposContextLinks, aProposFaq } from "@/lib/content/marketing-pages-extra";
 import { contactLinks } from "@/lib/constants/navigation";
@@ -28,16 +23,12 @@ export default function AProposPage() {
   return (
     <MarketingArticleShell aurora="soft">
       <MarketingPageContainer width="wide">
-        <MarketingEyebrow>À propos</MarketingEyebrow>
-        <MarketingPageTitle variant="display">David Rieu — Clickdev</MarketingPageTitle>
-        <MarketingLead>
-          Freelance depuis une décennie, je conçois et livre des sites, des applications mobiles et des outils
-          métiers pour des marques qui jouent la carte de la performance — e-commerce, marketplaces, plateformes de
-          mise en relation, configurateurs, CRM sur mesure et intégrations IA en production. Mon approche est
-          volontairement peu « agence slide » : cadrage court, décisions traçables, itérations visibles sur des
-          environnements de staging, et une obsession pour ce qui se mesure (conversion, Core Web Vitals, coûts
-          token, indexation, taux d’erreur checkout).
-        </MarketingLead>
+        <MarketingHeroStage
+          variant="display"
+          eyebrow="À propos"
+          title="David Rieu — Clickdev"
+          lead="Freelance depuis une décennie, je conçois et livre des sites, des applications mobiles et des outils métiers pour des marques qui jouent la carte de la performance — e-commerce, marketplaces, plateformes de mise en relation, configurateurs, CRM sur mesure et intégrations IA en production. Mon approche est volontairement peu « agence slide » : cadrage court, décisions traçables, itérations visibles sur des environnements de staging, et une obsession pour ce qui se mesure (conversion, Core Web Vitals, coûts token, indexation, taux d’erreur checkout)."
+        />
 
         <section className="mt-14 border-t border-line pt-12">
           <MarketingSectionTitle>Parcours &amp; positionnement</MarketingSectionTitle>

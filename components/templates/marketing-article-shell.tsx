@@ -1,5 +1,6 @@
 import type { ReactNode } from "react";
 import { SectionAurora } from "@/components/effects/section-aurora";
+import { MarketingAmbientLayer } from "@/components/marketing/marketing-ambient-layer";
 import { cn } from "@/lib/utils";
 
 export type MarketingAuroraVariant = "none" | "soft" | "medium";
@@ -22,10 +23,11 @@ export function MarketingArticleShell({ aurora = "medium", children, className }
       {aurora !== "none" ? (
         <SectionAurora variant={aurora === "soft" ? "soft" : "medium"} />
       ) : null}
-      {/* Voile chaud statique : lisible même si l’aurora est absente (reduced motion). */}
+      <MarketingAmbientLayer />
+      {/* Voile de profondeur (statique) — complète l’aurora sans la remplacer. */}
       <div
         aria-hidden
-        className="pointer-events-none absolute inset-0 z-0 bg-[linear-gradient(165deg,rgba(217,119,87,0.085)_0%,transparent_38%,rgba(13,13,13,0.35)_100%)]"
+        className="pointer-events-none absolute inset-0 z-0 bg-[linear-gradient(165deg,rgba(217,119,87,0.06)_0%,transparent_40%,rgba(13,13,13,0.38)_100%)]"
       />
       {children}
     </article>

@@ -1,14 +1,10 @@
 import { ContextualInternalLinks } from "@/components/seo/contextual-internal-links";
 import { PageFaqAccordion } from "@/components/seo/page-faq-accordion";
+import { MarketingHeroStage } from "@/components/marketing/marketing-hero-stage";
+import { MarketingTldrBento } from "@/components/marketing/marketing-tldr-bento";
 import { MarketingArticleShell } from "@/components/templates/marketing-article-shell";
 import { MarketingDualCta } from "@/components/templates/marketing-dual-cta";
-import {
-  MarketingBackLink,
-  MarketingEyebrow,
-  MarketingLead,
-  MarketingPageTitleTight,
-  MarketingTldr,
-} from "@/components/templates/marketing-editorial";
+import { MarketingBackLink } from "@/components/templates/marketing-editorial";
 import { MarketingPageContainer } from "@/components/templates/marketing-page-container";
 import { MarketingProseSection } from "@/components/templates/marketing-prose-section";
 import type { SiloChildPageContent } from "@/lib/content/silo-child-types";
@@ -33,11 +29,15 @@ export function SiloChildLayout({
   return (
     <MarketingArticleShell aurora="soft">
       <MarketingPageContainer width="article">
-        <MarketingBackLink href={parentHref}>← {parentLabel}</MarketingBackLink>
-        <MarketingEyebrow className="mt-6">{eyebrow}</MarketingEyebrow>
-        <MarketingPageTitleTight variant="child">{h1}</MarketingPageTitleTight>
-        <MarketingLead>{lead}</MarketingLead>
-        <MarketingTldr items={tldr} />
+        <MarketingHeroStage
+          variant="child"
+          compact
+          eyebrow={eyebrow}
+          title={h1}
+          lead={lead}
+          topSlot={<MarketingBackLink href={parentHref}>← {parentLabel}</MarketingBackLink>}
+        />
+        <MarketingTldrBento items={tldr} />
 
         {sections.map((s, i) => (
           <MarketingProseSection key={s.heading} block={s} index={i} density="child" />

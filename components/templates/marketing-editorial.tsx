@@ -1,5 +1,6 @@
 import Link from "next/link";
 import type { ReactNode } from "react";
+import { MarketingRelatedPages } from "@/components/marketing/marketing-related-pages";
 import { cn } from "@/lib/utils";
 
 export function MarketingEyebrow({ children, className }: { children: ReactNode; className?: string }) {
@@ -134,7 +135,7 @@ export function MarketingSubsectionTitle({
   );
 }
 
-/** Bloc « Approfondir » — liens pages filles. */
+/** Bloc « Approfondir » — liens pages filles (cartes animées + icônes). */
 export function MarketingRelatedPagesNav({
   title = "Approfondir",
   links,
@@ -142,27 +143,5 @@ export function MarketingRelatedPagesNav({
   title?: string;
   links: { label: string; href: string }[];
 }) {
-  if (links.length === 0) return null;
-  return (
-    <nav
-      className="mt-10 rounded-lg border border-line border-t-terracotta/30 border-t-2 bg-bg-2/85 p-5 shadow-[inset_0_1px_0_0_rgba(255,255,255,0.03)] md:p-6"
-      aria-label="Pages du silo"
-    >
-      <p className="font-mono text-[10px] font-medium uppercase tracking-widest text-ink-muted">
-        {title}
-      </p>
-      <ul className="mt-4 flex flex-col gap-2 sm:flex-row sm:flex-wrap sm:gap-x-6 sm:gap-y-2">
-        {links.map((l) => (
-          <li key={l.href}>
-            <Link
-              href={l.href}
-              className="text-sm font-medium text-terracotta underline-offset-4 hover:underline"
-            >
-              {l.label}
-            </Link>
-          </li>
-        ))}
-      </ul>
-    </nav>
-  );
+  return <MarketingRelatedPages title={title} links={links} />;
 }

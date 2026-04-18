@@ -1,14 +1,8 @@
 import type { ReactNode } from "react";
-import {
-  MarketingDualCta,
-} from "@/components/templates/marketing-dual-cta";
-import {
-  MarketingEyebrow,
-  MarketingLead,
-  MarketingPageTitle,
-  MarketingRelatedPagesNav,
-  MarketingTldr,
-} from "@/components/templates/marketing-editorial";
+import { MarketingHeroStage } from "@/components/marketing/marketing-hero-stage";
+import { MarketingTldrBento } from "@/components/marketing/marketing-tldr-bento";
+import { MarketingDualCta } from "@/components/templates/marketing-dual-cta";
+import { MarketingRelatedPagesNav } from "@/components/templates/marketing-editorial";
 import { MarketingArticleShell } from "@/components/templates/marketing-article-shell";
 import { MarketingPageContainer } from "@/components/templates/marketing-page-container";
 import { MarketingProseSection } from "@/components/templates/marketing-prose-section";
@@ -40,10 +34,8 @@ export function SiloPillarLayout({
   return (
     <MarketingArticleShell aurora="medium">
       <MarketingPageContainer width="article">
-        <MarketingEyebrow>{eyebrow}</MarketingEyebrow>
-        <MarketingPageTitle variant="pillar">{h1}</MarketingPageTitle>
-        <MarketingLead>{lead}</MarketingLead>
-        <MarketingTldr items={tldr} />
+        <MarketingHeroStage variant="pillar" eyebrow={eyebrow} title={h1} lead={lead} />
+        <MarketingTldrBento items={tldr} />
         <MarketingRelatedPagesNav links={childLinks ?? []} />
 
         {sections.map((s, i) => (

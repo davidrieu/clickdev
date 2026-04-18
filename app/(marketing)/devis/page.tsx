@@ -1,13 +1,9 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { MarketingHeroStage } from "@/components/marketing/marketing-hero-stage";
 import { ContextualInternalLinks } from "@/components/seo/contextual-internal-links";
 import { MarketingArticleShell } from "@/components/templates/marketing-article-shell";
-import {
-  MarketingBodyParagraph,
-  MarketingEyebrow,
-  MarketingLead,
-  MarketingPageTitle,
-} from "@/components/templates/marketing-editorial";
+import { MarketingBodyParagraph } from "@/components/templates/marketing-editorial";
 import { MarketingPageContainer } from "@/components/templates/marketing-page-container";
 import { DevisForm } from "@/components/forms/devis-form";
 import { buttonVariants } from "@/components/ui/button";
@@ -25,14 +21,12 @@ export default function DevisPage() {
   return (
     <MarketingArticleShell aurora="medium">
       <MarketingPageContainer width="reading">
-        <MarketingEyebrow>Devis</MarketingEyebrow>
-        <MarketingPageTitle variant="display">Démarrer un projet</MarketingPageTitle>
-        <MarketingLead>
-          Plus le contexte est clair (objectifs business, contraintes techniques, périmètre pays/langues, intégrations
-          ERP/CRM/PIM, niveau de risque SEO), plus la réponse sera utile. Ce formulaire multi-étapes reprend la logique
-          brief : type de projet, création vs refonte, budget indicatif, délai — puis message libre pour les nuances.
-          Aucun engagement à ce stade : l’objectif est un chiffrage ou un plan de phases défendable.
-        </MarketingLead>
+        <MarketingHeroStage
+          variant="display"
+          eyebrow="Devis"
+          title="Démarrer un projet"
+          lead="Plus le contexte est clair (objectifs business, contraintes techniques, périmètre pays/langues, intégrations ERP/CRM/PIM, niveau de risque SEO), plus la réponse sera utile. Ce formulaire multi-étapes reprend la logique brief : type de projet, création vs refonte, budget indicatif, délai — puis message libre pour les nuances. Aucun engagement à ce stade : l’objectif est un chiffrage ou un plan de phases défendable."
+        />
         <MarketingBodyParagraph>
           Avant d’envoyer, vous pouvez parcourir les pages les plus proches de votre besoin — par exemple{" "}
           <Link href="/sites-internet/site-ecommerce/" className="text-terracotta underline-offset-4 hover:underline">

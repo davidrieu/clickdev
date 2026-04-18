@@ -1,6 +1,6 @@
-import type { MarketingSectionBlock } from "@/lib/types/marketing-prose";
+import { MarketingSectionShell } from "@/components/marketing/marketing-section-shell";
 import { MarketingSubsectionTitle, MarketingSectionTitle } from "@/components/templates/marketing-editorial";
-import { cn } from "@/lib/utils";
+import type { MarketingSectionBlock } from "@/lib/types/marketing-prose";
 
 type Props = {
   block: MarketingSectionBlock;
@@ -14,19 +14,8 @@ type Props = {
  * Section H2 + paragraphes + sous-parties H3 — utilisé par piliers et pages filles.
  */
 export function MarketingProseSection({ block, index, density = "pillar" }: Props) {
-  const isFirst = index === 0;
-  const pillarSpacing = isFirst ? "mt-14 md:mt-16" : "mt-16 md:mt-20";
-  const childSpacing = "mt-14 md:mt-16";
-  const pillarPad = "pt-12 md:pt-16";
-  const childPad = "pt-12 md:pt-14";
   return (
-    <section
-      className={cn(
-        "border-t border-line",
-        density === "child" ? childSpacing : pillarSpacing,
-        density === "child" ? childPad : pillarPad,
-      )}
-    >
+    <MarketingSectionShell index={index} density={density}>
       <MarketingSectionTitle>{block.heading}</MarketingSectionTitle>
       {block.paragraphs.map((p, i) => (
         <p
@@ -49,6 +38,6 @@ export function MarketingProseSection({ block, index, density = "pillar" }: Prop
           ))}
         </div>
       ))}
-    </section>
+    </MarketingSectionShell>
   );
 }

@@ -1,13 +1,9 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { MarketingHeroStage } from "@/components/marketing/marketing-hero-stage";
 import { ContextualInternalLinks } from "@/components/seo/contextual-internal-links";
 import { MarketingArticleShell } from "@/components/templates/marketing-article-shell";
-import {
-  MarketingBodyParagraph,
-  MarketingEyebrow,
-  MarketingLead,
-  MarketingPageTitle,
-} from "@/components/templates/marketing-editorial";
+import { MarketingBodyParagraph } from "@/components/templates/marketing-editorial";
 import { MarketingPageContainer } from "@/components/templates/marketing-page-container";
 import { RealisationsView } from "@/components/sections/realisations/realisations-view";
 import { buttonVariants } from "@/components/ui/button";
@@ -27,15 +23,13 @@ export default async function RealisationsPage() {
   return (
     <MarketingArticleShell aurora="medium">
       <MarketingPageContainer width="article">
-        <MarketingEyebrow>Portfolio</MarketingEyebrow>
-        <MarketingPageTitle variant="pillar">Réalisations</MarketingPageTitle>
-        <MarketingLead className="max-w-3xl">
-          Les études de cas servent de preuve terrain : secteur, problème, solution, stack et métriques lorsqu’elles
-          peuvent être communiquées. Elles complètent les pages silo (Sites internet, IA, SEO, CRM) en montrant comment
-          la méthode se traduit en livrables — utile pour l’E-E-A-T et pour le GEO, car elles mêlent faits techniques
-          et contexte business. Le contenu est géré dans Sanity ; les filtres ci-dessous aident à parcourir les
-          typologies de projets lorsque le catalogue grossit.
-        </MarketingLead>
+        <MarketingHeroStage
+          variant="pillar"
+          eyebrow="Portfolio"
+          title="Réalisations"
+          leadClassName="max-w-3xl"
+          lead="Les études de cas servent de preuve terrain : secteur, problème, solution, stack et métriques lorsqu’elles peuvent être communiquées. Elles complètent les pages silo (Sites internet, IA, SEO, CRM) en montrant comment la méthode se traduit en livrables — utile pour l’E-E-A-T et pour le GEO, car elles mêlent faits techniques et contexte business. Le contenu est géré dans Sanity ; les filtres ci-dessous aident à parcourir les typologies de projets lorsque le catalogue grossit."
+        />
         <MarketingBodyParagraph className="max-w-3xl">
           Les cartes mises en avant sur la home pointent vers les mêmes URLs{" "}
           <code className="font-mono text-xs text-ink-muted">/realisations/[slug]/</code> lorsque les documents

@@ -1,14 +1,10 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { MarketingHeroStage } from "@/components/marketing/marketing-hero-stage";
 import { ContextualInternalLinks } from "@/components/seo/contextual-internal-links";
 import { MarketingArticleShell } from "@/components/templates/marketing-article-shell";
 import { MarketingDualCta } from "@/components/templates/marketing-dual-cta";
-import {
-  MarketingBodyParagraph,
-  MarketingEyebrow,
-  MarketingLead,
-  MarketingPageTitle,
-} from "@/components/templates/marketing-editorial";
+import { MarketingBodyParagraph } from "@/components/templates/marketing-editorial";
 import { MarketingPageContainer } from "@/components/templates/marketing-page-container";
 import { contactContextLinks } from "@/lib/content/marketing-pages-extra";
 import { calBookingUrl } from "@/lib/constants/site";
@@ -24,17 +20,24 @@ export default function ContactPage() {
   return (
     <MarketingArticleShell aurora="soft">
       <MarketingPageContainer width="reading">
-        <MarketingEyebrow>Contact</MarketingEyebrow>
-        <MarketingPageTitle variant="display">Parlons de votre projet</MarketingPageTitle>
-        <MarketingLead>
-          Pour un besoin projet (e-commerce, marketplace, app, outil métier, audit SEO, intégration IA), le formulaire{" "}
-          <Link href="/devis/" className="text-terracotta underline-offset-4 hover:underline">
-            Demander un devis
-          </Link>{" "}
-          reste le canal le plus efficace : périmètre, budget indicatif, stack et calendrier permettent une réponse
-          actionnable plutôt qu’un échange vague. Pour une question courte, un partenariat presse, ou un sujet
-          nécessitant un NDA avant de partager des accès, l’e-mail direct ou un créneau calendrier fonctionnent mieux.
-        </MarketingLead>
+        <MarketingHeroStage
+          variant="display"
+          eyebrow="Contact"
+          title="Parlons de votre projet"
+          lead={
+            <>
+              Pour un besoin projet (e-commerce, marketplace, app, outil métier, audit SEO, intégration IA), le
+              formulaire{" "}
+              <Link href="/devis/" className="text-terracotta underline-offset-4 hover:underline">
+                Demander un devis
+              </Link>{" "}
+              reste le canal le plus efficace : périmètre, budget indicatif, stack et calendrier permettent une réponse
+              actionnable plutôt qu’un échange vague. Pour une question courte, un partenariat presse, ou un sujet
+              nécessitant un NDA avant de partager des accès, l’e-mail direct ou un créneau calendrier fonctionnent
+              mieux.
+            </>
+          }
+        />
         <MarketingBodyParagraph>
           Si vous arrivez depuis une page silo (par exemple{" "}
           <Link href="/ia/integration-ia/" className="text-terracotta underline-offset-4 hover:underline">

@@ -1,13 +1,9 @@
 import Image from "next/image";
+import { MarketingHeroStage } from "@/components/marketing/marketing-hero-stage";
 import { BlockContent } from "@/components/portable/block-content";
 import { MarketingArticleShell } from "@/components/templates/marketing-article-shell";
 import { MarketingDualCta } from "@/components/templates/marketing-dual-cta";
-import {
-  MarketingBackLink,
-  MarketingEyebrow,
-  MarketingPageTitle,
-  MarketingSectionTitle,
-} from "@/components/templates/marketing-editorial";
+import { MarketingBackLink, MarketingSectionTitle } from "@/components/templates/marketing-editorial";
 import { MarketingPageContainer } from "@/components/templates/marketing-page-container";
 import type { SanityCaseStudyDetail } from "@/types/sanity-case-study";
 
@@ -35,18 +31,23 @@ export function CaseStudyDetail({ study }: CaseStudyDetailProps) {
   return (
     <MarketingArticleShell aurora="soft">
       <MarketingPageContainer width="article">
-        <MarketingBackLink href="/realisations/">← Réalisations</MarketingBackLink>
-
-        <MarketingEyebrow className="mt-6">{eyebrowParts.join(" · ")}</MarketingEyebrow>
-        <MarketingPageTitle variant="pillar">{study.title}</MarketingPageTitle>
-
-        {study.tagline ? (
-          <p className="mt-6 text-xl leading-relaxed text-ink-dim md:text-2xl">{study.tagline}</p>
-        ) : null}
-
-        {study.featuredMetric ? (
-          <p className="mt-6 font-serif text-2xl text-terracotta md:text-3xl">{study.featuredMetric}</p>
-        ) : null}
+        <MarketingHeroStage
+          variant="child"
+          compact
+          eyebrow={eyebrowParts.join(" · ")}
+          title={study.title ?? "Étude de cas"}
+          topSlot={<MarketingBackLink href="/realisations/">← Réalisations</MarketingBackLink>}
+          lead={
+            <>
+              {study.tagline ? (
+                <p className="text-xl leading-relaxed text-ink-dim md:text-2xl">{study.tagline}</p>
+              ) : null}
+              {study.featuredMetric ? (
+                <p className="mt-4 font-serif text-2xl text-terracotta md:text-3xl">{study.featuredMetric}</p>
+              ) : null}
+            </>
+          }
+        />
 
         <div className="mt-8 flex flex-wrap gap-3 text-sm text-ink-dim">
           {study.role ? <span>Rôle : {study.role}</span> : null}
