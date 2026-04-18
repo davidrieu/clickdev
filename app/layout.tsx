@@ -6,8 +6,7 @@ export const metadata: Metadata = {
     default: "Clickdev",
     template: "%s | Clickdev",
   },
-  description:
-    "Développeur freelance pour e-commerce, marketplaces et outils métiers.",
+  description: "Développeur freelance pour e-commerce, marketplaces et outils métiers.",
 };
 
 export default function RootLayout({
