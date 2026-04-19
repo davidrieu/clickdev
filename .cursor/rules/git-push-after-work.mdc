@@ -1,0 +1,14 @@
+---
+description: Toujours pousser les changements sur Git après le travail
+alwaysApply: true
+---
+
+# Git après chaque lot de modifications
+
+Quand tu implémentes ou corriges du code dans ce dépôt :
+
+1. À la fin du lot (ou après chaque modification logique si le lot est gros), exécute `git status`, puis `git add` des fichiers concernés, `git commit` avec un message clair en français ou en anglais cohérent avec le projet, et `git push` vers `origin` (branche courante, en général `master`).
+2. Ne laisse pas une session se terminer avec des changements locaux non commités sans raison explicite (l’utilisateur a demandé de ne pas pousser, conflit à résoudre, etc.).
+3. Si `git push` échoue, tente de diagnostiquer (fetch, conflits) et informe l’utilisateur avec les commandes déjà tentées.
+
+Ne pas créer de commits vides ni committer des secrets (.env, clés).
