@@ -51,7 +51,7 @@ export function HpHero() {
           >
             <Badge variant="secondary" className="border-white/20 bg-white/10 text-white/90">
               <span className="mr-2 inline-flex size-2 animate-pulse rounded-full bg-emerald-400" aria-hidden />
-              Disponible — {monthLabel()}
+              Je suis disponible — {monthLabel()}
             </Badge>
           </motion.div>
 
@@ -62,7 +62,7 @@ export function HpHero() {
             transition={{ delay: 0.04, duration: 0.5 }}
           >
             <span className="font-mono text-[11px] tracking-[0.28em] text-white/55 uppercase">
-              Clickdev — Accueil
+              Développeur web freelance · 10 ans d&apos;expérience
             </span>
             <motion.span
               className="block h-px max-w-[140px] flex-1 origin-left bg-gradient-to-r from-white/50 to-white/12"
@@ -79,7 +79,8 @@ export function HpHero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.06, duration: 0.65, ease: [0.22, 1, 0.36, 1] }}
           >
-            Sites, apps et outils digitaux — conçus pour <em className="text-white/80 italic">convertir</em>.
+            Je suis développeur freelance : je code des sites, des applis et des outils sur{' '}
+            <em className="text-white/80 italic">mesure</em>.
           </motion.h1>
 
           <motion.p
@@ -88,8 +89,9 @@ export function HpHero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.12, duration: 0.55 }}
           >
-            Next.js, mobile, IA, SEO et GEO, CRM et maintenance : de l’artisan au grand groupe, je
-            livre des produits rapides, mesurables et tenables — sans slides creux.
+            Depuis 10 ans, j’aide des entreprises de toutes tailles — des artisans du coin aux grandes
+            marques comme Accor ou Greenweez — à avoir des outils digitaux qui cartonnent vraiment. Sans
+            jargon, sans prise de tête.
           </motion.p>
 
           <motion.div
@@ -102,7 +104,7 @@ export function HpHero() {
               href="/devis"
               className="si-btn-pill-shine si-btn-pill-shine-on-light group relative isolate inline-flex overflow-hidden rounded-full bg-white px-8 py-3.5 text-sm font-semibold text-black shadow-[0_0_36px_-10px_rgba(255,255,255,0.35)] transition duration-300 hover:bg-white/95"
             >
-              <span className="relative z-10">Démarrer un projet</span>
+              <span className="relative z-10">Parlons de votre projet</span>
               <span
                 className="absolute inset-0 z-[2] -translate-x-full bg-black/[0.06] transition duration-500 group-hover:translate-x-0"
                 aria-hidden
@@ -112,7 +114,7 @@ export function HpHero() {
               href="/realisations"
               className="si-btn-pill-shine relative isolate inline-flex overflow-hidden rounded-full border border-white/20 bg-white/[0.04] px-8 py-3.5 text-sm font-medium text-white/90 shadow-[inset_0_1px_0_0_rgb(255_255_255/0.08)] backdrop-blur-sm transition hover:border-white/35 hover:bg-white/[0.08]"
             >
-              <span className="relative z-10">Voir les réalisations</span>
+              <span className="relative z-10">Voir mes réalisations</span>
             </Link>
           </motion.div>
 

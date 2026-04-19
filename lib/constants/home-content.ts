@@ -13,44 +13,47 @@ export const HOME_SERVICE_CARDS: HomeServiceCard[] = [
     number: '01',
     title: 'Sites internet',
     description:
-      'Sites vitrines, e-commerce, marketplaces et sites de mise en relation — performants et orientés conversion.',
+      'De la vitrine simple à la marketplace complexe, je conçois des sites rapides, beaux, et qui transforment vos visiteurs en clients.',
     tags: ['Next.js', 'WordPress', 'Shopify', 'WooCommerce', 'Astro'],
     href: '/sites-internet',
   },
   {
     number: '02',
     title: 'Applications mobiles',
-    description: 'Apps iOS et Android natives ou cross-platform, de l’idée au store.',
+    description:
+      "Une idée d'app iOS ou Android ? Je m'occupe de tout, du premier croquis jusqu'à la mise en ligne sur les stores.",
     tags: ['React Native', 'Swift', 'Kotlin', 'PWA'],
     href: '/applications-mobiles',
   },
   {
     number: '03',
-    title: 'IA',
-    description:
-      'Intégration d’IA dans vos produits : chatbots, agents, automatisation, recherche sémantique.',
-    tags: ['OpenAI', 'Claude', 'LangChain', 'RAG', 'n8n'],
-    href: '/ia',
-  },
-  {
-    number: '04',
     title: 'SEO & GEO',
     description:
-      'Référencement Google et optimisation pour les IA (ChatGPT, Claude, Perplexity, Google AI Overviews).',
+      'Être trouvé sur Google, c’est bien. Être recommandé par ChatGPT et Claude, c’est encore mieux. Je m’occupe des deux.',
     tags: ['SEO technique', 'GEO', 'Audit', 'Netlinking', 'Rédaction'],
     href: '/seo',
   },
   {
+    number: '04',
+    title: 'IA & automatisation',
+    description:
+      'Chatbots intelligents, agents qui bossent pour vous, tâches automatisées… L’IA au service de votre quotidien, pas l’inverse.',
+    tags: ['OpenAI', 'Claude', 'LangChain', 'RAG', 'n8n'],
+    href: '/ia',
+  },
+  {
     number: '05',
     title: 'CRM & outils métiers',
-    description: 'CRM sur mesure, intranets, extranets et automatisations internes.',
+    description:
+      'Votre activité a des besoins uniques ? Je développe l’outil sur mesure qui va vraiment vous simplifier la vie.',
     tags: ['Node.js', 'Laravel', 'PostgreSQL', 'Make'],
     href: '/crm-outils-metiers',
   },
   {
     number: '06',
     title: 'Maintenance & TMA',
-    description: 'Infogérance, corrections, mises à jour de sécurité et évolutions.',
+    description:
+      'Votre site existe déjà ? Je le fais évoluer, je corrige les bugs et je garde tout à jour pendant que vous vous concentrez sur votre business.',
     tags: ['Audit', 'Sécurité', 'Support', 'Évolutions'],
     href: '/maintenance',
   },
@@ -130,29 +133,29 @@ export type HomeProcessStep = { title: string; description: string };
 
 export const HOME_PROCESS_STEPS: HomeProcessStep[] = [
   {
-    title: 'Audit & cadrage',
+    title: 'Premier échange',
     description:
-      'Objectifs business, contraintes techniques, risques et priorités — pour un plan réaliste et mesurable.',
+      'On discute 30 minutes au téléphone ou en visio. Je comprends votre besoin, vous comprenez comment je bosse. Sans engagement.',
   },
   {
-    title: 'Design UX-UI',
+    title: 'Design UX/UI',
     description:
-      'Parcours utilisateurs, wireframes et UI cohérente avec votre marque — sans surcouche inutile.',
+      'Je conçois les maquettes sur Figma. Vous validez, on ajuste. Rien ne se code avant que vous soyez à 100 % à l’aise avec le visuel.',
   },
   {
     title: 'Développement',
     description:
-      'Itérations courtes, code review, qualité et performances — livrables exploitables en continu.',
+      'Je code votre projet avec des démos chaque semaine. Vous suivez l’avancement en live, sans surprise.',
   },
   {
     title: 'Tests & optimisation',
     description:
-      'Tests fonctionnels, accessibilité, SEO technique et Core Web Vitals avant mise en ligne.',
+      'Je teste tout : vitesse, SEO, accessibilité, sécurité. On ajuste jusqu’à ce que tout soit impeccable.',
   },
   {
-    title: 'Mise en ligne & suivi',
+    title: 'Mise en ligne',
     description:
-      'Déploiement sécurisé, monitoring, correctifs et évolutions — en mode partenaire sur la durée.',
+      'Votre projet part en production. Je vous forme, je reste disponible, et on peut continuer à le faire évoluer ensemble.',
   },
 ];
 
@@ -160,34 +163,39 @@ export type HomeFaqItem = { question: string; answer: string };
 
 export const HOME_FAQ_ITEMS: HomeFaqItem[] = [
   {
-    question: 'Quels types de projets acceptez-vous ?',
+    question: 'Vous travaillez aussi avec les petites structures ?',
     answer:
-      'Du site vitrine au projet complexe (e-commerce, marketplace, app, outil métier). Je travaille avec des TPE, PME, scale-ups et grands comptes — l’important est un cadrage clair et des objectifs réalistes.',
+      'Oui, et avec les grandes aussi. TPE, PME, associations, startups, grands comptes : ce qui compte pour moi, c’est qu’on soit alignés sur l’objectif et le budget. Je n’ai pas de projet « trop petit » si on peut avancer sereinement.',
   },
   {
-    question: 'Quel budget prévoir ?',
+    question: 'Combien ça coûte, un site web ?',
     answer:
-      'Ça dépend du scope. Les demandes démarrent souvent entre 2k€ et 5k€ pour un périmètre réduit, et montent pour les plateformes ambitieuses. Le formulaire de devis aide à qualifier sans engagement.',
+      'Ça dépend de ce que vous voulez faire : une vitrine simple, un site avec réservations, une boutique… En général, mes projets démarrent souvent entre 2 000 € et 5 000 € pour un périmètre bien cadré, et la facture monte quand le besoin grossit. Écrivez-moi : je vous donne une fourchette honnête, sans engagement.',
   },
   {
-    question: 'Quels délais pour démarrer ?',
+    question: 'Combien de temps ça prend ?',
     answer:
-      'Selon la charge et la complexité : de quelques semaines à plusieurs mois. Je propose un planning transparent dès le cadrage, avec jalons et livrables.',
+      'De quelques semaines pour un site bien cadré, à plusieurs mois pour une plateforme plus costaud. Je vous propose un planning avec des jalons clairs dès le départ, pour qu’il n’y ait pas de mauvaise surprise.',
   },
   {
-    question: 'Travaillez-vous à distance ?',
+    question: 'Je n’y connais rien en tech, c’est gênant ?',
     answer:
-      'Oui, en France et à l’international. Les ateliers se font en visio ; je peux me déplacer ponctuellement si nécessaire.',
+      'Pas du tout — et c’est même courant. Mon job, c’est aussi de traduire la technique en mots simples. Vous validez les maquettes, vous suivez les démos, et vous me posez toutes les questions que vous voulez.',
   },
   {
-    question: 'Proposez-vous de la maintenance ?',
+    question: 'Vous faites aussi la maintenance et le SEO après ?',
     answer:
-      'Oui : infogérance, sécurité, mises à jour, évolutions et TMA. C’est souvent le meilleur moyen de garder un produit rapide et fiable dans le temps.',
+      'Oui. Une fois en ligne, un site a besoin d’être mis à jour, sécurisé, parfois optimisé pour Google ou pour la vitesse. Je propose de la maintenance et du suivi, et on peut continuer le travail SEO dans la durée si vous le souhaitez.',
   },
   {
-    question: 'Quelles technologies utilisez-vous ?',
+    question: 'Je pourrai gérer mon site tout seul après ?',
     answer:
-      'Principalement Next.js / React, WordPress, Shopify, Node.js, Laravel, React Native, et des intégrations IA (OpenAI, Claude, RAG, automatisations). Le choix dépend de vos contraintes, pas de la mode.',
+      'Quand c’est pertinent, oui : je vous forme sur l’essentiel (texte, images, actus…). Pour les parties plus techniques, je reste dispo ou on prévoit de la maintenance. L’important, c’est que vous ne vous sentiez pas prisonnier du site.',
+  },
+  {
+    question: 'Est-ce que je peux payer en plusieurs fois ?',
+    answer:
+      'Pour les projets un peu plus conséquents, on peut en parler au cas par cas et étaler les factures selon les jalons. Dites-moi ce qui vous aiderait : on trouve souvent un terrain d’entente.',
   },
 ];
 
@@ -200,26 +208,71 @@ export type HomeTestimonial = {
 export const HOME_TESTIMONIALS: HomeTestimonial[] = [
   {
     quote:
-      'David a livré une refonte exigeante en respectant des délais serrés. La qualité du code et la communication ont fait la différence.',
-    name: 'Sophie L.',
-    role: 'CTO — scale-up SaaS',
+      'David a su parler notre langue à l’équipe marketing, pas seulement la tech. Le site livré est clair, et on peut le faire évoluer sans galère.',
+    name: 'Claire V.',
+    role: 'Responsable marketing — grand groupe retail',
   },
   {
     quote:
-      'Enfin un freelance qui parle clair : périmètre, risques, options. Notre site e-commerce est plus rapide et mieux référencé.',
+      'Enfin un interlocuteur qui dit les choses cash : budget, délais, ce qui est possible ou pas. Aujourd’hui notre boutique en ligne est plus rapide, et nos clients le sentent.',
     name: 'Marc D.',
-    role: 'Dirigeant — PME retail',
+    role: 'Dirigeant — PME commerce',
   },
   {
     quote:
-      'Un accompagnement humain sur un projet “pas standard”. On sent l’expérience terrain, pas du blabla marketing.',
+      'Je ne connaissais rien au web. Il a tout expliqué patiemment, et aujourd’hui je mets à jour mes fiches produits toute seule.',
     name: 'Julie M.',
-    role: 'Fondatrice — artisanat premium',
+    role: 'Artisan d’art — boutique en ligne',
   },
   {
     quote:
-      'Mission technique pointue, autonomie, et une doc utile pour l’équipe interne. Je recommande sans hésiter.',
+      'Budget serré, projet un peu atypique pour une asso. Il a trouvé des solutions simples, et la doc pour la suite était claire pour nos bénévoles.',
     name: 'Thomas R.',
-    role: 'Product manager — association',
+    role: 'Bénévole — association culturelle',
+  },
+];
+
+/** Logos / noms affichés dans le bandeau confiance sous le hero. */
+export const HOME_TRUST_MARQUEE_NAMES = [
+  'Accor',
+  'Greenweez',
+  'Spreadshirt',
+  'Made in France',
+  'SIF Group',
+  'The French Maisons',
+  'Urbawise',
+] as const;
+
+export type HomeAudienceCard = {
+  title: string;
+  body: string;
+  href: string;
+  cta: string;
+};
+
+export const HOME_AUDIENCE_CARDS: HomeAudienceCard[] = [
+  {
+    title: 'Grandes marques & groupes',
+    body: 'Projets à fort enjeu, exigence de performance. J’ai notamment bossé avec Accor, Greenweez et Spreadshirt.',
+    href: '/realisations',
+    cta: 'Voir des exemples',
+  },
+  {
+    title: 'Startups & scale-ups',
+    body: 'Vitesse d’exécution et expertise pointue. Du MVP au produit mature, j’accompagne la croissance.',
+    href: '/sites-internet',
+    cta: 'Découvrir mon approche',
+  },
+  {
+    title: 'PME & TPE',
+    body: 'Sortir d’un WordPress vieillissant, moderniser vos outils, gagner en visibilité. Sans vous perdre dans le jargon.',
+    href: '/seo',
+    cta: 'Parler de votre contexte',
+  },
+  {
+    title: 'Artisans & indépendants',
+    body: 'Votre projet compte autant que les autres. Un site pro, à votre image, à un prix qui reste raisonnable.',
+    href: '/devis',
+    cta: 'Demander une fourchette',
   },
 ];

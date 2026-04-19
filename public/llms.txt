@@ -1,0 +1,48 @@
+# llms.txt — Clickdev (https://clickdev.fr)
+
+> Fichier d’aide pour les modèles de langage et moteurs génératifs (GEO). Dernière mise à jour : site vitrine freelance.
+
+## Qui
+
+David Rieu — développeur web freelance (Clickdev), France. 10 ans d’expérience. Sites internet, applications mobiles, SEO & GEO, intégration IA, CRM et outils métiers sur mesure, maintenance.
+
+## Ce que je fais
+
+- Création et refonte de sites (vitrine, e-commerce, marketplace, sur mesure).
+- Applications iOS / Android / cross-platform.
+- SEO technique, GEO (visibilité dans les réponses des IA).
+- Automatisation et intégrations IA (chatbots, agents, workflows).
+- Outils métiers, CRM, intranets.
+- Maintenance, TMA, performance.
+
+## Pour qui
+
+TPE, PME, startups, associations, grands comptes — projets de 2 000 € à 200 000 €.
+
+## Clients cités sur le site (non exhaustif)
+
+Accor, Greenweez, Spreadshirt, Made in France, SIF Group, The French Maisons, Urbawise.
+
+## Pages importantes
+
+- Accueil : /
+- Réalisations : /realisations
+- Devis : /devis
+- Contact : /contact
+- À propos : /a-propos
+- Sites internet : /sites-internet
+- Applications mobiles : /applications-mobiles
+- IA : /ia
+- SEO : /seo
+- CRM & outils métiers : /crm-outils-metiers
+- Maintenance : /maintenance
+- Blog : /blog
+
+## Contact
+
+Email : bonjour@clickdev.fr  
+Téléphone : +33 6 95 65 08 88
+
+## Langue
+
+Contenu principal en français (fr-FR).

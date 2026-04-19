@@ -15,15 +15,16 @@ import {
   AccordionTrigger,
 } from '@/components/ui/accordion';
 import {
+  HOME_AUDIENCE_CARDS,
   HOME_CASE_PREVIEWS,
   HOME_FAQ_ITEMS,
   HOME_PROCESS_STEPS,
   HOME_SERVICE_CARDS,
   HOME_STACK_ITEMS,
   HOME_TESTIMONIALS,
+  HOME_TRUST_MARQUEE_NAMES,
 } from '@/lib/constants/home-content';
 import type { HomeCasePreview } from '@/lib/constants/home-content';
-import { SITES_INTERNET_MARQUEE_CLIENTS } from '@/lib/constants/sites-internet-premium';
 import type { SanityCaseStudyTeaser } from '@/types/sanity-case-study';
 import type { SanityPostTeaser } from '@/types/sanity-post';
 import { PlusIcon } from 'lucide-react';
@@ -65,13 +66,16 @@ function HeroClientPill({ label, subtle }: { label: string; subtle?: boolean }) 
   );
 }
 
-function HpClientMarquee() {
-  const row = useMemo(() => [...SITES_INTERNET_MARQUEE_CLIENTS, ...SITES_INTERNET_MARQUEE_CLIENTS], []);
+function HpTrustMarquee() {
+  const row = useMemo(() => [...HOME_TRUST_MARQUEE_NAMES, ...HOME_TRUST_MARQUEE_NAMES], []);
   return (
-    <div className="relative z-10 mt-14 border-y border-white/[0.07] md:mt-20">
-      <div className="mx-auto flex w-full max-w-[1400px] min-h-[100px] items-center justify-center px-4 py-8 md:min-h-[112px] md:px-8 md:py-10">
-        <div className="w-full overflow-hidden mask-[linear-gradient(90deg,transparent,black_6%,black_94%,transparent)]">
-          <div className="si-marquee-l flex w-max flex-nowrap items-center gap-3 pr-3">
+    <div className="relative z-10 mt-14 border-y border-white/[0.07] bg-black md:mt-20">
+      <div className="mx-auto flex w-full max-w-[1400px] flex-col items-center px-4 py-8 md:px-8 md:py-10">
+        <h2 className="text-center font-mono text-[11px] tracking-[0.28em] text-white/45 uppercase">
+          Ils me font confiance
+        </h2>
+        <div className="mt-6 w-full overflow-hidden mask-[linear-gradient(90deg,transparent,black_6%,black_94%,transparent)]">
+          <div className="si-marquee-l flex min-h-[52px] w-max flex-nowrap items-center gap-3 pr-3 md:min-h-[56px]">
             {row.map((label, i) => (
               <HeroClientPill key={`${label}-${i}`} label={label} subtle={i % 2 === 1} />
             ))}
@@ -79,6 +83,72 @@ function HpClientMarquee() {
         </div>
       </div>
     </div>
+  );
+}
+
+function HpAudienceGrid() {
+  const { pointer, onPointerMoveCapture, onPointerLeave } = useSectionStellarPointer();
+  return (
+    <section
+      className="relative overflow-hidden border-t border-white/[0.06] bg-black py-24 md:py-32 lg:py-40"
+      onPointerMoveCapture={onPointerMoveCapture}
+      onPointerLeave={onPointerLeave}
+    >
+      <StellarField count={34} className="opacity-[0.48]" interactive pointer={pointer} />
+      <div className="relative z-10 mx-auto max-w-[1400px] px-4 md:px-8">
+        <motion.div
+          initial={{ opacity: 0, y: 22 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+          className="mx-auto max-w-3xl text-center"
+        >
+          <p className="font-mono text-[11px] tracking-[0.28em] text-white/50 uppercase">Pour vous</p>
+          <h2 className="si-serif-display mt-4 text-[clamp(1.85rem,3.5vw,3rem)] font-medium tracking-[-0.03em] text-white">
+            Pour qui je travaille
+          </h2>
+          <p className="mt-4 text-sm text-white/60 md:text-base">
+            Des projets de 2 000 € à 200 000 €, avec la même exigence de qualité.
+          </p>
+        </motion.div>
+        <div className="mt-14 grid gap-4 sm:grid-cols-2 lg:grid-cols-4 lg:gap-5">
+          {HOME_AUDIENCE_CARDS.map((card, index) => (
+            <motion.div
+              key={card.title}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: '-6%' }}
+              transition={{ delay: index * 0.06, duration: 0.45 }}
+              className="min-h-[200px]"
+            >
+              <motion.div
+                className="h-full"
+                whileHover={{ scale: 1.01 }}
+                transition={{ type: 'spring', stiffness: 400, damping: 28 }}
+              >
+                <div className="group relative flex h-full min-h-[inherit] flex-col overflow-hidden rounded-2xl border border-white/[0.08] bg-gradient-to-br from-black to-neutral-950 p-6 transition duration-500 hover:border-white/[0.14]">
+                  <ServiceNightGlow />
+                  <div className="relative z-[2] mt-auto">
+                    <h3 className="text-lg font-semibold tracking-tight text-white [text-shadow:0_2px_14px_rgba(0,0,0,0.75)] md:text-xl">
+                      {card.title}
+                    </h3>
+                    <p className="mt-3 text-sm leading-relaxed text-white/75 [text-shadow:0_1px_10px_rgba(0,0,0,0.8)]">
+                      {card.body}
+                    </p>
+                    <Link
+                      href={card.href}
+                      className="mt-4 inline-flex items-center gap-2 font-mono text-[10px] tracking-wider text-white/60 uppercase transition group-hover:gap-3 group-hover:text-white"
+                    >
+                      {card.cta} <span aria-hidden>↗</span>
+                    </Link>
+                  </div>
+                </div>
+              </motion.div>
+            </motion.div>
+          ))}
+        </div>
+      </div>
+    </section>
   );
 }
 
@@ -116,10 +186,10 @@ function HpServices() {
         >
           <p className="font-mono text-[11px] tracking-[0.28em] text-white/50 uppercase">Expertises</p>
           <h2 className="si-serif-display mt-4 text-[clamp(1.9rem,3.6vw,3.1rem)] font-medium tracking-[-0.03em] text-white">
-            Six façons d’accélérer votre produit digital
+            Ce que je peux faire pour vous
           </h2>
           <p className="mt-4 text-sm text-white/60 md:text-base">
-            Du site vitrine à l’IA en production — une entrée par silo, le même niveau d’exigence.
+            Six manières de donner un coup d&apos;accélérateur à votre activité, selon vos besoins et votre budget.
           </p>
         </motion.div>
         <div className="mt-14 grid gap-4 sm:grid-cols-2 lg:grid-cols-3 lg:gap-5">
@@ -206,8 +276,8 @@ function HpPortfolioGrid({ caseStudies }: { caseStudies: SanityCaseStudyTeaser[]
           </h2>
           <p className="mx-auto mt-4 max-w-2xl text-sm text-white/58 md:text-base">
             {fromCms
-              ? 'Projets récents issus du portfolio — détail, captures et métriques sur chaque fiche.'
-              : 'Aperçus représentatifs en attendant le catalogue Sanity — tout le détail sur la page réalisations.'}
+              ? 'Création de sites internet, apps et outils : six projets récents. Je détaille captures et chiffres sur chaque fiche.'
+              : 'Quelques exemples de création de sites et d’apps en attendant le catalogue à jour — tout le détail sur la page réalisations.'}
           </p>
         </motion.div>
 
@@ -230,7 +300,7 @@ function HpPortfolioGrid({ caseStudies }: { caseStudies: SanityCaseStudyTeaser[]
                     {item.data.thumbnail ? (
                       <Image
                         src={item.data.thumbnail}
-                        alt=""
+                        alt={`Aperçu du projet ${item.data.title} — création site internet ou app`}
                         fill
                         className="object-cover transition duration-700 ease-out group-hover:scale-[1.04]"
                         sizes="(max-width:640px) 100vw, (max-width:1024px) 50vw, 33vw"
@@ -326,7 +396,6 @@ function HpMetrics() {
   const { pointer, onPointerMoveCapture, onPointerLeave } = useSectionStellarPointer();
   const lh = useAnimatedMetric(0, 100, '', 0, inView);
   const speed = useAnimatedMetric(2.4, 0.9, '', 1, inView);
-  const zero = useAnimatedMetric(3, 0, '', 0, inView);
 
   return (
     <section
@@ -343,8 +412,16 @@ function HpMetrics() {
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.65, ease: [0.22, 1, 0.36, 1] }}
         >
-          Chaque livraison est une promesse tenue : perf, SEO technique, accessibilité — et conversion.
+          Des promesses qu&apos;on tient (toujours).
         </motion.h2>
+        <motion.p
+          className="mx-auto mt-5 max-w-2xl text-center text-sm text-white/58 md:text-base"
+          initial={{ opacity: 0, y: 16 }}
+          animate={inView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.55, delay: 0.06 }}
+        >
+          Trois chiffres qui résument mes 10 dernières années.
+        </motion.p>
         <div className="mt-16 grid gap-12 border-t border-white/10 pt-14 md:grid-cols-3 md:gap-8 md:pt-16">
           <motion.div
             initial={{ opacity: 0, y: 24 }}
@@ -357,7 +434,7 @@ function HpMetrics() {
               {lh}
               <span className="text-white/50">/100</span>
             </p>
-            <p className="mt-2 text-sm text-white/55">Lighthouse — objectif mobile.</p>
+            <p className="mt-2 text-sm text-white/55">Score Lighthouse moyen sur les sites que je livre.</p>
           </motion.div>
           <motion.div
             initial={{ opacity: 0, y: 24 }}
@@ -371,7 +448,7 @@ function HpMetrics() {
               {speed}
               <span className="text-white/50">s</span>
             </p>
-            <p className="mt-2 text-sm text-white/55">Chargement perçu cible sur vitrine cadrée.</p>
+            <p className="mt-2 text-sm text-white/55">De chargement, même sur la page la plus lourde.</p>
           </motion.div>
           <motion.div
             initial={{ opacity: 0, y: 24 }}
@@ -379,8 +456,8 @@ function HpMetrics() {
             transition={{ delay: 0.2, duration: 0.55 }}
           >
             <p className="font-mono text-[10px] tracking-[0.25em] text-white/40 uppercase">Sérieux</p>
-            <p className="mt-3 text-5xl font-semibold tabular-nums tracking-tight text-white md:text-6xl">{zero}</p>
-            <p className="mt-2 text-sm text-white/55">Objectif zéro abandon de projet.</p>
+            <p className="mt-3 text-5xl font-semibold tabular-nums tracking-tight text-white md:text-6xl">0</p>
+            <p className="mt-2 text-sm text-white/55">Projet raté. Zéro. Je prends ça au sérieux.</p>
           </motion.div>
         </div>
       </div>
@@ -521,11 +598,37 @@ function HpStackMarquee() {
         <motion.div initial={{ opacity: 0, y: 18 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
           <p className="font-mono text-[11px] tracking-[0.28em] text-white/45 uppercase">Stack</p>
           <h2 className="si-serif-display mt-4 text-[clamp(1.75rem,3vw,2.75rem)] font-medium tracking-[-0.02em] text-white">
-            La techno au service du produit
+            La bonne techno pour votre projet.
           </h2>
           <p className="mt-4 max-w-md text-sm leading-relaxed text-white/58 md:text-base">
-            Expertises documentées — pages dédiées pour approfondir avant de choisir.
+            Je ne tombe pas amoureux d&apos;une techno. Je choisis celle qui sert votre projet — pas l&apos;inverse.
           </p>
+          <nav
+            aria-label="Offres par expertise"
+            className="mt-6 flex flex-wrap gap-x-4 gap-y-2 text-sm text-white/55 md:gap-x-5"
+          >
+            <Link href="/sites-internet" className="underline-offset-4 transition hover:text-white hover:underline">
+              Sites internet
+            </Link>
+            <Link
+              href="/applications-mobiles"
+              className="underline-offset-4 transition hover:text-white hover:underline"
+            >
+              Applications mobiles
+            </Link>
+            <Link href="/ia" className="underline-offset-4 transition hover:text-white hover:underline">
+              IA
+            </Link>
+            <Link href="/seo" className="underline-offset-4 transition hover:text-white hover:underline">
+              {'SEO & GEO'}
+            </Link>
+            <Link href="/crm-outils-metiers" className="underline-offset-4 transition hover:text-white hover:underline">
+              {'CRM & outils métiers'}
+            </Link>
+            <Link href="/maintenance" className="underline-offset-4 transition hover:text-white hover:underline">
+              Maintenance
+            </Link>
+          </nav>
         </motion.div>
         <div className="space-y-4 overflow-hidden">
           <div className="overflow-hidden mask-[linear-gradient(90deg,transparent,black_6%,black_94%,transparent)]">
@@ -572,14 +675,49 @@ function HpAbout() {
               Derrière Clickdev, <span className="text-white/85">David Rieu</span>
             </h2>
             <p className="mt-5 text-sm leading-relaxed text-white/72 md:text-base">
-              Une décennie de projets web, mobile et outils métiers. J’aime les équipes exigeantes, les sujets
-              techniques sérieux, et les livrables qui tiennent dans le temps.
+              Moi c&apos;est David. Je suis{' '}
+              <strong className="font-medium text-white/90">développeur web freelance</strong> depuis 10 ans, basé en
+              France, et je bosse avec des clients partout dans le monde. J&apos;ai eu la chance d&apos;accompagner des
+              grands groupes comme Accor ou Greenweez, mais j&apos;aime tout autant travailler avec un artisan qui lance
+              son site ou une PME qui veut passer un cap. Ma conviction : un bon produit digital, c&apos;est 30 % de
+              technique, 30 % de design, et 40 % de compréhension de votre métier. Sur le terrain, ça veut dire du{' '}
+              <Link href="/sites-internet" className="text-white/85 underline-offset-4 hover:text-white hover:underline">
+                site internet
+              </Link>
+              , des{' '}
+              <Link
+                href="/applications-mobiles"
+                className="text-white/85 underline-offset-4 hover:text-white hover:underline"
+              >
+                applications mobiles
+              </Link>
+              , du{' '}
+              <Link href="/seo" className="text-white/85 underline-offset-4 hover:text-white hover:underline">
+                référencement
+              </Link>
+              , de l&apos;
+              <Link href="/ia" className="text-white/85 underline-offset-4 hover:text-white hover:underline">
+                intégration IA
+              </Link>{' '}
+              et des{' '}
+              <Link href="/crm-outils-metiers" className="text-white/85 underline-offset-4 hover:text-white hover:underline">
+                outils sur mesure
+              </Link>{' '}
+              — toujours en restant joignable pour la{' '}
+              <Link href="/maintenance" className="text-white/85 underline-offset-4 hover:text-white hover:underline">
+                maintenance
+              </Link>
+              . Quelques exemples concrets sont sur la page{' '}
+              <Link href="/realisations" className="text-white/85 underline-offset-4 hover:text-white hover:underline">
+                réalisations
+              </Link>
+              .
             </p>
             <Link
               href="/a-propos"
               className="si-btn-pill-shine mt-8 inline-flex rounded-full border border-white/25 bg-white/[0.04] px-6 py-2.5 text-sm font-medium text-white/90 transition hover:border-white/40"
             >
-              <span className="relative z-10">En savoir plus</span>
+              <span className="relative z-10">En savoir plus sur mon parcours →</span>
             </Link>
           </div>
         </div>
@@ -595,7 +733,7 @@ function HpAbout() {
         <div className="mt-10 grid gap-4 md:grid-cols-2 md:gap-5">
           {HOME_TESTIMONIALS.map((t, i) => (
             <motion.blockquote
-              key={t.name}
+              key={`${t.name}-${i}`}
               initial={{ opacity: 0, y: 14 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -634,7 +772,7 @@ function HpFaq() {
           FAQ
         </motion.h2>
         <p className="mx-auto mt-4 text-center text-sm text-white/58 md:text-base">
-          Les questions les plus fréquentes avant de lancer un projet.
+          Les questions que je me pose souvent… avant même que vous les posiez.
         </p>
         <div className="mt-10">
           <Accordion multiple={false} defaultValue={[]} className="space-y-2">
@@ -665,25 +803,25 @@ function HpFaq() {
 const BLOG_PLACEHOLDERS: SanityPostTeaser[] = [
   {
     _id: 'ph-1',
-    title: 'WordPress vs Next.js en 2026 : lequel choisir ?',
+    title: 'WordPress ou un site sur mesure : comment choisir sans se tromper ?',
     slug: 'wordpress-vs-nextjs',
-    excerpt: 'Comparatif orienté décideurs : coûts, SEO, performances et équipes.',
+    excerpt: 'Les vraies questions à vous poser avant de signer — budget, évolutions, qui met à jour le site.',
     publishedAt: null,
     coverImage: null,
   },
   {
     _id: 'ph-2',
-    title: 'Combien coûte une marketplace ?',
+    title: 'Combien coûte une boutique en ligne ou une marketplace ?',
     slug: 'cout-marketplace',
-    excerpt: 'Budgets réalistes, phases de delivery et pièges à éviter.',
+    excerpt: 'Ordres de grandeur, grandes étapes, et ce qui fait varier la facture — sans jargon inutile.',
     publishedAt: null,
     coverImage: null,
   },
   {
     _id: 'ph-3',
-    title: 'Core Web Vitals : pourquoi votre site rame',
+    title: 'Pourquoi mon site est lent (et quoi faire en premier) ?',
     slug: 'core-web-vitals',
-    excerpt: 'LCP, INP, CLS expliqués simplement — et quoi corriger en priorité.',
+    excerpt: 'Explications simples + les trois correctifs qui ont le plus d’impact pour vos visiteurs.',
     publishedAt: null,
     coverImage: null,
   },
@@ -712,8 +850,8 @@ function HpBlog({ posts }: { posts: SanityPostTeaser[] }) {
         </motion.h2>
         <p className="mx-auto mt-4 max-w-2xl text-center text-sm text-white/58 md:text-base">
           {isPlaceholder
-            ? 'Articles à venir — SEO, e-commerce, IA et retours de terrain.'
-            : 'Derniers articles publiés.'}
+            ? 'Articles pour y voir clair : site web, budget, perf — sans jargon.'
+            : 'Mes derniers articles publiés.'}
         </p>
         <div className="mt-10 grid gap-6 md:grid-cols-3">
           {display.map((post, index) => (
@@ -727,7 +865,13 @@ function HpBlog({ posts }: { posts: SanityPostTeaser[] }) {
             >
               <div className="relative aspect-[16/10] bg-white/5">
                 {post.coverImage ? (
-                  <Image src={post.coverImage} alt="" fill className="object-cover" sizes="(max-width:768px) 100vw, 33vw" />
+                  <Image
+                    src={post.coverImage}
+                    alt={`Illustration de l’article de blog : ${post.title}`}
+                    fill
+                    className="object-cover"
+                    sizes="(max-width:768px) 100vw, 33vw"
+                  />
                 ) : (
                   <div className="absolute inset-0 bg-gradient-to-br from-white/10 to-transparent" aria-hidden />
                 )}
@@ -767,9 +911,16 @@ export type HomePremiumViewProps = {
 export function HomePremiumView({ latestPosts, featuredCaseStudies }: HomePremiumViewProps) {
   return (
     <main className="bg-black text-white">
+      <p className="sr-only">
+        Je suis David Rieu, développeur web freelance en France. Je conçois des sites internet, des applications
+        mobiles, j’intègre l’IA quand ça a du sens, je fais du SEO et de la GEO, et je développe des outils métiers sur
+        mesure pour les TPE, PME et grands comptes. Basé en France, je travaille aussi à distance avec des clients en
+        Europe et ailleurs.
+      </p>
       <HpHero />
-      <HpClientMarquee />
+      <HpTrustMarquee />
       <HpServices />
+      <HpAudienceGrid />
       <HpPortfolioGrid caseStudies={featuredCaseStudies} />
       <HpMetrics />
       <HpProcess />
@@ -781,8 +932,15 @@ export function HomePremiumView({ latestPosts, featuredCaseStudies }: HomePremiu
         title="Un projet en tête ? Parlons-en maintenant."
         description={
           <>
-            Décrivez votre contexte : retour sous <strong className="font-medium text-white/85">24h ouvrées</strong>{' '}
-            avec périmètre, jalons et ordre de grandeur — sans engagement.
+            <p>
+              Décrivez votre contexte : retour sous{' '}
+              <strong className="font-medium text-white/85">24h ouvrées</strong> avec périmètre, jalons et ordre de
+              grandeur — sans engagement.
+            </p>
+            <p className="mt-4 text-white/75">
+              30 minutes de discussion, zéro engagement. Vous repartez avec des conseils concrets, même si on ne travaille
+              pas ensemble.
+            </p>
           </>
         }
         primaryHref="/devis"
