@@ -35,6 +35,7 @@ export default async function RealisationsPage() {
         pagePath="/realisations"
         pageTitle="Réalisations — Clickdev"
         items={listItems}
+        pageEntity="CollectionPage"
       />
       <article className="mx-auto max-w-5xl px-4 py-16 md:px-6 md:py-20">
         <PageBreadcrumb items={jsonLdItems.map((j) => ({ label: j.name, href: j.path }))} />

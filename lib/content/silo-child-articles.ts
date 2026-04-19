@@ -344,6 +344,132 @@ const OVERRIDES: Partial<Record<string, MarketingLongArticle>> = {
       },
     ],
   },
+  'seo:seo-local': {
+    metaDescription:
+      'SEO local : fiche Google Business Profile, citations NAP, pages géo et avis — accompagnement freelance Clickdev.',
+    lead:
+      'Le SEO local sert quand vos clients cherchent « près de moi » ou une ville précise. Je structure les pages lieux, la cohérence NAP (nom, adresse, téléphone), les données structurées LocalBusiness quand c’est pertinent, et les signaux d’avis / liens locaux sans spam.',
+    sections: [
+      {
+        heading: 'Fondations',
+        paragraphs: [
+          'Google Business Profile à jour, catégories pertinentes, médias utiles et questions/réponses. Site : pages services × zones avec contenu réellement différencié, pas du duplicate léger.',
+        ],
+      },
+    ],
+    faq: [
+      {
+        question: 'Plusieurs agences physiques ?',
+        answer:
+          'Une stratégie par implantation : pages dédiées, liens internes clairs et fiches distinctes quand les règles Google le permettent.',
+      },
+    ],
+  },
+  'seo:seo-ecommerce': {
+    metaDescription:
+      'SEO e-commerce : indexation catalogue, filtres, pagination, contenus produit et maillage — freelance Clickdev.',
+    lead:
+      'Un e-commerce SEO-friendly gère la duplication (filtres, variantes), la profondeur de crawl, les pages orphelines et les intentions mixtes (transactionnelle vs informationnelle). Je priorise les templates à fort volume et les catégories stratégiques.',
+    sections: [
+      {
+        heading: 'Catalogue',
+        paragraphs: [
+          'Titres et descriptions produit utiles, facettes contrôlées (noindex ciblé, canonicals), et HTML crawlable pour le contenu critique. Les données structurées Product sont validées sans sur-promesse.',
+        ],
+      },
+    ],
+    faq: [
+      {
+        question: 'Marketplaces et SEO ?',
+        answer:
+          'Souvent contraintes de templates ; le levier est contenu éditorial, marque, et pages catégorie enrichies hors marketplace quand vous avez un site vitrine.',
+      },
+    ],
+  },
+  'sites-internet:landing-page': {
+    metaDescription:
+      'Landing page : message unique, preuves, CTA et vitesse — conception et dev freelance Clickdev.',
+    lead:
+      'Une landing efficace aligne une promesse, une preuve et un seul objectif de conversion (lead, démo, achat). Je réduis la dispersion cognitive, j’optimise le above-the-fold mobile et je mesure les événements analytics pour itérer.',
+    sections: [
+      {
+        heading: 'Itération',
+        paragraphs: [
+          'Variantes de hero et CTA testables, tracking propre (consentement RGPD), et intégration CRM / emailing pour ne pas perdre les leads en transit.',
+        ],
+      },
+    ],
+    faq: [
+      {
+        question: 'Landing vs page du site ?',
+        answer:
+          'La landing coupe la navigation pour maximiser la conversion ; la page site sert le maillage SEO long terme. Les deux peuvent coexister.',
+      },
+    ],
+  },
+  'applications-mobiles:pwa': {
+    metaDescription:
+      'PWA : installation, mode hors-ligne, push et perf — développement freelance Clickdev.',
+    lead:
+      'Une PWA repose sur un service worker fiable, un manifest clair et des stratégies de cache adaptées au risque (stale data vs fraîcheur). Je cible d’abord les parcours critiques : auth, consultation catalogue, formulaires terrain.',
+    sections: [
+      {
+        heading: 'App-like',
+        paragraphs: [
+          'Écran d’accueil, icônes, safe areas et comportements iOS/Android documentés. Les mises à jour du worker sont versionnées pour éviter les clients bloqués sur une vieille coquille vide.',
+        ],
+      },
+    ],
+    faq: [
+      {
+        question: 'PWA vs app store ?',
+        answer:
+          'La PWA évite le store pour des usages internes ou B2B ; le store reste pertinent pour la découverte grand public ou les APIs natives strictes.',
+      },
+    ],
+  },
+  'crm-outils-metiers:automatisation': {
+    metaDescription:
+      'Automatisation métier : workflows, intégrations et fiabilité — développement freelance Clickdev.',
+    lead:
+      'L’automatisation relie CRM, email, facturation ou support avec des règles explicites : déclencheurs, idempotence, journaux et reprises sur erreur. Je évite les « scripts magiques » non observables en production.',
+    sections: [
+      {
+        heading: 'Robustesse',
+        paragraphs: [
+          'Files d’attente, dead-letter, alertes sur échecs répétés et limites de taux sur les APIs externes. Les scénarios edge (doublons, annulations) sont listés avant le go-live.',
+        ],
+      },
+    ],
+    faq: [
+      {
+        question: 'Zapier / Make ou code ?',
+        answer:
+          'Les outils no-code accélèrent les prototypes ; le code gagne quand le volume, la sécurité ou la logique métier deviennent trop sensibles pour un graphe opaque.',
+      },
+    ],
+  },
+  'maintenance:maintenance-wordpress': {
+    metaDescription:
+      'Maintenance WordPress : mises à jour, sécurité, perf et sauvegardes — freelance Clickdev.',
+    lead:
+      'WordPress reste une cible : thèmes, plugins et cœur doivent être tenus à jour avec une fenêtre de test. Je mets en place des sauvegardes vérifiables, un staging pour les grosses montées de version et un suivi des vulnérabilités connues.',
+    sections: [
+      {
+        heading: 'Exploitation',
+        paragraphs: [
+          'Monitoring uptime léger, rapport post-mise à jour et procédure de rollback. Les comptes admin sont durcis (2FA, moindre privilège) et les accès FTP/SFTP restreints.',
+        ],
+      },
+    ],
+    faq: [
+      {
+        question: 'Hébergement mutualisé ?',
+        answer:
+          'Possible avec limites de perf et d’isolation ; je documente les contraintes pour éviter les surprises en pic de trafic.',
+      },
+    ],
+  },
 };
 
 function templateArticle(

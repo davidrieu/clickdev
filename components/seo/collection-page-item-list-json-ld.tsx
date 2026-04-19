@@ -1,15 +1,24 @@
-import { schemaOrigin, websiteJsonLdId } from '@/lib/seo/schema-ids';
+import { organizationJsonLdId, schemaOrigin, websiteJsonLdId } from '@/lib/seo/schema-ids';
 
 export type CollectionListItem = { path: string; name: string };
+
+export type CollectionPageEntity = 'WebPage' | 'CollectionPage';
 
 type Props = {
   pagePath: string;
   pageTitle: string;
   items: CollectionListItem[];
+  /** CollectionPage pour un index type portfolio ; WebPage par défaut. */
+  pageEntity?: CollectionPageEntity;
 };
 
-/** WebPage + ItemList pour les index (blog, réalisations, expertises). */
-export function CollectionPageItemListJsonLd({ pagePath, pageTitle, items }: Props) {
+/** WebPage (ou CollectionPage) + ItemList pour les index (réalisations, expertises, silos…). */
+export function CollectionPageItemListJsonLd({
+  pagePath,
+  pageTitle,
+  items,
+  pageEntity = 'WebPage',
+}: Props) {
   if (items.length === 0) {
     return null;
   }
@@ -17,17 +26,23 @@ export function CollectionPageItemListJsonLd({ pagePath, pageTitle, items }: Pro
   const origin = schemaOrigin();
   const pageUrl = `${origin}${pagePath.startsWith('/') ? pagePath : `/${pagePath}`}`;
 
+  const pageNode: Record<string, unknown> = {
+    '@type': pageEntity,
+    '@id': `${pageUrl}#webpage`,
+    url: pageUrl,
+    name: pageTitle,
+    isPartOf: { '@id': websiteJsonLdId() },
+    mainEntity: { '@id': `${pageUrl}#itemlist` },
+  };
+
+  if (pageEntity === 'CollectionPage') {
+    pageNode.publisher = { '@id': organizationJsonLdId() };
+  }
+
   const data = {
     '@context': 'https://schema.org',
     '@graph': [
-      {
-        '@type': 'WebPage',
-        '@id': `${pageUrl}#webpage`,
-        url: pageUrl,
-        name: pageTitle,
-        isPartOf: { '@id': websiteJsonLdId() },
-        mainEntity: { '@id': `${pageUrl}#itemlist` },
-      },
+      pageNode,
       {
         '@type': 'ItemList',
         '@id': `${pageUrl}#itemlist`,
