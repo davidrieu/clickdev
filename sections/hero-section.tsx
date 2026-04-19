@@ -8,14 +8,14 @@ export default function HeroSection() {
     <>
       <motion.div
         className="pointer-events-none fixed inset-0 -z-20 overflow-hidden"
-        initial={{ opacity: 0.42 }}
-        whileInView={{ opacity: 0.86 }}
+        initial={{ opacity: 0.28 }}
+        whileInView={{ opacity: 0.58 }}
         viewport={{ once: true }}
         transition={{ duration: 0.5 }}
       >
-        <div className="absolute top-80 left-2/5 size-130 -translate-x-1/2 rounded-full bg-[#D10A8A]/38 blur-[118px]" />
-        <div className="absolute top-80 right-0 size-130 -translate-x-1/2 rounded-full bg-[#2E08CF]/34 blur-[118px]" />
-        <div className="absolute top-0 left-1/2 size-130 -translate-x-1/2 rounded-full bg-[#F26A06]/36 blur-[118px]" />
+        <div className="absolute top-80 left-2/5 size-130 -translate-x-1/2 rounded-full bg-[#D10A8A]/24 blur-[132px]" />
+        <div className="absolute top-80 right-0 size-130 -translate-x-1/2 rounded-full bg-[#2E08CF]/22 blur-[132px]" />
+        <div className="absolute top-0 left-1/2 size-130 -translate-x-1/2 rounded-full bg-[#F26A06]/26 blur-[132px]" />
       </motion.div>
       <motion.section className="flex flex-col items-center">
         <motion.div

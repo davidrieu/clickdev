@@ -119,7 +119,7 @@ export default function HomeBlogCta({ posts }: { posts: SanityPostTeaser[] }) {
 
       <section className="relative mt-24 overflow-hidden rounded-2xl border border-white/10 bg-white/[0.03] px-6 py-16 text-center md:mt-32 md:px-12 md:py-20">
         <div
-          className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(242,106,6,0.09),transparent_56%)]"
+          className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(242,106,6,0.045),transparent_60%)]"
           aria-hidden
         />
         <motion.h2
