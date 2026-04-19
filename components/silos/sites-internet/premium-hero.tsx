@@ -83,7 +83,7 @@ export function PremiumHero() {
         </div>
 
         <div className="relative min-h-[280px] md:col-span-5 lg:col-span-6 md:min-h-[360px]">
-          <HeroMockupStack />
+          <HeroSiteBuildWireframe />
         </div>
       </div>
 
@@ -105,60 +105,77 @@ export function PremiumHero() {
   );
 }
 
-function HeroMockupStack() {
+/**
+ * Wireframe animé (CSS pur) : le site se construit bloc par bloc puis repart — boucle 8s.
+ * @see globals.css .si-hero-wire-*
+ */
+function HeroSiteBuildWireframe() {
   return (
     <div
-      className="relative mx-auto h-full min-h-[280px] max-w-lg md:mx-0 md:max-w-none"
+      className="relative mx-auto w-full max-w-lg md:mx-0 md:max-w-md"
       style={{ perspective: '1200px' }}
     >
       <motion.div
-        className="absolute right-0 top-4 w-[88%] max-w-md origin-bottom-right rounded-lg border border-white/[0.12] bg-gradient-to-br from-white/[0.09] to-white/[0.02] p-3 shadow-[0_24px_80px_-24px_rgba(0,0,0,0.85)] md:right-4 md:top-8"
-        style={{ transform: 'rotateY(-18deg) rotateX(6deg) rotateZ(-3deg)' }}
-        initial={{ opacity: 0, y: 40, rotateX: 12 }}
-        animate={{ opacity: 1, y: 0, rotateX: 6 }}
-        transition={{ delay: 0.25, duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
-      >
-        <div className="mb-2 flex gap-1.5">
-          <span className="size-2 rounded-full bg-white/20" />
-          <span className="size-2 rounded-full bg-white/15" />
-          <span className="size-2 rounded-full bg-white/10" />
-        </div>
-        <div className="space-y-2 rounded border border-white/[0.06] bg-black/40 p-3">
-          <div className="h-2 w-2/3 rounded bg-white/10" />
-          <div className="h-2 w-1/2 rounded bg-white/[0.07]" />
-          <div className="mt-3 grid grid-cols-3 gap-2">
-            <div className="aspect-video rounded bg-gradient-to-br from-[#F26A06]/30 to-transparent" />
-            <div className="aspect-video rounded bg-white/[0.06]" />
-            <div className="aspect-video rounded bg-white/[0.05]" />
-          </div>
-        </div>
-      </motion.div>
-
-      <motion.div
-        className="absolute right-8 top-24 w-[78%] max-w-sm origin-bottom-right rounded-lg border border-white/10 bg-gradient-to-br from-white/[0.06] to-transparent p-2.5 shadow-2xl md:right-16 md:top-32"
-        style={{ transform: 'rotateY(-10deg) rotateX(4deg) rotateZ(2deg)' }}
-        initial={{ opacity: 0, y: 50 }}
+        className="origin-center"
+        initial={{ opacity: 0, y: 28 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.38, duration: 0.65, ease: [0.22, 1, 0.36, 1] }}
+        transition={{ delay: 0.2, duration: 0.65, ease: [0.22, 1, 0.36, 1] }}
       >
-        <div className="rounded border border-white/[0.05] bg-black/50 p-3">
-          <div className="flex gap-2">
-            <div className="h-16 flex-1 rounded bg-gradient-to-t from-[#2E08CF]/25 to-transparent" />
-            <div className="h-16 flex-1 rounded bg-gradient-to-t from-[#D10A8A]/20 to-transparent" />
-          </div>
-          <div className="mt-2 h-1.5 w-full rounded bg-white/[0.08]" />
+        <div className="rounded-xl border border-white/[0.12] bg-gradient-to-br from-white/[0.08] to-white/[0.02] p-3 shadow-[0_28px_90px_-28px_rgba(0,0,0,0.9)] md:[transform:rotateY(-14deg)_rotateX(5deg)_rotateZ(-2deg)] md:[transform-origin:right_center]">
+        <div className="mb-3 flex items-center gap-2 border-b border-white/[0.08] pb-3">
+          <span className="size-2 rounded-full bg-white/25" aria-hidden />
+          <span className="size-2 rounded-full bg-white/15" aria-hidden />
+          <span className="size-2 rounded-full bg-white/10" aria-hidden />
+          <div className="ml-2 h-2 flex-1 max-w-[180px] rounded-full bg-white/[0.08]" aria-hidden />
         </div>
-      </motion.div>
 
-      <motion.div
-        className="absolute right-20 top-48 w-[62%] max-w-xs rounded-lg border border-[#F26A06]/25 bg-black/60 p-2 shadow-[0_0_40px_-12px_rgba(242,106,6,0.35)] md:right-28 md:top-56"
-        style={{ transform: 'rotateZ(-4deg)' }}
-        initial={{ opacity: 0, scale: 0.92 }}
-        animate={{ opacity: 1, scale: 1 }}
-        transition={{ delay: 0.5, duration: 0.5 }}
-      >
-        <div className="font-mono text-[10px] tracking-wider text-[#F26A06] uppercase">Lighthouse</div>
-        <div className="mt-1 text-2xl font-semibold tabular-nums text-white">100</div>
+        <div className="space-y-3 rounded-lg border border-dashed border-white/[0.1] bg-black/35 p-4" aria-hidden>
+          {/* Header site */}
+          <div className="si-hero-wire-header flex items-center justify-between gap-3 rounded border border-white/15 bg-white/[0.04] px-3 py-2.5">
+            <div className="h-2.5 w-16 rounded-sm bg-white/25" />
+            <div className="flex gap-2">
+              <div className="h-1.5 w-8 rounded-full bg-white/15" />
+              <div className="h-1.5 w-8 rounded-full bg-white/15" />
+              <div className="h-1.5 w-8 rounded-full bg-white/15" />
+            </div>
+          </div>
+
+          {/* Hero */}
+          <div className="si-hero-wire-hero space-y-2 rounded border border-white/12 bg-white/[0.03] p-3">
+            <div className="h-3 w-[62%] max-w-[220px] rounded-sm bg-white/20" />
+            <div className="h-2 w-full max-w-[280px] rounded-full bg-white/12" />
+            <div className="h-2 w-[80%] max-w-[240px] rounded-full bg-white/10" />
+            <div className="mt-2 h-20 w-full rounded-md border border-white/[0.08] bg-gradient-to-br from-white/[0.06] to-transparent" />
+          </div>
+
+          {/* Sections — lignes */}
+          <div className="si-hero-wire-section space-y-2">
+            <div className="si-hero-wire-line h-1.5 w-full rounded-full bg-white/12" />
+            <div className="si-hero-wire-line-d1 h-1.5 w-[92%] rounded-full bg-white/10" />
+            <div className="si-hero-wire-line-d2 h-1.5 w-[78%] rounded-full bg-white/10" />
+          </div>
+
+          {/* Deux colonnes */}
+          <div className="si-hero-wire-columns grid grid-cols-2 gap-2">
+            <div className="h-20 rounded-md border border-white/12 bg-white/[0.04]" />
+            <div className="h-20 rounded-md border border-white/12 bg-white/[0.04]" />
+          </div>
+
+          {/* Footer */}
+          <div className="si-hero-wire-footer flex items-center justify-between gap-2 rounded border border-white/10 bg-white/[0.03] px-3 py-2.5">
+            <div className="h-1.5 w-20 rounded-full bg-white/12" />
+            <div className="flex gap-1.5">
+              <div className="size-1.5 rounded-full bg-white/20" />
+              <div className="size-1.5 rounded-full bg-white/20" />
+              <div className="size-1.5 rounded-full bg-white/20" />
+            </div>
+          </div>
+        </div>
+
+        <p className="mt-3 text-center font-mono text-[9px] tracking-[0.2em] text-white/30 uppercase">
+          build — preview — ship
+        </p>
+        </div>
       </motion.div>
     </div>
   );
