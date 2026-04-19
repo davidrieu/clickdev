@@ -35,7 +35,7 @@ export function PremiumIntro() {
   return (
     <section
       ref={ref}
-      className="border-t border-white/[0.06] bg-[oklch(0.11_0_0)] py-24 md:py-36 lg:py-44"
+      className="bg-[oklch(0.11_0_0)] py-24 md:py-36 lg:py-44"
     >
       <div className="mx-auto max-w-[1100px] px-4 md:px-8">
         <motion.h2
