@@ -28,86 +28,98 @@ export const SITES_INTERNET_STACK = [
   'Vercel',
 ] as const;
 
-export const SITES_INTERNET_BUDGET_FAQ = [
-  {
-    question: 'Combien coûte un site vitrine pro ?',
-    answer:
-      'Fourchette indicative selon cadrage : un vitrine sur mesure sérieux (design intégré, perf, SEO technique, CMS) démarre souvent dans une fourchette mid–haut de milliers d’euros. Un POC plus léger peut être moins ; un vitrine + automations + intégrations monte. Un devis cadré après un court échange évite les mauvaises surprises.',
-  },
-  {
-    question: 'Combien coûte un e-commerce ?',
-    answer:
-      'Un e-commerce dépend du catalogue, des moyens de paiement, des règles promo, du SEO catalogue et des pics de charge. Shopify ou WooCommerce accélère certaines parties ; du sur-mesure ajoute du temps mais gagne en contrôle. On dimensionne par jalons (MVP puis extensions).',
-  },
-  {
-    question: 'Quel est le délai moyen ?',
-    answer:
-      'Vitrine cadré : souvent quelques semaines à quelques mois selon contenus et validations. E-commerce ou refonte critique : plutôt plusieurs mois avec phases testables. Je préfère annoncer large et livrer serré que l’inverse.',
-  },
-  {
-    question: 'Puis-je payer en plusieurs fois ?',
-    answer:
-      'Oui selon le montant et l’échéancier : jalons facturés (cadrage, design validé, mise en ligne, etc.). On formalise dans le devis.',
-  },
-  {
-    question: 'Est-ce que vous accompagnez les petites structures ?',
-    answer:
-      'Oui, tant que le projet est réaliste et que quelqu’un peut trancher vite. La TPE a souvent besoin d’un site simple mais irréprochable sur mobile et SEO local — c’est un excellent investissement.',
-  },
-] as const;
+export type SitesInternetFaqTabId = 'budget' | 'tech' | 'process';
 
-export const SITES_INTERNET_TECH_FAQ = [
-  {
-    question: 'WordPress ou Next.js pour mon projet ?',
-    answer:
-      'WordPress si l’équipe veut une autonomie maximale sur les contenus et un écosystème connu. Next.js si vous visez perf extrême, e-commerce headless, expériences très interactives, ou intégration dans un produit plus large. La réponse dépend de vos compétences internes et de votre horizon 18–36 mois.',
-  },
-  {
-    question: 'Peut-on refondre sans tout couper d’un coup ?',
-    answer:
-      'Oui : routes migrées par lots, feature flags, préproduction réaliste, redirections 301 propres. La stratégie dépend du trafic, de la stack et de la tolérance au risque SEO.',
-  },
-  {
-    question: 'Vous reprenez un site déjà en ligne ?',
-    answer:
-      'Oui : audit UX + technique, quick wins, puis roadmap. On peut commencer par sécurité et performance si c’est urgent, puis refonte ciblée.',
-  },
-  {
-    question: 'Comment sont gérées les performances (Core Web Vitals) ?',
-    answer:
-      'Mesures tôt sur mobile réel, images modernes, JS raisonnable, polices maîtrisées, cache cohérent. Les objectifs sont fixés en amont et suivis sur préprod puis prod.',
-  },
-  {
-    question: 'Quid du SEO technique lors d’une refonte ?',
-    answer:
-      'Plan de redirections, canonical, données structurées utiles, maillage interne, duplication évitée, internationalisation si besoin. Pas de “refonte silencieuse” sans contrôle Search Console.',
-  },
-  {
-    question: 'Marketplace et simple vitrine : même ampleur ?',
-    answer:
-      'Non : la marketplace ajoute identités multiples, paiements, modération, SEO multi-offre et charge. C’est un autre périmètre ; on le traite dans une feuille de route dédiée.',
-  },
-  {
-    question: 'Comment sécuriser les formulaires et données perso ?',
-    answer:
-      'Validation serveur, anti-spam adapté, messages d’erreur clairs, HTTPS partout, bonnes pratiques cookies/consentement selon votre contexte. Pour du sensible, on cadrera avec vos référents.',
-  },
-  {
-    question: 'Proposez-vous de la maintenance après livraison ?',
-    answer:
-      'Oui en TMA ou au ticket : mises à jour, correctifs, petites évolutions. L’objectif est que vous ne repartiez pas de zéro avec un inconnu qui découvre le code au hasard.',
-  },
-  {
-    question: 'Travaillez-vous avec des designers ou agences ?',
-    answer:
-      'Oui : intégration à partir de Figma, collaboration sur le design system, ou recommandation de partenaires si vous n’avez pas encore de maquettes.',
-  },
-  {
-    question: 'Comment démarrer concrètement ?',
-    answer:
-      'Un message avec contexte, contraintes, et idée de budget ou délai — même approximatif. Je réponds avec des options ou une proposition d’atelier court.',
-  },
-] as const;
+export const SITES_INTERNET_FAQ_TAB_LABELS: Record<SitesInternetFaqTabId, string> = {
+  budget: 'Budget & délais',
+  tech: 'Technique',
+  process: 'Process & accompagnement',
+};
+
+export const SITES_INTERNET_FAQ_BY_TAB: Record<
+  SitesInternetFaqTabId,
+  readonly { question: string; answer: string }[]
+> = {
+  budget: [
+    {
+      question: 'Combien coûte un site vitrine pro ?',
+      answer:
+        'Ça dépend du périmètre (nombre de gabarits, CMS, intégrations, SEO technique). Un site vitrine sérieux — performant, accessible, prêt pour la prod — se cadre plutôt en milliers d’euros que en centaines. Un échange court permet d’aligner ambition et budget sans surprise.',
+    },
+    {
+      question: 'Combien coûte un e-commerce sur mesure ?',
+      answer:
+        'Un e-commerce sur mesure intègre tunnel, paiement, logistique d’infos, SEO catalogue et souvent des pics de charge. Shopify ou WooCommerce réduit parfois le temps ; du headless Next.js + CMS gagne en contrôle. On découpe en jalons facturables (MVP puis extensions).',
+    },
+    {
+      question: 'Combien coûte une marketplace ?',
+      answer:
+        'Une marketplace ajoute identités multiples, paiements, modération, litiges et SEO multi-offres : c’est un autre ordre de grandeur qu’une boutique classique. On estime après atelier sur les rôles (acheteur / vendeur / admin) et les volumes attendus.',
+    },
+    {
+      question: 'Quel est le délai moyen de livraison ?',
+      answer:
+        'Un vitrine cadré : souvent plusieurs semaines à quelques mois selon contenus et validations. Un e-commerce ou une refonte critique : plutôt plusieurs mois avec releases intermédiaires. Je préfère annoncer large et tenir le planning que l’inverse.',
+    },
+    {
+      question: 'Puis-je étaler le paiement en plusieurs fois ?',
+      answer:
+        'Oui, selon le montant : jalons liés au cadrage, à la validation design, à la mise en préproduction et au go-live. Les modalités sont fixées au devis.',
+    },
+  ],
+  tech: [
+    {
+      question: 'Utilisez-vous WordPress ou des frameworks modernes ?',
+      answer:
+        'Les deux selon le besoin : WordPress pour l’autonomie éditoriale et l’écosystème ; Next.js / React pour la performance, le e-commerce headless ou les produits très interactifs. La réponse se lit dans vos contraintes internes et votre horizon 18–36 mois, pas dans la mode du moment.',
+    },
+    {
+      question: 'Le site sera-t-il optimisé pour le SEO et le GEO ?',
+      answer:
+        'Oui sur le volet technique : structure, performance (Core Web Vitals), données structurées utiles, maillage, migrations propres. Le GEO (visibilité dans les réponses d’IA) s’appuie sur des contenus clairs et vérifiables — je peux cadrer avec vous ce qui est réaliste.',
+    },
+    {
+      question: 'Mon site sera-t-il mobile-friendly et accessible ?',
+      answer:
+        'Mobile-first est la norme : mise en page fluide, contrastes, focus clavier, alternatives utiles aux images, animations respectueuses de `prefers-reduced-motion`. L’objectif est un site utilisable pour tous — et plus agréable pour tout le monde.',
+    },
+    {
+      question: 'Puis-je gérer le contenu moi-même après la livraison ?',
+      answer:
+        'Oui : WordPress, Sanity ou autre CMS selon le projet. Je documente les types de contenus, les champs sensibles et les bonnes pratiques pour ne pas casser la mise en page. Si vous préférez un accompagnement rédactionnel, je peux recommander des partenaires.',
+    },
+  ],
+  process: [
+    {
+      question: 'Travaillez-vous avec les petites structures ?',
+      answer:
+        'Oui, lorsque le projet est réaliste et qu’une personne peut trancher vite. Une TPE ou un artisan a souvent besoin d’un site vitrine professionnel rapide, clair sur mobile et bien positionné localement — c’est un investissement rentable quand il est bien cadré.',
+    },
+    {
+      question: 'Comment se déroule un projet type ?',
+      answer:
+        'Cadrage court, proposition de périmètre, maquettes ou design system intégré, développement par itérations visibles sur préproduction, tests (perf, accessibilité, cas limites), puis lancement avec redirections et monitoring. Vous savez où on en est à chaque jalon — pas de boîte noire.',
+    },
+    {
+      question: 'Assurez-vous la maintenance après livraison ?',
+      answer:
+        'Oui en TMA ou au ticket : mises à jour de sécurité, correctifs, petites évolutions. L’idée est que vous ne repartiez pas de zéro avec quelqu’un qui découvre le code dans l’urgence.',
+    },
+    {
+      question: 'Intervenez-vous sur des sites existants ?',
+      answer:
+        'Oui : audit UX + technique, quick wins (perf, SEO, sécurité), puis roadmap de refonte totale ou progressive selon le risque business et le trafic.',
+    },
+  ],
+};
+
+export function sitesInternetFaqJsonLdItems(): { question: string; answer: string }[] {
+  return [
+    ...SITES_INTERNET_FAQ_BY_TAB.budget,
+    ...SITES_INTERNET_FAQ_BY_TAB.tech,
+    ...SITES_INTERNET_FAQ_BY_TAB.process,
+  ];
+}
 
 export const SITES_INTERNET_TESTIMONIALS = [
   {
@@ -150,52 +162,3 @@ export const SITES_INTERNET_COMPARE_MATRIX: { wp: boolean; custom: boolean }[] =
   { wp: false, custom: true },
   { wp: true, custom: false },
 ];
-
-export const SITES_INTERNET_CASES = [
-  {
-    title: 'Greenweez',
-    category: 'E-commerce',
-    description:
-      'Refonte du tunnel de conversion — performance, UX et industrialisation pour un pic de trafic soutenu.',
-    href: '/realisations',
-    metrics: [
-      { value: '+34%', label: 'conversion' },
-      { value: '0,9s', label: 'chargement' },
-      { value: '100', label: 'Lighthouse' },
-    ],
-    image:
-      'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=1200&h=800&q=75',
-  },
-  {
-    title: 'The French Maisons',
-    category: 'E-commerce luxe',
-    description:
-      'Expérience digitale haut de gamme : rythme éditorial, pages produit exigeantes et exigence forte sur la qualité perçue.',
-    href: '/realisations',
-    metrics: [
-      { value: '−42%', label: 'rebond' },
-      { value: 'AA', label: 'accessibilité visée' },
-      { value: '12', label: 'pays' },
-    ],
-    image:
-      'https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&w=1200&h=800&q=75',
-  },
-  {
-    title: 'Urbawise',
-    category: 'Plateforme web',
-    description:
-      'Produit web avec enjeux de clarté et de montée en charge : parcours utilisateurs, SEO et stabilité sur la durée.',
-    href: '/realisations',
-    metrics: [
-      { value: '99,9%', label: 'disponibilité' },
-      { value: '−35%', label: 'temps tâche' },
-      { value: '24/7', label: 'usage' },
-    ],
-    image:
-      'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1200&h=800&q=75',
-  },
-] as const;
-
-export function sitesInternetFaqJsonLdItems() {
-  return [...SITES_INTERNET_BUDGET_FAQ, ...SITES_INTERNET_TECH_FAQ];
-}

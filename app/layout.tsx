@@ -1,7 +1,7 @@
 import { OrganizationJsonLd } from '@/components/seo/organization-json-ld';
 import { SITE_NAME, SITE_URL } from '@/lib/constants/site';
 import type { Metadata } from 'next';
-import { Instrument_Serif, Poppins } from 'next/font/google';
+import { Newsreader, Poppins } from 'next/font/google';
 import LenisScroll from '@/components/lenis-scroll';
 import { Toaster } from '@/components/ui/sonner';
 import './globals.css';
@@ -12,10 +12,10 @@ const poppins = Poppins({
   weight: ['400', '500', '600', '700'],
 });
 
-const instrumentSerif = Instrument_Serif({
+const newsreader = Newsreader({
   subsets: ['latin'],
-  variable: '--font-instrument',
-  weight: '400',
+  variable: '--font-newsreader',
+  weight: ['300', '400', '500'],
   style: ['normal', 'italic'],
 });
 
@@ -47,7 +47,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="fr" className={`dark ${poppins.variable} ${instrumentSerif.variable}`}>
+    <html lang="fr" className={`dark ${poppins.variable} ${newsreader.variable}`}>
       <body>
         <OrganizationJsonLd />
         <LenisScroll />

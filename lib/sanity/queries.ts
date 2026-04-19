@@ -42,10 +42,14 @@ const caseStudyTeaserProjection = `{
   featuredMetric,
   metrics,
   featured,
-  "thumbnail": thumbnail.asset->url
+  "thumbnail": thumbnail.asset->url,
+  publishedAt
 }`;
 
 export const featuredCaseStudiesQuery = `*[_type == "caseStudy" && defined(slug.current)] | order(featured desc, publishedAt desc)[0...6]${caseStudyTeaserProjection}`;
+
+/** Derniers projets « web » (site, e-commerce, marketplace) pour la page pilier /sites-internet. */
+export const recentWebCaseStudiesQuery = `*[_type == "caseStudy" && defined(slug.current) && category in ["website", "ecommerce", "marketplace"]] | order(coalesce(publishedAt, _updatedAt) desc)[0...5]${caseStudyTeaserProjection}`;
 
 export const allCaseStudiesTeasersQuery = `*[_type == "caseStudy" && defined(slug.current)] | order(featured desc, coalesce(publishedAt, _updatedAt) desc)${caseStudyTeaserProjection}`;
 

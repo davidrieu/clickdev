@@ -10,6 +10,7 @@ import {
   caseStudySitemapEntriesQuery,
   featuredCaseStudiesQuery,
   latestPostsQuery,
+  recentWebCaseStudiesQuery,
   postBySlugQuery,
   postSlugsQuery,
   postSitemapEntriesQuery,
@@ -101,6 +102,20 @@ export async function getAllCaseStudyTeasers(): Promise<SanityCaseStudyTeaser[]>
 
   try {
     const rows = await sanityClient.fetch<SanityCaseStudyTeaser[]>(allCaseStudiesTeasersQuery);
+    return rows ?? [];
+  } catch {
+    return [];
+  }
+}
+
+/** 5 dernières études de cas web (site / e-commerce / marketplace), les plus récentes d’abord. */
+export async function getRecentWebCaseStudies(): Promise<SanityCaseStudyTeaser[]> {
+  if (!sanityClient) {
+    return [];
+  }
+
+  try {
+    const rows = await sanityClient.fetch<SanityCaseStudyTeaser[]>(recentWebCaseStudiesQuery);
     return rows ?? [];
   } catch {
     return [];

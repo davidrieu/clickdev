@@ -1,7 +1,8 @@
 'use client';
 
 import Link from 'next/link';
-import { motion } from 'framer-motion';
+import { useRef } from 'react';
+import { motion, useReducedMotion, useScroll, useTransform } from 'framer-motion';
 
 type BentoItem = {
   href: string;
@@ -71,6 +72,68 @@ const ITEMS: BentoItem[] = [
   },
 ];
 
+function isFeatured(item: BentoItem) {
+  return item.className.includes('row-span-2');
+}
+
+function BentoTile({ item, index }: { item: BentoItem; index: number }) {
+  const reduce = useReducedMotion();
+  const tileRef = useRef<HTMLDivElement>(null);
+  const featured = isFeatured(item);
+
+  const { scrollYProgress } = useScroll({
+    target: tileRef,
+    offset: ['start end', 'end start'],
+  });
+
+  const parallaxY = useTransform(
+    scrollYProgress,
+    [0, 1],
+    reduce || !featured ? [0, 0] : index === 0 ? [22, -22] : [16, -16],
+  );
+
+  return (
+    <motion.div
+      ref={tileRef}
+      initial={{ opacity: 0, y: 24 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: '-5%' }}
+      transition={{ delay: index * 0.08, duration: 0.48, ease: [0.22, 1, 0.36, 1] }}
+      className={item.className}
+    >
+      <motion.div
+        className="h-full min-h-[inherit]"
+        whileHover={reduce ? undefined : { scale: 1.012 }}
+        transition={{ type: 'spring', stiffness: 420, damping: 28 }}
+      >
+        <Link
+          href={item.href}
+          className="group relative flex h-full min-h-[inherit] flex-col overflow-hidden rounded-2xl border border-white/[0.08] bg-gradient-to-br from-white/[0.035] to-black/40 p-6 transition duration-500 before:pointer-events-none before:absolute before:inset-0 before:bg-[radial-gradient(520px_220px_at_90%_-10%,rgba(242,106,6,0.14),transparent_55%)] before:opacity-0 before:transition-opacity before:duration-500 hover:border-white/[0.16] hover:from-white/[0.05] hover:before:opacity-100 md:p-8"
+        >
+          <span
+            className="pointer-events-none absolute inset-0 opacity-0 blur-2xl transition duration-500 group-hover:opacity-100"
+            style={{
+              background:
+                'radial-gradient(400px 200px at 80% 0%, rgba(242,106,6,0.14), transparent 60%)',
+            }}
+            aria-hidden
+          />
+          <motion.div className="pointer-events-none absolute inset-0" style={{ y: parallaxY }} aria-hidden>
+            <BentoVisual variant={item.visual} />
+          </motion.div>
+          <div className="relative z-[1] mt-auto pt-8">
+            <h3 className="text-xl font-semibold tracking-tight text-white md:text-2xl">{item.title}</h3>
+            <p className="mt-2 max-w-md text-sm leading-relaxed text-white/55">{item.description}</p>
+            <span className="mt-5 inline-flex items-center gap-2 font-mono text-xs tracking-wider text-[#F26A06] uppercase transition group-hover:gap-3">
+              Découvrir <span aria-hidden>↗</span>
+            </span>
+          </div>
+        </Link>
+      </motion.div>
+    </motion.div>
+  );
+}
+
 export function PremiumBento() {
   return (
     <section className="relative border-t border-white/[0.06] bg-black py-24 md:py-36 lg:py-44">
@@ -83,7 +146,7 @@ export function PremiumBento() {
           className="max-w-3xl"
         >
           <p className="font-mono text-[11px] tracking-[0.28em] text-[#F26A06] uppercase">Typologies</p>
-          <h2 className="mt-4 text-[clamp(2rem,4vw,3.5rem)] leading-[1.08] font-medium tracking-[-0.03em] text-white [font-family:var(--font-instrument),ui-serif,Georgia,serif]">
+          <h2 className="si-serif-display mt-4 text-[clamp(2rem,4vw,3.5rem)] leading-[1.08] font-medium tracking-[-0.03em] text-white">
             Huit façons de faire web — une seule exigence : la qualité.
           </h2>
           <p className="mt-5 max-w-xl text-sm leading-relaxed text-white/60 md:text-base">
@@ -94,36 +157,7 @@ export function PremiumBento() {
 
         <div className="mt-16 grid auto-rows-fr grid-cols-1 gap-3 md:grid-cols-4 md:gap-4">
           {ITEMS.map((item, i) => (
-            <motion.div
-              key={item.href}
-              initial={{ opacity: 0, y: 24 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: '-5%' }}
-              transition={{ delay: i * 0.05, duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
-              className={item.className}
-            >
-              <Link
-                href={item.href}
-                className="group relative flex h-full min-h-[inherit] flex-col overflow-hidden rounded-2xl border border-white/[0.08] bg-white/[0.02] p-6 transition duration-500 before:pointer-events-none before:absolute before:inset-0 before:opacity-0 before:transition-opacity before:duration-500 hover:border-white/[0.14] hover:bg-white/[0.04] hover:before:opacity-100 md:p-8"
-              >
-                <span
-                  className="pointer-events-none absolute inset-0 opacity-0 blur-2xl transition duration-500 group-hover:opacity-100"
-                  style={{
-                    background:
-                      'radial-gradient(400px 200px at 80% 0%, rgba(242,106,6,0.12), transparent 60%)',
-                  }}
-                  aria-hidden
-                />
-                <BentoVisual variant={item.visual} />
-                <div className="relative mt-auto pt-8">
-                  <h3 className="text-xl font-semibold tracking-tight text-white md:text-2xl">{item.title}</h3>
-                  <p className="mt-2 max-w-md text-sm leading-relaxed text-white/55">{item.description}</p>
-                  <span className="mt-5 inline-flex items-center gap-2 font-mono text-xs tracking-wider text-[#F26A06] uppercase transition group-hover:gap-3">
-                    Découvrir <span aria-hidden>→</span>
-                  </span>
-                </div>
-              </Link>
-            </motion.div>
+            <BentoTile key={item.href} item={item} index={i} />
           ))}
         </div>
       </div>

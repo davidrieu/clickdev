@@ -2,14 +2,50 @@
 
 import Image from 'next/image';
 import Link from 'next/link';
+import { useCallback, useState } from 'react';
 import { motion } from 'framer-motion';
 
-import { SITES_INTERNET_CASES } from '@/lib/constants/sites-internet-premium';
+import { CASE_STUDY_CATEGORY_LABELS } from '@/lib/constants/case-study';
+import type { SanityCaseStudyTeaser } from '@/types/sanity-case-study';
 
-export function PremiumCases() {
+type Props = {
+  caseStudies: SanityCaseStudyTeaser[];
+};
+
+function displayYear(c: SanityCaseStudyTeaser): string {
+  if (c.year != null && !Number.isNaN(c.year)) return String(c.year);
+  if (c.publishedAt) {
+    const d = new Date(c.publishedAt);
+    if (!Number.isNaN(d.getTime())) return String(d.getFullYear());
+  }
+  return '—';
+}
+
+function displayMetric(c: SanityCaseStudyTeaser): string {
+  const fm = c.featuredMetric?.trim();
+  if (fm) return fm;
+  const m = c.metrics?.[0];
+  if (m?.value && m?.label) return `${m.value} ${m.label}`;
+  if (m?.value) return m.value;
+  return '—';
+}
+
+function categoryLabel(c: SanityCaseStudyTeaser): string {
+  const k = c.category ?? '';
+  if (!k) return '—';
+  return CASE_STUDY_CATEGORY_LABELS[k] ?? k;
+}
+
+export function PremiumCases({ caseStudies }: Props) {
+  const [activeId, setActiveId] = useState<string | null>(null);
+  const clear = useCallback(() => setActiveId(null), []);
+
   return (
-    <section className="border-t border-white/[0.06] bg-black py-24 md:py-40 lg:py-48">
-      <div className="mx-auto max-w-[1200px] px-4 md:px-8">
+    <section
+      className="relative border-t border-white/[0.06] bg-black py-24 md:py-40 lg:py-48"
+      onMouseLeave={clear}
+    >
+      <div className="mx-auto max-w-[1100px] px-4 md:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -17,66 +53,83 @@ export function PremiumCases() {
           transition={{ duration: 0.5 }}
           className="max-w-2xl"
         >
-          <p className="font-mono text-[11px] tracking-[0.28em] text-white/40 uppercase">Sites web</p>
-          <h2 className="mt-4 text-[clamp(1.85rem,3.5vw,3rem)] font-medium tracking-[-0.03em] text-white [font-family:var(--font-instrument),ui-serif,Georgia,serif]">
-            Trois références — même exigence de finition.
+          <p className="font-mono text-[11px] tracking-[0.28em] text-white/40 uppercase">Portfolio</p>
+          <h2 className="si-serif-display mt-4 text-[clamp(1.85rem,3.5vw,3rem)] font-medium tracking-[-0.03em] text-white">
+            Cinq réalisations récentes
           </h2>
           <p className="mt-4 text-sm text-white/55 md:text-base">
-            Visuels de démo ; les fiches détaillées vivent côté réalisations.
+            Les derniers sites livrés, par ordre chronologique.
           </p>
         </motion.div>
 
-        <ul className="mt-16 space-y-20 md:space-y-28">
-          {SITES_INTERNET_CASES.map((c, i) => (
-            <motion.li
-              key={c.title}
-              initial={{ opacity: 0, y: 28 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: '-10%' }}
-              transition={{ duration: 0.55 }}
-            >
-              <Link
-                href={c.href}
-                className="group grid gap-8 md:grid-cols-2 md:items-center md:gap-12"
-              >
-                <div
-                  className={`relative aspect-[16/10] overflow-hidden rounded-2xl border border-white/10 bg-white/[0.03] ${
-                    i % 2 === 1 ? 'md:order-2' : ''
-                  }`}
+        {caseStudies.length === 0 ? (
+          <p className="mt-14 text-sm text-white/45">
+            Les projets web publiés dans Sanity apparaîtront ici automatiquement (catégories site web, e-commerce ou
+            marketplace).
+          </p>
+        ) : (
+          <ul className="relative mt-14 border-t border-white/10">
+            {caseStudies.map((c, i) => {
+              const active = activeId === c._id;
+              const dim = activeId !== null && !active;
+              return (
+                <motion.li
+                  key={c._id}
+                  initial={{ opacity: 0, y: 16 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, margin: '-5%' }}
+                  transition={{ delay: i * 0.06, duration: 0.4 }}
+                  className="relative border-b border-white/[0.07]"
+                  onMouseEnter={() => setActiveId(c._id)}
                 >
-                  <Image
-                    src={c.image}
-                    alt=""
-                    fill
-                    className="object-cover transition duration-700 group-hover:scale-[1.03]"
-                    sizes="(max-width: 768px) 100vw, 50vw"
-                  />
-                  <div
-                    className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-60"
-                    aria-hidden
-                  />
-                </div>
-                <div className={i % 2 === 1 ? 'md:order-1' : ''}>
-                  <p className="font-mono text-[10px] tracking-[0.25em] text-[#F26A06] uppercase">{c.category}</p>
-                  <h3 className="mt-2 text-3xl font-semibold tracking-tight text-white md:text-4xl">{c.title}</h3>
-                  <p className="mt-4 text-sm leading-relaxed text-white/65 md:text-base">{c.description}</p>
-                  <dl className="mt-8 grid grid-cols-3 gap-4 border-t border-white/10 pt-8">
-                    {c.metrics.map((m) => (
-                      <div key={m.label}>
-                        <dt className="sr-only">{m.label}</dt>
-                        <dd className="text-2xl font-semibold tabular-nums text-white md:text-3xl">{m.value}</dd>
-                        <p className="mt-1 text-[11px] leading-snug text-white/45 uppercase">{m.label}</p>
+                  <Link
+                    href={`/realisations/${c.slug}`}
+                    className={`group relative grid min-h-[72px] grid-cols-2 gap-x-4 gap-y-3 py-5 transition duration-300 md:min-h-[80px] md:grid-cols-[minmax(0,0.55fr)_minmax(0,1.2fr)_minmax(0,0.9fr)_minmax(0,1fr)_auto] md:items-center md:gap-6 md:py-6 ${
+                      active ? 'min-h-[140px] md:min-h-[160px]' : ''
+                    } ${dim ? 'opacity-[0.42]' : 'opacity-100'}`}
+                  >
+                    <span className="font-mono text-xs tabular-nums text-white/45 md:text-sm">{displayYear(c)}</span>
+                    <span className="si-serif-display text-lg font-medium tracking-tight text-white md:text-xl">
+                      {c.title}
+                    </span>
+                    <span className="text-xs text-white/50 uppercase md:text-sm">{categoryLabel(c)}</span>
+                    <span className="font-mono text-sm text-[#F26A06] tabular-nums md:text-base">{displayMetric(c)}</span>
+                    <span className="flex justify-end text-white/40 transition duration-300 group-hover:-rotate-45 group-hover:text-[#F26A06] md:text-lg">
+                      ↗
+                    </span>
+
+                    {c.thumbnail ? (
+                      <div
+                        className={`pointer-events-none absolute top-1/2 right-0 z-10 hidden w-[42%] max-w-[280px] -translate-y-1/2 overflow-hidden rounded-lg border border-white/15 bg-black/80 shadow-2xl transition duration-500 md:block ${
+                          active ? 'translate-x-0 opacity-100' : 'translate-x-4 opacity-0'
+                        }`}
+                        aria-hidden
+                      >
+                        <div className="relative aspect-[16/10] w-full">
+                          <Image src={c.thumbnail} alt="" fill className="object-cover" sizes="280px" />
+                        </div>
                       </div>
-                    ))}
-                  </dl>
-                  <span className="mt-8 inline-block font-mono text-xs tracking-wider text-white/50 uppercase transition group-hover:text-[#F26A06]">
-                    Voir le détail →
-                  </span>
-                </div>
-              </Link>
-            </motion.li>
-          ))}
-        </ul>
+                    ) : null}
+                  </Link>
+                </motion.li>
+              );
+            })}
+          </ul>
+        )}
+
+        <motion.div
+          className="mt-12"
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+        >
+          <Link
+            href="/realisations"
+            className="inline-flex items-center gap-2 font-mono text-xs tracking-[0.2em] text-white/50 uppercase transition hover:text-[#F26A06]"
+          >
+            Voir toutes les réalisations <span aria-hidden>→</span>
+          </Link>
+        </motion.div>
       </div>
     </section>
   );

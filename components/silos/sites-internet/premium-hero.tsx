@@ -38,7 +38,7 @@ export function PremiumHero() {
           </motion.div>
 
           <motion.h1
-            className="mt-8 text-[clamp(2.75rem,7.5vw,8.75rem)] leading-[0.92] font-medium tracking-[-0.04em] text-white [font-family:var(--font-instrument),ui-serif,Georgia,serif]"
+            className="si-serif-display mt-8 text-[clamp(2.75rem,7.5vw,8.75rem)] leading-[0.92] font-medium tracking-[-0.04em] text-white"
             initial={{ opacity: 0, y: 28 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.06, duration: 0.65, ease: [0.22, 1, 0.36, 1] }}

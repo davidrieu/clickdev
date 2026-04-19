@@ -28,12 +28,12 @@ export function PremiumQuotes() {
               transition={{ duration: 0.55, delay: i * 0.05 }}
             >
               <p
-                className="select-none text-[clamp(4rem,14vw,10rem)] leading-none text-white/[0.07] [font-family:var(--font-instrument),ui-serif,Georgia,serif]"
+                className="si-serif-display select-none text-[clamp(4rem,14vw,10rem)] leading-none text-white/[0.07]"
                 aria-hidden
               >
                 “
               </p>
-              <blockquote className="-mt-4 text-[clamp(1.35rem,2.8vw,2.125rem)] leading-snug font-medium tracking-[-0.02em] text-white/90 [font-family:var(--font-instrument),ui-serif,Georgia,serif]">
+              <blockquote className="si-serif-display -mt-4 text-[clamp(1.35rem,2.8vw,2.125rem)] leading-snug font-medium tracking-[-0.02em] text-white/90">
                 {t.quote}
               </blockquote>
               <footer className="mt-8 border-l-2 border-[#F26A06]/60 pl-5">

@@ -25,7 +25,7 @@ export function PremiumCompare() {
           className="text-center"
         >
           <p className="font-mono text-[11px] tracking-[0.28em] text-[#F26A06] uppercase">Décision</p>
-          <h2 className="mt-4 text-[clamp(1.85rem,3.5vw,3rem)] font-medium tracking-[-0.03em] text-white [font-family:var(--font-instrument),ui-serif,Georgia,serif]">
+          <h2 className="si-serif-display mt-4 text-[clamp(1.85rem,3.5vw,3rem)] font-medium tracking-[-0.03em] text-white">
             WordPress vs sur mesure
           </h2>
           <p className="mx-auto mt-4 max-w-lg text-sm text-white/55 md:text-base">

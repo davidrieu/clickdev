@@ -14,6 +14,7 @@ export type SanityCaseStudyTeaser = {
   metrics: SanityCaseStudyMetric[] | null;
   featured: boolean | null;
   thumbnail: string | null;
+  publishedAt: string | null;
 };
 
 export type SanityCaseStudyChallenge = {

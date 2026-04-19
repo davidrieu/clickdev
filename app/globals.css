@@ -128,6 +128,77 @@
   }
 }
 
+/* Titres display page /sites-internet (Newsreader via next/font) */
+.si-serif-display {
+  font-family: var(--font-newsreader), ui-serif, Georgia, serif;
+}
+
+/* Bloc éditorial SEO /sites-internet */
+.si-editorial-h3::first-letter {
+  float: left;
+  margin: 0.08em 0.12em 0 0;
+  font-size: 2.35em;
+  line-height: 0.82;
+  font-weight: 500;
+  color: oklch(0.78 0.14 45);
+}
+
+@media (max-width: 640px) {
+  .si-editorial-h3::first-letter {
+    font-size: 1.85em;
+  }
+}
+
+/* CTA final /sites-internet */
+@keyframes si-star-twinkle {
+  0%,
+  100% {
+    opacity: 0.12;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.85;
+    transform: scale(1.35);
+  }
+}
+
+.si-cta-star {
+  animation: si-star-twinkle 3.2s ease-in-out infinite;
+}
+
+@keyframes si-cta-section-breathe {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.018);
+  }
+}
+
+.si-cta-breathe {
+  animation: si-cta-section-breathe 12s ease-in-out infinite;
+  transform-origin: 50% 40%;
+}
+
+.si-cta-primary-glow {
+  box-shadow:
+    0 0 0 1px rgba(255, 255, 255, 0.12),
+    0 0 48px -10px rgba(255, 255, 255, 0.35),
+    0 0 72px -14px rgba(242, 106, 6, 0.28);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .si-cta-star,
+  .si-cta-breathe {
+    animation: none;
+  }
+
+  .si-cta-star {
+    opacity: 0.35;
+  }
+}
+
 @layer components {
   .glass {
     @apply border border-white/20 bg-white/10;

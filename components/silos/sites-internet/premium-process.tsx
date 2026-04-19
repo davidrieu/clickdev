@@ -55,7 +55,7 @@ export function PremiumProcess() {
           className="text-center"
         >
           <p className="font-mono text-[11px] tracking-[0.28em] text-white/40 uppercase">Process</p>
-          <h2 className="mt-4 text-[clamp(1.85rem,3.8vw,3rem)] font-medium tracking-[-0.03em] text-white [font-family:var(--font-instrument),ui-serif,Georgia,serif]">
+          <h2 className="si-serif-display mt-4 text-[clamp(1.85rem,3.8vw,3rem)] font-medium tracking-[-0.03em] text-white">
             Cinq étapes, zéro boîte noire
           </h2>
         </motion.div>
@@ -104,7 +104,7 @@ function ProcessStep({ step, index }: { step: (typeof STEPS)[number]; index: num
         </span>
       </div>
       <div className="border-b border-white/[0.06] pb-16 md:pb-20">
-        <p className="font-[family-name:var(--font-instrument),ui-serif] text-5xl font-medium italic leading-none text-white/15 md:text-7xl">
+        <p className="si-serif-display text-5xl font-medium italic leading-none text-white/15 md:text-7xl">
           {step.n}
         </p>
         <h3 className="mt-2 text-2xl font-semibold tracking-tight text-white md:text-3xl">{step.title}</h3>

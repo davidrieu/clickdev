@@ -18,7 +18,7 @@ export function PremiumStackMarquee() {
           transition={{ duration: 0.5 }}
         >
           <p className="font-mono text-[11px] tracking-[0.28em] text-white/40 uppercase">Stack</p>
-          <h2 className="mt-4 text-[clamp(1.75rem,3vw,2.75rem)] font-medium leading-tight tracking-[-0.02em] text-white [font-family:var(--font-instrument),ui-serif,Georgia,serif]">
+          <h2 className="si-serif-display mt-4 text-[clamp(1.75rem,3vw,2.75rem)] font-medium leading-tight tracking-[-0.02em] text-white">
             La techno au service du produit — pas l’inverse.
           </h2>
           <p className="mt-5 max-w-md text-sm leading-relaxed text-white/58 md:text-base">

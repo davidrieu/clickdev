@@ -39,7 +39,7 @@ export function PremiumIntro() {
     >
       <div className="mx-auto max-w-[1100px] px-4 md:px-8">
         <motion.h2
-          className="text-balance text-[clamp(1.85rem,4.2vw,3.75rem)] leading-[1.12] font-medium tracking-[-0.03em] text-white [font-family:var(--font-instrument),ui-serif,Georgia,serif]"
+          className="si-serif-display text-balance text-[clamp(1.85rem,4.2vw,3.75rem)] leading-[1.12] font-medium tracking-[-0.03em] text-white"
           initial={{ opacity: 0, y: 32 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.65, ease: [0.22, 1, 0.36, 1] }}
