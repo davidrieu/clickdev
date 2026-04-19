@@ -1,5 +1,6 @@
 import MarketingShell from '@/components/marketing/marketing-shell';
 import MarketingArticleBody from '@/components/marketing/marketing-article-body';
+import SitesInternetPillarExperience from '@/components/silos/sites-internet-pillar-experience';
 import { BreadcrumbJsonLd } from '@/components/seo/breadcrumb-json-ld';
 import { CollectionPageItemListJsonLd } from '@/components/seo/collection-page-item-list-json-ld';
 import { FaqPageJsonLd } from '@/components/seo/faq-page-json-ld';
@@ -56,17 +57,26 @@ export default async function SiloPillarPage({ params }: Props) {
         items={listItems}
       />
       <FaqPageJsonLd items={article.faq} />
-      <MarketingShell
-        eyebrow="Clickdev"
-        title={entry.label}
-        description={article.lead}
-        breadcrumb={[
-          { label: 'Accueil', href: '/' },
-          { label: entry.label, href: entry.href },
-        ]}
-      >
-        <MarketingArticleBody sections={article.sections} faq={article.faq} relatedPages={relatedPages} />
-      </MarketingShell>
+      {silo === 'sites-internet' ? (
+        <SitesInternetPillarExperience
+          title={entry.label}
+          lead={article.lead}
+          article={article}
+          relatedPages={relatedPages}
+        />
+      ) : (
+        <MarketingShell
+          eyebrow="Clickdev"
+          title={entry.label}
+          description={article.lead}
+          breadcrumb={[
+            { label: 'Accueil', href: '/' },
+            { label: entry.label, href: entry.href },
+          ]}
+        >
+          <MarketingArticleBody sections={article.sections} faq={article.faq} relatedPages={relatedPages} />
+        </MarketingShell>
+      )}
     </>
   );
 }
