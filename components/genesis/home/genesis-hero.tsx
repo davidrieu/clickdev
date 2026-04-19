@@ -8,18 +8,7 @@ import { calBookingUrl } from "@/lib/constants/site";
 export function GenesisHero() {
   return (
     <>
-      <motion.div
-        className="pointer-events-none fixed inset-0 -z-20 overflow-hidden"
-        initial={{ opacity: 0.4 }}
-        whileInView={{ opacity: 1 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.5 }}
-      >
-        <div className="absolute left-2/5 top-80 size-[520px] -translate-x-1/2 rounded-full bg-[#D10A8A] blur-[100px]" />
-        <div className="absolute right-0 top-80 size-[520px] -translate-x-1/2 rounded-full bg-[#2E08CF] blur-[100px]" />
-        <div className="absolute left-1/2 top-0 size-[520px] -translate-x-1/2 rounded-full bg-[#F26A06] blur-[100px]" />
-      </motion.div>
-      <motion.section className="flex flex-col items-center">
+      <motion.section className="relative z-[1] flex flex-col items-center">
         <motion.div
           className="mt-24 flex items-center gap-3 md:mt-32"
           initial={{ y: -20, opacity: 0 }}
