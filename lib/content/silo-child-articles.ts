@@ -36,6 +36,39 @@ const OVERRIDES: Partial<Record<string, MarketingLongArticle>> = {
       },
     ],
   },
+  'sites-internet:site-ecommerce': {
+    metaDescription:
+      'Site e-commerce sur mesure, Shopify ou WooCommerce : tunnel, perf, SEO produit et intégrations — Clickdev.',
+    lead:
+      'Un e-commerce performant combine catalogue clair, tunnel de conversion sans friction, moyens de paiement fiables et pages rapides sur mobile. Je conçois ou refonds des boutiques alignées sur vos règles métier (promotions, stocks, multi-devises, B2B).',
+    sections: [
+      {
+        heading: 'Tunnel & conversion',
+        paragraphs: [
+          'Parcours panier/checkout, confiance (avis, garanties, livraison), réassurance mobile et réduction des étapes inutiles. Les micro-données et le maillage interne produit/blog renforcent le SEO e-commerce.',
+          'Les pics de trafic (soldes, TV) sont anticipés : cache, files d’attente, limites de débit sur les APIs sensibles.',
+        ],
+      },
+      {
+        heading: 'Intégrations',
+        paragraphs: [
+          'ERP, logistique, CRM, emailing et outils analytics branchés proprement (webhooks, idempotence, journaux). Les connecteurs fragiles sont isolés pour limiter les régressions.',
+        ],
+      },
+    ],
+    faq: [
+      {
+        question: 'Shopify, WooCommerce ou sur mesure ?',
+        answer:
+          'Shopify accélère le standard e-commerce. WooCommerce convient quand WordPress est déjà le socle éditorial. Le sur mesure (souvent Next.js + API) gagne sur les règles catalogue très spécifiques.',
+      },
+      {
+        question: 'Refonte sans perdre le SEO ?',
+        answer:
+          'Plan de redirections, mapping URL, tests sur préprod et suivi Search Console après bascule — jalons définis dans le cadrage.',
+      },
+    ],
+  },
   'seo:audit-seo': {
     metaDescription:
       'Audit SEO technique et éditorial : crawl, indexation, performances, maillage — livrable actionnable par Clickdev.',
@@ -66,6 +99,39 @@ const OVERRIDES: Partial<Record<string, MarketingLongArticle>> = {
         question: 'Délai moyen ?',
         answer:
           'De quelques jours à deux semaines selon la taille du site et la profondeur demandée.',
+      },
+    ],
+  },
+  'seo:geo-generative-engine-optimization': {
+    metaDescription:
+      'GEO : optimiser votre visibilité dans ChatGPT, Perplexity et les AI Overviews — méthode freelance Clickdev.',
+    lead:
+      'Le GEO (Generative Engine Optimization) vise à être correctement cité ou recommandé lorsque les moteurs génératifs synthétisent le web. Ce n’est pas du « prompt hacking » : il s’agit de clarifier qui vous êtes, quelles preuves vous apportez, et comment vos pages sont structurées pour être exploitables.',
+    sections: [
+      {
+        heading: 'Piliers GEO',
+        paragraphs: [
+          'Entité forte (marque, fondateur, pages « about » utiles), faits vérifiables, FAQ claires, données structurées pertinentes, et cohérence des signaux externes (profils, mentions, presse).',
+          'Le contenu « machine-readable » : titres explicites, listes, définitions courtes, et pages thématiques qui répondent à une intention sans ambiguïté.',
+        ],
+      },
+      {
+        heading: 'Mesure & attentes',
+        paragraphs: [
+          'Les outils analytics classiques ne montrent pas tout le trafic « IA ». On combine positions classiques, marque, et tests manuels sur requêtes cibles pour ajuster la roadmap éditoriale et technique.',
+        ],
+      },
+    ],
+    faq: [
+      {
+        question: 'GEO remplace le SEO ?',
+        answer:
+          'Non : le SEO technique et l’autorité restent la base. Le GEO ajoute une couche sur la clarté sémantique et la confiance lorsque les réponses sont générées.',
+      },
+      {
+        question: 'Résultats garantis ?',
+        answer:
+          'Personne ne peut garantir une citation dans une réponse IA. On optimise les probabilités avec des signaux solides et durables.',
       },
     ],
   },
