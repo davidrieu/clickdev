@@ -17,8 +17,8 @@ export function PremiumHero() {
     <section className="relative overflow-hidden pt-24 pb-8 md:pt-28 md:pb-14 lg:pt-32">
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_80%_50%_at_50%_-20%,rgba(242,106,6,0.12),transparent)]" />
 
-      <div className="relative z-10 mx-auto grid max-w-[1400px] gap-12 px-4 md:grid-cols-12 md:gap-8 md:px-8 lg:gap-12">
-        <div className="flex flex-col justify-end md:col-span-7 lg:col-span-6">
+      <div className="relative z-10 mx-auto grid max-w-[1400px] gap-12 px-4 md:grid-cols-12 md:items-center md:gap-8 md:px-8 lg:gap-12">
+        <div className="flex flex-col justify-center md:col-span-6 md:py-4 lg:py-6">
           <motion.div
             className="flex items-center gap-4"
             initial={{ opacity: 0, y: 12 }}
@@ -82,7 +82,7 @@ export function PremiumHero() {
           </motion.div>
         </div>
 
-        <div className="relative min-h-[280px] md:col-span-5 lg:col-span-6 md:min-h-[360px]">
+        <div className="relative flex min-h-[280px] items-center justify-center md:col-span-6 md:min-h-[min(420px,52vh)] md:justify-end md:pl-2 lg:pl-4">
           <HeroSiteBuildWireframe />
         </div>
       </div>
@@ -112,7 +112,7 @@ export function PremiumHero() {
 function HeroSiteBuildWireframe() {
   return (
     <div
-      className="relative mx-auto w-full max-w-lg md:mx-0 md:max-w-md"
+      className="relative mx-auto w-full max-w-lg md:mx-0 md:ml-auto md:mr-0 md:max-w-md lg:max-w-lg"
       style={{ perspective: '1200px' }}
     >
       <motion.div
