@@ -110,8 +110,9 @@ export function PremiumHero() {
         </div>
       </div>
 
-      <div className="relative z-10 border-t border-white/[0.07]">
-        <div className="mx-auto flex w-full max-w-[1400px] min-h-[88px] items-center justify-center px-4 py-6 md:min-h-[96px] md:px-8 md:py-7">
+      {/* Bandeau clients : entre deux traits, pills centrés verticalement (pas collées au hero). */}
+      <div className="relative z-10 mt-14 border-y border-white/[0.07] md:mt-20">
+        <div className="mx-auto flex w-full max-w-[1400px] min-h-[100px] items-center justify-center px-4 py-8 md:min-h-[112px] md:px-8 md:py-10">
           <div className="w-full overflow-hidden mask-[linear-gradient(90deg,transparent,black_6%,black_94%,transparent)]">
             <div className="si-marquee-l flex w-max flex-nowrap items-center gap-3 pr-3">
               {marquee.map((label, i) => (
