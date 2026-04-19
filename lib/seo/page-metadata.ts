@@ -12,14 +12,17 @@ export function pageMetadata(opts: {
   description: string;
   path: string;
   ogImage?: string | null;
+  /** Pages marketing hors blog : utiliser `website` pour éviter le type Open Graph « article ». */
+  openGraphType?: 'website' | 'article';
 }): Metadata {
   const url = absoluteUrl(opts.path);
+  const ogType = opts.openGraphType ?? 'article';
   return {
     title: opts.title,
     description: opts.description,
     alternates: { canonical: url },
     openGraph: {
-      type: 'article',
+      type: ogType,
       url,
       title: opts.title,
       description: opts.description,

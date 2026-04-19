@@ -41,6 +41,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     description,
     path: `/realisations/${slug}`,
     ogImage: study.ogImage ?? study.heroImage ?? study.thumbnail,
+    openGraphType: 'website',
   });
 }
 

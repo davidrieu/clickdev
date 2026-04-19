@@ -1,10 +1,18 @@
 'use client';
 
-import { HOME_CASE_PREVIEWS } from '@/lib/constants/home-content';
+import type { HomeCasePreview } from '@/lib/constants/home-content';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
 
-export default function HomeCases() {
+type Props = {
+  previews: HomeCasePreview[];
+  intro?: string;
+};
+
+export default function HomeCases({
+  previews,
+  intro = 'Projets mis en avant ou exemples représentatifs — détail sur chaque fiche réalisation.',
+}: Props) {
   return (
     <section className="mt-24 md:mt-32">
       <motion.h2
@@ -16,13 +24,11 @@ export default function HomeCases() {
       >
         Études de cas
       </motion.h2>
-      <p className="mx-auto mt-4 max-w-2xl text-center text-sm text-white/70 md:text-base">
-        Quelques projets récents — chiffres indicatifs, détails à venir dans le portfolio.
-      </p>
+      <p className="mx-auto mt-4 max-w-2xl text-center text-sm text-white/70 md:text-base">{intro}</p>
       <div className="mt-12 flex flex-col gap-12">
-        {HOME_CASE_PREVIEWS.map((c, index) => (
+        {previews.map((c, index) => (
           <motion.div
-            key={c.title}
+            key={`${c.title}-${c.href}`}
             className="grid gap-8 border-b border-white/10 pb-12 last:border-0 last:pb-0 md:grid-cols-2 md:items-start"
             initial={{ y: 28, opacity: 0 }}
             whileInView={{ y: 0, opacity: 1 }}
@@ -33,7 +39,14 @@ export default function HomeCases() {
               <p className="font-mono text-[11px] tracking-widest text-white/45 uppercase">
                 {c.category}
               </p>
-              <h3 className="mt-2 text-2xl font-semibold md:text-3xl">{c.title}</h3>
+              <h3 className="mt-2 text-2xl font-semibold md:text-3xl">
+                <Link
+                  href={c.href}
+                  className="transition hover:text-[#F26A06] hover:underline-offset-4 hover:underline"
+                >
+                  {c.title}
+                </Link>
+              </h3>
               <p className="mt-4 text-sm leading-relaxed text-white/75 md:text-base">
                 {c.description}
               </p>

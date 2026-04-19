@@ -35,6 +35,7 @@ const caseStudyTeaserProjection = `{
   category,
   tagline,
   featuredMetric,
+  metrics,
   featured,
   "thumbnail": thumbnail.asset->url
 }`;

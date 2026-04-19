@@ -6,6 +6,7 @@ import {
   getChildSlugsForSilo,
   isServiceSilo,
 } from '@/lib/constants/sitemap';
+import { listingPageMetadata } from '@/lib/seo/page-metadata';
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 
@@ -25,11 +26,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   if (!isServiceSilo(silo)) return {};
   const entry = NAV_SILOS.find((s) => s.href === `/${silo}`);
   const child = entry?.children.find((c) => c.href === `/${silo}/${slug}`);
-  if (!child) return {};
-  return {
+  if (!child || !entry) return {};
+  return listingPageMetadata({
     title: child.label,
-    description: `${child.label} — ${entry?.label ?? silo}. Clickdev, développeur freelance.`,
-  };
+    description: `${child.label} — ${entry.label}. Clickdev, développeur freelance.`,
+    path: `/${silo}/${slug}`,
+  });
 }
 
 export default async function SiloChildPage({ params }: Props) {

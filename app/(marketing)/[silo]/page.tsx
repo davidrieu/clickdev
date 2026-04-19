@@ -1,6 +1,7 @@
 import MarketingShell from '@/components/marketing/marketing-shell';
 import { BreadcrumbJsonLd } from '@/components/seo/breadcrumb-json-ld';
 import { NAV_SILOS, SERVICE_SILOS, isServiceSilo } from '@/lib/constants/sitemap';
+import { listingPageMetadata } from '@/lib/seo/page-metadata';
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 
@@ -14,10 +15,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { silo } = await params;
   if (!isServiceSilo(silo)) return {};
   const entry = NAV_SILOS.find((s) => s.href === `/${silo}`);
-  return {
-    title: entry?.label ?? silo,
-    description: `Services ${entry?.label ?? silo} — Clickdev, développeur freelance.`,
-  };
+  if (!entry) return {};
+  return listingPageMetadata({
+    title: entry.label,
+    description: `Services ${entry.label} — sites, apps et outils digitaux. Clickdev, développeur freelance.`,
+    path: `/${silo}`,
+  });
 }
 
 export default async function SiloPillarPage({ params }: Props) {

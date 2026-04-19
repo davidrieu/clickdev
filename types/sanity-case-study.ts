@@ -1,5 +1,7 @@
 import type { PortableTextBlock } from '@portabletext/types';
 
+export type SanityCaseStudyMetric = { value: string | null; label: string | null };
+
 export type SanityCaseStudyTeaser = {
   _id: string;
   title: string;
@@ -9,6 +11,7 @@ export type SanityCaseStudyTeaser = {
   category: string | null;
   tagline: string | null;
   featuredMetric: string | null;
+  metrics: SanityCaseStudyMetric[] | null;
   featured: boolean | null;
   thumbnail: string | null;
 };
@@ -23,8 +26,6 @@ export type SanityCaseStudyGalleryItem = {
   image: string | null;
   caption: string | null;
 };
-
-export type SanityCaseStudyMetric = { value: string | null; label: string | null };
 
 export type SanityCaseStudyStackRow = {
   category: string | null;
