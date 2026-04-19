@@ -4,17 +4,22 @@ import Link from 'next/link';
 import { useMemo } from 'react';
 import { motion, useReducedMotion } from 'framer-motion';
 
-import { StellarField } from './stellar-field';
+import { StellarField, useSectionStellarPointer } from './stellar-field';
 
 const TITLE = 'Prêt à passer d’un site qui subit à un site qui performe ?';
 
 export function PremiumFinalCta() {
   const reduce = useReducedMotion();
   const words = useMemo(() => TITLE.split(' '), []);
+  const { pointer, onPointerMoveCapture, onPointerLeave } = useSectionStellarPointer();
 
   return (
-    <section className="relative overflow-hidden border-t border-white/[0.08] bg-black py-28 md:py-40 lg:py-52">
-      <StellarField count={56} />
+    <section
+      className="relative overflow-hidden border-t border-white/[0.08] bg-black py-28 md:py-40 lg:py-52"
+      onPointerMoveCapture={onPointerMoveCapture}
+      onPointerLeave={onPointerLeave}
+    >
+      <StellarField count={56} interactive pointer={pointer} />
 
       <motion.div
         className="pointer-events-none absolute -left-24 top-1/4 size-[380px] rounded-full bg-white/10 blur-3xl"

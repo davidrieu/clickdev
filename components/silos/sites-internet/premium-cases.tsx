@@ -8,6 +8,8 @@ import { motion } from 'framer-motion';
 import { CASE_STUDY_CATEGORY_LABELS } from '@/lib/constants/case-study';
 import type { SanityCaseStudyTeaser } from '@/types/sanity-case-study';
 
+import { StellarField, useSectionStellarPointer } from './stellar-field';
+
 type Props = {
   caseStudies: SanityCaseStudyTeaser[];
 };
@@ -39,13 +41,17 @@ function categoryLabel(c: SanityCaseStudyTeaser): string {
 export function PremiumCases({ caseStudies }: Props) {
   const [activeId, setActiveId] = useState<string | null>(null);
   const clear = useCallback(() => setActiveId(null), []);
+  const { pointer, onPointerMoveCapture, onPointerLeave } = useSectionStellarPointer();
 
   return (
     <section
-      className="relative border-t border-white/[0.06] bg-black py-24 md:py-40 lg:py-48"
+      className="relative overflow-hidden border-t border-white/[0.06] bg-black py-24 md:py-40 lg:py-48"
       onMouseLeave={clear}
+      onPointerMoveCapture={onPointerMoveCapture}
+      onPointerLeave={onPointerLeave}
     >
-      <div className="mx-auto max-w-[1100px] px-4 md:px-8">
+      <StellarField count={48} className="opacity-[0.7]" interactive pointer={pointer} />
+      <div className="relative z-10 mx-auto max-w-[1100px] px-4 md:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}

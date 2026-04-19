@@ -1,23 +1,43 @@
 'use client';
 
 import Link from 'next/link';
+import { useMemo } from 'react';
 import { motion } from 'framer-motion';
 
 import { SITES_INTERNET_MARQUEE_CLIENTS } from '@/lib/constants/sites-internet-premium';
 
-import { StellarField } from './stellar-field';
+import { StellarField, useSectionStellarPointer } from './stellar-field';
 
 const lineDraw = {
   rest: { scaleX: 0, originX: 0 },
   animate: { scaleX: 1, transition: { duration: 0.9, ease: [0.22, 1, 0.36, 1] as const } },
 };
 
+function HeroClientPill({ label, subtle }: { label: string; subtle?: boolean }) {
+  return (
+    <span
+      className={`shrink-0 rounded-full border px-5 py-2.5 font-mono text-[11px] tracking-wider uppercase transition ${
+        subtle
+          ? 'border-white/[0.07] bg-white/[0.02] text-white/45'
+          : 'border-white/12 bg-white/[0.04] text-white/70'
+      }`}
+    >
+      {label}
+    </span>
+  );
+}
+
 export function PremiumHero() {
-  const marquee = [...SITES_INTERNET_MARQUEE_CLIENTS, ...SITES_INTERNET_MARQUEE_CLIENTS];
+  const { pointer, onPointerMoveCapture, onPointerLeave } = useSectionStellarPointer();
+  const marquee = useMemo(() => [...SITES_INTERNET_MARQUEE_CLIENTS, ...SITES_INTERNET_MARQUEE_CLIENTS], []);
 
   return (
-    <section className="relative overflow-hidden pt-24 pb-8 md:pt-28 md:pb-14 lg:pt-32">
-      <StellarField count={48} className="opacity-[0.88]" />
+    <section
+      className="relative overflow-hidden pt-24 pb-8 md:pt-28 md:pb-14 lg:pt-32"
+      onPointerMoveCapture={onPointerMoveCapture}
+      onPointerLeave={onPointerLeave}
+    >
+      <StellarField count={48} className="opacity-[0.88]" interactive pointer={pointer} />
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_80%_50%_at_50%_-20%,rgba(255,255,255,0.05),transparent)]" />
 
       <div className="relative z-10 mx-auto grid max-w-[1400px] gap-12 px-4 md:grid-cols-12 md:items-center md:gap-8 md:px-8 lg:gap-12">
@@ -90,17 +110,14 @@ export function PremiumHero() {
         </div>
       </div>
 
-      <div className="relative z-10 mt-14 border-t border-white/[0.07] pt-6 md:mt-20">
-        <div className="overflow-hidden mask-[linear-gradient(90deg,transparent,black_8%,black_92%,transparent)]">
-          <div className="si-marquee-l flex w-max gap-12 whitespace-nowrap pr-12">
-            {marquee.map((name, i) => (
-              <span
-                key={`${name}-${i}`}
-                className="font-mono text-xs tracking-[0.2em] text-white/35 uppercase transition hover:text-white/55"
-              >
-                {name}
-              </span>
-            ))}
+      <div className="relative z-10 border-t border-white/[0.07]">
+        <div className="mx-auto flex w-full max-w-[1400px] min-h-[88px] items-center justify-center px-4 py-6 md:min-h-[96px] md:px-8 md:py-7">
+          <div className="w-full overflow-hidden mask-[linear-gradient(90deg,transparent,black_6%,black_94%,transparent)]">
+            <div className="si-marquee-l flex w-max flex-nowrap items-center gap-3 pr-3">
+              {marquee.map((label, i) => (
+                <HeroClientPill key={`${label}-${i}`} label={label} subtle={i % 2 === 1} />
+              ))}
+            </div>
           </div>
         </div>
       </div>
@@ -125,59 +142,54 @@ function HeroSiteBuildWireframe() {
         transition={{ delay: 0.2, duration: 0.65, ease: [0.22, 1, 0.36, 1] }}
       >
         <div className="rounded-xl border border-white/[0.12] bg-gradient-to-br from-white/[0.08] to-white/[0.02] p-3 shadow-[0_28px_90px_-28px_rgba(0,0,0,0.9)] md:[transform:rotateY(-14deg)_rotateX(5deg)_rotateZ(-2deg)] md:[transform-origin:right_center]">
-        <div className="mb-3 flex items-center gap-2 border-b border-white/[0.08] pb-3">
-          <span className="size-2 rounded-full bg-white/25" aria-hidden />
-          <span className="size-2 rounded-full bg-white/15" aria-hidden />
-          <span className="size-2 rounded-full bg-white/10" aria-hidden />
-          <div className="ml-2 h-2 flex-1 max-w-[180px] rounded-full bg-white/[0.08]" aria-hidden />
-        </div>
+          <div className="mb-3 flex items-center gap-2 border-b border-white/[0.08] pb-3">
+            <span className="size-2 rounded-full bg-white/25" aria-hidden />
+            <span className="size-2 rounded-full bg-white/15" aria-hidden />
+            <span className="size-2 rounded-full bg-white/10" aria-hidden />
+            <div className="ml-2 h-2 flex-1 max-w-[180px] rounded-full bg-white/[0.08]" aria-hidden />
+          </div>
 
-        <div className="space-y-3 rounded-lg border border-dashed border-white/[0.1] bg-black/35 p-4" aria-hidden>
-          {/* Header site */}
-          <div className="si-hero-wire-header flex items-center justify-between gap-3 rounded border border-white/15 bg-white/[0.04] px-3 py-2.5">
-            <div className="h-2.5 w-16 rounded-sm bg-white/25" />
-            <div className="flex gap-2">
-              <div className="h-1.5 w-8 rounded-full bg-white/15" />
-              <div className="h-1.5 w-8 rounded-full bg-white/15" />
-              <div className="h-1.5 w-8 rounded-full bg-white/15" />
+          <div className="space-y-3 rounded-lg border border-dashed border-white/[0.1] bg-black/35 p-4" aria-hidden>
+            <div className="si-hero-wire-header flex items-center justify-between gap-3 rounded border border-white/15 bg-white/[0.04] px-3 py-2.5">
+              <div className="h-2.5 w-16 rounded-sm bg-white/25" />
+              <div className="flex gap-2">
+                <div className="h-1.5 w-8 rounded-full bg-white/15" />
+                <div className="h-1.5 w-8 rounded-full bg-white/15" />
+                <div className="h-1.5 w-8 rounded-full bg-white/15" />
+              </div>
+            </div>
+
+            <div className="si-hero-wire-hero space-y-2 rounded border border-white/12 bg-white/[0.03] p-3">
+              <div className="h-3 w-[62%] max-w-[220px] rounded-sm bg-white/20" />
+              <div className="h-2 w-full max-w-[280px] rounded-full bg-white/12" />
+              <div className="h-2 w-[80%] max-w-[240px] rounded-full bg-white/10" />
+              <div className="mt-2 h-20 w-full rounded-md border border-white/[0.08] bg-gradient-to-br from-white/[0.06] to-transparent" />
+            </div>
+
+            <div className="si-hero-wire-section space-y-2">
+              <div className="si-hero-wire-line h-1.5 w-full rounded-full bg-white/12" />
+              <div className="si-hero-wire-line-d1 h-1.5 w-[92%] rounded-full bg-white/10" />
+              <div className="si-hero-wire-line-d2 h-1.5 w-[78%] rounded-full bg-white/10" />
+            </div>
+
+            <div className="si-hero-wire-columns grid grid-cols-2 gap-2">
+              <div className="h-20 rounded-md border border-white/12 bg-white/[0.04]" />
+              <div className="h-20 rounded-md border border-white/12 bg-white/[0.04]" />
+            </div>
+
+            <div className="si-hero-wire-footer flex items-center justify-between gap-2 rounded border border-white/10 bg-white/[0.03] px-3 py-2.5">
+              <div className="h-1.5 w-20 rounded-full bg-white/12" />
+              <div className="flex gap-1.5">
+                <div className="size-1.5 rounded-full bg-white/20" />
+                <div className="size-1.5 rounded-full bg-white/20" />
+                <div className="size-1.5 rounded-full bg-white/20" />
+              </div>
             </div>
           </div>
 
-          {/* Hero */}
-          <div className="si-hero-wire-hero space-y-2 rounded border border-white/12 bg-white/[0.03] p-3">
-            <div className="h-3 w-[62%] max-w-[220px] rounded-sm bg-white/20" />
-            <div className="h-2 w-full max-w-[280px] rounded-full bg-white/12" />
-            <div className="h-2 w-[80%] max-w-[240px] rounded-full bg-white/10" />
-            <div className="mt-2 h-20 w-full rounded-md border border-white/[0.08] bg-gradient-to-br from-white/[0.06] to-transparent" />
-          </div>
-
-          {/* Sections — lignes */}
-          <div className="si-hero-wire-section space-y-2">
-            <div className="si-hero-wire-line h-1.5 w-full rounded-full bg-white/12" />
-            <div className="si-hero-wire-line-d1 h-1.5 w-[92%] rounded-full bg-white/10" />
-            <div className="si-hero-wire-line-d2 h-1.5 w-[78%] rounded-full bg-white/10" />
-          </div>
-
-          {/* Deux colonnes */}
-          <div className="si-hero-wire-columns grid grid-cols-2 gap-2">
-            <div className="h-20 rounded-md border border-white/12 bg-white/[0.04]" />
-            <div className="h-20 rounded-md border border-white/12 bg-white/[0.04]" />
-          </div>
-
-          {/* Footer */}
-          <div className="si-hero-wire-footer flex items-center justify-between gap-2 rounded border border-white/10 bg-white/[0.03] px-3 py-2.5">
-            <div className="h-1.5 w-20 rounded-full bg-white/12" />
-            <div className="flex gap-1.5">
-              <div className="size-1.5 rounded-full bg-white/20" />
-              <div className="size-1.5 rounded-full bg-white/20" />
-              <div className="size-1.5 rounded-full bg-white/20" />
-            </div>
-          </div>
-        </div>
-
-        <p className="mt-3 text-center font-mono text-[9px] tracking-[0.2em] text-white/30 uppercase">
-          build — preview — ship
-        </p>
+          <p className="mt-3 text-center font-mono text-[9px] tracking-[0.2em] text-white/30 uppercase">
+            build — preview — ship
+          </p>
         </div>
       </motion.div>
     </div>

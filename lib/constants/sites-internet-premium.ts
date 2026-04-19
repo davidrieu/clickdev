@@ -11,6 +11,9 @@ export const SITES_INTERNET_MARQUEE_CLIENTS = [
   'Crack It',
   'Musée Up',
   'Mayami Production',
+  'Fizz',
+  'Findes',
+  'Libertie',
 ] as const;
 
 export const SITES_INTERNET_STACK = [

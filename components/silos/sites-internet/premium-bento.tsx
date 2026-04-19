@@ -71,10 +71,25 @@ function useFirstRowParallax(index: number, reduce: boolean | null) {
   return { tileRef, parallaxY };
 }
 
+/** Halos bleu nuit + léger voile bas pour garder le texte blanc lisible. */
+function BentoNightGlow() {
+  return (
+    <div className="pointer-events-none absolute inset-0" aria-hidden>
+      <div
+        className="absolute inset-0 opacity-[0.48] transition duration-500 group-hover:opacity-[0.62]"
+        style={{
+          background:
+            'radial-gradient(ellipse 130% 90% at 88% 8%, rgba(59, 91, 168, 0.42), transparent 52%), radial-gradient(circle at 12% 65%, rgba(30, 58, 138, 0.5), transparent 48%), radial-gradient(circle at 48% 100%, rgba(15, 23, 42, 0.55), transparent 42%)',
+        }}
+      />
+      <div className="absolute inset-x-0 bottom-0 h-[58%] bg-gradient-to-t from-black via-black/85 to-transparent" />
+    </div>
+  );
+}
+
 function BentoTile({ item, index }: { item: BentoItem; index: number }) {
   const reduce = useReducedMotion();
   const { tileRef, parallaxY } = useFirstRowParallax(index, reduce);
-  const variant = index % 2 === 0 ? 'mesh-a' : 'mesh-b';
 
   return (
     <motion.div
@@ -92,22 +107,27 @@ function BentoTile({ item, index }: { item: BentoItem; index: number }) {
       >
         <Link
           href={item.href}
-          className="group relative flex h-full min-h-[inherit] flex-col overflow-hidden rounded-2xl border border-white/[0.08] bg-gradient-to-br from-white/[0.035] to-black/40 p-5 transition duration-500 before:pointer-events-none before:absolute before:inset-0 before:bg-[radial-gradient(520px_220px_at_90%_-10%,rgba(255,255,255,0.08),transparent_55%)] before:opacity-0 before:transition-opacity before:duration-500 hover:border-white/[0.16] hover:from-white/[0.05] hover:before:opacity-100 sm:p-6 md:p-7"
+          className="group relative flex h-full min-h-[inherit] flex-col overflow-hidden rounded-2xl border border-white/[0.08] bg-gradient-to-br from-[#0a1628]/90 to-black p-5 transition duration-500 before:pointer-events-none before:absolute before:inset-0 before:bg-[radial-gradient(520px_220px_at_90%_-10%,rgba(96,165,250,0.12),transparent_55%)] before:opacity-0 before:transition-opacity before:duration-500 hover:border-white/[0.16] hover:before:opacity-100 sm:p-6 md:p-7"
         >
           <span
             className="pointer-events-none absolute inset-0 opacity-0 blur-2xl transition duration-500 group-hover:opacity-100"
             style={{
-              background: 'radial-gradient(400px 200px at 80% 0%, rgba(255,255,255,0.1), transparent 60%)',
+              background:
+                'radial-gradient(380px 200px at 75% 0%, rgba(59, 130, 246, 0.18), transparent 62%)',
             }}
             aria-hidden
           />
           <motion.div className="pointer-events-none absolute inset-0" style={{ y: parallaxY }} aria-hidden>
-            <BentoMesh variant={variant} />
+            <BentoNightGlow />
           </motion.div>
-          <div className="relative z-[1] mt-auto pt-6 sm:pt-8">
-            <h3 className="text-lg font-semibold tracking-tight text-white sm:text-xl md:text-2xl">{item.title}</h3>
-            <p className="mt-2 text-xs leading-relaxed text-white/55 sm:text-sm">{item.description}</p>
-            <span className="mt-4 inline-flex items-center gap-2 font-mono text-[10px] tracking-wider text-white/55 uppercase transition group-hover:gap-3 group-hover:text-white/90 sm:text-xs">
+          <div className="relative z-[2] mt-auto pt-6 sm:pt-8">
+            <h3 className="text-lg font-semibold tracking-tight text-white [text-shadow:0_2px_16px_rgba(0,0,0,0.75)] sm:text-xl md:text-2xl">
+              {item.title}
+            </h3>
+            <p className="mt-2 text-xs leading-relaxed text-white/80 [text-shadow:0_1px_12px_rgba(0,0,0,0.8)] sm:text-sm">
+              {item.description}
+            </p>
+            <span className="mt-4 inline-flex items-center gap-2 font-mono text-[10px] tracking-wider text-white/70 [text-shadow:0_1px_10px_rgba(0,0,0,0.85)] uppercase transition group-hover:gap-3 group-hover:text-white sm:text-xs">
               Découvrir <span aria-hidden>↗</span>
             </span>
           </div>
@@ -144,32 +164,5 @@ export function PremiumBento() {
         </div>
       </div>
     </section>
-  );
-}
-
-/** Même traitement visuel que les anciennes cartes « Site vitrine » / « E-commerce » (mesh A / B). */
-function BentoMesh({ variant }: { variant: 'mesh-a' | 'mesh-b' }) {
-  const base = 'pointer-events-none absolute inset-0 opacity-[0.38] transition duration-500 group-hover:opacity-55';
-  if (variant === 'mesh-a') {
-    return (
-      <div
-        className={base}
-        style={{
-          background:
-            'radial-gradient(circle at 20% 30%, rgba(209,10,138,0.35), transparent 45%), radial-gradient(circle at 80% 20%, rgba(46,8,207,0.3), transparent 40%)',
-        }}
-        aria-hidden
-      />
-    );
-  }
-  return (
-    <div
-      className={base}
-      style={{
-        background:
-          'radial-gradient(circle at 70% 40%, rgba(242,106,6,0.32), transparent 50%), radial-gradient(circle at 10% 80%, rgba(46,8,207,0.25), transparent 45%)',
-      }}
-      aria-hidden
-    />
   );
 }

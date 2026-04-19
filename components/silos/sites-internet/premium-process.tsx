@@ -3,6 +3,8 @@
 import { useRef } from 'react';
 import { motion, useInView, useScroll, useSpring } from 'framer-motion';
 
+import { StellarField, useSectionStellarPointer } from './stellar-field';
+
 const STEPS = [
   {
     n: '01',
@@ -33,6 +35,7 @@ const STEPS = [
 
 export function PremiumProcess() {
   const sectionRef = useRef<HTMLElement>(null);
+  const { pointer, onPointerMoveCapture, onPointerLeave } = useSectionStellarPointer();
 
   const { scrollYProgress } = useScroll({
     target: sectionRef,
@@ -44,9 +47,12 @@ export function PremiumProcess() {
   return (
     <section
       ref={sectionRef}
-      className="relative border-t border-white/[0.06] bg-[oklch(0.09_0_0)] py-24 md:py-40 lg:py-48"
+      className="relative overflow-hidden border-t border-white/[0.06] bg-black py-24 md:py-40 lg:py-48"
+      onPointerMoveCapture={onPointerMoveCapture}
+      onPointerLeave={onPointerLeave}
     >
-      <div className="mx-auto max-w-[900px] px-4 md:px-8">
+      <StellarField count={46} className="opacity-[0.72]" interactive pointer={pointer} />
+      <div className="relative z-10 mx-auto max-w-[900px] px-4 md:px-8">
         <motion.div
           initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}

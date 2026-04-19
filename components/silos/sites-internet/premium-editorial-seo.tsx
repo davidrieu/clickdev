@@ -2,13 +2,19 @@
 
 import Link from 'next/link';
 
-import { StellarField } from './stellar-field';
+import { StellarField, useSectionStellarPointer } from './stellar-field';
 
 /** Bloc éditorial SEO (~900 mots) — fond noir, effet stellaire, monochrome blanc. */
 export default function PremiumEditorialSeo() {
+  const { pointer, onPointerMoveCapture, onPointerLeave } = useSectionStellarPointer();
+
   return (
-    <section className="relative overflow-hidden border-t border-white/[0.06] bg-black py-24 md:py-36 lg:py-44">
-      <StellarField count={42} className="opacity-90" />
+    <section
+      className="relative overflow-hidden border-t border-white/[0.06] bg-black py-24 md:py-36 lg:py-44"
+      onPointerMoveCapture={onPointerMoveCapture}
+      onPointerLeave={onPointerLeave}
+    >
+      <StellarField count={42} className="opacity-90" interactive pointer={pointer} />
       <div className="relative z-10 mx-auto max-w-[42rem] px-4 md:px-8">
         <p className="font-mono text-[11px] tracking-[0.28em] text-white/50 uppercase">Lecture</p>
         <h2 className="si-serif-display mt-4 text-[clamp(1.9rem,3.8vw,3.1rem)] font-medium leading-tight tracking-[-0.02em] text-white">
