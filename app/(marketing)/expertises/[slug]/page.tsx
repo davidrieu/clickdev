@@ -2,6 +2,7 @@ import MarketingShell from '@/components/marketing/marketing-shell';
 import MarketingArticleBody from '@/components/marketing/marketing-article-body';
 import { BreadcrumbJsonLd } from '@/components/seo/breadcrumb-json-ld';
 import { FaqPageJsonLd } from '@/components/seo/faq-page-json-ld';
+import { withMarketingVisualPlaceholders } from '@/lib/content/marketing-article-visuals';
 import { getExpertiseArticle } from '@/lib/content/expertise-articles';
 import { HOME_STACK_ITEMS } from '@/lib/constants/home-content';
 import { EXPERTISE_SLUGS, isExpertiseSlug } from '@/lib/constants/sitemap';
@@ -35,7 +36,7 @@ export default async function ExpertisePage({ params }: Props) {
   const item = HOME_STACK_ITEMS.find((i) => i.slug === slug);
   if (!item) notFound();
 
-  const article = getExpertiseArticle(slug);
+  const article = withMarketingVisualPlaceholders(getExpertiseArticle(slug));
   const relatedPages = HOME_STACK_ITEMS.filter((i) => i.slug !== slug)
     .slice(0, 6)
     .map((i) => ({ label: i.name, href: `/expertises/${i.slug}` }));

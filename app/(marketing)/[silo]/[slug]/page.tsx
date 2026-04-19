@@ -2,6 +2,7 @@ import MarketingShell from '@/components/marketing/marketing-shell';
 import MarketingArticleBody from '@/components/marketing/marketing-article-body';
 import { BreadcrumbJsonLd } from '@/components/seo/breadcrumb-json-ld';
 import { FaqPageJsonLd } from '@/components/seo/faq-page-json-ld';
+import { withMarketingVisualPlaceholders } from '@/lib/content/marketing-article-visuals';
 import { getSiloChildArticle } from '@/lib/content/silo-child-articles';
 import {
   NAV_SILOS,
@@ -45,7 +46,9 @@ export default async function SiloChildPage({ params }: Props) {
   const child = entry?.children.find((c) => c.href === `/${silo}/${slug}`);
   if (!entry || !child) notFound();
 
-  const article = getSiloChildArticle(silo, slug, child.label, entry.label);
+  const article = withMarketingVisualPlaceholders(
+    getSiloChildArticle(silo, slug, child.label, entry.label)
+  );
   const relatedPages = entry.children
     .filter((c) => c.href !== child.href)
     .map((c) => ({ label: c.label, href: c.href }));

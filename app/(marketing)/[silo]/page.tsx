@@ -4,6 +4,7 @@ import { BreadcrumbJsonLd } from '@/components/seo/breadcrumb-json-ld';
 import { CollectionPageItemListJsonLd } from '@/components/seo/collection-page-item-list-json-ld';
 import { FaqPageJsonLd } from '@/components/seo/faq-page-json-ld';
 import { SITE_NAME } from '@/lib/constants/site';
+import { withMarketingVisualPlaceholders } from '@/lib/content/marketing-article-visuals';
 import { getSiloPillarArticle } from '@/lib/content/silo-pillar-articles';
 import { NAV_SILOS, SERVICE_SILOS, isServiceSilo } from '@/lib/constants/sitemap';
 import { listingPageMetadata } from '@/lib/seo/page-metadata';
@@ -37,7 +38,7 @@ export default async function SiloPillarPage({ params }: Props) {
   const entry = NAV_SILOS.find((s) => s.href === `/${silo}`);
   if (!entry) notFound();
 
-  const article = getSiloPillarArticle(silo);
+  const article = withMarketingVisualPlaceholders(getSiloPillarArticle(silo));
   const relatedPages = entry.children.map((c) => ({ label: c.label, href: c.href }));
   const listItems = entry.children.map((c) => ({ path: c.href, name: c.label }));
 

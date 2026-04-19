@@ -1,6 +1,8 @@
 import type { MarketingArticleSection } from '@/lib/content/marketing-article-types';
 import Link from 'next/link';
 
+import { MarketingSectionImage } from '@/components/marketing/marketing-section-image';
+
 type RelatedPage = { label: string; href: string };
 
 type Props = {
@@ -11,22 +13,16 @@ type Props = {
 
 export default function MarketingArticleBody({ sections, faq, relatedPages }: Props) {
   return (
-    <div className="space-y-12 text-sm leading-relaxed text-white/78 md:text-base">
+    <div className="space-y-10 text-sm leading-relaxed text-white/78 md:space-y-12 md:text-base">
       {sections.map((section) => (
-        <section key={section.heading}>
-          <h2 className="text-xl font-semibold tracking-tight text-white md:text-2xl">
-            {section.heading}
-          </h2>
-          <div className="mt-4 space-y-4">
-            {section.paragraphs.map((p, i) => (
-              <p key={`${section.heading}-${i}`}>{p}</p>
-            ))}
-          </div>
-        </section>
+        <SectionBlock key={section.heading} section={section} />
       ))}
 
       {faq.length > 0 ? (
-        <section aria-labelledby="faq-heading">
+        <section
+          aria-labelledby="faq-heading"
+          className="rounded-2xl border border-white/10 bg-white/[0.03] p-6 md:p-9"
+        >
           <h2 id="faq-heading" className="text-xl font-semibold tracking-tight text-white md:text-2xl">
             Questions fréquentes
           </h2>
@@ -34,7 +30,7 @@ export default function MarketingArticleBody({ sections, faq, relatedPages }: Pr
             {faq.map((item) => (
               <details
                 key={item.question}
-                className="group rounded-lg border border-white/10 bg-white/[0.02] px-4 py-3"
+                className="group rounded-xl border border-white/10 bg-black/15 px-4 py-3"
               >
                 <summary className="cursor-pointer list-none font-medium text-white/95 [&::-webkit-details-marker]:hidden">
                   <span className="flex items-center justify-between gap-2">
@@ -50,7 +46,10 @@ export default function MarketingArticleBody({ sections, faq, relatedPages }: Pr
       ) : null}
 
       {relatedPages && relatedPages.length > 0 ? (
-        <section aria-labelledby="related-heading">
+        <section
+          aria-labelledby="related-heading"
+          className="rounded-2xl border border-white/10 bg-white/[0.03] p-6 md:p-9"
+        >
           <h2 id="related-heading" className="text-xl font-semibold tracking-tight text-white md:text-2xl">
             Pages proches
           </h2>
@@ -69,7 +68,7 @@ export default function MarketingArticleBody({ sections, faq, relatedPages }: Pr
         </section>
       ) : null}
 
-      <p className="border-t border-white/10 pt-8 text-white/55">
+      <p className="rounded-xl border border-white/10 bg-white/[0.02] px-5 py-4 text-center text-white/55">
         <Link href="/devis" className="font-medium text-[#F26A06] underline-offset-4 hover:underline">
           Demander un devis
         </Link>
@@ -79,5 +78,19 @@ export default function MarketingArticleBody({ sections, faq, relatedPages }: Pr
         </Link>
       </p>
     </div>
+  );
+}
+
+function SectionBlock({ section }: { section: MarketingArticleSection }) {
+  return (
+    <section className="scroll-mt-24 rounded-2xl border border-white/10 bg-white/[0.03] p-6 md:p-9">
+      <h2 className="text-xl font-semibold tracking-tight text-white md:text-2xl">{section.heading}</h2>
+      {section.image ? <MarketingSectionImage image={section.image} /> : null}
+      <div className="mt-4 space-y-4">
+        {section.paragraphs.map((p, i) => (
+          <p key={`${section.heading}-${i}`}>{p}</p>
+        ))}
+      </div>
+    </section>
   );
 }
