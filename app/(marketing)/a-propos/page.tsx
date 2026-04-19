@@ -1,6 +1,7 @@
 import AboutContent from '@/components/marketing/about-content';
 import MarketingShell from '@/components/marketing/marketing-shell';
 import { BreadcrumbJsonLd } from '@/components/seo/breadcrumb-json-ld';
+import { PersonJsonLd } from '@/components/seo/person-json-ld';
 import { listingPageMetadata } from '@/lib/seo/page-metadata';
 import type { Metadata } from 'next';
 
@@ -20,6 +21,7 @@ export default function AboutPage() {
   return (
     <>
       <BreadcrumbJsonLd items={crumbs} />
+      <PersonJsonLd />
       <MarketingShell
         eyebrow="Clickdev"
         title="À propos"

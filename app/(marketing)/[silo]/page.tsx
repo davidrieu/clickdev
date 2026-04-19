@@ -1,5 +1,8 @@
 import MarketingShell from '@/components/marketing/marketing-shell';
+import MarketingArticleBody from '@/components/marketing/marketing-article-body';
 import { BreadcrumbJsonLd } from '@/components/seo/breadcrumb-json-ld';
+import { FaqPageJsonLd } from '@/components/seo/faq-page-json-ld';
+import { getSiloPillarArticle } from '@/lib/content/silo-pillar-articles';
 import { NAV_SILOS, SERVICE_SILOS, isServiceSilo } from '@/lib/constants/sitemap';
 import { listingPageMetadata } from '@/lib/seo/page-metadata';
 import type { Metadata } from 'next';
@@ -16,9 +19,10 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   if (!isServiceSilo(silo)) return {};
   const entry = NAV_SILOS.find((s) => s.href === `/${silo}`);
   if (!entry) return {};
+  const article = getSiloPillarArticle(silo);
   return listingPageMetadata({
     title: entry.label,
-    description: `Services ${entry.label} — sites, apps et outils digitaux. Clickdev, développeur freelance.`,
+    description: article.metaDescription,
     path: `/${silo}`,
   });
 }
@@ -31,6 +35,9 @@ export default async function SiloPillarPage({ params }: Props) {
   const entry = NAV_SILOS.find((s) => s.href === `/${silo}`);
   if (!entry) notFound();
 
+  const article = getSiloPillarArticle(silo);
+  const relatedPages = entry.children.map((c) => ({ label: c.label, href: c.href }));
+
   return (
     <>
       <BreadcrumbJsonLd
@@ -39,15 +46,18 @@ export default async function SiloPillarPage({ params }: Props) {
           { name: entry.label, path: entry.href },
         ]}
       />
+      <FaqPageJsonLd items={article.faq} />
       <MarketingShell
         eyebrow="Clickdev"
         title={entry.label}
-        description={`Page pilier « ${entry.label} » : offre, preuves, process et FAQ seront intégrés ici selon le brief (contenu long, SEO & GEO).`}
+        description={article.lead}
         breadcrumb={[
           { label: 'Accueil', href: '/' },
           { label: entry.label, href: entry.href },
         ]}
-      />
+      >
+        <MarketingArticleBody sections={article.sections} faq={article.faq} relatedPages={relatedPages} />
+      </MarketingShell>
     </>
   );
 }
