@@ -7,7 +7,7 @@ import { cn } from "@/lib/utils";
 
 export default function MarketingNotFound() {
   return (
-    <MarketingArticleShell aurora="soft">
+    <MarketingArticleShell>
       <MarketingPageContainer
         width="narrow"
         className="flex min-h-[min(70dvh,560px)] flex-col items-center justify-center pb-24 text-center"

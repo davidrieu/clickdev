@@ -22,7 +22,7 @@ export default function BlogIndexPage() {
   const faqLd = faqPageJsonLd(blogFaq);
 
   return (
-    <MarketingArticleShell aurora="soft">
+    <MarketingArticleShell>
       <MarketingPageContainer width="wide">
         <MarketingHeroStage
           variant="display"
@@ -34,7 +34,7 @@ export default function BlogIndexPage() {
               refonte, SEO technique, intégrations IA et retours d’expérience terrain. Les contenus sont pensés pour être
               utiles à la lecture et aux moteurs (y compris réponses assistées) — sections claires, faits vérifiables,
               liens vers sources externes lorsque pertinent, et renvoi vers les{" "}
-              <Link href="/sites-internet/" className="text-terracotta underline-offset-4 hover:underline">
+              <Link href="/sites-internet/" className="text-primary underline-offset-4 hover:underline">
                 pages silo
               </Link>{" "}
               lorsqu’un article doit se prolonger en offre commerciale.

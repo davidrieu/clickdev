@@ -24,12 +24,12 @@ export function MarketingRelatedPages({ title = "Approfondir", links, className 
   return (
     <nav
       className={cn(
-        "mt-10 overflow-hidden rounded-2xl border border-line/70 bg-gradient-to-br from-bg-2/90 via-bg-2/60 to-bg-3/40 p-5 shadow-[inset_0_1px_0_0_rgba(255,255,255,0.04)] md:p-6",
+        "mt-10 overflow-hidden rounded-2xl border border-white/15 bg-gradient-to-br from-white/[0.08] via-white/[0.04] to-transparent p-5 shadow-[inset_0_1px_0_0_rgba(255,255,255,0.06)] md:p-6",
         className,
       )}
       aria-label="Pages du silo"
     >
-      <p className="font-mono text-[10px] font-medium uppercase tracking-widest text-ink-muted">{title}</p>
+      <p className="font-mono text-[10px] font-medium uppercase tracking-widest text-white/45">{title}</p>
 
       <motion.ul
         className="mt-4 grid gap-2 sm:grid-cols-2"
@@ -42,11 +42,11 @@ export function MarketingRelatedPages({ title = "Approfondir", links, className 
           <motion.li key={l.href} variants={fade}>
             <Link
               href={l.href}
-              className="group flex items-center justify-between gap-3 rounded-xl border border-line/60 bg-bg-3/50 px-4 py-3 text-sm font-medium text-ink transition-colors hover:border-terracotta/40 hover:bg-bg-3/85 md:text-[15px]"
+              className="group flex items-center justify-between gap-3 rounded-xl border border-white/12 bg-white/[0.06] px-4 py-3 text-sm font-medium text-white/95 transition-colors hover:border-[#f26a06]/45 hover:bg-white/10 md:text-[15px]"
             >
               <span className="min-w-0 truncate">{l.label}</span>
               <ArrowUpRight
-                className="h-4 w-4 shrink-0 text-terracotta/80 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-terracotta"
+                className="h-4 w-4 shrink-0 text-[#f26a06]/90 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-[#ff9c6b]"
                 aria-hidden
               />
             </Link>

@@ -72,7 +72,7 @@ export function BlogTeaserSection({ posts }: BlogTeaserSectionProps) {
           >
             <Link
               href="/blog/"
-              className="font-mono text-[11px] font-medium uppercase tracking-widest text-terracotta underline-offset-4 hover:underline"
+              className="font-mono text-[11px] font-medium uppercase tracking-widest text-primary underline-offset-4 hover:underline"
             >
               Tous les articles →
             </Link>
@@ -90,7 +90,7 @@ export function BlogTeaserSection({ posts }: BlogTeaserSectionProps) {
             Les prochains articles seront publiés ici. En attendant,{" "}
             <Link
               href="/devis/"
-              className="text-terracotta underline-offset-4 hover:underline"
+              className="text-primary underline-offset-4 hover:underline"
             >
               parlons de votre projet
             </Link>
@@ -147,7 +147,7 @@ export function BlogTeaserSection({ posts }: BlogTeaserSectionProps) {
                         ) : null}
                       </div>
                       <h3 className="mt-3 font-serif text-xl font-normal leading-snug text-ink md:text-2xl">
-                        <Link href={href} className="hover:text-terracotta">
+                        <Link href={href} className="hover:text-primary">
                           {post.title ?? "Sans titre"}
                         </Link>
                       </h3>
@@ -158,7 +158,7 @@ export function BlogTeaserSection({ posts }: BlogTeaserSectionProps) {
                       ) : null}
                       <Link
                         href={href}
-                        className="mt-5 inline-flex font-mono text-[11px] font-medium uppercase tracking-widest text-terracotta underline-offset-4 hover:underline"
+                        className="mt-5 inline-flex font-mono text-[11px] font-medium uppercase tracking-widest text-primary underline-offset-4 hover:underline"
                       >
                         Lire →
                       </Link>

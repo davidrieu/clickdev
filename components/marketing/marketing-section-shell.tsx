@@ -32,7 +32,7 @@ export function MarketingSectionShell({ index, density = "pillar", children, cla
   return (
     <motion.section
       className={cn(
-        "border-t border-line/90",
+        "border-t border-white/10",
         density === "child" ? childSpacing : pillarSpacing,
         density === "child" ? childPad : pillarPad,
         className,
@@ -49,10 +49,10 @@ export function MarketingSectionShell({ index, density = "pillar", children, cla
       <div className="relative md:pl-[3.25rem]">
         <div className="pointer-events-none absolute left-0 top-1 hidden md:block">
           <div className="sticky top-36 flex flex-col items-center gap-3">
-            <span className="flex h-11 w-11 items-center justify-center rounded-xl border border-line/80 bg-bg-3/90 text-terracotta shadow-[0_12px_40px_-18px_rgba(0,0,0,0.85)] backdrop-blur-sm">
+            <span className="flex h-11 w-11 items-center justify-center rounded-xl border border-white/15 bg-black/40 text-[#f26a06] shadow-[0_12px_40px_-18px_rgba(0,0,0,0.85)] backdrop-blur-sm">
               <Icon className="h-[19px] w-[19px]" strokeWidth={1.65} aria-hidden />
             </span>
-            <span className="h-28 w-px bg-gradient-to-b from-terracotta/55 via-line to-transparent" aria-hidden />
+            <span className="h-28 w-px bg-gradient-to-b from-[#f26a06]/55 via-white/15 to-transparent" aria-hidden />
           </div>
         </div>
         {children}

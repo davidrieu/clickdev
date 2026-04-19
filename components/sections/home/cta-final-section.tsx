@@ -23,7 +23,7 @@ export function CtaFinalSection() {
     >
       <div className="pointer-events-none absolute inset-0 opacity-95" aria-hidden>
         <motion.div
-          className="absolute -left-1/4 top-0 h-[120%] w-1/2 rounded-full bg-terracotta/22 blur-3xl"
+          className="absolute -left-1/4 top-0 h-[120%] w-1/2 rounded-full bg-[#f26a06]/22 blur-3xl"
           animate={
             reduceMotion
               ? undefined
@@ -37,7 +37,7 @@ export function CtaFinalSection() {
           transition={{ duration: 9.5, repeat: Infinity, ease: "easeInOut" }}
         />
         <motion.div
-          className="absolute -right-1/4 bottom-0 h-[100%] w-1/2 rounded-full bg-terracotta/14 blur-3xl"
+          className="absolute -right-1/4 bottom-0 h-[100%] w-1/2 rounded-full bg-[#2e08cf]/16 blur-3xl"
           animate={
             reduceMotion
               ? undefined
@@ -57,7 +57,7 @@ export function CtaFinalSection() {
         />
         {!reduceMotion ? (
           <motion.div
-            className="absolute left-1/2 top-1/2 h-[min(420px,70vw)] w-[min(420px,70vw)] -translate-x-1/2 -translate-y-1/2 rounded-full bg-terracotta-soft/16 blur-[100px]"
+            className="absolute left-1/2 top-1/2 h-[min(420px,70vw)] w-[min(420px,70vw)] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#d10a8a]/14 blur-[100px]"
             animate={{
               scale: [1, 1.22, 1.06, 1.18, 1],
               opacity: [0.32, 0.62, 0.42, 0.55, 0.32],

@@ -21,10 +21,10 @@ export function MarketingAmbientLayer() {
       >
         <defs>
           <linearGradient id={`${uid}-stroke`} x1="0" y1="0" x2="600" y2="900" gradientUnits="userSpaceOnUse">
-            <stop stopColor="#d97757" stopOpacity="0" />
-            <stop offset="0.35" stopColor="#d97757" stopOpacity="0.35" />
-            <stop offset="0.7" stopColor="#d97757" stopOpacity="0.08" />
-            <stop offset="1" stopColor="#d97757" stopOpacity="0" />
+            <stop stopColor="#f26a06" stopOpacity="0" />
+            <stop offset="0.35" stopColor="#d10a8a" stopOpacity="0.28" />
+            <stop offset="0.7" stopColor="#2e08cf" stopOpacity="0.08" />
+            <stop offset="1" stopColor="#f26a06" stopOpacity="0" />
           </linearGradient>
         </defs>
         <path
@@ -53,18 +53,18 @@ export function MarketingAmbientLayer() {
       {!reduceMotion ? (
         <>
           <motion.div
-            className="absolute -right-[18%] top-[8%] h-[min(420px,55vw)] w-[min(420px,55vw)] rounded-full bg-terracotta/12 blur-[120px]"
+            className="absolute -right-[18%] top-[8%] h-[min(420px,55vw)] w-[min(420px,55vw)] rounded-full bg-[#f26a06]/12 blur-[120px]"
             animate={{ opacity: [0.05, 0.12, 0.07], scale: [1, 1.06, 1], x: [0, 18, -10, 0] }}
             transition={{ duration: 22, repeat: Infinity, ease: "easeInOut" }}
           />
           <motion.div
-            className="absolute -left-[8%] bottom-[6%] h-[min(320px,48vw)] w-[min(320px,48vw)] rounded-full bg-terracotta/8 blur-[100px]"
+            className="absolute -left-[8%] bottom-[6%] h-[min(320px,48vw)] w-[min(320px,48vw)] rounded-full bg-[#2e08cf]/10 blur-[100px]"
             animate={{ opacity: [0.04, 0.1, 0.06], scale: [1, 1.04, 1], y: [0, -14, 8, 0] }}
             transition={{ duration: 18, repeat: Infinity, ease: "easeInOut", delay: 1.2 }}
           />
         </>
       ) : (
-        <div className="absolute -right-[18%] top-[8%] h-[min(380px,50vw)] w-[min(380px,50vw)] rounded-full bg-terracotta/8 blur-[110px]" />
+        <div className="absolute -right-[18%] top-[8%] h-[min(380px,50vw)] w-[min(380px,50vw)] rounded-full bg-[#d10a8a]/10 blur-[110px]" />
       )}
     </div>
   );

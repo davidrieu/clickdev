@@ -13,7 +13,7 @@ const components: PortableTextComponents = {
       <h4 className="mt-8 font-serif text-xl font-medium tracking-tight text-ink">{children}</h4>
     ),
     blockquote: ({ children }) => (
-      <blockquote className="mt-6 border-l-2 border-terracotta/60 pl-5 font-serif text-lg italic text-ink-dim">
+      <blockquote className="mt-6 border-l-2 border-[#f26a06]/55 pl-5 text-lg italic text-white/70">
         {children}
       </blockquote>
     ),
@@ -41,7 +41,7 @@ const components: PortableTextComponents = {
         return (
           <a
             href={href}
-            className="text-terracotta underline-offset-4 hover:underline"
+            className="text-[#f26a06] underline-offset-4 hover:underline"
             rel="noopener noreferrer"
             target={href.startsWith("http") ? "_blank" : undefined}
           >
@@ -50,7 +50,7 @@ const components: PortableTextComponents = {
         );
       }
       return (
-        <Link href={href} className="text-terracotta underline-offset-4 hover:underline">
+        <Link href={href} className="text-[#f26a06] underline-offset-4 hover:underline">
           {children}
         </Link>
       );

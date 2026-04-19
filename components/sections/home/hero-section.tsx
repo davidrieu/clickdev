@@ -113,7 +113,7 @@ export function HeroSection() {
               style={{ x: orb1x, y: orb1y }}
             >
               <motion.div
-                className="h-[min(420px,55vw)] w-[min(420px,55vw)] rounded-full bg-terracotta/28 blur-[110px]"
+                className="h-[min(420px,55vw)] w-[min(420px,55vw)] rounded-full bg-[#f26a06]/26 blur-[110px]"
                 animate={{
                   scale: [1, 1.18, 1.04, 1.12, 1],
                   opacity: [0.28, 0.55, 0.38, 0.5, 0.28],
@@ -128,7 +128,7 @@ export function HeroSection() {
               style={{ x: orb2x, y: orb2y }}
             >
               <motion.div
-                className="h-[min(380px,50vw)] w-[min(380px,50vw)] rounded-full bg-terracotta/20 blur-[100px]"
+                className="h-[min(380px,50vw)] w-[min(380px,50vw)] rounded-full bg-[#d10a8a]/18 blur-[100px]"
                 animate={{
                   scale: [1, 1.14, 1.03, 1.1, 1],
                   opacity: [0.18, 0.46, 0.3, 0.42, 0.18],
@@ -148,7 +148,7 @@ export function HeroSection() {
               style={{ x: orb3x, y: orb3y }}
             >
               <motion.div
-                className="h-[min(620px,82vw)] w-[min(620px,82vw)] rounded-full bg-gradient-to-br from-terracotta/14 via-terracotta-soft/11 to-terracotta/7 blur-[130px]"
+                className="h-[min(620px,82vw)] w-[min(620px,82vw)] rounded-full bg-gradient-to-br from-[#f26a06]/14 via-[#2e08cf]/12 to-[#d10a8a]/8 blur-[130px]"
                 animate={{
                   rotate: [0, 360],
                   scale: [1, 1.06, 1.02, 1.08, 1],
@@ -166,7 +166,7 @@ export function HeroSection() {
               style={{ x: orb4x, y: orb4y }}
             >
               <motion.div
-                className="h-[min(220px,40vw)] w-[min(220px,40vw)] rounded-full bg-terracotta-soft/32 blur-[80px]"
+                className="h-[min(220px,40vw)] w-[min(220px,40vw)] rounded-full bg-[#ff9c6b]/22 blur-[80px]"
                 animate={{
                   scale: [1, 1.28, 1.08, 1.22, 1],
                   opacity: [0.2, 0.48, 0.32, 0.44, 0.2],
@@ -184,7 +184,7 @@ export function HeroSection() {
           </div>
 
           <div
-            className="pointer-events-none absolute inset-0 z-[1] bg-[radial-gradient(ellipse_75%_60%_at_50%_-10%,rgba(217,119,87,0.09),transparent_55%),radial-gradient(ellipse_55%_45%_at_100%_50%,transparent_40%,rgba(13,13,13,0.55)_100%)]"
+            className="pointer-events-none absolute inset-0 z-[1] bg-[radial-gradient(ellipse_75%_60%_at_50%_-10%,rgba(242,106,6,0.1),transparent_55%),radial-gradient(ellipse_55%_45%_at_100%_50%,transparent_40%,rgba(13,13,13,0.55)_100%)]"
             aria-hidden
           />
           <div
@@ -225,7 +225,7 @@ export function HeroSection() {
               <span className="mt-1 block">
                 <motion.span
                   variants={wordVariant}
-                  className="mr-[0.28em] inline-block font-semibold text-terracotta"
+                  className="mr-[0.28em] inline-block font-semibold text-[#f26a06]"
                 >
                   marketplaces
                 </motion.span>
@@ -276,7 +276,7 @@ export function HeroSection() {
                   buttonVariants({ size: "cta" }),
                   "shadow-none transition-shadow duration-300",
                   !reduceMotion &&
-                    "hover:shadow-[0_0_48px_-12px_rgba(217,119,87,0.38)] focus-visible:shadow-[0_0_48px_-12px_rgba(217,119,87,0.38)]",
+                    "hover:shadow-[0_0_48px_-12px_rgba(242,106,6,0.38)] focus-visible:shadow-[0_0_48px_-12px_rgba(242,106,6,0.38)]",
                 )}
               >
                 Démarrer un projet →

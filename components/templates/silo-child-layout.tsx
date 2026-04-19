@@ -27,7 +27,7 @@ export function SiloChildLayout({
   internalLinks,
 }: SiloChildLayoutProps) {
   return (
-    <MarketingArticleShell aurora="soft">
+    <MarketingArticleShell>
       <MarketingPageContainer width="article">
         <MarketingHeroStage
           variant="child"

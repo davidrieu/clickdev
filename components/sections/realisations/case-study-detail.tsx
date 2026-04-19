@@ -29,7 +29,7 @@ export function CaseStudyDetail({ study }: CaseStudyDetailProps) {
   ].filter(Boolean);
 
   return (
-    <MarketingArticleShell aurora="soft">
+    <MarketingArticleShell>
       <MarketingPageContainer width="article">
         <MarketingHeroStage
           variant="child"
@@ -40,16 +40,16 @@ export function CaseStudyDetail({ study }: CaseStudyDetailProps) {
           lead={
             <>
               {study.tagline ? (
-                <p className="text-xl leading-relaxed text-ink-dim md:text-2xl">{study.tagline}</p>
+                <p className="text-xl leading-relaxed text-white/70 md:text-2xl">{study.tagline}</p>
               ) : null}
               {study.featuredMetric ? (
-                <p className="mt-4 font-serif text-2xl text-terracotta md:text-3xl">{study.featuredMetric}</p>
+                <p className="mt-4 text-2xl font-semibold text-[#f26a06] md:text-3xl">{study.featuredMetric}</p>
               ) : null}
             </>
           }
         />
 
-        <div className="mt-8 flex flex-wrap gap-3 text-sm text-ink-dim">
+        <div className="mt-8 flex flex-wrap gap-3 text-sm text-white/65">
           {study.role ? <span>Rôle : {study.role}</span> : null}
           {study.duration ? <span>Durée : {study.duration}</span> : null}
           {study.liveUrl ? (
@@ -57,7 +57,7 @@ export function CaseStudyDetail({ study }: CaseStudyDetailProps) {
               href={study.liveUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-terracotta underline-offset-4 hover:underline"
+              className="text-[#f26a06] underline-offset-4 hover:underline"
             >
               Site en ligne
             </a>

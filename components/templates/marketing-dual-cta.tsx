@@ -16,9 +16,7 @@ type DualProps = {
   className?: string;
 };
 
-/**
- * CTA fin de page : micro-interactions, brillance au survol, accent terracotta.
- */
+/** CTA fin de page : micro-interactions, accent Genesis (orange). */
 export function MarketingDualCta({ primary, secondary, className }: DualProps) {
   const reduceMotion = useReducedMotion();
   const primaryLabel = primary.label.replace(/\s*→\s*$/, "").trim();
@@ -26,7 +24,7 @@ export function MarketingDualCta({ primary, secondary, className }: DualProps) {
   return (
     <motion.div
       className={cn(
-        "relative mt-16 flex flex-col gap-4 border-t border-line/80 pt-12 sm:flex-row sm:items-stretch md:mt-20 md:pt-16",
+        "relative mt-16 flex flex-col gap-4 border-t border-white/10 pt-12 sm:flex-row sm:items-stretch md:mt-20 md:pt-16",
         className,
       )}
       initial={reduceMotion ? false : { opacity: 0, y: 24 }}
@@ -35,7 +33,7 @@ export function MarketingDualCta({ primary, secondary, className }: DualProps) {
       transition={{ duration: reduceMotion ? 0 : 0.55, ease: easeOutProduct }}
     >
       <span
-        className="pointer-events-none absolute left-0 top-0 h-px w-32 max-w-[45%] bg-gradient-to-r from-terracotta/70 to-transparent"
+        className="pointer-events-none absolute left-0 top-0 h-px w-32 max-w-[45%] bg-gradient-to-r from-[#f26a06]/80 to-transparent"
         aria-hidden
       />
       <div className="flex flex-1 flex-col gap-3 sm:flex-row sm:items-center">
@@ -50,7 +48,7 @@ export function MarketingDualCta({ primary, secondary, className }: DualProps) {
             href={primary.href}
             className={cn(
               buttonVariants({ size: "cta" }),
-              "group relative overflow-hidden shadow-[0_22px_60px_-28px_rgba(217,119,87,0.55)]",
+              "group relative overflow-hidden shadow-[0_22px_60px_-28px_rgba(242,106,6,0.5)]",
             )}
           >
             <span className="relative z-[1] flex items-center justify-center gap-2">
@@ -70,7 +68,7 @@ export function MarketingDualCta({ primary, secondary, className }: DualProps) {
             href={secondary.href}
             className={cn(
               buttonVariants({ variant: "ghost", size: "lg" }),
-              "justify-center border border-transparent hover:border-line/80 hover:bg-bg-3/60",
+              "justify-center border border-transparent hover:border-white/20 hover:bg-white/10",
             )}
           >
             {secondary.label}
@@ -92,7 +90,7 @@ export function MarketingEndButtonRow({
   return (
     <div
       className={cn(
-        "mt-12 flex flex-col gap-3 border-t border-line pt-12 sm:flex-row sm:items-center",
+        "mt-12 flex flex-col gap-3 border-t border-white/10 pt-12 sm:flex-row sm:items-center",
         className,
       )}
     >

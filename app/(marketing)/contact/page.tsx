@@ -18,7 +18,7 @@ export const metadata: Metadata = {
 
 export default function ContactPage() {
   return (
-    <MarketingArticleShell aurora="soft">
+    <MarketingArticleShell>
       <MarketingPageContainer width="reading">
         <MarketingHeroStage
           variant="display"
@@ -28,7 +28,7 @@ export default function ContactPage() {
             <>
               Pour un besoin projet (e-commerce, marketplace, app, outil métier, audit SEO, intégration IA), le
               formulaire{" "}
-              <Link href="/devis/" className="text-terracotta underline-offset-4 hover:underline">
+              <Link href="/devis/" className="text-primary underline-offset-4 hover:underline">
                 Demander un devis
               </Link>{" "}
               reste le canal le plus efficace : périmètre, budget indicatif, stack et calendrier permettent une réponse
@@ -40,15 +40,15 @@ export default function ContactPage() {
         />
         <MarketingBodyParagraph>
           Si vous arrivez depuis une page silo (par exemple{" "}
-          <Link href="/ia/integration-ia/" className="text-terracotta underline-offset-4 hover:underline">
+          <Link href="/ia/integration-ia/" className="text-primary underline-offset-4 hover:underline">
             Intégration IA
           </Link>
           ,{" "}
-          <Link href="/seo/audit-seo/" className="text-terracotta underline-offset-4 hover:underline">
+          <Link href="/seo/audit-seo/" className="text-primary underline-offset-4 hover:underline">
             Audit SEO
           </Link>{" "}
           ou{" "}
-          <Link href="/sites-internet/marketplace/" className="text-terracotta underline-offset-4 hover:underline">
+          <Link href="/sites-internet/marketplace/" className="text-primary underline-offset-4 hover:underline">
             Marketplace
           </Link>
           ), indiquez-le : je contextualise la réponse et je peux renvoyer vers la bonne section du site pour gagner du
@@ -59,7 +59,7 @@ export default function ContactPage() {
           <li>
             <span className="font-mono text-[11px] uppercase tracking-wider text-ink-muted">E-mail</span>
             <br />
-            <a href={contactLinks.email} className="text-terracotta underline-offset-4 hover:underline">
+            <a href={contactLinks.email} className="text-primary underline-offset-4 hover:underline">
               bonjour@clickdev.fr
             </a>
           </li>
@@ -70,7 +70,7 @@ export default function ContactPage() {
               href={calBookingUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-terracotta underline-offset-4 hover:underline"
+              className="text-primary underline-offset-4 hover:underline"
             >
               Réserver un créneau
             </a>

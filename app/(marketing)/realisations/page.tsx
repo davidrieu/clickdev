@@ -21,7 +21,7 @@ export default async function RealisationsPage() {
   const items = await getCaseStudiesList();
 
   return (
-    <MarketingArticleShell aurora="medium">
+    <MarketingArticleShell>
       <MarketingPageContainer width="article">
         <MarketingHeroStage
           variant="pillar"

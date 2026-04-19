@@ -45,7 +45,7 @@ export function CaseStudyRow({ study }: CaseStudyRowProps) {
           >
             <Link
               href={study.href}
-              className="inline-flex items-center gap-1 text-sm font-medium text-terracotta"
+              className="inline-flex items-center gap-1 text-sm font-medium text-[#f26a06]"
             >
               Voir le projet
               <span aria-hidden>→</span>

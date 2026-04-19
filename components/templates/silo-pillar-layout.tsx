@@ -32,7 +32,7 @@ export function SiloPillarLayout({
   afterSections,
 }: SiloPillarLayoutProps) {
   return (
-    <MarketingArticleShell aurora="medium">
+    <MarketingArticleShell>
       <MarketingPageContainer width="article">
         <MarketingHeroStage variant="pillar" eyebrow={eyebrow} title={h1} lead={lead} />
         <MarketingTldrBento items={tldr} />

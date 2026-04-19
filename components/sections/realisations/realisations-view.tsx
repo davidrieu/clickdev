@@ -39,8 +39,8 @@ export function RealisationsView({ items }: RealisationsViewProps) {
             className={cn(
               "rounded-full border px-4 py-2 font-mono text-[11px] uppercase tracking-wider transition-colors",
               category === f.category
-                ? "border-terracotta bg-terracotta/15 text-ink"
-                : "border-line bg-bg-3 text-ink-dim hover:border-line-2 hover:text-ink",
+                ? "border-[#f26a06] bg-[#f26a06]/15 text-white"
+                : "border-white/15 bg-white/[0.06] text-white/65 hover:border-white/25 hover:text-white",
             )}
           >
             {f.label}
@@ -49,7 +49,7 @@ export function RealisationsView({ items }: RealisationsViewProps) {
       </div>
 
       {filtered.length === 0 ? (
-        <div className="mt-16 rounded-lg border border-dashed border-line bg-bg-3/50 px-6 py-16 text-center text-ink-dim">
+        <div className="mt-16 rounded-lg border border-dashed border-white/20 bg-white/[0.04] px-6 py-16 text-center text-white/65">
           {items.length === 0
             ? "Aucune étude de cas publiée dans Sanity pour l’instant."
             : "Aucun projet dans cette catégorie — essayez un autre filtre."}
@@ -60,9 +60,9 @@ export function RealisationsView({ items }: RealisationsViewProps) {
             const href = study.slug ? `/realisations/${study.slug}/` : "#";
             return (
               <li key={study._id}>
-                <article className="group flex h-full flex-col overflow-hidden rounded-lg border border-line bg-bg transition-colors hover:border-line-2 hover:bg-bg-2">
+                <article className="group flex h-full flex-col overflow-hidden rounded-lg border border-white/12 bg-white/[0.04] transition-colors hover:border-white/25 hover:bg-white/[0.07]">
                   <Link href={href} className="block shrink-0">
-                    <div className="relative aspect-[16/10] bg-bg-3">
+                    <div className="relative aspect-[16/10] bg-black/40">
                       {study.thumbnail ? (
                         <Image
                           src={study.thumbnail}
@@ -72,27 +72,27 @@ export function RealisationsView({ items }: RealisationsViewProps) {
                           sizes="(max-width: 768px) 100vw, 50vw"
                         />
                       ) : (
-                        <span className="absolute inset-0 flex items-center justify-center font-mono text-[10px] uppercase tracking-widest text-ink-muted">
+                        <span className="absolute inset-0 flex items-center justify-center font-mono text-[10px] uppercase tracking-widest text-white/45">
                           Étude de cas
                         </span>
                       )}
                     </div>
                   </Link>
                   <div className="flex flex-1 flex-col p-5 md:p-6">
-                    <p className="font-mono text-[10px] uppercase tracking-wider text-ink-muted">
+                    <p className="font-mono text-[10px] uppercase tracking-wider text-white/45">
                       {study.client ?? "Client"} · {study.year ?? "—"}
                     </p>
-                    <h2 className="mt-2 font-serif text-xl font-medium text-ink md:text-2xl">
-                      <Link href={href} className="hover:text-terracotta">
+                    <h2 className="mt-2 text-xl font-semibold text-white md:text-2xl">
+                      <Link href={href} className="hover:text-[#ff9c6b]">
                         {study.title ?? "Sans titre"}
                       </Link>
                     </h2>
                     {study.featuredMetric ? (
-                      <p className="mt-3 font-serif text-lg text-terracotta">{study.featuredMetric}</p>
+                      <p className="mt-3 text-lg font-semibold text-[#f26a06]">{study.featuredMetric}</p>
                     ) : null}
                     <Link
                       href={href}
-                      className="mt-5 inline-flex font-mono text-[11px] font-medium uppercase tracking-widest text-terracotta underline-offset-4 hover:underline"
+                      className="mt-5 inline-flex font-mono text-[11px] font-medium uppercase tracking-widest text-[#f26a06] underline-offset-4 hover:underline"
                     >
                       Voir l’étude →
                     </Link>

@@ -187,10 +187,64 @@ html {
   }
 }
 
-/* —— Genesis (PrebuiltUI) : shell marketing uniquement (.genesis-skin) —— */
+/* —— Genesis (PrebuiltUI) : shell marketing —— Halos #D10A8A · #2E08CF · #F26A06 */
 .genesis-skin {
   @apply bg-black text-sm text-white antialiased;
   font-family: var(--font-poppins), ui-sans-serif, system-ui, sans-serif;
+
+  --genesis-magenta: #d10a8a;
+  --genesis-violet: #2e08cf;
+  --genesis-orange: #f26a06;
+
+  /* Remplace l’ancienne identité « terracotta » : les utilitaires `*-terracotta` deviennent l’accent Genesis orange */
+  --terracotta: var(--genesis-orange);
+  --terracotta-soft: #ff9c6b;
+  --success: var(--genesis-orange);
+
+  --bg: #000000;
+  --bg-2: rgba(255, 255, 255, 0.04);
+  --bg-3: rgba(255, 255, 255, 0.08);
+  --line: rgba(255, 255, 255, 0.12);
+  --line-2: rgba(255, 255, 255, 0.2);
+  --ink: #fafafa;
+  --ink-dim: rgba(250, 250, 250, 0.72);
+  --ink-muted: rgba(250, 250, 250, 0.48);
+
+  --background: #000000;
+  --foreground: var(--ink);
+  --card: rgba(255, 255, 255, 0.05);
+  --card-foreground: var(--ink);
+  --popover: rgba(10, 10, 12, 0.96);
+  --popover-foreground: var(--ink);
+  --primary: var(--genesis-orange);
+  --primary-foreground: #0d0d0d;
+  --secondary: rgba(255, 255, 255, 0.06);
+  --secondary-foreground: var(--ink);
+  --muted: rgba(255, 255, 255, 0.06);
+  --muted-foreground: var(--ink-dim);
+  --accent: rgba(255, 255, 255, 0.09);
+  --accent-foreground: var(--ink);
+  --border: var(--line);
+  --input: var(--line-2);
+  --ring: var(--genesis-orange);
+  --chart-1: var(--genesis-orange);
+  --chart-2: var(--genesis-violet);
+  --chart-3: var(--genesis-magenta);
+  --chart-4: var(--ink-dim);
+  --chart-5: var(--ink-muted);
+  --sidebar: rgba(255, 255, 255, 0.04);
+  --sidebar-foreground: var(--ink);
+  --sidebar-primary: var(--genesis-orange);
+  --sidebar-primary-foreground: #0d0d0d;
+  --sidebar-accent: rgba(255, 255, 255, 0.08);
+  --sidebar-accent-foreground: var(--ink);
+  --sidebar-border: var(--line);
+  --sidebar-ring: var(--genesis-orange);
+}
+
+.genesis-skin ::selection {
+  background: color-mix(in srgb, var(--genesis-orange) 42%, transparent);
+  color: #fff;
 }
 
 @layer components {

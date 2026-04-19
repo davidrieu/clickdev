@@ -30,7 +30,7 @@ export function ServiceCard({ index, service }: ServiceCardProps) {
     mouseY.set(e.clientY - r.top);
   }
 
-  const spotlight = useMotionTemplate`radial-gradient(520px circle at ${mouseX}px ${mouseY}px, rgba(217,119,87,0.14), transparent 55%)`;
+  const spotlight = useMotionTemplate`radial-gradient(520px circle at ${mouseX}px ${mouseY}px, rgba(242,106,6,0.16), transparent 55%)`;
 
   return (
     <MotionLink
@@ -79,7 +79,7 @@ export function ServiceCard({ index, service }: ServiceCardProps) {
           </li>
         ))}
       </ul>
-      <span className="relative mt-6 inline-flex items-center gap-1 text-sm font-medium text-terracotta transition-transform duration-200 group-hover:translate-x-1">
+      <span className="relative mt-6 inline-flex items-center gap-1 text-sm font-medium text-[#f26a06] transition-transform duration-200 group-hover:translate-x-1">
         Découvrir
         <span aria-hidden>→</span>
       </span>

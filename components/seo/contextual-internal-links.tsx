@@ -41,7 +41,7 @@ export function ContextualInternalLinks({
           >
             <Link
               href={link.href}
-              className="font-serif text-lg font-medium text-terracotta underline-offset-4 hover:underline md:text-xl"
+              className="text-lg font-semibold text-[#f26a06] underline-offset-4 hover:underline md:text-xl"
             >
               {link.label}
             </Link>

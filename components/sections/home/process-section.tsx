@@ -55,7 +55,7 @@ export function ProcessSection() {
                 variants={row}
               >
                 <motion.span
-                  className="inline-block font-serif text-5xl font-semibold leading-none tracking-tighter text-terracotta md:text-6xl lg:text-7xl"
+                  className="inline-block text-5xl font-semibold leading-none tracking-tighter text-[#f26a06] md:text-6xl lg:text-7xl"
                   initial={reduceMotion ? false : { scale: 0.6, opacity: 0 }}
                   whileInView={{ scale: 1, opacity: 1 }}
                   viewport={{ once: true, margin: "-20%" }}

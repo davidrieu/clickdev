@@ -24,7 +24,7 @@ export function SectionAurora({ variant = "soft" }: SectionAuroraProps) {
       <motion.div
         className={cn(
           "absolute -right-[22%] top-1/2 h-[min(380px,60vw)] w-[min(380px,60vw)] -translate-y-1/2 rounded-full blur-[100px]",
-          subtle ? "bg-terracotta/14" : "bg-terracotta/25",
+          subtle ? "bg-[#d10a8a]/14" : "bg-[#d10a8a]/22",
         )}
         animate={{
           x: [0, 42, -28, 0],
@@ -41,7 +41,7 @@ export function SectionAurora({ variant = "soft" }: SectionAuroraProps) {
       <motion.div
         className={cn(
           "absolute -left-[20%] top-[10%] h-[min(300px,48vw)] w-[min(300px,48vw)] rounded-full blur-[85px]",
-          subtle ? "bg-terracotta/8" : "bg-terracotta/16",
+          subtle ? "bg-[#2e08cf]/10" : "bg-[#2e08cf]/18",
         )}
         animate={{
           x: [0, -26, 20, 0],
@@ -54,7 +54,7 @@ export function SectionAurora({ variant = "soft" }: SectionAuroraProps) {
       <motion.div
         className={cn(
           "absolute left-[35%] bottom-[0%] h-[min(220px,40vw)] w-[min(220px,40vw)] rounded-full blur-[72px]",
-          subtle ? "bg-terracotta-soft/6" : "bg-terracotta-soft/12",
+          subtle ? "bg-[#f26a06]/8" : "bg-[#f26a06]/14",
         )}
         animate={{
           x: [0, -30, 24, 0],

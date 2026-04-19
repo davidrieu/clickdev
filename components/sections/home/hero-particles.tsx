@@ -77,7 +77,7 @@ export function HeroParticles({ className }: HeroParticlesProps) {
   return (
     <motion.svg
       aria-hidden
-      className={cn("pointer-events-none text-terracotta", className)}
+      className={cn("pointer-events-none text-[#f26a06]", className)}
       viewBox={`0 0 ${VIEWBOX} ${VIEWBOX}`}
       preserveAspectRatio="xMidYMid meet"
       initial={{ opacity: 0 }}

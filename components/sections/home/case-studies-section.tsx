@@ -58,7 +58,7 @@ export function CaseStudiesSection() {
           >
             <Link
               href="/realisations/"
-              className="inline-flex items-center gap-1 font-medium text-terracotta"
+              className="inline-flex items-center gap-1 font-medium text-[#f26a06]"
             >
               Voir toutes les réalisations
               <span aria-hidden>→</span>

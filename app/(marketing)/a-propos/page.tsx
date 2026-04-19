@@ -21,7 +21,7 @@ export default function AProposPage() {
   const faqLd = faqPageJsonLd(aProposFaq);
 
   return (
-    <MarketingArticleShell aurora="soft">
+    <MarketingArticleShell>
       <MarketingPageContainer width="wide">
         <MarketingHeroStage
           variant="display"
@@ -43,7 +43,7 @@ export default function AProposPage() {
             Le positionnement SEO &amp; GEO du site n’est pas anecdotique : appliquer sur mon propre domaine ce que je
             prêche (liens entre pages utiles, FAQ, contenus factuels, TL;DR) sert de preuve — utile quand vous évaluez un
             partenaire sur le silo{" "}
-            <Link href="/seo/" className="text-terracotta underline-offset-4 hover:underline">
+            <Link href="/seo/" className="text-primary underline-offset-4 hover:underline">
               SEO &amp; GEO
             </Link>
             .
@@ -61,7 +61,7 @@ export default function AProposPage() {
           <MarketingBodyParagraph>
             Après mise en ligne, je propose maintenance/TMA lorsque la vélocité et le sommeil reposent sur la même
             chose : mises à jour prévisibles, monitoring minimal et feuille d’évolutions partagée — voir{" "}
-            <Link href="/maintenance/" className="text-terracotta underline-offset-4 hover:underline">
+            <Link href="/maintenance/" className="text-primary underline-offset-4 hover:underline">
               Maintenance &amp; TMA
             </Link>
             .
@@ -73,7 +73,7 @@ export default function AProposPage() {
           <MarketingBodyParagraph>
             Accor, Greenweez, Spreadshirt, Made in France, SIF Group, Urbawise, Crack It, The French Maisons, Musée
             Up’, Mayami Production — et 80+ projets livrés. Les études de cas publiées sous{" "}
-            <Link href="/realisations/" className="text-terracotta underline-offset-4 hover:underline">
+            <Link href="/realisations/" className="text-primary underline-offset-4 hover:underline">
               Réalisations
             </Link>{" "}
             détaillent contexte, solution et résultats lorsque le contenu Sanity est disponible : elles complètent cette
@@ -83,7 +83,7 @@ export default function AProposPage() {
 
         <section className="mt-14 border-t border-line pt-12">
           <MarketingSectionTitle>Liens externes vérifiables</MarketingSectionTitle>
-          <ul className="mt-4 flex flex-col gap-2 text-sm text-terracotta md:text-base">
+          <ul className="mt-4 flex flex-col gap-2 text-sm text-primary md:text-base">
             <li>
               <a href={contactLinks.linkedin} className="underline-offset-4 hover:underline">
                 LinkedIn

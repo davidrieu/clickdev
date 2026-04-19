@@ -19,7 +19,7 @@ export const metadata: Metadata = {
 
 export default function DevisPage() {
   return (
-    <MarketingArticleShell aurora="medium">
+    <MarketingArticleShell>
       <MarketingPageContainer width="reading">
         <MarketingHeroStage
           variant="display"
@@ -29,15 +29,15 @@ export default function DevisPage() {
         />
         <MarketingBodyParagraph>
           Avant d’envoyer, vous pouvez parcourir les pages les plus proches de votre besoin — par exemple{" "}
-          <Link href="/sites-internet/site-ecommerce/" className="text-terracotta underline-offset-4 hover:underline">
+          <Link href="/sites-internet/site-ecommerce/" className="text-primary underline-offset-4 hover:underline">
             Site e-commerce
           </Link>
           ,{" "}
-          <Link href="/seo/audit-seo/" className="text-terracotta underline-offset-4 hover:underline">
+          <Link href="/seo/audit-seo/" className="text-primary underline-offset-4 hover:underline">
             Audit SEO
           </Link>{" "}
           ou{" "}
-          <Link href="/ia/rag-base-connaissances/" className="text-terracotta underline-offset-4 hover:underline">
+          <Link href="/ia/rag-base-connaissances/" className="text-primary underline-offset-4 hover:underline">
             RAG
           </Link>{" "}
           — cela enrichit votre message et réduit les allers-retours.
@@ -48,7 +48,7 @@ export default function DevisPage() {
             href={calBookingUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="text-terracotta underline-offset-4 hover:underline"
+            className="text-primary underline-offset-4 hover:underline"
           >
             Réserver un créneau
           </a>{" "}

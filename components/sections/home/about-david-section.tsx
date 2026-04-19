@@ -38,7 +38,7 @@ export function AboutDavidSection() {
                 className="absolute -inset-[2px] rounded-lg opacity-70 blur-md"
                 style={{
                   background:
-                    "conic-gradient(from 0deg, transparent, rgba(217,119,87,0.5), transparent 40%, rgba(232,165,139,0.38), transparent 70%)",
+                    "conic-gradient(from 0deg, transparent, rgba(242,106,6,0.45), transparent 40%, rgba(209,10,138,0.32), transparent 70%)",
                 }}
                 animate={{ rotate: [0, 360] }}
                 transition={{ duration: 28, repeat: Infinity, ease: "linear" }}
@@ -68,7 +68,7 @@ export function AboutDavidSection() {
               className="mt-3 font-serif text-3xl font-normal tracking-tight text-ink md:text-4xl lg:text-[2.75rem] lg:leading-tight"
             >
               Derrière Clickdev,{" "}
-              <span className="font-semibold text-terracotta">David Rieu</span>
+              <span className="font-semibold text-[#f26a06]">David Rieu</span>
             </h2>
             <p className="mt-6 text-base leading-relaxed text-ink-dim md:text-lg">
               Je travaille avec des équipes marketing, produit et tech qui veulent un

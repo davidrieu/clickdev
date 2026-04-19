@@ -60,7 +60,7 @@ function MobileNav({ onNavigate }: { onNavigate: () => void }) {
               <li>
                 <Link
                   href={silo.href}
-                  className="text-sm font-medium text-terracotta hover:underline"
+                  className="text-sm font-medium text-primary hover:underline"
                   onClick={onNavigate}
                 >
                   Vue d’ensemble
