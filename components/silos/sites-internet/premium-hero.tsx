@@ -5,6 +5,8 @@ import { motion } from 'framer-motion';
 
 import { SITES_INTERNET_MARQUEE_CLIENTS } from '@/lib/constants/sites-internet-premium';
 
+import { StellarField } from './stellar-field';
+
 const lineDraw = {
   rest: { scaleX: 0, originX: 0 },
   animate: { scaleX: 1, transition: { duration: 0.9, ease: [0.22, 1, 0.36, 1] as const } },
@@ -15,7 +17,8 @@ export function PremiumHero() {
 
   return (
     <section className="relative overflow-hidden pt-24 pb-8 md:pt-28 md:pb-14 lg:pt-32">
-      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_80%_50%_at_50%_-20%,rgba(242,106,6,0.12),transparent)]" />
+      <StellarField count={48} className="opacity-[0.88]" />
+      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_80%_50%_at_50%_-20%,rgba(255,255,255,0.05),transparent)]" />
 
       <div className="relative z-10 mx-auto grid max-w-[1400px] gap-12 px-4 md:grid-cols-12 md:items-center md:gap-8 md:px-8 lg:gap-12">
         <div className="flex flex-col justify-center md:col-span-6 md:py-4 lg:py-6">
@@ -29,7 +32,7 @@ export function PremiumHero() {
               01 — Sites internet
             </span>
             <motion.span
-              className="block h-px max-w-[160px] flex-1 origin-left bg-gradient-to-r from-[#F26A06] to-white/25"
+              className="block h-px max-w-[160px] flex-1 origin-left bg-gradient-to-r from-white/50 to-white/12"
               variants={lineDraw}
               initial="rest"
               animate="animate"
@@ -65,19 +68,19 @@ export function PremiumHero() {
           >
             <Link
               href="/devis?projectType=site"
-              className="group relative overflow-hidden rounded-full bg-[#F26A06] px-8 py-3.5 text-sm font-semibold text-white shadow-[0_0_40px_-8px_rgba(242,106,6,0.55)] transition duration-300 hover:shadow-[0_0_56px_-6px_rgba(242,106,6,0.65)]"
+              className="si-btn-pill-shine si-btn-pill-shine-on-light group relative isolate inline-flex overflow-hidden rounded-full bg-white px-8 py-3.5 text-sm font-semibold text-black shadow-[0_0_36px_-10px_rgba(255,255,255,0.35)] transition duration-300 hover:bg-white/95 hover:shadow-[0_0_48px_-8px_rgba(255,255,255,0.45)]"
             >
               <span className="relative z-10">Demander un devis</span>
               <span
-                className="absolute inset-0 -translate-x-full bg-white/20 transition duration-500 group-hover:translate-x-0"
+                className="absolute inset-0 z-[2] -translate-x-full bg-black/[0.06] transition duration-500 group-hover:translate-x-0"
                 aria-hidden
               />
             </Link>
             <Link
               href="/realisations"
-              className="rounded-full border border-white/20 bg-white/[0.04] px-8 py-3.5 text-sm font-medium text-white/90 backdrop-blur-sm transition duration-300 hover:border-white/35 hover:bg-white/[0.08]"
+              className="si-btn-pill-shine relative isolate inline-flex overflow-hidden rounded-full border border-white/20 bg-white/[0.04] px-8 py-3.5 text-sm font-medium text-white/90 shadow-[inset_0_1px_0_0_rgb(255_255_255/0.08)] backdrop-blur-sm transition duration-300 hover:border-white/35 hover:bg-white/[0.08]"
             >
-              Voir les réalisations
+              <span className="relative z-10">Voir les réalisations</span>
             </Link>
           </motion.div>
         </div>

@@ -36,7 +36,7 @@ export function PremiumQuotes() {
               <blockquote className="si-serif-display -mt-4 text-[clamp(1.35rem,2.8vw,2.125rem)] leading-snug font-medium tracking-[-0.02em] text-white/90">
                 {t.quote}
               </blockquote>
-              <footer className="mt-8 border-l-2 border-[#F26A06]/60 pl-5">
+              <footer className="mt-8 border-l-2 border-white/35 pl-5">
                 <cite className="not-italic text-sm font-medium text-white/80">{t.author}</cite>
                 <p className="mt-1 text-xs tracking-wider text-white/40 uppercase">{t.company}</p>
               </footer>

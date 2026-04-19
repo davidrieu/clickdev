@@ -93,8 +93,8 @@ export function PremiumCases({ caseStudies }: Props) {
                       {c.title}
                     </span>
                     <span className="text-xs text-white/50 uppercase md:text-sm">{categoryLabel(c)}</span>
-                    <span className="font-mono text-sm text-[#F26A06] tabular-nums md:text-base">{displayMetric(c)}</span>
-                    <span className="flex justify-end text-white/40 transition duration-300 group-hover:-rotate-45 group-hover:text-[#F26A06] md:text-lg">
+                    <span className="font-mono text-sm text-white/80 tabular-nums md:text-base">{displayMetric(c)}</span>
+                    <span className="flex justify-end text-white/40 transition duration-300 group-hover:-rotate-45 group-hover:text-white/90 md:text-lg">
                       ↗
                     </span>
 
@@ -125,7 +125,7 @@ export function PremiumCases({ caseStudies }: Props) {
         >
           <Link
             href="/realisations"
-            className="inline-flex items-center gap-2 font-mono text-xs tracking-[0.2em] text-white/50 uppercase transition hover:text-[#F26A06]"
+            className="inline-flex items-center gap-2 font-mono text-xs tracking-[0.2em] text-white/50 uppercase transition hover:text-white/90"
           >
             Voir toutes les réalisations <span aria-hidden>→</span>
           </Link>

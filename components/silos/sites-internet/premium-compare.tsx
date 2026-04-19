@@ -24,7 +24,7 @@ export function PremiumCompare() {
           transition={{ duration: 0.5 }}
           className="text-center"
         >
-          <p className="font-mono text-[11px] tracking-[0.28em] text-[#F26A06] uppercase">Décision</p>
+          <p className="font-mono text-[11px] tracking-[0.28em] text-white/50 uppercase">Décision</p>
           <h2 className="si-serif-display mt-4 text-[clamp(1.85rem,3.5vw,3rem)] font-medium tracking-[-0.03em] text-white">
             WordPress vs sur mesure
           </h2>
@@ -86,7 +86,7 @@ function CheckMark({ show, delay, active }: { show: boolean; delay: number; acti
         >
           <motion.path
             d="M5 13l4 4L19 7"
-            stroke="#F26A06"
+            stroke="rgba(255,255,255,0.88)"
             strokeWidth="2.2"
             strokeLinecap="round"
             strokeLinejoin="round"
