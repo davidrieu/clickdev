@@ -135,6 +135,88 @@ const OVERRIDES: Partial<Record<string, MarketingLongArticle>> = {
       },
     ],
   },
+  'sites-internet:marketplace': {
+    metaDescription:
+      'Marketplace sur mesure : catalogue vendeurs, commissions, conformité et passage à l’échelle — développement freelance Clickdev.',
+    lead:
+      'Une marketplace doit gérer des identités multiples (acheteurs, vendeurs, admin), des flux financiers sensibles et des pics de trafic. Je conçois des plateformes où la clarté des règles métier prime : onboarding vendeur, litiges, commissions, SEO catalogue multi-vendeurs.',
+    sections: [
+      {
+        heading: 'Architecture & confiance',
+        paragraphs: [
+          'Séparation des paiements (escrow, split), journaux d’audit, droits fins par rôle et isolation des données vendeur. Les modules critiques sont testés et monitorés.',
+          'Le SEO marketplace (facettes, pagination, duplication) est traité dès les gabarits pour éviter une refonte coûteuse plus tard.',
+        ],
+      },
+      {
+        heading: 'Croissance',
+        paragraphs: [
+          'Files d’attente, cache, rate limiting et stratégie de déploiement pour les soldes ou campagnes média. Les intégrations (KYC, transport, facturation) sont encapsulées pour limiter les effets domino.',
+        ],
+      },
+    ],
+    faq: [
+      {
+        question: 'MVP marketplace : par où commencer ?',
+        answer:
+          'Un périmètre réduit mais bout-en-bout (inscription vendeur, publication, commande, paiement) livre plus de valeur qu’une « démo large » inutilisable.',
+      },
+    ],
+  },
+  'applications-mobiles:react-native': {
+    metaDescription:
+      'React Native : app iOS/Android, modules natifs, performance et publication stores — freelance Clickdev.',
+    lead:
+      'React Native permet une équipe produit unique pour iOS et Android tout en gardant la possibilité d’échapper vers le natif (SDK, perfs, UI spécifique). Je structure le code pour limiter les re-renders, isoler la navigation et fiabiliser les builds.',
+    sections: [
+      {
+        heading: 'Qualité & DX',
+        paragraphs: [
+          'TypeScript, conventions de dossiers, tests sur parcours critiques et CI pour les builds. Les erreurs réseau et l’état offline sont gérés explicitement plutôt qu’implicitement.',
+        ],
+      },
+      {
+        heading: 'Stores',
+        paragraphs: [
+          'Préparation des fiches, conformité des permissions, gestion des versions et accompagnement sur les refus Apple/Google. Vous gardez la propriété des comptes développeur.',
+        ],
+      },
+    ],
+    faq: [
+      {
+        question: 'React Native ou Flutter ?',
+        answer:
+          'Souvent dicté par l’écosystème interne (déjà React côté web ?). Les deux sont viables ; je suis le plus productif sur React Native / Expo selon contraintes.',
+      },
+    ],
+  },
+  'ia:integration-ia': {
+    metaDescription:
+      'Intégration IA en produit : APIs, garde-fous, coûts et sécurité — accompagnement freelance Clickdev.',
+    lead:
+      'Intégrer l’IA dans un produit existant, c’est brancher des modèles sur vos données et vos règles — avec des limites claires sur ce que l’IA peut décider seule. Je conçois des flux avec validation humaine, journaux et budgets tokens.',
+    sections: [
+      {
+        heading: 'Chaîne de valeur',
+        paragraphs: [
+          'Identification des tâches à fort ROI (support, qualification, synthèse), choix du modèle, prompts versionnés et tests sur cas limites. Les données sensibles sont filtrées avant envoi au fournisseur.',
+        ],
+      },
+      {
+        heading: 'Exploitation',
+        paragraphs: [
+          'Monitoring des latences, quotas, erreurs et repli si le fournisseur est indisponible. Documentation pour que votre équipe puisse itérer sans dépendre d’une boîte noire.',
+        ],
+      },
+    ],
+    faq: [
+      {
+        question: 'On commence par un POC ?',
+        answer:
+          'Souvent oui : un périmètre restreint mais mesurable en 2–4 semaines permet de valider coût et qualité avant industrialisation.',
+      },
+    ],
+  },
 };
 
 function templateArticle(

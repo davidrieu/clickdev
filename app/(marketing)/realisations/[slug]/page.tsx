@@ -2,6 +2,7 @@ import PageBreadcrumb from '@/components/marketing/page-breadcrumb';
 import MarketingShell from '@/components/marketing/marketing-shell';
 import CaseStudyDetail from '@/components/realisations/case-study-detail';
 import { BreadcrumbJsonLd } from '@/components/seo/breadcrumb-json-ld';
+import { CaseStudyArticleJsonLd } from '@/components/seo/case-study-article-json-ld';
 import { getCaseStudyBySlug, getCaseStudySlugs } from '@/lib/sanity/fetch';
 import { isSanityConfigured } from '@/lib/sanity/env';
 import { pageMetadata } from '@/lib/seo/page-metadata';
@@ -74,6 +75,12 @@ export default async function CaseStudyPage({ params }: Props) {
     { label: study.title, href: `/realisations/${slug}` },
   ];
 
+  const articleDescription =
+    study.metaDescription?.trim() ||
+    study.tagline?.trim() ||
+    `Étude de cas : ${study.title} — Clickdev.`;
+  const articleImage = study.ogImage ?? study.heroImage ?? study.thumbnail;
+
   return (
     <>
       <BreadcrumbJsonLd
@@ -82,6 +89,12 @@ export default async function CaseStudyPage({ params }: Props) {
           { name: 'Réalisations', path: '/realisations' },
           { name: study.title, path: `/realisations/${slug}` },
         ]}
+      />
+      <CaseStudyArticleJsonLd
+        headline={study.metaTitle?.trim() || study.title}
+        description={articleDescription}
+        slug={slug}
+        image={articleImage}
       />
       <article className="mx-auto max-w-4xl px-4 py-16 md:px-6 md:py-20">
         <PageBreadcrumb items={crumbs} />

@@ -1,6 +1,7 @@
 import PageBreadcrumb from '@/components/marketing/page-breadcrumb';
 import MarketingShell from '@/components/marketing/marketing-shell';
 import SanityPortableText from '@/components/portable/sanity-portable-text';
+import { BlogPostingJsonLd } from '@/components/seo/blog-posting-json-ld';
 import { BreadcrumbJsonLd } from '@/components/seo/breadcrumb-json-ld';
 import { formatDateFr } from '@/lib/format/date';
 import { getPostBySlug, getPostSlugs } from '@/lib/sanity/fetch';
@@ -73,6 +74,10 @@ export default async function BlogPostPage({ params }: Props) {
     { label: post.title, href: `/blog/${slug}` },
   ];
 
+  const description =
+    post.excerpt?.trim() ||
+    `Article « ${post.title} » — développement web & produits digitaux, par Clickdev.`;
+
   return (
     <>
       <BreadcrumbJsonLd
@@ -81,6 +86,14 @@ export default async function BlogPostPage({ params }: Props) {
           { name: 'Blog', path: '/blog' },
           { name: post.title, path: `/blog/${slug}` },
         ]}
+      />
+      <BlogPostingJsonLd
+        headline={post.title}
+        description={description}
+        slug={slug}
+        datePublished={post.publishedAt}
+        image={post.coverImage}
+        authorName={post.author?.name ?? null}
       />
       <article className="mx-auto max-w-3xl px-4 py-16 md:px-6 md:py-20">
         <PageBreadcrumb items={crumbs} />
