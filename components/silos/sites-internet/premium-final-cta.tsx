@@ -1,16 +1,39 @@
 'use client';
 
 import Link from 'next/link';
-import { useMemo } from 'react';
+import { useMemo, type ReactNode } from 'react';
 import { motion, useReducedMotion } from 'framer-motion';
 
 import { StellarField, useSectionStellarPointer } from './stellar-field';
 
-const TITLE = 'Prêt à passer d’un site qui subit à un site qui performe ?';
+const DEFAULT_TITLE = 'Prêt à passer d’un site qui subit à un site qui performe ?';
 
-export function PremiumFinalCta() {
+const defaultDescription = (
+  <>
+    Expliquez votre contexte en quelques lignes : proposition réaliste sous{' '}
+    <strong className="font-medium text-white/85">24h ouvrées</strong> (périmètre, jalons, ordre de grandeur).
+  </>
+);
+
+export type PremiumFinalCtaProps = {
+  title?: string;
+  description?: ReactNode;
+  primaryHref?: string;
+  primaryLabel?: string;
+  secondaryHref?: string;
+  secondaryLabel?: string;
+};
+
+export function PremiumFinalCta({
+  title = DEFAULT_TITLE,
+  description = defaultDescription,
+  primaryHref = '/devis?projectType=site',
+  primaryLabel = 'Demander un devis site web',
+  secondaryHref = '/contact',
+  secondaryLabel = 'Réserver un appel',
+}: PremiumFinalCtaProps) {
   const reduce = useReducedMotion();
-  const words = useMemo(() => TITLE.split(' '), []);
+  const words = useMemo(() => title.split(' '), [title]);
   const { pointer, onPointerMoveCapture, onPointerLeave } = useSectionStellarPointer();
 
   return (
@@ -49,15 +72,15 @@ export function PremiumFinalCta() {
             </motion.span>
           ))}
         </motion.h2>
-        <motion.p
+        <motion.div
           className="mx-auto mt-6 max-w-lg text-sm leading-relaxed text-white/60 md:text-base"
           initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.12, duration: 0.5 }}
         >
-          Expliquez votre contexte en quelques lignes : proposition réaliste sous <strong className="font-medium text-white/85">24h ouvrées</strong> (périmètre, jalons, ordre de grandeur).
-        </motion.p>
+          {description}
+        </motion.div>
         <motion.div
           className="mt-10 flex flex-wrap justify-center gap-3"
           initial={{ opacity: 0, y: 14 }}
@@ -66,16 +89,16 @@ export function PremiumFinalCta() {
           transition={{ delay: 0.18, duration: 0.45 }}
         >
           <Link
-            href="/devis?projectType=site"
+            href={primaryHref}
             className="si-btn-pill-shine si-btn-pill-shine-on-light si-cta-primary-glow relative isolate inline-flex overflow-hidden rounded-full bg-white px-10 py-4 text-sm font-semibold text-black transition hover:bg-white/95"
           >
-            <span className="relative z-10">Demander un devis site web</span>
+            <span className="relative z-10">{primaryLabel}</span>
           </Link>
           <Link
-            href="/contact"
+            href={secondaryHref}
             className="si-btn-pill-shine relative isolate inline-flex overflow-hidden rounded-full border border-white/25 bg-white/[0.06] px-10 py-4 text-sm font-medium text-white/92 shadow-[inset_0_1px_0_0_rgb(255_255_255/0.08)] backdrop-blur-sm transition hover:border-white/40 hover:bg-white/[0.1]"
           >
-            <span className="relative z-10">Réserver un appel</span>
+            <span className="relative z-10">{secondaryLabel}</span>
           </Link>
         </motion.div>
       </div>

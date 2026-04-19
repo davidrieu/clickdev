@@ -130,7 +130,7 @@ export function PremiumHero() {
  * Wireframe animé (CSS pur) : le site se construit bloc par bloc puis repart — boucle 8s.
  * @see globals.css .si-hero-wire-*
  */
-function HeroSiteBuildWireframe() {
+export function HeroSiteBuildWireframe() {
   return (
     <div
       className="relative mx-auto w-full max-w-lg md:mx-0 md:ml-auto md:mr-0 md:max-w-md lg:max-w-lg"
