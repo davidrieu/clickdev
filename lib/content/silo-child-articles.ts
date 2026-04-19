@@ -1,74 +1,10 @@
 import type { ServiceSilo } from '@/lib/constants/sitemap';
 
 import type { MarketingLongArticle } from './marketing-article-types';
+import { SITES_INTERNET_LONG_ARTICLES } from './silo-children/sites-internet-long-articles';
 
 const OVERRIDES: Partial<Record<string, MarketingLongArticle>> = {
-  'sites-internet:site-vitrine': {
-    metaDescription:
-      'Site vitrine professionnel : design, contenus, performances et SEO local — développement freelance Clickdev.',
-    lead:
-      'Un site vitrine doit expliquer en quelques secondes ce que vous faites, pour qui, et inciter à l’action (prise de contact, demande de devis, prise de rendez-vous). Je conçois des pages rapides, lisibles sur mobile et prêtes pour le référencement local.',
-    sections: [
-      {
-        heading: 'Contenu & structure',
-        paragraphs: [
-          'Nous définissons ensemble les pages piliers (offre, preuves, équipe, réalisations, FAQ), les appels à l’action et les formulaires. Les contenus peuvent être saisis dans un CMS headless ou WordPress selon votre équipe.',
-          'Les données structurées (LocalBusiness, Organization, FAQPage le cas échéant) renforcent la compréhension par Google et les assistants.',
-        ],
-      },
-      {
-        heading: 'Performance',
-        paragraphs: [
-          'Images optimisées, polices et JS maîtrisés, mise en cache et hébergement adapté : le vitrine n’a pas besoin d’être « lourd » pour être crédible. Les Core Web Vitals sont suivis comme critère de livraison.',
-        ],
-      },
-    ],
-    faq: [
-      {
-        question: 'Combien de pages pour un vitrine sérieux ?',
-        answer:
-          'Souvent 5 à 15 pages selon vos services et zones géographiques. Mieux vaut peu de pages excellentes que une dizaine de pages creuses.',
-      },
-      {
-        question: 'Puis-je mettre à jour moi-même les textes ?',
-        answer:
-          'Oui : formation courte à l’administration et gabarits qui limitent les risques de casser la mise en page.',
-      },
-    ],
-  },
-  'sites-internet:site-ecommerce': {
-    metaDescription:
-      'Site e-commerce sur mesure, Shopify ou WooCommerce : tunnel, perf, SEO produit et intégrations — Clickdev.',
-    lead:
-      'Un e-commerce performant combine catalogue clair, tunnel de conversion sans friction, moyens de paiement fiables et pages rapides sur mobile. Je conçois ou refonds des boutiques alignées sur vos règles métier (promotions, stocks, multi-devises, B2B).',
-    sections: [
-      {
-        heading: 'Tunnel & conversion',
-        paragraphs: [
-          'Parcours panier/checkout, confiance (avis, garanties, livraison), réassurance mobile et réduction des étapes inutiles. Les micro-données et le maillage interne produit/blog renforcent le SEO e-commerce.',
-          'Les pics de trafic (soldes, TV) sont anticipés : cache, files d’attente, limites de débit sur les APIs sensibles.',
-        ],
-      },
-      {
-        heading: 'Intégrations',
-        paragraphs: [
-          'ERP, logistique, CRM, emailing et outils analytics branchés proprement (webhooks, idempotence, journaux). Les connecteurs fragiles sont isolés pour limiter les régressions.',
-        ],
-      },
-    ],
-    faq: [
-      {
-        question: 'Shopify, WooCommerce ou sur mesure ?',
-        answer:
-          'Shopify accélère le standard e-commerce. WooCommerce convient quand WordPress est déjà le socle éditorial. Le sur mesure (souvent Next.js + API) gagne sur les règles catalogue très spécifiques.',
-      },
-      {
-        question: 'Refonte sans perdre le SEO ?',
-        answer:
-          'Plan de redirections, mapping URL, tests sur préprod et suivi Search Console après bascule — jalons définis dans le cadrage.',
-      },
-    ],
-  },
+  ...SITES_INTERNET_LONG_ARTICLES,
   'seo:audit-seo': {
     metaDescription:
       'Audit SEO technique et éditorial : crawl, indexation, performances, maillage — livrable actionnable par Clickdev.',
@@ -132,34 +68,6 @@ const OVERRIDES: Partial<Record<string, MarketingLongArticle>> = {
         question: 'Résultats garantis ?',
         answer:
           'Personne ne peut garantir une citation dans une réponse IA. On optimise les probabilités avec des signaux solides et durables.',
-      },
-    ],
-  },
-  'sites-internet:marketplace': {
-    metaDescription:
-      'Marketplace sur mesure : catalogue vendeurs, commissions, conformité et passage à l’échelle — développement freelance Clickdev.',
-    lead:
-      'Une marketplace doit gérer des identités multiples (acheteurs, vendeurs, admin), des flux financiers sensibles et des pics de trafic. Je conçois des plateformes où la clarté des règles métier prime : onboarding vendeur, litiges, commissions, SEO catalogue multi-vendeurs.',
-    sections: [
-      {
-        heading: 'Architecture & confiance',
-        paragraphs: [
-          'Séparation des paiements (escrow, split), journaux d’audit, droits fins par rôle et isolation des données vendeur. Les modules critiques sont testés et monitorés.',
-          'Le SEO marketplace (facettes, pagination, duplication) est traité dès les gabarits pour éviter une refonte coûteuse plus tard.',
-        ],
-      },
-      {
-        heading: 'Croissance',
-        paragraphs: [
-          'Files d’attente, cache, rate limiting et stratégie de déploiement pour les soldes ou campagnes média. Les intégrations (KYC, transport, facturation) sont encapsulées pour limiter les effets domino.',
-        ],
-      },
-    ],
-    faq: [
-      {
-        question: 'MVP marketplace : par où commencer ?',
-        answer:
-          'Un périmètre réduit mais bout-en-bout (inscription vendeur, publication, commande, paiement) livre plus de valeur qu’une « démo large » inutilisable.',
       },
     ],
   },
@@ -386,27 +294,6 @@ const OVERRIDES: Partial<Record<string, MarketingLongArticle>> = {
       },
     ],
   },
-  'sites-internet:landing-page': {
-    metaDescription:
-      'Landing page : message unique, preuves, CTA et vitesse — conception et dev freelance Clickdev.',
-    lead:
-      'Une landing efficace aligne une promesse, une preuve et un seul objectif de conversion (lead, démo, achat). Je réduis la dispersion cognitive, j’optimise le above-the-fold mobile et je mesure les événements analytics pour itérer.',
-    sections: [
-      {
-        heading: 'Itération',
-        paragraphs: [
-          'Variantes de hero et CTA testables, tracking propre (consentement RGPD), et intégration CRM / emailing pour ne pas perdre les leads en transit.',
-        ],
-      },
-    ],
-    faq: [
-      {
-        question: 'Landing vs page du site ?',
-        answer:
-          'La landing coupe la navigation pour maximiser la conversion ; la page site sert le maillage SEO long terme. Les deux peuvent coexister.',
-      },
-    ],
-  },
   'applications-mobiles:pwa': {
     metaDescription:
       'PWA : installation, mode hors-ligne, push et perf — développement freelance Clickdev.',
@@ -467,90 +354,6 @@ const OVERRIDES: Partial<Record<string, MarketingLongArticle>> = {
         question: 'Hébergement mutualisé ?',
         answer:
           'Possible avec limites de perf et d’isolation ; je documente les contraintes pour éviter les surprises en pic de trafic.',
-      },
-    ],
-  },
-  'sites-internet:site-mise-en-relation': {
-    metaDescription:
-      'Plateforme de mise en relation : profils, matching, messagerie et modération — développement freelance Clickdev.',
-    lead:
-      'Une marketplace « deux côtés » vit ou meurt selon la confiance : identité vérifiée, signalement, règles de mise en relation et paiement escrow si besoin. Je sécurise les flux sensibles (données perso, conversations) et les parcours mobiles.',
-    sections: [
-      {
-        heading: 'Confiance & conformité',
-        paragraphs: [
-          'RGPD (bases légales, conservation, export), traçabilité des actions admin et journaux d’audit sur les événements critiques. Les notifications email/SMS sont cadrées (fréquence, opt-out).',
-        ],
-      },
-    ],
-    faq: [
-      {
-        question: 'Paiement sur la plateforme ?',
-        answer:
-          'Possible via prestataire PCI (Stripe Connect, etc.) selon votre modèle de commission et votre pays d’implantation.',
-      },
-    ],
-  },
-  'sites-internet:site-sur-mesure': {
-    metaDescription:
-      'Site sur mesure : cadrage, architecture, design intégré et performances — freelance Clickdev.',
-    lead:
-      'Le sur mesure a du sens quand le parcours utilisateur ou les intégrations dépassent ce qu’un template peut raisonnablement supporter. Je traduis vos règles métier en backlog priorisé, avec des livrables intermédiaires testables plutôt qu’un big bang.',
-    sections: [
-      {
-        heading: 'Industrialisation',
-        paragraphs: [
-          'CI/CD, environnements, observabilité et documentation pour que le site survive au temps et aux changements d’équipe.',
-        ],
-      },
-    ],
-    faq: [
-      {
-        question: 'Délai typique ?',
-        answer:
-          'Très variable : quelques semaines pour un MVP ciblé, plusieurs mois pour un produit digital riche. Le cadrage fixe le périmètre V1.',
-      },
-    ],
-  },
-  'sites-internet:site-wordpress': {
-    metaDescription:
-      'Site WordPress sur mesure : thème, Gutenberg, perf et sécurité — développement freelance Clickdev.',
-    lead:
-      'WordPress reste un excellent socle éditorial quand l’équipe veut autonomie sur les contenus. Je limite la dérive plugin, je structure le thème (blocks, patterns) et je durcis l’admin (mises à jour, rôles, sauvegardes).',
-    sections: [
-      {
-        heading: 'Performance',
-        paragraphs: [
-          'Thème léger, lazy-load, cache adapté et images WebP/AVIF. Les pages critiques sont mesurées comme sur une stack moderne.',
-        ],
-      },
-    ],
-    faq: [
-      {
-        question: 'Headless WordPress ?',
-        answer:
-          'Possible : WordPress comme CMS et front Next.js pour le vitrine ou l’app ; utile quand le marketing veut WP et le produit veut React.',
-      },
-    ],
-  },
-  'sites-internet:intranet-extranet': {
-    metaDescription:
-      'Intranet / extranet : auth, rôles, documents et workflows — développement freelance Clickdev.',
-    lead:
-      'Les portails internes ou partenaires exigent une auth solide (SSO, MFA), une granularité de droits réaliste et des parcours simples pour les équipes non techniques. Je priorise la recherche de documents et les formulaires métier à fort volume.',
-    sections: [
-      {
-        heading: 'Sécurité',
-        paragraphs: [
-          'Sessions courtes sur données sensibles, journalisation des accès, et cloisonnement réseau / VPN selon votre politique IT.',
-        ],
-      },
-    ],
-    faq: [
-      {
-        question: 'Microsoft 365 / Google Workspace ?',
-        answer:
-          'Intégrations fréquentes : SSO SAML/OIDC, calendrier, drive en lien contrôlé — le périmètre se cadrer avec votre DSI.',
       },
     ],
   },

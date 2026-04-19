@@ -1,58 +1,10 @@
 import type { ServiceSilo } from '@/lib/constants/sitemap';
 
 import type { MarketingLongArticle } from './marketing-article-types';
+import { SITES_INTERNET_PILLAR_ARTICLE } from './silo-pillars/sites-internet-pillar-article';
 
 const ARTICLES: Record<ServiceSilo, MarketingLongArticle> = {
-  'sites-internet': {
-    metaDescription:
-      'Sites vitrine, e-commerce, marketplaces et intranets sur mesure — conception, développement et SEO technique avec Clickdev.',
-    lead:
-      'Un site performant est un actif commercial : vitesse, clarté, SEO et accessibilité doivent travailler ensemble. J’accompagne les équipes marketing et produit de la discovery à la mise en ligne, sur des stacks modernes ou sur mesure.',
-    sections: [
-      {
-        heading: 'Offre sites internet',
-        paragraphs: [
-          'Je conçois et développe des sites vitrines, des boutiques en ligne, des marketplaces, des configurateurs complexes et des portails internes (intranet / extranet). Chaque projet part d’objectifs mesurables : conversion, trafic qualifié, réduction des coûts de service ou industrialisation des contenus.',
-          'Selon vos contraintes, je propose Next.js / React, WordPress, Shopify, WooCommerce ou une stack sur mesure. L’important n’est pas la techno par défaut, mais la capacité à maintenir et faire évoluer le produit avec votre équipe.',
-        ],
-      },
-      {
-        heading: 'Performance & SEO technique',
-        paragraphs: [
-          'Les Core Web Vitals et une structure HTML propre restent des leviers majeurs sur Google — et de plus en plus pour la visibilité dans les réponses des IA (GEO). J’intègre ces exigences dès l’architecture des pages, pas en rustine en fin de projet.',
-          'Les migrations SEO (refonte, changement d’URL, internationalisation) sont cadrées avec plan de redirections, tests et suivi post-mise en ligne pour limiter la casse sur le trafic.',
-        ],
-      },
-      {
-        heading: 'Process & livraison',
-        paragraphs: [
-          'Ateliers de cadrage, priorisation par valeur, itérations courtes et recettes utilisateurs : vous gardez la visibilité sur l’avancement. Les contenus éditoriaux peuvent être branchés sur un CMS (Sanity, WordPress, headless) selon vos besoins.',
-        ],
-      },
-    ],
-    faq: [
-      {
-        question: 'Quand choisir Next.js plutôt que WordPress ?',
-        answer:
-          'Next.js excelle sur les expériences très interactives, le multi-langue avancé, le e-commerce headless et les performances extrêmes. WordPress reste pertinent pour des sites éditoriaux riches avec une équipe habituée à l’administration. On choisit ensemble selon vos compétences internes et votre horizon produit.',
-      },
-      {
-        question: 'Proposez-vous la refonte sans couper le site ?',
-        answer:
-          'Oui : stratégie de bascule progressive, feature flags, sous-domaines de préprod et redirections. Le périmètre exact dépend de votre hébergement et du risque SEO.',
-      },
-      {
-        question: 'Pouvez-vous reprendre un site existant ?',
-        answer:
-          'Oui : audit code + UX, plan de dette technique, correctifs prioritaires puis roadmap d’évolution. L’audit peut inclure sécurité, performances et SEO technique.',
-      },
-      {
-        question: 'Comment démarrer ?',
-        answer:
-          'Un échange court puis un devis cadré. Le formulaire devis permet d’indiquer budget et délais indicatifs pour accélérer la réponse.',
-      },
-    ],
-  },
+  'sites-internet': SITES_INTERNET_PILLAR_ARTICLE,
   'applications-mobiles': {
     metaDescription:
       'Apps iOS, Android, React Native et PWA — développement mobile freelance, stores, performances et maintenance.',
