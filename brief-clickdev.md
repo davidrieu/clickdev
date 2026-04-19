@@ -2,7 +2,7 @@
 
 > Document de référence complet pour le développement du nouveau site vitrine ClickDev. À fournir à Cursor en tant que contexte projet au début de chaque session de développement.
 
-> ⚠️ **RÈGLE IMPORTANTE** : le design du site suit à 100% le template **`genesis-nextjs`** situé à la racine du projet. Aucune référence externe de design, aucune palette custom, aucune typographie ajoutée. Ce brief définit la **structure, le contenu, l'architecture et le SEO** — pas l'esthétique.
+> ⚠️ **RÈGLE IMPORTANTE** : le design du site suit à 100% le **template Genesis** intégré à la racine du dépôt (`components/`, `sections/`, `app/globals.css`, etc.). Aucune référence externe de design, aucune palette custom, aucune typographie ajoutée. Ce brief définit la **structure, le contenu, l'architecture et le SEO** — pas l'esthétique.
 
 ---
 
@@ -92,7 +92,7 @@ Dans le contenu du site :
 ### Stack principale
 
 ```
-Base créative  → Template genesis-nextjs (à la racine) — référence visuelle unique
+Base créative  → Template Genesis (code à la racine du dépôt) — référence visuelle unique
 Frontend       → Next.js 15 (App Router, React Server Components)
 Styling        → Tailwind CSS (version dictée par le template)
 UI Kit         → Composants du template Genesis en priorité
@@ -335,7 +335,7 @@ Compte tenu du positionnement du silo SEO/GEO, le site doit être **exemplaire**
 
 ### Règle absolue : suivre le template Genesis Next.js
 
-**Le design du site repose à 100% sur le template `genesis-nextjs` situé à la racine du projet.**
+**Le design du site repose à 100% sur le template Genesis (fichiers UI à la racine du dépôt : `components/`, `sections/`, etc.).**
 
 Cursor doit :
 
@@ -349,7 +349,7 @@ Cursor doit :
 
 ### Workflow à suivre
 
-1. **Avant tout développement de page** : Cursor parcourt `/genesis-nextjs/` pour identifier les composants réutilisables
+1. **Avant tout développement de page** : Cursor parcourt `components/`, `sections/` et `app/` pour identifier les composants réutilisables du template Genesis
 2. **Pour chaque section du brief** : Cursor propose quel composant du template utiliser (ou adapter) avant d'écrire du code
 3. **En cas de doute visuel** : Cursor se réfère au template, pas à ses propres standards AI
 4. **Les animations** : celles fournies par le template sont privilégiées. Pas d'ajout de libs d'animation supplémentaires sauf nécessité stricte validée par l'utilisateur
@@ -1286,7 +1286,7 @@ Objectif : 6 témoignages avec photo, nom, poste vérifiable. Action : tour Link
 ### Comment utiliser ce brief
 
 - **Toujours** garder ce fichier en contexte (`@brief.md` en début de session)
-- **Le template `genesis-nextjs` à la racine est la référence visuelle absolue** : analyser ses composants avant tout développement, réutiliser au maximum, respecter sa palette et sa typo
+- **Le template Genesis (à la racine du repo) est la référence visuelle absolue** : analyser ses composants avant tout développement, réutiliser au maximum, respecter sa palette et sa typo
 - Avant de créer un composant, vérifier qu'il n'existe pas déjà dans le template ou dans `/components/ui/`
 - Chaque composant doit être **typé en TypeScript strict**
 - Chaque composant doit être **responsive** dès le départ, pas en afterthought
@@ -1402,7 +1402,7 @@ Constantes              → UPPER_SNAKE_CASE
 
 ### ⚠️ Design : référence unique = le template Genesis
 
-Pour toute question de design, d'animation, de palette, de typographie ou d'interaction : **la seule référence est le template `genesis-nextjs` situé à la racine du projet**. Pas de références externes.
+Pour toute question de design, d'animation, de palette, de typographie ou d'interaction : **la seule référence est le template Genesis dans ce dépôt** (`components/`, `sections/`, styles globaux). Pas de références externes.
 
 Cette section ne contient que la **documentation technique** des libs/outils utilisés.
 
