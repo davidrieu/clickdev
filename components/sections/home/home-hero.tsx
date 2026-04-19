@@ -20,14 +20,14 @@ export default function HomeHero() {
     <>
       <motion.div
         className="pointer-events-none fixed inset-0 -z-20 overflow-hidden"
-        initial={{ opacity: 0.4 }}
-        whileInView={{ opacity: 1 }}
+        initial={{ opacity: 0.35 }}
+        whileInView={{ opacity: 0.72 }}
         viewport={{ once: true }}
         transition={{ duration: 0.5 }}
       >
-        <div className="absolute top-80 left-2/5 size-130 -translate-x-1/2 rounded-full bg-[#D10A8A] blur-[100px]" />
-        <div className="absolute top-80 right-0 size-130 -translate-x-1/2 rounded-full bg-[#2E08CF] blur-[100px]" />
-        <div className="absolute top-0 left-1/2 size-130 -translate-x-1/2 rounded-full bg-[#F26A06] blur-[100px]" />
+        <div className="absolute top-80 left-2/5 size-130 -translate-x-1/2 rounded-full bg-[#D10A8A]/28 blur-[128px]" />
+        <div className="absolute top-80 right-0 size-130 -translate-x-1/2 rounded-full bg-[#2E08CF]/24 blur-[128px]" />
+        <div className="absolute top-0 left-1/2 size-130 -translate-x-1/2 rounded-full bg-[#F26A06]/26 blur-[128px]" />
       </motion.div>
       <section className="flex flex-col items-center px-2 pt-10 pb-4 md:pt-14">
         <motion.div
