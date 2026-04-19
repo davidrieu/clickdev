@@ -1,4 +1,4 @@
-import { Bricolage_Grotesque, JetBrains_Mono, Outfit } from "next/font/google";
+import { Bricolage_Grotesque, JetBrains_Mono, Outfit, Poppins } from "next/font/google";
 
 /** Titres & display — sans géométrique (lisible, actuelle) */
 export const fontHeading = Outfit({
@@ -24,8 +24,17 @@ export const fontMono = JetBrains_Mono({
   weight: ["400", "500", "600"],
 });
 
+/** Pages marketing (skin Genesis / PrebuiltUI) */
+export const fontGenesis = Poppins({
+  subsets: ["latin", "latin-ext"],
+  variable: "--font-poppins",
+  display: "swap",
+  weight: ["400", "500", "600", "700"],
+});
+
 export const fontVariablesClassName = [
   fontHeading.variable,
   fontBody.variable,
   fontMono.variable,
+  fontGenesis.variable,
 ].join(" ");

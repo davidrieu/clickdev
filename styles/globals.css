@@ -187,6 +187,22 @@ html {
   }
 }
 
+/* —— Genesis (PrebuiltUI) : shell marketing uniquement (.genesis-skin) —— */
+.genesis-skin {
+  @apply bg-black text-sm text-white antialiased;
+  font-family: var(--font-poppins), ui-sans-serif, system-ui, sans-serif;
+}
+
+@layer components {
+  .genesis-skin .glass {
+    @apply border border-white/20 bg-white/10;
+  }
+
+  .genesis-skin .btn {
+    @apply cursor-pointer rounded-full px-8 py-2.5 font-medium text-white transition hover:opacity-90 active:scale-[0.98];
+  }
+}
+
 @layer base {
   * {
     @apply border-border outline-ring/50;

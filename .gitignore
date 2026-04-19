@@ -43,3 +43,6 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# Template extrait localement (archive genesis-nextjs.zip conservée)
+genesis-nextjs-temp/

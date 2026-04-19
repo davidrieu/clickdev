@@ -1,15 +1,5 @@
 import type { Metadata } from "next";
-import { AboutDavidSection } from "@/components/sections/home/about-david-section";
-import { BlogTeaserSection } from "@/components/sections/home/blog-teaser-section";
-import { CaseStudiesSection } from "@/components/sections/home/case-studies-section";
-import { CtaFinalSection } from "@/components/sections/home/cta-final-section";
-import { FaqSection } from "@/components/sections/home/faq-section";
-import { HeroSection } from "@/components/sections/home/hero-section";
-import { ProcessSection } from "@/components/sections/home/process-section";
-import { ServicesSection } from "@/components/sections/home/services-section";
-import { StackExpertisesSection } from "@/components/sections/home/stack-expertises-section";
-import { TestimonialsSection } from "@/components/sections/home/testimonials-section";
-import { TrustBar } from "@/components/sections/home/trust-bar";
+import { GenesisHome } from "@/components/genesis/home/genesis-home";
 import { getLatestPostsForHome } from "@/lib/sanity/get-latest-posts";
 
 export const metadata: Metadata = {
@@ -21,19 +11,5 @@ export const metadata: Metadata = {
 export default async function HomePage() {
   const latestPosts = await getLatestPostsForHome();
 
-  return (
-    <>
-      <HeroSection />
-      <TrustBar />
-      <ServicesSection />
-      <CaseStudiesSection />
-      <StackExpertisesSection />
-      <ProcessSection />
-      <AboutDavidSection />
-      <TestimonialsSection />
-      <FaqSection />
-      <BlogTeaserSection posts={latestPosts} />
-      <CtaFinalSection />
-    </>
-  );
+  return <GenesisHome latestPosts={latestPosts} />;
 }

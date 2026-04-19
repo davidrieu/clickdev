@@ -2,8 +2,8 @@
  * Gabarit marketing — espacements et largeurs alignés sur tout le site
  * (silos, pages filles, à propos, blog, etc.).
  */
-export const MARKETING_PAGE_PAD =
-  "px-4 py-20 md:px-8 md:py-28 lg:py-[120px]" as const;
+/** Padding vertical ; le horizontal est porté par le `main` du layout marketing (Genesis). */
+export const MARKETING_PAGE_PAD = "py-16 md:py-24 lg:py-28" as const;
 
 export const MARKETING_MAX_ARTICLE = "max-w-[960px]";
 export const MARKETING_MAX_NARROW = "max-w-[640px]";
