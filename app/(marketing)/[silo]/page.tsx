@@ -1,7 +1,9 @@
 import MarketingShell from '@/components/marketing/marketing-shell';
 import MarketingArticleBody from '@/components/marketing/marketing-article-body';
 import { BreadcrumbJsonLd } from '@/components/seo/breadcrumb-json-ld';
+import { CollectionPageItemListJsonLd } from '@/components/seo/collection-page-item-list-json-ld';
 import { FaqPageJsonLd } from '@/components/seo/faq-page-json-ld';
+import { SITE_NAME } from '@/lib/constants/site';
 import { getSiloPillarArticle } from '@/lib/content/silo-pillar-articles';
 import { NAV_SILOS, SERVICE_SILOS, isServiceSilo } from '@/lib/constants/sitemap';
 import { listingPageMetadata } from '@/lib/seo/page-metadata';
@@ -37,6 +39,7 @@ export default async function SiloPillarPage({ params }: Props) {
 
   const article = getSiloPillarArticle(silo);
   const relatedPages = entry.children.map((c) => ({ label: c.label, href: c.href }));
+  const listItems = entry.children.map((c) => ({ path: c.href, name: c.label }));
 
   return (
     <>
@@ -45,6 +48,11 @@ export default async function SiloPillarPage({ params }: Props) {
           { name: 'Accueil', path: '/' },
           { name: entry.label, path: entry.href },
         ]}
+      />
+      <CollectionPageItemListJsonLd
+        pagePath={entry.href}
+        pageTitle={`${entry.label} — ${SITE_NAME}`}
+        items={listItems}
       />
       <FaqPageJsonLd items={article.faq} />
       <MarketingShell

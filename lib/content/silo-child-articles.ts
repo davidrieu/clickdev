@@ -281,6 +281,69 @@ const OVERRIDES: Partial<Record<string, MarketingLongArticle>> = {
       },
     ],
   },
+  'seo:migration-seo': {
+    metaDescription:
+      'Migration SEO : refonte, changement d’URL, HTTPS, internationalisation — plan et exécution freelance Clickdev.',
+    lead:
+      'Une migration SEO mal cadrée peut effacer des mois de trafic. Je structure la cartographie URL, les redirections 301, les canonicals, les tests sur préprod et un suivi Search Console post-bascule pour détecter les régressions vite.',
+    sections: [
+      {
+        heading: 'Plan de migration',
+        paragraphs: [
+          'Inventaire des pages stratégiques, priorisation par trafic et valeur business, règles de redirection (1:1 quand possible), et gestion des facettes / pagination. Les environnements de recette reproduisent la prod pour valider les en-têtes et les codes HTTP.',
+        ],
+      },
+    ],
+    faq: [
+      {
+        question: 'Combien de temps avant stabilisation ?',
+        answer:
+          'Souvent quelques semaines selon la taille du site et la vitesse de recrawl. Un monitoring actif accélère les corrections.',
+      },
+    ],
+  },
+  'ia:agents-ia': {
+    metaDescription:
+      'Agents IA : planification d’actions, outils, garde-fous et supervision — conception freelance Clickdev.',
+    lead:
+      'Un agent IA en production enchaîne des étapes (lire un ticket, proposer une réponse, appeler une API) avec des règles de repli. Je conçois des boucles testables : prompts versionnés, outils typés, budgets et journaux pour auditer chaque décision.',
+    sections: [
+      {
+        heading: 'Fiabilité',
+        paragraphs: [
+          'Human-in-the-loop sur les actions sensibles, limitation des boucles, timeouts et idempotence sur les effets de bord. Les secrets et tokens restent côté serveur.',
+        ],
+      },
+    ],
+    faq: [
+      {
+        question: 'Agents vs simple chatbot ?',
+        answer:
+          'L’agent enchaîne plusieurs outils et étapes ; le chatbot répond sur un corpus. Le surcoût en complexité doit être justifié par le gain mesurable.',
+      },
+    ],
+  },
+  'maintenance:tma': {
+    metaDescription:
+      'TMA applicative : backlog, SLA, évolutions et maintenance corrective — freelance Clickdev.',
+    lead:
+      'La TMA (tierce maintenance applicative) consiste à tenir un backlog priorisé avec des engagements de réponse et de traitement adaptés à votre criticité. Je documente les changements, je sécurise les déploiements et je garde une vision claire de la dette technique.',
+    sections: [
+      {
+        heading: 'Organisation',
+        paragraphs: [
+          'Rituels légers (point hebdo ou bi-hebdo), tickets traçables, releases planifiées et communication transparente sur les risques. Les hotfix sont cadrés pour limiter les régressions.',
+        ],
+      },
+    ],
+    faq: [
+      {
+        question: 'SLA sur mesure ?',
+        answer:
+          'Oui : P1/P2/P3 avec temps de première réponse et objectifs de résolution selon votre activité (e-commerce vs outil interne).',
+      },
+    ],
+  },
 };
 
 function templateArticle(

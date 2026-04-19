@@ -1,4 +1,5 @@
 import PageBreadcrumb from '@/components/marketing/page-breadcrumb';
+import { BlogJsonLd } from '@/components/seo/blog-json-ld';
 import { BreadcrumbJsonLd } from '@/components/seo/breadcrumb-json-ld';
 import { getAllPostTeasers } from '@/lib/sanity/fetch';
 import { isSanityConfigured } from '@/lib/sanity/env';
@@ -23,9 +24,24 @@ export default async function BlogIndexPage() {
   const posts = await getAllPostTeasers();
   const configured = isSanityConfigured();
 
+  const blogLdPosts =
+    configured && posts.length > 0
+      ? posts.map((p) => ({
+          title: p.title,
+          slug: p.slug,
+          excerpt: p.excerpt,
+          publishedAt: p.publishedAt,
+          coverImage: p.coverImage,
+        }))
+      : [];
+
   return (
     <>
       <BreadcrumbJsonLd items={jsonLdItems} />
+      <BlogJsonLd
+        description="Articles sur Next.js, e-commerce, SEO, IA et retours de terrain — Clickdev."
+        posts={blogLdPosts}
+      />
       <article className="mx-auto max-w-3xl px-4 py-16 md:px-6 md:py-20">
         <PageBreadcrumb items={jsonLdItems.map((j) => ({ label: j.name, href: j.path }))} />
         <p className="font-mono text-[11px] tracking-widest text-white/45 uppercase">Ressources</p>

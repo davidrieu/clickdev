@@ -1,4 +1,5 @@
 import PageBreadcrumb from '@/components/marketing/page-breadcrumb';
+import { CollectionPageItemListJsonLd } from '@/components/seo/collection-page-item-list-json-ld';
 import { BreadcrumbJsonLd } from '@/components/seo/breadcrumb-json-ld';
 import { CASE_STUDY_CATEGORY_LABELS } from '@/lib/constants/case-study';
 import { getAllCaseStudyTeasers } from '@/lib/sanity/fetch';
@@ -22,10 +23,19 @@ const jsonLdItems = [
 export default async function RealisationsPage() {
   const cases = await getAllCaseStudyTeasers();
   const configured = isSanityConfigured();
+  const listItems =
+    configured && cases.length > 0
+      ? cases.map((c) => ({ path: `/realisations/${c.slug}`, name: c.title }))
+      : [];
 
   return (
     <>
       <BreadcrumbJsonLd items={jsonLdItems} />
+      <CollectionPageItemListJsonLd
+        pagePath="/realisations"
+        pageTitle="Réalisations — Clickdev"
+        items={listItems}
+      />
       <article className="mx-auto max-w-5xl px-4 py-16 md:px-6 md:py-20">
         <PageBreadcrumb items={jsonLdItems.map((j) => ({ label: j.name, href: j.path }))} />
         <p className="font-mono text-[11px] tracking-widest text-white/45 uppercase">Portfolio</p>

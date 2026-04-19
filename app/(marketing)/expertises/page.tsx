@@ -1,4 +1,5 @@
 import PageBreadcrumb from '@/components/marketing/page-breadcrumb';
+import { CollectionPageItemListJsonLd } from '@/components/seo/collection-page-item-list-json-ld';
 import { BreadcrumbJsonLd } from '@/components/seo/breadcrumb-json-ld';
 import { HOME_STACK_ITEMS } from '@/lib/constants/home-content';
 import { listingPageMetadata } from '@/lib/seo/page-metadata';
@@ -17,9 +18,19 @@ const jsonLdItems = [
 ];
 
 export default function ExpertisesIndexPage() {
+  const listItems = HOME_STACK_ITEMS.map((item) => ({
+    path: `/expertises/${item.slug}`,
+    name: item.name,
+  }));
+
   return (
     <>
       <BreadcrumbJsonLd items={jsonLdItems} />
+      <CollectionPageItemListJsonLd
+        pagePath="/expertises"
+        pageTitle="Expertises — Clickdev"
+        items={listItems}
+      />
       <div className="mx-auto max-w-3xl px-4 py-16 md:px-6 md:py-20">
         <PageBreadcrumb items={jsonLdItems.map((j) => ({ label: j.name, href: j.path }))} />
         <p className="font-mono text-[11px] tracking-widest text-white/45 uppercase">SEO</p>
