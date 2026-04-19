@@ -71,18 +71,18 @@ function useFirstRowParallax(index: number, reduce: boolean | null) {
   return { tileRef, parallaxY };
 }
 
-/** Halos bleu nuit + léger voile bas pour garder le texte blanc lisible. */
+/** Halos bleu électrique foncé (#2E08CF template) — au plus ~20 % de surface par tache, reste noir. */
 function BentoNightGlow() {
   return (
     <div className="pointer-events-none absolute inset-0" aria-hidden>
       <div
-        className="absolute inset-0 opacity-[0.48] transition duration-500 group-hover:opacity-[0.62]"
+        className="absolute inset-0 opacity-[0.65] transition duration-500 group-hover:opacity-[0.82]"
         style={{
           background:
-            'radial-gradient(ellipse 130% 90% at 88% 8%, rgba(59, 91, 168, 0.42), transparent 52%), radial-gradient(circle at 12% 65%, rgba(30, 58, 138, 0.5), transparent 48%), radial-gradient(circle at 48% 100%, rgba(15, 23, 42, 0.55), transparent 42%)',
+            'radial-gradient(ellipse 22% 18% at 96% 6%, rgba(46, 8, 207, 0.58), transparent 68%), radial-gradient(ellipse 16% 14% at 8% 88%, rgba(36, 6, 160, 0.42), transparent 72%)',
         }}
       />
-      <div className="absolute inset-x-0 bottom-0 h-[58%] bg-gradient-to-t from-black via-black/85 to-transparent" />
+      <div className="absolute inset-x-0 bottom-0 h-[38%] bg-gradient-to-t from-black via-black/70 to-transparent" />
     </div>
   );
 }
@@ -107,13 +107,13 @@ function BentoTile({ item, index }: { item: BentoItem; index: number }) {
       >
         <Link
           href={item.href}
-          className="group relative flex h-full min-h-[inherit] flex-col overflow-hidden rounded-2xl border border-white/[0.08] bg-gradient-to-br from-[#0a1628]/90 to-black p-5 transition duration-500 before:pointer-events-none before:absolute before:inset-0 before:bg-[radial-gradient(520px_220px_at_90%_-10%,rgba(96,165,250,0.12),transparent_55%)] before:opacity-0 before:transition-opacity before:duration-500 hover:border-white/[0.16] hover:before:opacity-100 sm:p-6 md:p-7"
+          className="group relative flex h-full min-h-[inherit] flex-col overflow-hidden rounded-2xl border border-white/[0.08] bg-gradient-to-br from-black to-neutral-950 p-5 transition duration-500 before:pointer-events-none before:absolute before:inset-0 before:bg-[radial-gradient(ellipse_24%_20%_at_94%_4%,rgba(46,8,207,0.2),transparent_70%)] before:opacity-0 before:transition-opacity before:duration-500 hover:border-white/[0.14] hover:before:opacity-100 sm:p-6 md:p-7"
         >
           <span
-            className="pointer-events-none absolute inset-0 opacity-0 blur-2xl transition duration-500 group-hover:opacity-100"
+            className="pointer-events-none absolute inset-0 opacity-0 blur-xl transition duration-500 group-hover:opacity-100"
             style={{
               background:
-                'radial-gradient(380px 200px at 75% 0%, rgba(59, 130, 246, 0.18), transparent 62%)',
+                'radial-gradient(ellipse 26% 20% at 90% 4%, rgba(46, 8, 207, 0.35), transparent 72%)',
             }}
             aria-hidden
           />
