@@ -7,11 +7,15 @@ import {
   allPostsTeasersQuery,
   caseStudyBySlugQuery,
   caseStudySlugsQuery,
+  caseStudySitemapEntriesQuery,
   featuredCaseStudiesQuery,
   latestPostsQuery,
   postBySlugQuery,
   postSlugsQuery,
+  postSitemapEntriesQuery,
 } from './queries';
+
+export type SanitySitemapEntry = { slug: string; lastModified: string | null };
 
 export async function getLatestPosts(limit = 3): Promise<SanityPostTeaser[]> {
   if (!sanityClient) {
@@ -46,6 +50,19 @@ export async function getPostSlugs(): Promise<string[]> {
 
   try {
     const rows = await sanityClient.fetch<string[]>(postSlugsQuery);
+    return rows ?? [];
+  } catch {
+    return [];
+  }
+}
+
+export async function getPostSitemapEntries(): Promise<SanitySitemapEntry[]> {
+  if (!sanityClient) {
+    return [];
+  }
+
+  try {
+    const rows = await sanityClient.fetch<SanitySitemapEntry[]>(postSitemapEntriesQuery);
     return rows ?? [];
   } catch {
     return [];
@@ -97,6 +114,19 @@ export async function getCaseStudySlugs(): Promise<string[]> {
 
   try {
     const rows = await sanityClient.fetch<string[]>(caseStudySlugsQuery);
+    return rows ?? [];
+  } catch {
+    return [];
+  }
+}
+
+export async function getCaseStudySitemapEntries(): Promise<SanitySitemapEntry[]> {
+  if (!sanityClient) {
+    return [];
+  }
+
+  try {
+    const rows = await sanityClient.fetch<SanitySitemapEntry[]>(caseStudySitemapEntriesQuery);
     return rows ?? [];
   } catch {
     return [];

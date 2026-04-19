@@ -1,5 +1,5 @@
 import { SITE_URL } from '@/lib/constants/site';
-import { getCaseStudySlugs, getPostSlugs } from '@/lib/sanity/fetch';
+import { getCaseStudySitemapEntries, getPostSitemapEntries } from '@/lib/sanity/fetch';
 import { getAllStaticMarketingPaths } from '@/lib/seo/marketing-paths';
 import type { MetadataRoute } from 'next';
 
@@ -27,18 +27,21 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
             : 0.65,
     }));
 
-  const [postSlugs, caseSlugs] = await Promise.all([getPostSlugs(), getCaseStudySlugs()]);
+  const [postEntries, caseEntriesRaw] = await Promise.all([
+    getPostSitemapEntries(),
+    getCaseStudySitemapEntries(),
+  ]);
 
-  const blogEntries: MetadataRoute.Sitemap = postSlugs.map((slug) => ({
-    url: `${base}/blog/${slug}`,
-    lastModified: now,
+  const blogEntries: MetadataRoute.Sitemap = postEntries.map((e) => ({
+    url: `${base}/blog/${e.slug}`,
+    lastModified: e.lastModified ? new Date(e.lastModified) : now,
     changeFrequency: 'weekly' as const,
     priority: 0.55,
   }));
 
-  const caseEntries: MetadataRoute.Sitemap = caseSlugs.map((slug) => ({
-    url: `${base}/realisations/${slug}`,
-    lastModified: now,
+  const caseEntries: MetadataRoute.Sitemap = caseEntriesRaw.map((e) => ({
+    url: `${base}/realisations/${e.slug}`,
+    lastModified: e.lastModified ? new Date(e.lastModified) : now,
     changeFrequency: 'monthly' as const,
     priority: 0.7,
   }));

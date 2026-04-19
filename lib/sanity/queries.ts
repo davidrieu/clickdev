@@ -15,6 +15,11 @@ export const allPostsTeasersQuery = `*[_type == "post" && defined(slug.current)]
 
 export const postSlugsQuery = `*[_type == "post" && defined(slug.current)].slug.current`;
 
+export const postSitemapEntriesQuery = `*[_type == "post" && defined(slug.current)]{
+  "slug": slug.current,
+  "lastModified": coalesce(_updatedAt, publishedAt)
+}`;
+
 export const postBySlugQuery = `*[_type == "post" && slug.current == $slug][0]{
   _id,
   title,
@@ -45,6 +50,11 @@ export const featuredCaseStudiesQuery = `*[_type == "caseStudy" && defined(slug.
 export const allCaseStudiesTeasersQuery = `*[_type == "caseStudy" && defined(slug.current)] | order(featured desc, coalesce(publishedAt, _updatedAt) desc)${caseStudyTeaserProjection}`;
 
 export const caseStudySlugsQuery = `*[_type == "caseStudy" && defined(slug.current)].slug.current`;
+
+export const caseStudySitemapEntriesQuery = `*[_type == "caseStudy" && defined(slug.current)]{
+  "slug": slug.current,
+  "lastModified": coalesce(_updatedAt, publishedAt)
+}`;
 
 export const caseStudyBySlugQuery = `*[_type == "caseStudy" && slug.current == $slug][0]{
   _id,

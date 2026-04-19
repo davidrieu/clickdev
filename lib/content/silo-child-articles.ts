@@ -470,6 +470,300 @@ const OVERRIDES: Partial<Record<string, MarketingLongArticle>> = {
       },
     ],
   },
+  'sites-internet:site-mise-en-relation': {
+    metaDescription:
+      'Plateforme de mise en relation : profils, matching, messagerie et modération — développement freelance Clickdev.',
+    lead:
+      'Une marketplace « deux côtés » vit ou meurt selon la confiance : identité vérifiée, signalement, règles de mise en relation et paiement escrow si besoin. Je sécurise les flux sensibles (données perso, conversations) et les parcours mobiles.',
+    sections: [
+      {
+        heading: 'Confiance & conformité',
+        paragraphs: [
+          'RGPD (bases légales, conservation, export), traçabilité des actions admin et journaux d’audit sur les événements critiques. Les notifications email/SMS sont cadrées (fréquence, opt-out).',
+        ],
+      },
+    ],
+    faq: [
+      {
+        question: 'Paiement sur la plateforme ?',
+        answer:
+          'Possible via prestataire PCI (Stripe Connect, etc.) selon votre modèle de commission et votre pays d’implantation.',
+      },
+    ],
+  },
+  'sites-internet:site-sur-mesure': {
+    metaDescription:
+      'Site sur mesure : cadrage, architecture, design intégré et performances — freelance Clickdev.',
+    lead:
+      'Le sur mesure a du sens quand le parcours utilisateur ou les intégrations dépassent ce qu’un template peut raisonnablement supporter. Je traduis vos règles métier en backlog priorisé, avec des livrables intermédiaires testables plutôt qu’un big bang.',
+    sections: [
+      {
+        heading: 'Industrialisation',
+        paragraphs: [
+          'CI/CD, environnements, observabilité et documentation pour que le site survive au temps et aux changements d’équipe.',
+        ],
+      },
+    ],
+    faq: [
+      {
+        question: 'Délai typique ?',
+        answer:
+          'Très variable : quelques semaines pour un MVP ciblé, plusieurs mois pour un produit digital riche. Le cadrage fixe le périmètre V1.',
+      },
+    ],
+  },
+  'sites-internet:site-wordpress': {
+    metaDescription:
+      'Site WordPress sur mesure : thème, Gutenberg, perf et sécurité — développement freelance Clickdev.',
+    lead:
+      'WordPress reste un excellent socle éditorial quand l’équipe veut autonomie sur les contenus. Je limite la dérive plugin, je structure le thème (blocks, patterns) et je durcis l’admin (mises à jour, rôles, sauvegardes).',
+    sections: [
+      {
+        heading: 'Performance',
+        paragraphs: [
+          'Thème léger, lazy-load, cache adapté et images WebP/AVIF. Les pages critiques sont mesurées comme sur une stack moderne.',
+        ],
+      },
+    ],
+    faq: [
+      {
+        question: 'Headless WordPress ?',
+        answer:
+          'Possible : WordPress comme CMS et front Next.js pour le vitrine ou l’app ; utile quand le marketing veut WP et le produit veut React.',
+      },
+    ],
+  },
+  'sites-internet:intranet-extranet': {
+    metaDescription:
+      'Intranet / extranet : auth, rôles, documents et workflows — développement freelance Clickdev.',
+    lead:
+      'Les portails internes ou partenaires exigent une auth solide (SSO, MFA), une granularité de droits réaliste et des parcours simples pour les équipes non techniques. Je priorise la recherche de documents et les formulaires métier à fort volume.',
+    sections: [
+      {
+        heading: 'Sécurité',
+        paragraphs: [
+          'Sessions courtes sur données sensibles, journalisation des accès, et cloisonnement réseau / VPN selon votre politique IT.',
+        ],
+      },
+    ],
+    faq: [
+      {
+        question: 'Microsoft 365 / Google Workspace ?',
+        answer:
+          'Intégrations fréquentes : SSO SAML/OIDC, calendrier, drive en lien contrôlé — le périmètre se cadrer avec votre DSI.',
+      },
+    ],
+  },
+  'applications-mobiles:ios': {
+    metaDescription:
+      'Développement app iOS native Swift/SwiftUI : qualité store, perf et accessibilité — freelance Clickdev.',
+    lead:
+      'Les apps iOS natives profitent des APIs Apple, du comportement système cohérent et des guidelines Human Interface. Je prépare le passage App Store (privacy manifest, descriptions, captures) et les builds de test (TestFlight).',
+    sections: [
+      {
+        heading: 'Qualité',
+        paragraphs: [
+          'Tests sur plusieurs OS/iPhone, gestion hors-ligne partielle et respect des tailles dynamiques / VoiceOver quand le public l’exige.',
+        ],
+      },
+    ],
+    faq: [
+      {
+        question: 'SwiftUI uniquement ?',
+        answer:
+          'SwiftUI accélère la plupart des écrans ; UIKit reste pertinent pour certains composants legacy ou besoins très spécifiques.',
+      },
+    ],
+  },
+  'applications-mobiles:android': {
+    metaDescription:
+      'Développement app Android Kotlin : Material, fragmentation et Play Console — freelance Clickdev.',
+    lead:
+      'Android impose la gestion des versions OS, des tailles d’écran et parfois des fabricants. Je structure les builds (flavors), les signatures Play App Signing et les stratégies de déploiement progressif.',
+    sections: [
+      {
+        heading: 'Play Store',
+        paragraphs: [
+          'Fiches store, politique de confidentialité, data safety form et conformité aux restrictions média / paiement selon votre domaine.',
+        ],
+      },
+    ],
+    faq: [
+      {
+        question: 'Compose ou XML ?',
+        answer:
+          'Jetpack Compose pour le neuf ; vues XML quand la base existante impose une transition progressive.',
+      },
+    ],
+  },
+  'ia:automatisation-ia': {
+    metaDescription:
+      'Automatisation IA : extraction, classification, routage et garde-fous — freelance Clickdev.',
+    lead:
+      'L’automatisation par modèles doit rester observable : scores de confiance, seuils de rejet, file d’attente humaine et journaux pour expliquer chaque décision automatique. Je branche les flux sur vos outils (CRM, helpdesk, ERP) sans multiplier les copies de données sensibles.',
+    sections: [
+      {
+        heading: 'Données',
+        paragraphs: [
+          'Minimisation, rétention, et cloisonnement des clés API. Les prompts et jeux de test sont versionnés comme du code.',
+        ],
+      },
+    ],
+    faq: [
+      {
+        question: '100 % automatique ?',
+        answer:
+          'Rarement souhaitable au départ : un pilote avec revue humaine réduit les risques avant d’élargir les seuils.',
+      },
+    ],
+  },
+  'ia:rag-base-connaissances': {
+    metaDescription:
+      'RAG et base de connaissances : chunking, embeddings, retrieval et évaluation — freelance Clickdev.',
+    lead:
+      'Un RAG efficace dépend du découpage des documents, de la qualité des embeddings et du reranking. Je mets en place des jeux de questions/réponses attendues, des métriques simples (taux de citation correcte) et des garde-fous quand la base ne contient pas la réponse.',
+    sections: [
+      {
+        heading: 'Mise à jour',
+        paragraphs: [
+          'Pipeline d’ingestion (webhooks, batch), invalidation du cache vectoriel et traçabilité des versions de documents ingérés.',
+        ],
+      },
+    ],
+    faq: [
+      {
+        question: 'Vector DB ?',
+        answer:
+          'Choix selon volumétrie, latence et contraintes d’hébergement (cloud managé vs self-hosted). Le cadrage inclut coût et reprise après incident.',
+      },
+    ],
+  },
+  'ia:ia-generative-ecommerce': {
+    metaDescription:
+      'IA générative e-commerce : fiches produit, search, support et conformité — freelance Clickdev.',
+    lead:
+      'L’IA peut accélérer rédaction, recherche conversationnelle ou support — à condition de ne pas inventer des promesses légales ou des specs produit. Je cadre les sorties (templates, validation humaine sur catégories sensibles) et le SEO (duplicate, canonical).',
+    sections: [
+      {
+        heading: 'Conversion',
+        paragraphs: [
+          'Tests A/B sur les modules IA visibles client, mesure du temps gagné en interne, et rollback rapide si la qualité baisse.',
+        ],
+      },
+    ],
+    faq: [
+      {
+        question: 'Données clients dans le LLM ?',
+        answer:
+          'À éviter par défaut : anonymisation, prompts côté serveur, et fournisseurs avec DPA adaptés au RGPD.',
+      },
+    ],
+  },
+  'seo:redaction-seo': {
+    metaDescription:
+      'Rédaction SEO : intention, structure, E-E-A-T et briefs éditoriaux — accompagnement freelance Clickdev.',
+    lead:
+      'La rédaction SEO utile part d’une intention de recherche claire et d’une structure lisible (titres, listes, FAQ). Je fournis des briefs actionnables (mots-clés secondaires, entités, angle différenciant) et des critères de qualité mesurables plutôt que du remplissage.',
+    sections: [
+      {
+        heading: 'Alignement business',
+        paragraphs: [
+          'Chaque page doit servir un objectif (lead, vente, support). Les contenus « puits » sans CTA sont identifiés et corrigés.',
+        ],
+      },
+    ],
+    faq: [
+      {
+        question: 'Vous rédigez ou nous ?',
+        answer:
+          'Les deux : brief + relecture technique, ou rédaction clé en main sur périmètres ciblés selon votre ton de marque.',
+      },
+    ],
+  },
+  'seo:netlinking': {
+    metaDescription:
+      'Netlinking : stratégie de liens, risques, digital PR et suivi — conseil freelance Clickdev.',
+    lead:
+      'Le netlinking durable repose sur des contenus citables et des relations presse / partenaires — pas sur des achats de liens opaques. Je priorise les opportunités à faible risque pénalité et les mentions cohérentes avec votre secteur.',
+    sections: [
+      {
+        heading: 'Mesure',
+        paragraphs: [
+          'Suivi des backlinks nouveaux, ancres naturelles, et corrélation prudente avec le trafic organique (causalité difficile).',
+        ],
+      },
+    ],
+    faq: [
+      {
+        question: 'PBN / achats massifs ?',
+        answer:
+          'Non recommandé : risque algorithmique et réputationnel. Mieux vaut moins de liens mais plus qualitatifs.',
+      },
+    ],
+  },
+  'crm-outils-metiers:integration-crm': {
+    metaDescription:
+      'Intégration CRM : synchronisation contacts, deals, emails et outils tiers — freelance Clickdev.',
+    lead:
+      'Une intégration CRM réussie définit la source de vérité, la résolution des doublons et la fréquence de sync (temps réel vs batch). Je mappe les champs, les règles de conflit et les scénarios d’échec (API down, quotas).',
+    sections: [
+      {
+        heading: 'Adoption',
+        paragraphs: [
+          'Données propres avant branchement : sinon le CRM reflète la pagaille existante. Ateliers courts avec ventes/support pour valider le modèle.',
+        ],
+      },
+    ],
+    faq: [
+      {
+        question: 'HubSpot / Salesforce / Pipedrive ?',
+        answer:
+          'Les trois sont courants : le travail porte sur le modèle de données, les webhooks et les droits d’API plutôt que sur la marque seule.',
+      },
+    ],
+  },
+  'maintenance:maintenance-ecommerce': {
+    metaDescription:
+      'Maintenance e-commerce : pics de charge, paiement, stocks et sécurité — freelance Clickdev.',
+    lead:
+      'Un e-commerce en production exige des fenêtres de déploiement, des tests panier/checkout et une surveillance des paiements et webhooks. Je documente les procédures d’incident (rollback, mode dégradé) pour les soldes et campagnes.',
+    sections: [
+      {
+        heading: 'Perf & fiabilité',
+        paragraphs: [
+          'Caches, files d’attente, limites sur les jobs batch et alertes sur erreurs 5xx ou taux d’échec paiement anormal.',
+        ],
+      },
+    ],
+    faq: [
+      {
+        question: 'Astreinte ?',
+        answer:
+          'Possible en option avec SLA cadré (heures, canaux, escalade) selon votre chiffre d’affaires en ligne.',
+      },
+    ],
+  },
+  'maintenance:infogerance': {
+    metaDescription:
+      'Infogérance : serveurs, monitoring, sauvegardes et mises à jour — freelance Clickdev.',
+    lead:
+      'L’infogérance couvre l’exploitation : comptes, pare-feu, certificats TLS, sauvegardes testées et mises à jour OS/runtime. Je clarifie le périmètre (IaaS vs PaaS) et les responsabilités partagées avec votre hébergeur.',
+    sections: [
+      {
+        heading: 'Transparence',
+        paragraphs: [
+          'Inventaire des actifs, runbooks pour incidents fréquents, et rapports réguliers (disponibilité, patchs, capacité).',
+        ],
+      },
+    ],
+    faq: [
+      {
+        question: 'Cloud AWS / GCP / Scaleway ?',
+        answer:
+          'Oui : les bonnes pratiques (least privilege, buckets privés, budgets) sont transposables ; le détail dépend de votre stack.',
+      },
+    ],
+  },
 };
 
 function templateArticle(
