@@ -4,15 +4,25 @@ import { submitDevisRequest } from '@/app/actions/devis';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
-import { DEVIS_BUDGET_OPTIONS, DEVIS_PROJECT_TYPES, DEVIS_TIMELINE_OPTIONS } from '@/lib/constants/devis';
+import {
+  DEVIS_BUDGET_OPTIONS,
+  DEVIS_PROJECT_TYPES,
+  DEVIS_TIMELINE_OPTIONS,
+  type DevisProjectType,
+} from '@/lib/constants/devis';
 import { devisFormSchema, type DevisFormValues } from '@/lib/validation/devis-schema';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useTransition } from 'react';
 import { useForm } from 'react-hook-form';
 import { toast } from 'sonner';
 
-export default function DevisForm() {
+type DevisFormProps = {
+  initialProjectType?: DevisProjectType;
+};
+
+export default function DevisForm({ initialProjectType }: DevisFormProps) {
   const [pending, startTransition] = useTransition();
+  const defaultType = initialProjectType ?? 'site';
 
   const {
     register,
@@ -25,7 +35,7 @@ export default function DevisForm() {
       name: '',
       email: '',
       company: '',
-      projectType: 'site',
+      projectType: defaultType,
       budget: '',
       timeline: '',
       message: '',
@@ -47,7 +57,16 @@ export default function DevisForm() {
           description: 'Je vous réponds sous 1 à 2 jours ouvrés.',
         });
       }
-      reset();
+      reset({
+        name: '',
+        email: '',
+        company: '',
+        projectType: defaultType,
+        budget: '',
+        timeline: '',
+        message: '',
+        website: '',
+      });
     });
   }
 

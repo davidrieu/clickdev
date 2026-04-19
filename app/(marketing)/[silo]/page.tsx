@@ -1,12 +1,13 @@
 import MarketingShell from '@/components/marketing/marketing-shell';
 import MarketingArticleBody from '@/components/marketing/marketing-article-body';
-import SitesInternetPillarExperience from '@/components/silos/sites-internet-pillar-experience';
+import SitesInternetPremiumPage from '@/components/silos/sites-internet/premium-page';
 import { BreadcrumbJsonLd } from '@/components/seo/breadcrumb-json-ld';
 import { CollectionPageItemListJsonLd } from '@/components/seo/collection-page-item-list-json-ld';
 import { FaqPageJsonLd } from '@/components/seo/faq-page-json-ld';
 import { SITE_NAME } from '@/lib/constants/site';
 import { withMarketingVisualPlaceholders } from '@/lib/content/marketing-article-visuals';
 import { getSiloPillarArticle } from '@/lib/content/silo-pillar-articles';
+import { sitesInternetFaqJsonLdItems } from '@/lib/constants/sites-internet-premium';
 import { NAV_SILOS, SERVICE_SILOS, isServiceSilo } from '@/lib/constants/sitemap';
 import { listingPageMetadata } from '@/lib/seo/page-metadata';
 import type { Metadata } from 'next';
@@ -56,14 +57,9 @@ export default async function SiloPillarPage({ params }: Props) {
         pageTitle={`${entry.label} — ${SITE_NAME}`}
         items={listItems}
       />
-      <FaqPageJsonLd items={article.faq} />
+      <FaqPageJsonLd items={silo === 'sites-internet' ? sitesInternetFaqJsonLdItems() : article.faq} />
       {silo === 'sites-internet' ? (
-        <SitesInternetPillarExperience
-          title={entry.label}
-          lead={article.lead}
-          article={article}
-          relatedPages={relatedPages}
-        />
+        <SitesInternetPremiumPage />
       ) : (
         <MarketingShell
           eyebrow="Clickdev"

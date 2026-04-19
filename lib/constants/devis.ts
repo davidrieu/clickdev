@@ -8,6 +8,15 @@ export const DEVIS_PROJECT_TYPES = [
 
 export type DevisProjectType = (typeof DEVIS_PROJECT_TYPES)[number]['value'];
 
+export function parseDevisProjectTypeQuery(
+  raw: string | string[] | undefined,
+): DevisProjectType | undefined {
+  const v = Array.isArray(raw) ? raw[0] : raw;
+  if (!v) return undefined;
+  const match = DEVIS_PROJECT_TYPES.find((p) => p.value === v);
+  return match ? match.value : undefined;
+}
+
 export const DEVIS_BUDGET_OPTIONS = [
   { value: '', label: 'Non défini' },
   { value: 'under5k', label: 'Moins de 5 k€' },

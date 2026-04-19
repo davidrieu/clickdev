@@ -1,4 +1,5 @@
 import DevisForm from '@/components/devis/devis-form';
+import { parseDevisProjectTypeQuery } from '@/lib/constants/devis';
 import PageBreadcrumb from '@/components/marketing/page-breadcrumb';
 import { BreadcrumbJsonLd } from '@/components/seo/breadcrumb-json-ld';
 import { listingPageMetadata } from '@/lib/seo/page-metadata';
@@ -15,7 +16,14 @@ const jsonLdItems = [
   { name: 'Devis', path: '/devis' },
 ];
 
-export default function DevisPage() {
+type DevisPageProps = {
+  searchParams: Promise<{ projectType?: string | string[] }>;
+};
+
+export default async function DevisPage({ searchParams }: DevisPageProps) {
+  const sp = await searchParams;
+  const initialProjectType = parseDevisProjectTypeQuery(sp.projectType);
+
   return (
     <>
       <BreadcrumbJsonLd items={jsonLdItems} />
@@ -29,7 +37,7 @@ export default function DevisPage() {
           Quelques champs pour cadrer le besoin. Le message part par e-mail (Resend) lorsque les
           variables d’environnement sont renseignées.
         </p>
-        <DevisForm />
+        <DevisForm initialProjectType={initialProjectType} />
       </article>
     </>
   );
