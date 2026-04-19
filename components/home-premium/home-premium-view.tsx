@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { motion, useInView, useScroll, useSpring } from 'framer-motion';
 
+import { categoryLabel, displayMetric, displayYear } from '@/components/silos/sites-internet/premium-cases';
 import { PremiumFinalCta } from '@/components/silos/sites-internet/premium-final-cta';
 import { StellarField, useSectionStellarPointer } from '@/components/silos/sites-internet/stellar-field';
 import {
@@ -13,27 +14,21 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from '@/components/ui/accordion';
-import type { HomeCasePreview } from '@/lib/constants/home-content';
 import {
+  HOME_CASE_PREVIEWS,
   HOME_FAQ_ITEMS,
   HOME_PROCESS_STEPS,
   HOME_SERVICE_CARDS,
   HOME_STACK_ITEMS,
   HOME_TESTIMONIALS,
 } from '@/lib/constants/home-content';
+import type { HomeCasePreview } from '@/lib/constants/home-content';
 import { SITES_INTERNET_MARQUEE_CLIENTS } from '@/lib/constants/sites-internet-premium';
+import type { SanityCaseStudyTeaser } from '@/types/sanity-case-study';
 import type { SanityPostTeaser } from '@/types/sanity-post';
 import { PlusIcon } from 'lucide-react';
 
 import { HpHero } from './hp-hero';
-
-const logos = [
-  '/assets/company-logo-1.svg',
-  '/assets/company-logo-2.svg',
-  '/assets/company-logo-3.svg',
-  '/assets/company-logo-4.svg',
-  '/assets/company-logo-5.svg',
-] as const;
 
 function useAnimatedMetric(from: number, target: number, suffix = '', decimals = 0, enabled: boolean) {
   const [v, setV] = useState(from);
@@ -84,30 +79,6 @@ function HpClientMarquee() {
         </div>
       </div>
     </div>
-  );
-}
-
-function HpLogos() {
-  return (
-    <section className="border-t border-white/[0.06] bg-black py-14 md:py-16">
-      <div className="mx-auto max-w-[1100px] px-4 md:px-8">
-        <p className="text-center font-mono text-[11px] tracking-[0.28em] text-white/45 uppercase">
-          Ils m’ont fait confiance
-        </p>
-        <div className="mt-8 flex flex-wrap items-center justify-center gap-10 md:justify-between">
-          {logos.map((src) => (
-            <Image
-              key={src}
-              src={src}
-              alt=""
-              width={140}
-              height={28}
-              className="h-7 w-auto opacity-55 transition-opacity hover:opacity-100"
-            />
-          ))}
-        </div>
-      </div>
-    </section>
   );
 }
 
@@ -194,8 +165,26 @@ function HpServices() {
   );
 }
 
-function HpCases({ previews, intro }: { previews: HomeCasePreview[]; intro?: string }) {
+type PortfolioGridItem =
+  | { kind: 'sanity'; data: SanityCaseStudyTeaser }
+  | { kind: 'static'; data: HomeCasePreview; index: number };
+
+function buildPortfolioGridItems(teasers: SanityCaseStudyTeaser[]): PortfolioGridItem[] {
+  if (teasers.length > 0) {
+    return teasers.slice(0, 6).map((data) => ({ kind: 'sanity' as const, data }));
+  }
+  return Array.from({ length: 6 }, (_, i) => ({
+    kind: 'static' as const,
+    data: HOME_CASE_PREVIEWS[i % HOME_CASE_PREVIEWS.length],
+    index: i,
+  }));
+}
+
+function HpPortfolioGrid({ caseStudies }: { caseStudies: SanityCaseStudyTeaser[] }) {
   const { pointer, onPointerMoveCapture, onPointerLeave } = useSectionStellarPointer();
+  const items = useMemo(() => buildPortfolioGridItems(caseStudies), [caseStudies]);
+  const fromCms = caseStudies.length > 0;
+
   return (
     <section
       className="relative overflow-hidden border-t border-white/[0.06] bg-black py-24 md:py-40 lg:py-48"
@@ -203,63 +192,129 @@ function HpCases({ previews, intro }: { previews: HomeCasePreview[]; intro?: str
       onPointerLeave={onPointerLeave}
     >
       <StellarField count={48} className="opacity-[0.68]" interactive pointer={pointer} />
-      <div className="relative z-10 mx-auto max-w-[1100px] px-4 md:px-8">
+      <div className="relative z-10 mx-auto max-w-[1400px] px-4 md:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-center"
+          transition={{ duration: 0.5 }}
+          className="mx-auto max-w-2xl text-center"
         >
-          <p className="font-mono text-[11px] tracking-[0.28em] text-white/45 uppercase">Réalisations</p>
+          <p className="font-mono text-[11px] tracking-[0.28em] text-white/45 uppercase">Portfolio</p>
           <h2 className="si-serif-display mt-4 text-[clamp(1.85rem,3.5vw,3rem)] font-medium tracking-[-0.03em] text-white">
-            Études de cas
+            Sélection de projets
           </h2>
           <p className="mx-auto mt-4 max-w-2xl text-sm text-white/58 md:text-base">
-            {intro ??
-              'Projets représentatifs — métriques et récit détaillés sur chaque fiche réalisation.'}
+            {fromCms
+              ? 'Projets récents issus du portfolio — détail, captures et métriques sur chaque fiche.'
+              : 'Aperçus représentatifs en attendant le catalogue Sanity — tout le détail sur la page réalisations.'}
           </p>
         </motion.div>
-        <div className="mt-14 space-y-12 border-t border-white/10 pt-12">
-          {previews.map((c, index) => (
-            <motion.div
-              key={`${c.title}-${index}`}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: index * 0.06 }}
-              className="grid gap-8 border-b border-white/[0.07] pb-12 last:border-0 last:pb-0 md:grid-cols-2 md:items-start"
-            >
-              <div>
-                <p className="font-mono text-[11px] tracking-[0.28em] text-white/45 uppercase">{c.category}</p>
-                <h3 className="si-serif-display mt-2 text-2xl font-medium tracking-tight text-white md:text-3xl">
-                  <Link href={c.href} className="transition hover:text-white/90 hover:underline hover:underline-offset-4">
-                    {c.title}
-                  </Link>
-                </h3>
-                <p className="mt-4 text-sm leading-relaxed text-white/70 md:text-base">{c.description}</p>
-              </div>
-              <div className="grid grid-cols-2 gap-3 sm:grid-cols-4 md:grid-cols-2 lg:grid-cols-4">
-                {c.metrics.map((m) => (
-                  <div
-                    key={m.label}
-                    className="rounded-xl border border-white/[0.08] bg-white/[0.03] p-3 text-center md:p-4"
-                  >
-                    <p className="text-base font-semibold tabular-nums text-white/90 md:text-lg">{m.value}</p>
-                    <p className="mt-1 text-[10px] text-white/50 md:text-xs">{m.label}</p>
+
+        <ul className="mt-14 grid list-none gap-4 p-0 sm:grid-cols-2 lg:grid-cols-3 lg:gap-5">
+          {items.map((item, index) =>
+            item.kind === 'sanity' ? (
+              <motion.li
+                key={item.data._id}
+                initial={{ opacity: 0, y: 22 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: '-6%' }}
+                transition={{ delay: index * 0.06, duration: 0.45 }}
+                className="min-h-0"
+              >
+                <Link
+                  href={`/realisations/${item.data.slug}`}
+                  className="group flex h-full flex-col overflow-hidden rounded-2xl border border-white/[0.08] bg-gradient-to-br from-black to-neutral-950 transition duration-500 hover:border-white/[0.14]"
+                >
+                  <div className="relative aspect-[16/10] overflow-hidden bg-neutral-950">
+                    {item.data.thumbnail ? (
+                      <Image
+                        src={item.data.thumbnail}
+                        alt=""
+                        fill
+                        className="object-cover transition duration-700 ease-out group-hover:scale-[1.04]"
+                        sizes="(max-width:640px) 100vw, (max-width:1024px) 50vw, 33vw"
+                      />
+                    ) : (
+                      <div
+                        className="absolute inset-0 bg-gradient-to-br from-[rgba(46,8,207,0.4)] via-black to-neutral-950"
+                        aria-hidden
+                      />
+                    )}
+                    <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black via-black/35 to-transparent" />
                   </div>
-                ))}
-              </div>
-            </motion.div>
-          ))}
-        </div>
-        <p className="mt-10 text-center">
+                  <div className="flex flex-1 flex-col p-4 md:p-5">
+                    <span className="font-mono text-[10px] tracking-[0.22em] text-white/45 uppercase">
+                      {categoryLabel(item.data)}
+                    </span>
+                    <h3 className="si-serif-display mt-2 text-lg font-medium tracking-tight text-white md:text-xl">
+                      {item.data.title}
+                    </h3>
+                    <p className="mt-2 line-clamp-2 flex-1 text-sm leading-relaxed text-white/65">
+                      {item.data.tagline?.trim() ||
+                        (item.data.client
+                          ? `Projet pour ${item.data.client}${item.data.year ? ` · ${item.data.year}` : ''}.`
+                          : 'Voir la fiche pour le contexte et les résultats.')}
+                    </p>
+                    <p className="mt-3 font-mono text-[11px] text-white/50">
+                      {displayMetric(item.data)} <span className="text-white/30">·</span> {displayYear(item.data)}
+                    </p>
+                  </div>
+                </Link>
+              </motion.li>
+            ) : (
+              <motion.li
+                key={`${item.data.title}-${item.index}`}
+                initial={{ opacity: 0, y: 22 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: '-6%' }}
+                transition={{ delay: index * 0.06, duration: 0.45 }}
+                className="min-h-0"
+              >
+                <Link
+                  href={item.data.href}
+                  className="group flex h-full flex-col overflow-hidden rounded-2xl border border-white/[0.08] bg-gradient-to-br from-black to-neutral-950 transition duration-500 hover:border-white/[0.14]"
+                >
+                  <div className="relative aspect-[16/10] overflow-hidden bg-neutral-950">
+                    <div
+                      className="absolute inset-0 bg-gradient-to-br from-[rgba(46,8,207,0.35)] via-neutral-950 to-black"
+                      aria-hidden
+                    />
+                    <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent" />
+                  </div>
+                  <div className="flex flex-1 flex-col p-4 md:p-5">
+                    <span className="font-mono text-[10px] tracking-[0.22em] text-white/45 uppercase">
+                      {item.data.category}
+                    </span>
+                    <h3 className="si-serif-display mt-2 text-lg font-medium tracking-tight text-white md:text-xl">
+                      {item.data.title}
+                    </h3>
+                    <p className="mt-2 line-clamp-2 flex-1 text-sm leading-relaxed text-white/65">{item.data.description}</p>
+                    <p className="mt-3 font-mono text-[11px] text-white/50">
+                      {item.data.metrics[0]?.value ?? '—'}{' '}
+                      <span className="text-white/35">{item.data.metrics[0]?.label ?? ''}</span>
+                    </p>
+                  </div>
+                </Link>
+              </motion.li>
+            ),
+          )}
+        </ul>
+
+        <motion.div
+          className="mt-12 flex justify-center"
+          initial={{ opacity: 0, y: 12 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.12, duration: 0.45 }}
+        >
           <Link
             href="/realisations"
-            className="font-mono text-xs tracking-[0.2em] text-white/50 uppercase transition hover:text-white/90"
+            className="si-btn-pill-shine relative isolate inline-flex overflow-hidden rounded-full border border-white/20 bg-white/[0.04] px-8 py-3.5 text-sm font-medium text-white/90 shadow-[inset_0_1px_0_0_rgb(255_255_255/0.08)] backdrop-blur-sm transition duration-300 hover:border-white/35 hover:bg-white/[0.08]"
           >
-            Voir toutes les réalisations →
+            <span className="relative z-10">Voir toutes les réalisations</span>
           </Link>
-        </p>
+        </motion.div>
       </div>
     </section>
   );
@@ -706,22 +761,16 @@ function HpBlog({ posts }: { posts: SanityPostTeaser[] }) {
 
 export type HomePremiumViewProps = {
   latestPosts: SanityPostTeaser[];
-  casePreviews: HomeCasePreview[];
-  casesFromSanity: boolean;
+  featuredCaseStudies: SanityCaseStudyTeaser[];
 };
 
-export function HomePremiumView({ latestPosts, casePreviews, casesFromSanity }: HomePremiumViewProps) {
-  const intro = casesFromSanity
-    ? 'Sélection issue du portfolio (Sanity) — métriques et récit détaillés sur chaque page projet.'
-    : undefined;
-
+export function HomePremiumView({ latestPosts, featuredCaseStudies }: HomePremiumViewProps) {
   return (
     <main className="bg-black text-white">
       <HpHero />
       <HpClientMarquee />
-      <HpLogos />
       <HpServices />
-      <HpCases previews={casePreviews} intro={intro} />
+      <HpPortfolioGrid caseStudies={featuredCaseStudies} />
       <HpMetrics />
       <HpProcess />
       <HpStackMarquee />

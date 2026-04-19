@@ -14,7 +14,7 @@ type Props = {
   caseStudies: SanityCaseStudyTeaser[];
 };
 
-function displayYear(c: SanityCaseStudyTeaser): string {
+export function displayYear(c: SanityCaseStudyTeaser): string {
   if (c.year != null && !Number.isNaN(c.year)) return String(c.year);
   if (c.publishedAt) {
     const d = new Date(c.publishedAt);
@@ -23,7 +23,7 @@ function displayYear(c: SanityCaseStudyTeaser): string {
   return '—';
 }
 
-function displayMetric(c: SanityCaseStudyTeaser): string {
+export function displayMetric(c: SanityCaseStudyTeaser): string {
   const fm = c.featuredMetric?.trim();
   if (fm) return fm;
   const m = c.metrics?.[0];
@@ -32,7 +32,7 @@ function displayMetric(c: SanityCaseStudyTeaser): string {
   return '—';
 }
 
-function categoryLabel(c: SanityCaseStudyTeaser): string {
+export function categoryLabel(c: SanityCaseStudyTeaser): string {
   const k = c.category ?? '';
   if (!k) return '—';
   return CASE_STUDY_CATEGORY_LABELS[k] ?? k;
