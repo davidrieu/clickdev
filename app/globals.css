@@ -166,6 +166,64 @@
   animation: si-star-twinkle 3.2s ease-in-out infinite;
 }
 
+/* Trait type « étoile filante » — même famille que les halos cartes (46, 8, 207 / 36, 6, 160) */
+@keyframes si-stellar-shoot-slide {
+  0% {
+    opacity: 0;
+    filter: blur(0.2px);
+    transform: rotate(var(--shoot-a, 38deg)) translate3d(-12px, 0, 0) scaleX(0.08);
+  }
+  8% {
+    opacity: 1;
+  }
+  /* Trajet rapide (~15 % du temps total si durée JS ≈ 3,2–4,6 s → ~0,5–0,7 s) */
+  16% {
+    opacity: 0.94;
+    filter: blur(0.22px);
+    transform: rotate(var(--shoot-a, 38deg)) translate3d(var(--shoot-d, 360px), 0, 0) scaleX(1);
+  }
+  /* Traînée figée puis disparition progressive sur ~2,5–3,8 s */
+  42% {
+    opacity: 0.42;
+    filter: blur(0.4px);
+    transform: rotate(var(--shoot-a, 38deg)) translate3d(var(--shoot-d, 360px), 0, 0) scaleX(1);
+  }
+  72% {
+    opacity: 0.12;
+    filter: blur(0.55px);
+    transform: rotate(var(--shoot-a, 38deg)) translate3d(var(--shoot-d, 360px), 0, 0) scaleX(1);
+  }
+  100% {
+    opacity: 0;
+    filter: blur(0.7px);
+    transform: rotate(var(--shoot-a, 38deg)) translate3d(var(--shoot-d, 360px), 0, 0) scaleX(1);
+  }
+}
+
+.si-stellar-shoot-inner {
+  transform-origin: left center;
+  border-radius: 9999px;
+  background: linear-gradient(
+    90deg,
+    rgb(165 150 255 / 0.95),
+    rgb(88 55 255 / 0.9) 10%,
+    rgb(46 8 207 / 0.88) 24%,
+    rgb(36 6 160 / 0.55) 52%,
+    rgb(46 8 207 / 0.22) 78%,
+    transparent
+  );
+  box-shadow:
+    0 0 12px 3px rgb(46 8 207 / 0.5),
+    0 0 32px 10px rgb(46 8 207 / 0.28),
+    0 0 52px 18px rgb(36 6 160 / 0.14);
+  opacity: 0;
+  animation-name: si-stellar-shoot-slide;
+  /* Linéaire : les paliers du keyframe contrôlent trajet vs dissipation dans le temps total. */
+  animation-timing-function: linear;
+  animation-fill-mode: forwards;
+  will-change: transform, opacity;
+}
+
 @keyframes si-cta-section-breathe {
   0%,
   100% {
@@ -207,12 +265,17 @@
 
 @media (prefers-reduced-motion: reduce) {
   .si-cta-star,
-  .si-cta-breathe {
+  .si-cta-breathe,
+  .si-stellar-shoot-inner {
     animation: none;
   }
 
   .si-cta-star {
     opacity: 0.35;
+  }
+
+  .si-stellar-shoot-inner {
+    opacity: 0;
   }
 }
 

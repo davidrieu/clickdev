@@ -13,6 +13,16 @@ type Star = {
   delay: number;
 };
 
+type ShootBurst = {
+  key: number;
+  leftPct: number;
+  topPct: number;
+  angleDeg: number;
+  distPx: number;
+  durationMs: number;
+  streakW: number;
+};
+
 function buildStars(count: number): Star[] {
   return Array.from({ length: count }, (_, i) => ({
     leftPct: ((i * 37) % 100) + (i % 3) * 0.4,
@@ -48,13 +58,28 @@ type Props = {
   pointer?: StellarPointer;
   /** Active le déplacement (désactivé si `prefers-reduced-motion`) */
   interactive?: boolean;
+  /**
+   * Trait lumineux aléatoire toutes les ~2–3 s (un seul champ actif évite la surcharge si plusieurs sections).
+   * @default false
+   */
+  shootingMeteors?: boolean;
 };
 
 /** Champ d’étoiles CSS (`.si-cta-star`) ; optionnellement repoussé par le pointeur / le doigt. */
-export function StellarField({ count = 52, className = '', pointer = null, interactive = false }: Props) {
+export function StellarField({
+  count = 52,
+  className = '',
+  pointer = null,
+  interactive = false,
+  shootingMeteors = false,
+}: Props) {
   const reduce = useReducedMotion();
   const containerRef = useRef<HTMLDivElement>(null);
   const [size, setSize] = useState({ w: 1, h: 1 });
+  const sizeRef = useRef(size);
+  sizeRef.current = size;
+  const [shootBurst, setShootBurst] = useState<ShootBurst | null>(null);
+  const shootKeyRef = useRef(0);
   const stars = useMemo(() => buildStars(count), [count]);
 
   useEffect(() => {
@@ -69,6 +94,55 @@ export function StellarField({ count = 52, className = '', pointer = null, inter
     return () => ro.disconnect();
   }, []);
 
+  /** Étoiles filantes : tir aléatoire toutes les 2–3 s (désactivé si reduced motion ou si `shootingMeteors` est false). */
+  useEffect(() => {
+    if (reduce || !shootingMeteors) {
+      setShootBurst(null);
+      return;
+    }
+    let cancelled = false;
+    let timeoutId: ReturnType<typeof setTimeout>;
+
+    const fire = () => {
+      const { w, h } = sizeRef.current;
+      const diagonal = Math.hypot(w, h);
+      const distPx = Math.min(Math.max(180, diagonal * (0.82 + Math.random() * 0.45)), 980);
+      const angleDeg = 18 + Math.random() * 52;
+      const leftPct = -12 + Math.random() * 52;
+      const topPct = -14 + Math.random() * 48;
+      /* Total long : phase trajet ~16 % du keyframe, le reste = traînée qui s’estompe. */
+      const durationMs = Math.round(3200 + Math.random() * 1400);
+      const streakW = Math.round(Math.min(240, Math.max(110, diagonal * 0.17)));
+
+      shootKeyRef.current += 1;
+      setShootBurst({
+        key: shootKeyRef.current,
+        leftPct,
+        topPct,
+        angleDeg,
+        distPx,
+        durationMs,
+        streakW,
+      });
+    };
+
+    const schedule = (isFirst = false) => {
+      /* Tir suivant après la fin approx. de la traînée (anim ~3,2–4,6 s) pour limiter les chevauchements. */
+      const waitMs = isFirst ? 450 + Math.random() * 1300 : 3200 + Math.random() * 1400;
+      timeoutId = setTimeout(() => {
+        if (cancelled) return;
+        fire();
+        schedule(false);
+      }, waitMs);
+    };
+
+    schedule(true);
+    return () => {
+      cancelled = true;
+      clearTimeout(timeoutId);
+    };
+  }, [reduce, shootingMeteors]);
+
   const minSide = Math.min(size.w, size.h);
   const active = interactive && !reduce && pointer != null;
 
@@ -78,22 +152,45 @@ export function StellarField({ count = 52, className = '', pointer = null, inter
       className={`pointer-events-none absolute inset-0 overflow-hidden ${className}`}
       aria-hidden
     >
+      {shootBurst ? (
+        <div
+          key={shootBurst.key}
+          className="absolute z-[2]"
+          style={{ left: `${shootBurst.leftPct}%`, top: `${shootBurst.topPct}%` }}
+        >
+          <div
+            className="si-stellar-shoot-inner h-[2px]"
+            style={{
+              width: shootBurst.streakW,
+              ['--shoot-a' as string]: `${shootBurst.angleDeg}deg`,
+              ['--shoot-d' as string]: `${shootBurst.distPx}px`,
+              animationDuration: `${shootBurst.durationMs}ms`,
+            }}
+          />
+        </div>
+      ) : null}
       {stars.map((s, i) => {
         const off =
           active && pointer ? repelOffset(s.leftPct, s.topPct, pointer, minSide) : { x: 0, y: 0 };
+        // Le translate du pointeur doit rester sur un parent : l’animation `.si-cta-star` (keyframes)
+        // pilote aussi `transform` (scale) et écraserait un translate sur le même nœud.
         return (
           <span
             key={i}
-            className="si-cta-star absolute rounded-full bg-white"
+            className="absolute"
             style={{
               left: `${s.leftPct}%`,
               top: `${s.topPct}%`,
               width: s.size,
               height: s.size,
-              animationDelay: `${s.delay}s`,
               transform: `translate(${off.x}px, ${off.y}px)`,
             }}
-          />
+          >
+            <span
+              className="si-cta-star block size-full rounded-full bg-white"
+              style={{ animationDelay: `${s.delay}s` }}
+            />
+          </span>
         );
       })}
     </div>

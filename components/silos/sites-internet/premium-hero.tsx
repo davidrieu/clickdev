@@ -37,7 +37,13 @@ export function PremiumHero() {
       onPointerMoveCapture={onPointerMoveCapture}
       onPointerLeave={onPointerLeave}
     >
-      <StellarField count={48} className="opacity-[0.88]" interactive pointer={pointer} />
+      <StellarField
+        count={48}
+        className="opacity-[0.88]"
+        interactive
+        pointer={pointer}
+        shootingMeteors
+      />
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_80%_50%_at_50%_-20%,rgba(255,255,255,0.05),transparent)]" />
 
       <div className="relative z-10 mx-auto grid max-w-[1400px] gap-12 px-4 md:grid-cols-12 md:items-center md:gap-8 md:px-8 lg:gap-12">
