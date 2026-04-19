@@ -1,7 +1,17 @@
-import type { SanityPostTeaser } from '@/types/sanity-post';
+import type { SanityCaseStudyDocument, SanityCaseStudyTeaser } from '@/types/sanity-case-study';
+import type { SanityPostDocument, SanityPostTeaser } from '@/types/sanity-post';
 
 import { sanityClient } from './client';
-import { latestPostsQuery } from './queries';
+import {
+  allCaseStudiesTeasersQuery,
+  allPostsTeasersQuery,
+  caseStudyBySlugQuery,
+  caseStudySlugsQuery,
+  featuredCaseStudiesQuery,
+  latestPostsQuery,
+  postBySlugQuery,
+  postSlugsQuery,
+} from './queries';
 
 export async function getLatestPosts(limit = 3): Promise<SanityPostTeaser[]> {
   if (!sanityClient) {
@@ -13,5 +23,96 @@ export async function getLatestPosts(limit = 3): Promise<SanityPostTeaser[]> {
     return rows ?? [];
   } catch {
     return [];
+  }
+}
+
+export async function getAllPostTeasers(): Promise<SanityPostTeaser[]> {
+  if (!sanityClient) {
+    return [];
+  }
+
+  try {
+    const rows = await sanityClient.fetch<SanityPostTeaser[]>(allPostsTeasersQuery);
+    return rows ?? [];
+  } catch {
+    return [];
+  }
+}
+
+export async function getPostSlugs(): Promise<string[]> {
+  if (!sanityClient) {
+    return [];
+  }
+
+  try {
+    const rows = await sanityClient.fetch<string[]>(postSlugsQuery);
+    return rows ?? [];
+  } catch {
+    return [];
+  }
+}
+
+export async function getPostBySlug(slug: string): Promise<SanityPostDocument | null> {
+  if (!sanityClient) {
+    return null;
+  }
+
+  try {
+    return await sanityClient.fetch<SanityPostDocument | null>(postBySlugQuery, { slug });
+  } catch {
+    return null;
+  }
+}
+
+export async function getFeaturedCaseStudies(): Promise<SanityCaseStudyTeaser[]> {
+  if (!sanityClient) {
+    return [];
+  }
+
+  try {
+    const rows = await sanityClient.fetch<SanityCaseStudyTeaser[]>(featuredCaseStudiesQuery);
+    return rows ?? [];
+  } catch {
+    return [];
+  }
+}
+
+export async function getAllCaseStudyTeasers(): Promise<SanityCaseStudyTeaser[]> {
+  if (!sanityClient) {
+    return [];
+  }
+
+  try {
+    const rows = await sanityClient.fetch<SanityCaseStudyTeaser[]>(allCaseStudiesTeasersQuery);
+    return rows ?? [];
+  } catch {
+    return [];
+  }
+}
+
+export async function getCaseStudySlugs(): Promise<string[]> {
+  if (!sanityClient) {
+    return [];
+  }
+
+  try {
+    const rows = await sanityClient.fetch<string[]>(caseStudySlugsQuery);
+    return rows ?? [];
+  } catch {
+    return [];
+  }
+}
+
+export async function getCaseStudyBySlug(slug: string): Promise<SanityCaseStudyDocument | null> {
+  if (!sanityClient) {
+    return null;
+  }
+
+  try {
+    return await sanityClient.fetch<SanityCaseStudyDocument | null>(caseStudyBySlugQuery, {
+      slug,
+    });
+  } catch {
+    return null;
   }
 }

@@ -1,4 +1,5 @@
 import MarketingShell from '@/components/marketing/marketing-shell';
+import { BreadcrumbJsonLd } from '@/components/seo/breadcrumb-json-ld';
 import {
   NAV_SILOS,
   SERVICE_SILOS,
@@ -39,15 +40,24 @@ export default async function SiloChildPage({ params }: Props) {
   if (!entry || !child) notFound();
 
   return (
-    <MarketingShell
-      eyebrow={entry.label}
-      title={child.label}
-      description={`Page service « ${child.label} » : contenu longue traîne, FAQ, CTA devis et maillage vers les pages sœurs (brief).`}
-      breadcrumb={[
-        { label: 'Accueil', href: '/' },
-        { label: entry.label, href: entry.href },
-        { label: child.label, href: child.href },
-      ]}
-    />
+    <>
+      <BreadcrumbJsonLd
+        items={[
+          { name: 'Accueil', path: '/' },
+          { name: entry.label, path: entry.href },
+          { name: child.label, path: child.href },
+        ]}
+      />
+      <MarketingShell
+        eyebrow={entry.label}
+        title={child.label}
+        description={`Page service « ${child.label} » : contenu longue traîne, FAQ, CTA devis et maillage vers les pages sœurs (brief).`}
+        breadcrumb={[
+          { label: 'Accueil', href: '/' },
+          { label: entry.label, href: entry.href },
+          { label: child.label, href: child.href },
+        ]}
+      />
+    </>
   );
 }

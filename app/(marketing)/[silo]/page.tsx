@@ -1,4 +1,5 @@
 import MarketingShell from '@/components/marketing/marketing-shell';
+import { BreadcrumbJsonLd } from '@/components/seo/breadcrumb-json-ld';
 import { NAV_SILOS, SERVICE_SILOS, isServiceSilo } from '@/lib/constants/sitemap';
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
@@ -28,14 +29,22 @@ export default async function SiloPillarPage({ params }: Props) {
   if (!entry) notFound();
 
   return (
-    <MarketingShell
-      eyebrow="Clickdev"
-      title={entry.label}
-      description={`Page pilier « ${entry.label} » : offre, preuves, process et FAQ seront intégrés ici selon le brief (contenu long, SEO & GEO).`}
-      breadcrumb={[
-        { label: 'Accueil', href: '/' },
-        { label: entry.label, href: entry.href },
-      ]}
-    />
+    <>
+      <BreadcrumbJsonLd
+        items={[
+          { name: 'Accueil', path: '/' },
+          { name: entry.label, path: entry.href },
+        ]}
+      />
+      <MarketingShell
+        eyebrow="Clickdev"
+        title={entry.label}
+        description={`Page pilier « ${entry.label} » : offre, preuves, process et FAQ seront intégrés ici selon le brief (contenu long, SEO & GEO).`}
+        breadcrumb={[
+          { label: 'Accueil', href: '/' },
+          { label: entry.label, href: entry.href },
+        ]}
+      />
+    </>
   );
 }
