@@ -217,6 +217,70 @@ const OVERRIDES: Partial<Record<string, MarketingLongArticle>> = {
       },
     ],
   },
+  'seo:seo-technique': {
+    metaDescription:
+      'SEO technique : indexation, Core Web Vitals, données structurées, logs et migrations — freelance Clickdev.',
+    lead:
+      'Le SEO technique aligne ce que les crawlers voient avec ce que les utilisateurs vivent : vitesse, stabilité des URLs, rendu, données structurées et absence de blocages d’indexation. J’interviens en audit puis en implémentation avec votre équipe dev.',
+    sections: [
+      {
+        heading: 'Leviers',
+        paragraphs: [
+          'Robots, canonicals, pagination, hreflang, duplication, maillage interne, schémas JSON-LD pertinents, et analyse des logs quand c’est possible. Les Core Web Vitals sont traités comme des critères de livraison, pas comme une option.',
+          'Les migrations (refonte, changement de domaine, HTTPS) sont cadrées avec plan de redirections, tests et suivi post-bascule.',
+        ],
+      },
+    ],
+    faq: [
+      {
+        question: 'SEO technique sans refonte complète ?',
+        answer:
+          'Oui : quick wins sur templates critiques, correctifs serveur/cache, et roadmap sur les dettes structurelles.',
+      },
+    ],
+  },
+  'ia:chatbot-ia': {
+    metaDescription:
+      'Chatbot IA : scénarios, garde-fous, intégration CRM et mesure — conception freelance Clickdev.',
+    lead:
+      'Un chatbot utile réduit le temps de première réponse et qualifie les demandes — sans remplacer l’humain sur les cas sensibles. Je conçois des scénarios explicites, des sources de vérité (FAQ, base interne) et des garde-fous pour limiter les hallucinations.',
+    sections: [
+      {
+        heading: 'Expérience & fiabilité',
+        paragraphs: [
+          'Handoff vers un agent humain, journaux de conversation, catégorisation des intents et limitation des sujets hors périmètre. Les contenus sont versionnés et testés sur jeux de questions clients réels.',
+        ],
+      },
+    ],
+    faq: [
+      {
+        question: 'Chatbot sur le site ou sur WhatsApp ?',
+        answer:
+          'Les deux sont possibles selon vos canaux : widget web, messagerie, ou intégration helpdesk. Le périmètre détermine l’architecture (webhooks, OAuth, stockage).',
+      },
+    ],
+  },
+  'crm-outils-metiers:crm-sur-mesure': {
+    metaDescription:
+      'CRM sur mesure : pipeline, droits, intégrations et adoption équipes — développement freelance Clickdev.',
+    lead:
+      'Un CRM sur mesure vaut le coup quand les outils génériques imposent trop de contournements. Je modélise le pipeline commercial ou support, les rôles, les automatisations et les intégrations (email, facturation, téléphonie) pour que l’outil colle au process réel.',
+    sections: [
+      {
+        heading: 'Adoption',
+        paragraphs: [
+          'Interfaces simples, parcours courts, imports contrôlés et formation ciblée. Les rapports utiles au management sont livrés tôt pour créer de la valeur visible.',
+        ],
+      },
+    ],
+    faq: [
+      {
+        question: 'CRM sur mesure vs Salesforce / HubSpot ?',
+        answer:
+          'Les plateformes matures gagnent sur l’écosystème. Le sur mesure gagne quand vos règles métier sont spécifiques et que le coût de contournement dépasse le coût de construction.',
+      },
+    ],
+  },
 };
 
 function templateArticle(

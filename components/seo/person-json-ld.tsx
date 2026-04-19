@@ -1,5 +1,5 @@
 import { SOCIAL_LINKS } from '@/lib/constants/site';
-import { organizationJsonLdId, schemaOrigin } from '@/lib/seo/schema-ids';
+import { organizationJsonLdId, personJsonLdId, schemaOrigin } from '@/lib/seo/schema-ids';
 
 export function PersonJsonLd() {
   const origin = schemaOrigin();
@@ -8,7 +8,7 @@ export function PersonJsonLd() {
   const data = {
     '@context': 'https://schema.org',
     '@type': 'Person',
-    '@id': `${origin}/a-propos#person`,
+    '@id': personJsonLdId(),
     name: 'David Rieu',
     url: `${origin}/a-propos`,
     jobTitle: 'Développeur freelance',

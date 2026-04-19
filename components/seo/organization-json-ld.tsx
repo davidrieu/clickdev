@@ -11,6 +11,10 @@ export function OrganizationJsonLd() {
     '@id': organizationJsonLdId(),
     name: SITE_NAME,
     url: origin,
+    logo: {
+      '@type': 'ImageObject',
+      url: `${origin}/assets/logo.svg`,
+    },
     sameAs,
     contactPoint: {
       '@type': 'ContactPoint',

@@ -1,4 +1,4 @@
-import { organizationJsonLdId, schemaOrigin } from '@/lib/seo/schema-ids';
+import { organizationJsonLdId, personJsonLdId, schemaOrigin } from '@/lib/seo/schema-ids';
 
 type Props = {
   headline: string;
@@ -25,8 +25,7 @@ export function CaseStudyArticleJsonLd({ headline, description, slug, image }: P
       '@id': organizationJsonLdId(),
     },
     author: {
-      '@type': 'Person',
-      name: 'David Rieu',
+      '@id': personJsonLdId(),
     },
     inLanguage: 'fr-FR',
   };
