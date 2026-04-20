@@ -124,12 +124,12 @@ export default function CaseStudyDetail({ study }: Props) {
       <div
         className={cn(
           navItems.length > 0 &&
-            'lg:grid lg:grid-cols-[min(15rem,32vw)_minmax(0,1fr)] lg:items-start lg:gap-10 xl:grid-cols-[16rem_minmax(0,1fr)] xl:gap-14 2xl:grid-cols-[17rem_minmax(0,1fr)] 2xl:gap-16',
+            'lg:grid lg:grid-cols-[min(15rem,32vw)_minmax(0,1fr)] lg:items-stretch lg:gap-10 xl:grid-cols-[16rem_minmax(0,1fr)] xl:gap-14 2xl:grid-cols-[17rem_minmax(0,1fr)] 2xl:gap-16',
         )}
       >
         {navItems.length > 0 ? (
-          <aside className="hidden min-w-0 self-start lg:block">
-            <div className="sticky top-28 z-20 space-y-3 rounded-2xl border border-white/20 bg-gradient-to-b from-white/[0.08] to-white/[0.02] p-4 shadow-[0_0_0_1px_rgba(255,255,255,0.06),0_12px_40px_-12px_rgba(0,0,0,0.5)] backdrop-blur-sm">
+          <aside className="relative hidden min-w-0 lg:block">
+            <div className="sticky top-[calc(72px+0.75rem)] z-30 max-h-[calc(100vh-5.5rem)] space-y-3 overflow-y-auto overflow-x-hidden rounded-2xl border border-white/20 bg-gradient-to-b from-white/[0.08] to-white/[0.02] p-4 shadow-[0_0_0_1px_rgba(255,255,255,0.06),0_12px_40px_-12px_rgba(0,0,0,0.5)] backdrop-blur-md [scrollbar-width:thin]">
               <p className="font-mono text-[10px] tracking-[0.22em] text-white/70 uppercase">Sur cette page</p>
               <CaseStudySectionNav items={navItems} variant="sidebar" />
             </div>
