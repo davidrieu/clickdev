@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { useCallback, useState } from 'react';
 import { motion } from 'framer-motion';
 
+import { PremiumSectionDivider } from '@/components/home-premium/premium-section-divider';
 import { CASE_STUDY_CATEGORY_LABELS } from '@/lib/constants/case-study';
 import type { SanityCaseStudyTeaser } from '@/types/sanity-case-study';
 
@@ -45,11 +46,12 @@ export function PremiumCases({ caseStudies }: Props) {
 
   return (
     <section
-      className="relative overflow-hidden border-t border-white/[0.06] bg-black py-24 md:py-40 lg:py-48"
+      className="relative overflow-hidden bg-black py-24 md:py-40 lg:py-48"
       onMouseLeave={clear}
       onPointerMoveCapture={onPointerMoveCapture}
       onPointerLeave={onPointerLeave}
     >
+      <PremiumSectionDivider />
       <StellarField count={48} className="opacity-[0.7]" interactive pointer={pointer} />
       <div className="relative z-10 mx-auto max-w-[1100px] px-4 md:px-8">
         <motion.div

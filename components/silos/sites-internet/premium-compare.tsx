@@ -3,6 +3,8 @@
 import { useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
 
+import { PremiumSectionDivider } from '@/components/home-premium/premium-section-divider';
+
 import {
   SITES_INTERNET_COMPARE_MATRIX,
   SITES_INTERNET_COMPARE_ROWS,
@@ -13,11 +15,9 @@ export function PremiumCompare() {
   const inView = useInView(ref, { once: true, margin: '-12%' });
 
   return (
-    <section
-      ref={ref}
-      className="border-t border-white/[0.06] bg-[oklch(0.11_0_0)] py-24 md:py-40 lg:py-48"
-    >
-      <div className="mx-auto max-w-[960px] px-4 md:px-8">
+    <section ref={ref} className="relative overflow-hidden bg-[oklch(0.11_0_0)] py-24 md:py-40 lg:py-48">
+      <PremiumSectionDivider />
+      <div className="relative z-10 mx-auto max-w-[960px] px-4 md:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}

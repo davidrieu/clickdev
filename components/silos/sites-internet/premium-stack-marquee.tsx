@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion';
 
+import { PremiumSectionDivider } from '@/components/home-premium/premium-section-divider';
 import { SITES_INTERNET_STACK } from '@/lib/constants/sites-internet-premium';
 
 export function PremiumStackMarquee() {
@@ -9,8 +10,9 @@ export function PremiumStackMarquee() {
   const rowB = [...[...SITES_INTERNET_STACK].reverse(), ...[...SITES_INTERNET_STACK].reverse()];
 
   return (
-    <section className="border-t border-white/[0.06] bg-black py-24 md:py-36 lg:py-44">
-      <div className="mx-auto grid max-w-[1400px] gap-14 px-4 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.4fr)] lg:items-center lg:gap-16 lg:px-8">
+    <section className="relative overflow-hidden bg-black py-24 md:py-36 lg:py-44">
+      <PremiumSectionDivider />
+      <div className="relative z-10 mx-auto grid max-w-[1400px] gap-14 px-4 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.4fr)] lg:items-center lg:gap-16 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}

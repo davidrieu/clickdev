@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 
+import { PremiumSectionDivider } from '@/components/home-premium/premium-section-divider';
 import {
   SITES_INTERNET_FAQ_BY_TAB,
   SITES_INTERNET_FAQ_TAB_LABELS,
@@ -15,8 +16,9 @@ export function PremiumFaq() {
   const [tab, setTab] = useState<SitesInternetFaqTabId>('budget');
 
   return (
-    <section className="border-t border-white/[0.06] bg-[oklch(0.09_0_0)] py-24 md:py-40 lg:py-48">
-      <div className="mx-auto max-w-[800px] px-4 md:px-8">
+    <section className="relative overflow-hidden bg-[oklch(0.09_0_0)] py-24 md:py-40 lg:py-48">
+      <PremiumSectionDivider />
+      <div className="relative z-10 mx-auto max-w-[800px] px-4 md:px-8">
         <motion.div
           initial={{ opacity: 0, y: 18 }}
           whileInView={{ opacity: 1, y: 0 }}

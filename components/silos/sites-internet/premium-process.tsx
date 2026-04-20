@@ -3,6 +3,8 @@
 import { useRef } from 'react';
 import { motion, useInView, useScroll, useSpring } from 'framer-motion';
 
+import { PremiumSectionDivider } from '@/components/home-premium/premium-section-divider';
+
 import { StellarField, useSectionStellarPointer } from './stellar-field';
 
 const STEPS = [
@@ -47,10 +49,11 @@ export function PremiumProcess() {
   return (
     <section
       ref={sectionRef}
-      className="relative overflow-hidden border-t border-white/[0.06] bg-black py-24 md:py-40 lg:py-48"
+      className="relative overflow-hidden bg-black py-24 md:py-40 lg:py-48"
       onPointerMoveCapture={onPointerMoveCapture}
       onPointerLeave={onPointerLeave}
     >
+      <PremiumSectionDivider />
       <StellarField count={46} className="opacity-[0.72]" interactive pointer={pointer} />
       <div className="relative z-10 mx-auto max-w-[900px] px-4 md:px-8">
         <motion.div
