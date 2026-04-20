@@ -10,7 +10,7 @@ export function PremiumStackMarquee() {
   const rowB = [...[...SITES_INTERNET_STACK].reverse(), ...[...SITES_INTERNET_STACK].reverse()];
 
   return (
-    <section className="relative overflow-hidden bg-black py-24 md:py-36 lg:py-44">
+    <section className="relative overflow-hidden bg-black/82 py-24 md:py-36 lg:py-44">
       <PremiumSectionDivider />
       <div className="relative z-10 mx-auto grid max-w-[1400px] gap-14 px-4 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.4fr)] lg:items-center lg:gap-16 lg:px-8">
         <motion.div

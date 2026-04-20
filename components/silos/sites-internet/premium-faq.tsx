@@ -16,7 +16,7 @@ export function PremiumFaq() {
   const [tab, setTab] = useState<SitesInternetFaqTabId>('budget');
 
   return (
-    <section className="relative overflow-hidden bg-[oklch(0.09_0_0)] py-24 md:py-40 lg:py-48">
+    <section className="relative overflow-hidden bg-[oklch(0.09_0_0/0.86)] py-24 md:py-40 lg:py-48">
       <PremiumSectionDivider />
       <div className="relative z-10 mx-auto max-w-[800px] px-4 md:px-8">
         <motion.div

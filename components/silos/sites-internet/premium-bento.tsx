@@ -95,7 +95,7 @@ function BentoTile({ item, index }: { item: BentoItem; index: number }) {
 
 export function PremiumBento() {
   return (
-    <section className="relative overflow-hidden bg-black py-24 md:py-36 lg:py-44">
+    <section className="relative overflow-hidden bg-black/82 py-24 md:py-36 lg:py-44">
       <PremiumSectionDivider />
       <div className="mx-auto max-w-[1400px] px-4 md:px-8">
         <motion.div

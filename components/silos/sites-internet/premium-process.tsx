@@ -5,8 +5,6 @@ import { motion, useInView, useScroll, useSpring } from 'framer-motion';
 
 import { PremiumSectionDivider } from '@/components/home-premium/premium-section-divider';
 
-import { StellarField, useSectionStellarPointer } from './stellar-field';
-
 const STEPS = [
   {
     n: '01',
@@ -37,7 +35,6 @@ const STEPS = [
 
 export function PremiumProcess() {
   const sectionRef = useRef<HTMLElement>(null);
-  const { pointer, onPointerMoveCapture, onPointerLeave } = useSectionStellarPointer();
 
   const { scrollYProgress } = useScroll({
     target: sectionRef,
@@ -47,14 +44,8 @@ export function PremiumProcess() {
   const lineScale = useSpring(scrollYProgress, { stiffness: 90, damping: 28 });
 
   return (
-    <section
-      ref={sectionRef}
-      className="relative overflow-hidden bg-black py-24 md:py-40 lg:py-48"
-      onPointerMoveCapture={onPointerMoveCapture}
-      onPointerLeave={onPointerLeave}
-    >
+    <section ref={sectionRef} className="relative overflow-hidden bg-black/82 py-24 md:py-40 lg:py-48">
       <PremiumSectionDivider />
-      <StellarField count={46} className="opacity-[0.72]" interactive pointer={pointer} />
       <div className="relative z-10 mx-auto max-w-[900px] px-4 md:px-8">
         <motion.div
           initial={{ opacity: 0, y: 24 }}

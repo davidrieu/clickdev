@@ -9,6 +9,7 @@ import { PremiumFinalCta } from './premium-final-cta';
 import { PremiumHero } from './premium-hero';
 import { PremiumIntro } from './premium-intro';
 import { PremiumProcess } from './premium-process';
+import { PremiumSitesBelowHeroShell } from './premium-sites-below-hero-shell';
 import { PremiumStackMarquee } from './premium-stack-marquee';
 
 /** Page pilier /sites-internet — layout premium (Sanity + FAQ unifiée + bloc SEO). */
@@ -18,15 +19,17 @@ export default async function SitesInternetPremiumPage() {
   return (
     <main className="bg-black text-white">
       <PremiumHero />
-      <PremiumIntro />
-      <PremiumBento />
-      <PremiumEditorialSeo />
-      <PremiumCompare />
-      <PremiumProcess />
-      <PremiumStackMarquee />
-      <PremiumCases caseStudies={caseStudies} />
-      <PremiumFaq />
-      <PremiumFinalCta />
+      <PremiumSitesBelowHeroShell>
+        <PremiumIntro />
+        <PremiumBento />
+        <PremiumEditorialSeo />
+        <PremiumCompare />
+        <PremiumProcess />
+        <PremiumStackMarquee />
+        <PremiumCases caseStudies={caseStudies} />
+        <PremiumFaq />
+        <PremiumFinalCta useGlobalStellar />
+      </PremiumSitesBelowHeroShell>
     </main>
   );
 }

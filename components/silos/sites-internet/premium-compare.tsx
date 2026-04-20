@@ -15,7 +15,7 @@ export function PremiumCompare() {
   const inView = useInView(ref, { once: true, margin: '-12%' });
 
   return (
-    <section ref={ref} className="relative overflow-hidden bg-[oklch(0.11_0_0)] py-24 md:py-40 lg:py-48">
+    <section ref={ref} className="relative overflow-hidden bg-[oklch(0.11_0_0/0.84)] py-24 md:py-40 lg:py-48">
       <PremiumSectionDivider />
       <div className="relative z-10 mx-auto max-w-[960px] px-4 md:px-8">
         <motion.div
