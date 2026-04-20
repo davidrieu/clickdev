@@ -76,8 +76,10 @@ export function SeoPremiumBento() {
           <h2 className="si-serif-display mt-4 text-[clamp(1.85rem,3.6vw,3.1rem)] leading-[1.08] font-medium tracking-[-0.03em] text-white">
             Huit leviers pour votre visibilité Google
           </h2>
-          <p className="mt-4 max-w-xl text-sm leading-relaxed text-white/60 md:text-base">
-            Textes courts, objectifs clairs. Chaque page indique un budget indicatif.
+          <p className="mt-4 max-w-2xl text-sm leading-relaxed text-white/60 md:text-base">
+            Chaque carte mène à une page détaillée : pourquoi ça compte pour votre activité, comment je travaille en
+            pratique, et une fourchette de budget pour éviter les devis “surprise”. Pas de promesse de première place :
+            du concret — technique, contenu, local, e-commerce ou migration — selon ce dont vous avez besoin.
           </p>
         </motion.div>
         <div className="mt-14 grid grid-cols-2 gap-3 sm:gap-4 md:grid-cols-4">

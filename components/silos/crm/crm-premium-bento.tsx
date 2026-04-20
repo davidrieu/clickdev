@@ -79,8 +79,11 @@ export function CrmPremiumBento() {
           <h2 className="si-serif-display mt-4 text-[clamp(2rem,4vw,3.25rem)] leading-[1.08] font-medium tracking-[-0.03em] text-white">
             Trois façons d’y voir plus clair dans votre activité
           </h2>
-          <p className="mt-5 max-w-xl text-sm leading-relaxed text-white/60 md:text-base">
-            Du petit flux à l’outil complet : on commence par ce qui soulage le plus vite votre équipe.
+          <p className="mt-5 max-w-2xl text-sm leading-relaxed text-white/60 md:text-base">
+            Du petit flux (un formulaire qui alimente bien votre CRM) à l’outil complet pensé pour votre métier : on
+            commence par ce qui soulage le plus vite votre équipe, avec des jalons lisibles. Les trois pages ci-dessous
+            détaillent des exemples, des risques à éviter et des ordres de grandeur de budget — avant même de m’écrire,
+            vous savez à quoi vous attendre.
           </p>
         </motion.div>
         <div className="mt-16 grid grid-cols-1 gap-4 sm:grid-cols-3">
