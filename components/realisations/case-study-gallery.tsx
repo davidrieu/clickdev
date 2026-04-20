@@ -2,6 +2,7 @@
 
 import { Dialog, DialogContent, DialogTitle } from '@/components/ui/dialog';
 import { cn } from '@/lib/utils';
+import { ChevronDownIcon, Maximize2Icon } from 'lucide-react';
 import Image from 'next/image';
 import { useState } from 'react';
 
@@ -34,16 +35,22 @@ export function CaseStudyGallery({ items }: Props) {
                 aria-label={g.caption ? `Agrandir : ${g.caption}` : "Agrandir l'image"}
               >
                 <div className="relative aspect-[16/10] w-full overflow-hidden bg-neutral-950">
-                  <div className="absolute inset-0 touch-pan-y overflow-y-auto overflow-x-hidden overscroll-y-contain [scrollbar-color:rgba(255,255,255,0.22)_transparent] [scrollbar-width:thin] [&::-webkit-scrollbar]:w-1.5 [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-thumb]:bg-white/25">
-                    {/* Captures hautes : haut du visuel visible en premier, défilement dans le cadre (même forme que les cards accueil, sans halo) */}
-                    <Image
-                      src={g.image}
-                      alt={g.caption?.trim() || 'Capture du projet'}
-                      width={1920}
-                      height={5000}
-                      className="block h-auto w-full max-w-full align-top"
-                      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                    />
+                  <Image
+                    src={g.image}
+                    alt={g.caption?.trim() || 'Capture du projet'}
+                    fill
+                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                    className="object-cover object-top si-gallery-thumb-pan"
+                    style={{ animationDelay: `${(i % 6) * 1.25}s` }}
+                  />
+                  <div
+                    className="pointer-events-none absolute inset-0 flex flex-col justify-end bg-gradient-to-t from-black/75 via-black/20 to-transparent opacity-95 transition duration-300 group-hover:opacity-100"
+                    aria-hidden
+                  >
+                    <div className="flex items-center justify-center gap-2 px-3 pb-2.5 pt-6 text-[11px] font-medium tracking-wide text-white/90 sm:text-xs">
+                      <Maximize2Icon className="size-3.5 shrink-0 opacity-90 sm:size-4" strokeWidth={2} />
+                      <span>Cliquer pour agrandir</span>
+                    </div>
                   </div>
                 </div>
               </button>
@@ -64,22 +71,35 @@ export function CaseStudyGallery({ items }: Props) {
             '!max-w-[min(96vw,1200px)] sm:!max-w-[min(96vw,1200px)]',
             '[&_button]:text-white [&_button]:hover:bg-white/15',
             'data-open:animate-in data-closed:animate-out',
+            'flex flex-col overflow-hidden',
           )}
           showCloseButton
         >
           <DialogTitle className="sr-only">Aperçu plein écran{active?.caption ? ` — ${active.caption}` : ''}</DialogTitle>
           {active ? (
-            <div className="max-h-[min(88vh,960px)] overflow-auto p-3 sm:p-4">
-              <Image
-                src={active.image}
-                alt={active.caption?.trim() || 'Capture du projet'}
-                width={1920}
-                height={5000}
-                className="mx-auto h-auto w-full max-w-full object-contain object-top"
-                sizes="100vw"
-                priority
-              />
-            </div>
+            <>
+              <p
+                id="case-study-gallery-lightbox-hint"
+                className="flex shrink-0 items-center justify-center gap-2 border-b border-white/10 bg-zinc-950/98 px-3 py-2.5 text-center text-[11px] leading-snug text-white/65 sm:px-4 sm:text-xs"
+              >
+                <ChevronDownIcon className="size-3.5 shrink-0 text-white/50" aria-hidden />
+                <span>Faites défiler dans cette fenêtre pour voir toute la capture.</span>
+              </p>
+              <div
+                className="min-h-0 flex-1 overflow-y-auto overflow-x-hidden overscroll-y-contain p-3 sm:p-4 [scrollbar-color:rgba(255,255,255,0.22)_transparent] [scrollbar-width:thin] [&::-webkit-scrollbar]:w-1.5 [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-thumb]:bg-white/25"
+                aria-describedby="case-study-gallery-lightbox-hint"
+              >
+                <Image
+                  src={active.image}
+                  alt={active.caption?.trim() || 'Capture du projet'}
+                  width={1920}
+                  height={5000}
+                  className="mx-auto h-auto w-full max-w-full object-contain object-top"
+                  sizes="100vw"
+                  priority
+                />
+              </div>
+            </>
           ) : null}
         </DialogContent>
       </Dialog>

@@ -376,6 +376,27 @@
   }
 }
 
+/* Galerie fiches projet : aperçu sans scroll interne, pan vertical doux (captures pleine page) */
+@keyframes si-gallery-thumb-pan {
+  0% {
+    object-position: 50% 0%;
+  }
+  100% {
+    object-position: 50% 100%;
+  }
+}
+
+.si-gallery-thumb-pan {
+  animation: si-gallery-thumb-pan 16s ease-in-out infinite alternate;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .si-gallery-thumb-pan {
+    animation: none;
+    object-position: 50% 0%;
+  }
+}
+
 /* Hero /sites-internet : wireframe « site en construction » (boucle ~8s) */
 @keyframes si-hero-wire-header {
   0%,
