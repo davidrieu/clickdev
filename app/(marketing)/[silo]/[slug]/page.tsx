@@ -20,6 +20,7 @@ import { SiteMiseEnRelationPageJsonLd } from '@/components/seo/site-mise-en-rela
 import { SiteSurMesurePageJsonLd } from '@/components/seo/site-sur-mesure-page-json-ld';
 import { SiteVitrinePageJsonLd } from '@/components/seo/site-vitrine-page-json-ld';
 import { SiteWordpressPageJsonLd } from '@/components/seo/site-wordpress-page-json-ld';
+import { SiloServiceChildJsonLd } from '@/components/seo/silo-service-child-json-ld';
 import AgentsIaPremiumPage from '@/components/silos/ia/agents-ia-premium-page';
 import AutomatisationIaPremiumPage from '@/components/silos/ia/automatisation-ia-premium-page';
 import ChatbotIaPremiumPage from '@/components/silos/ia/chatbot-ia-premium-page';
@@ -38,6 +39,8 @@ import SiteMiseEnRelationPremiumPage from '@/components/silos/sites-internet/sit
 import SiteSurMesurePremiumPage from '@/components/silos/sites-internet/site-sur-mesure-premium-page';
 import SiteVitrinePremiumPage from '@/components/silos/sites-internet/site-vitrine-premium-page';
 import SiteWordpressPremiumPage from '@/components/silos/sites-internet/site-wordpress-premium-page';
+import { CrmChildPremiumPage } from '@/components/silos/crm/crm-child-premium-page';
+import { SeoChildPremiumPage } from '@/components/silos/seo/seo-child-premium-page';
 import { AGENTS_IA_FAQ_ITEMS } from '@/lib/constants/agents-ia-page';
 import { AUTOMATISATION_IA_FAQ_ITEMS } from '@/lib/constants/automatisation-ia-page';
 import { CHATBOT_IA_FAQ_ITEMS } from '@/lib/constants/chatbot-ia-page';
@@ -56,6 +59,8 @@ import { SITE_SUR_MESURE_FAQ_ITEMS } from '@/lib/constants/site-sur-mesure-page'
 import { SITE_VITRINE_FAQ_ITEMS } from '@/lib/constants/site-vitrine-page';
 import { SITE_WORDPRESS_FAQ_ITEMS } from '@/lib/constants/site-wordpress-page';
 import { SITE_ECOMMERCE_FAQ_ITEMS } from '@/lib/constants/site-ecommerce-page';
+import { CRM_PREMIUM_CHILDREN, isCrmPremiumSlug } from '@/lib/constants/crm-premium-children';
+import { SEO_PREMIUM_CHILDREN, isSeoPremiumSlug } from '@/lib/constants/seo-premium-children';
 import { withMarketingVisualPlaceholders } from '@/lib/content/marketing-article-visuals';
 import { getSiloChildArticle } from '@/lib/content/silo-child-articles';
 import {
@@ -83,6 +88,8 @@ import { siteMiseEnRelationPageMetadata } from '@/lib/seo/site-mise-en-relation-
 import { siteSurMesurePageMetadata } from '@/lib/seo/site-sur-mesure-metadata';
 import { siteVitrinePageMetadata } from '@/lib/seo/site-vitrine-metadata';
 import { siteWordpressPageMetadata } from '@/lib/seo/site-wordpress-metadata';
+import { crmPremiumChildMetadata } from '@/lib/seo/crm-premium-child-metadata';
+import { seoPremiumChildMetadata } from '@/lib/seo/seo-premium-child-metadata';
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 
@@ -156,6 +163,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   }
   if (silo === 'ia' && slug === 'ia-generative-ecommerce') {
     return iaGenerativeEcommercePageMetadata();
+  }
+  if (silo === 'seo' && isSeoPremiumSlug(slug)) {
+    return seoPremiumChildMetadata(slug);
+  }
+  if (silo === 'crm-outils-metiers' && isCrmPremiumSlug(slug)) {
+    return crmPremiumChildMetadata(slug);
   }
   const article = getSiloChildArticle(silo, slug, child.label, entry.label);
   return listingPageMetadata({
@@ -337,6 +350,42 @@ export default async function SiloChildPage({ params }: Props) {
       <>
         <IaGenerativeEcommercePageJsonLd faqItems={[...IA_GENERATIVE_ECOMMERCE_FAQ_ITEMS]} />
         <IaGenerativeEcommercePremiumPage />
+      </>
+    );
+  }
+
+  if (silo === 'seo' && isSeoPremiumSlug(slug)) {
+    const c = SEO_PREMIUM_CHILDREN[slug];
+    return (
+      <>
+        <SiloServiceChildJsonLd
+          pagePath={c.path}
+          serviceName={c.jsonLd.serviceName}
+          serviceDescription={c.jsonLd.serviceDescription}
+          siloPath="/seo"
+          siloBreadcrumbName="SEO"
+          pageBreadcrumbName={c.jsonLd.breadcrumbPageName}
+          faqItems={[...c.faqItems]}
+        />
+        <SeoChildPremiumPage slug={slug} />
+      </>
+    );
+  }
+
+  if (silo === 'crm-outils-metiers' && isCrmPremiumSlug(slug)) {
+    const c = CRM_PREMIUM_CHILDREN[slug];
+    return (
+      <>
+        <SiloServiceChildJsonLd
+          pagePath={c.path}
+          serviceName={c.jsonLd.serviceName}
+          serviceDescription={c.jsonLd.serviceDescription}
+          siloPath="/crm-outils-metiers"
+          siloBreadcrumbName="CRM & outils métiers"
+          pageBreadcrumbName={c.jsonLd.breadcrumbPageName}
+          faqItems={[...c.faqItems]}
+        />
+        <CrmChildPremiumPage slug={slug} />
       </>
     );
   }

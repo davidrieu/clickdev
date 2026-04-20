@@ -83,21 +83,21 @@ const ARTICLES: Record<ServiceSilo, MarketingLongArticle> = {
   },
   seo: {
     metaDescription:
-      'SEO technique, contenu, netlinking, migrations et GEO — visibilité Google et IA génératives, accompagnement freelance Clickdev.',
+      'SEO pour PME et indépendants : audit, technique, local, e-commerce, contenu. Je conçois et j’implémente — devis gratuit — Clickdev.',
     lead:
-      'Le SEO reste une combinaison de technique, d’intention de recherche et de preuve d’autorité. J’interviens sur les audits, la mise en œuvre technique (Core Web Vitals, données structurées, indexation) et j’aligne les équipes sur une roadmap réaliste.',
+      'Être visible sur Google, c’est surtout un site clair et crédible pour les gens qui cherchent déjà ce que vous faites. Je réalise des audits compréhensibles, des corrections techniques dans le code, et j’aide à rédiger des pages utiles — artisan, boutique en ligne ou association.',
     sections: [
       {
-        heading: 'SEO & GEO',
+        heading: 'Ce que je fais concrètement',
         paragraphs: [
-          'Le GEO (Generative Engine Optimization) vise à améliorer la probabilité d’être cité ou recommandé dans les réponses des IA. Cela repose sur des contenus clairs, une entité forte (marque, personne), des faits vérifiables et une structure exploitable par les crawlers.',
-          'Les audits couvrent crawl, maillage interne, duplication, internationalisation, données structurées et logs serveur lorsque c’est pertinent.',
+          'Audit des priorités, vitesse et indexation, pages locales ou fiches produit, migration quand vous changez d’adresse web, textes orientés questions réelles.',
+          'Le GEO (visibilité quand on pose une question à une IA) s’appuie sur les mêmes bases : FAQ honnête, page “à propos” solide, faits vérifiables.',
         ],
       },
       {
-        heading: 'E-commerce & local',
+        heading: 'Rythme & mesure',
         paragraphs: [
-          'Pour le e-commerce, je traite gabarits produit, facettes, pagination et stabilité des URLs. Pour le local, fiches, maillage géographique et cohérence NAP (nom, adresse, téléphone) avec vos points de vente.',
+          'On fixe ce qui compte pour vous : appels, formulaires, prise de rendez-vous. Pas de promesse de “#1 Google garanti”.',
         ],
       },
     ],
@@ -105,37 +105,37 @@ const ARTICLES: Record<ServiceSilo, MarketingLongArticle> = {
       {
         question: 'Combien de temps pour voir des résultats ?',
         answer:
-          'Les quick wins techniques peuvent apparaître en quelques semaines. Le netlinking et l’autorité prennent souvent plusieurs mois. Je fixe des indicateurs de succès par phase.',
+          'Souvent quelques semaines pour des correctifs techniques ; le contenu et les liens de qualité demandent plus de temps. Je vous indique un ordre d’actions réaliste.',
       },
       {
         question: 'Travaillez-vous avec des agences ?',
         answer:
-          'Oui, en renfort technique ou stratégique : je peux prendre la partie implémentation pendant que l’agence gère le contenu ou l’outreach.',
+          'Oui, en renfort technique ou rédactionnel quand votre agence gère déjà une partie du sujet.',
       },
       {
-        question: 'Qu’est-ce que le GEO concrètement ?',
+        question: 'C’est compréhensible si je ne suis pas du métier ?',
         answer:
-          'Optimiser titres, FAQ, pages « about », preuves et données structurées pour que les moteurs génératifs comprennent qui vous êtes et quand vous recommander — sans promesse magique de positionnement.',
+          'Oui : chaque livrable est expliqué avec des exemples concrets et un vocabulaire simple.',
       },
     ],
   },
   'crm-outils-metiers': {
     metaDescription:
-      'CRM sur mesure, intégrations, automatisation et outils internes — développement freelance pour équipes sales et ops.',
+      'CRM sur mesure, intégrations et automatisations pour PME. Je développe des outils web qui réduisent la double saisie — Clickdev freelance.',
     lead:
-      'Les outils métiers doivent coller à vos processus, pas l’inverse. Je conçois des CRM adaptés, des portails partenaires et des automatisations qui réduisent la saisie manuelle et les erreurs entre systèmes.',
+      'Quand les devis, les relances et les factures vivent dans cinq fichiers, les oublis arrivent vite. Je conçois et développe des petits CRM web, des connexions entre votre site et vos outils (HubSpot, Pipedrive…), ou des automatisations avec alertes si quelque chose bloque.',
     sections: [
       {
-        heading: 'Intégrations & données',
+        heading: 'Intégrations & quotidien',
         paragraphs: [
-          'Synchronisation bidirectionnelle avec ERP, facturation, support ou data warehouse. Contrats d’API, idempotence, files d’attente et supervision pour éviter les silos de données.',
-          'Les interfaces internes privilégient la clarté : droits par rôle, journaux d’audit et exports contrôlés.',
+          'Formulaire du site → fiche CRM, statut “gagné” quand la facture est payée, e-mail de relance quand un dossier stagne : des flux que vous pouvez expliquer à table.',
+          'Les accès et les données sensibles sont limités au nécessaire ; je documente pour que vous ne soyez pas prisonnier d’une boîte noire.',
         ],
       },
       {
         heading: 'Fiabilité',
         paragraphs: [
-          'Tests automatisés sur les règles métier critiques, sauvegardes et stratégie de rollback. Documentation pour transférer la maintenance à votre équipe si besoin.',
+          'Tests sur les cas critiques, sauvegardes, possibilité de reprise par votre équipe après formation courte.',
         ],
       },
     ],
@@ -143,12 +143,12 @@ const ARTICLES: Record<ServiceSilo, MarketingLongArticle> = {
       {
         question: 'Remplacer un Excel « monstre » ?',
         answer:
-          'Souvent la première étape est de modéliser les règles implicites, puis de livrer un MVP utilisé par un pilote avant généralisation.',
+          'On commence par lister ce que le fichier fait vraiment, puis un premier module utile pour un petit groupe avant d’élargir.',
       },
       {
-        question: 'Intervenir sur un CRM existant ?',
+        question: 'Intervenir sur un CRM déjà en place ?',
         answer:
-          'Oui : intégrations, champs personnalisés, webhooks, scripts de migration et formation des équipes.',
+          'Oui : connexions API, webhooks, champs personnalisés et formation des équipes.',
       },
     ],
   },
