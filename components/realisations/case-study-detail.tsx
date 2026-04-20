@@ -1,5 +1,7 @@
 import SanityPortableText from '@/components/portable/sanity-portable-text';
 import { CaseStudyGallery } from '@/components/realisations/case-study-gallery';
+import { CASE_FICHE } from '@/components/realisations/case-study-section-ids';
+import { CaseStudySectionNav, type CaseStudyNavItem } from '@/components/realisations/case-study-section-nav';
 import { CASE_STUDY_CATEGORY_LABELS } from '@/lib/constants/case-study';
 import { cn } from '@/lib/utils';
 import type { SanityCaseStudyDocument } from '@/types/sanity-case-study';
@@ -14,16 +16,18 @@ function hasBlocks(value: SanityCaseStudyDocument['context']): boolean {
 }
 
 function Section({
+  id,
   title,
   children,
   className,
 }: {
+  id?: string;
   title: string;
   children: ReactNode;
   className?: string;
 }) {
   return (
-    <section className={cn('space-y-6 md:space-y-8', className)}>
+    <section id={id} className={cn('scroll-mt-28 space-y-6 md:space-y-8', className)}>
       <h2 className="si-serif-display text-[clamp(1.75rem,2.8vw,2.35rem)] font-medium tracking-[-0.03em] text-balance text-white">
         {title}
       </h2>
@@ -38,20 +42,23 @@ export default function CaseStudyDetail({ study }: Props) {
     : null;
   const displayTag = study.typeTag?.trim() || categoryLabel;
   const heroImage = study.heroImage ?? study.thumbnail ?? null;
-  const monoKicker = displayTag ? displayTag : 'Étude de cas';
+
+  const hasProjet = hasBlocks(study.context);
+  const hasGalerie = Boolean(study.gallery?.some((g) => g.image));
+  const hasRealise = hasBlocks(study.solution);
+  const hasResultats = hasBlocks(study.results);
+
+  const navItems: CaseStudyNavItem[] = [];
+  if (hasProjet) navItems.push({ id: CASE_FICHE.projet, label: 'Le projet' });
+  if (hasGalerie) navItems.push({ id: CASE_FICHE.galerie, label: 'Galerie' });
+  if (hasRealise) navItems.push({ id: CASE_FICHE.realise, label: "Ce que j'ai réalisé" });
+  if (hasResultats) navItems.push({ id: CASE_FICHE.resultats, label: 'Résultats' });
 
   return (
-    <div className="space-y-20 md:space-y-24 lg:space-y-28">
-      <header className="grid items-start gap-10 lg:grid-cols-2 lg:gap-12 lg:gap-16">
+    <div className="space-y-12 md:space-y-16 lg:space-y-20">
+      <header className="grid items-start gap-10 lg:grid-cols-2 lg:items-center lg:gap-12 lg:gap-16">
         <div className="min-w-0 max-w-3xl lg:max-w-none">
-          <div className="flex items-center gap-4">
-            <span className="font-mono text-[11px] tracking-[0.28em] text-white/55 uppercase">Chapitre · Projet</span>
-            <span className="block h-px max-w-[120px] flex-1 origin-left bg-gradient-to-r from-white/50 to-white/12" />
-          </div>
-          <p className="mt-2 font-mono text-[10px] tracking-[0.22em] text-white/45 uppercase md:text-[11px]">
-            {monoKicker} — Clickdev
-          </p>
-          <h1 className="si-serif-display mt-8 text-[clamp(2.125rem,4vw,3.5rem)] leading-[1.06] font-medium tracking-[-0.035em] text-white">
+          <h1 className="si-serif-display text-[clamp(2.125rem,4vw,3.5rem)] leading-[1.06] font-medium tracking-[-0.035em] text-white">
             {study.title}
           </h1>
           {study.tagline ? (
@@ -106,45 +113,66 @@ export default function CaseStudyDetail({ study }: Props) {
         ) : null}
       </header>
 
-      {hasBlocks(study.context) ? (
-        <Section title="Le projet">
-          <div className="prose-portable max-w-3xl text-white/80">
-            <SanityPortableText value={study.context} />
+      {navItems.length > 0 ? (
+        <div className="xl:hidden">
+          <div className="sticky top-0 z-30 -mx-4 border-b border-white/10 bg-black/90 px-4 py-3 backdrop-blur-md md:-mx-8 md:px-8">
+            <CaseStudySectionNav items={navItems} variant="bar" />
           </div>
-        </Section>
+        </div>
       ) : null}
 
-      {study.gallery && study.gallery.some((g) => g.image) ? (
-        <Section title="Galerie">
-          <CaseStudyGallery items={study.gallery} />
-        </Section>
-      ) : null}
+      <div className="xl:grid xl:grid-cols-[minmax(0,1fr)_13.5rem] xl:items-start xl:gap-10 2xl:grid-cols-[minmax(0,1fr)_15rem] 2xl:gap-12">
+        <div className="min-w-0 space-y-20 md:space-y-24 lg:space-y-28">
+          {hasProjet ? (
+            <Section id={CASE_FICHE.projet} title="Le projet">
+              <div className="prose-portable max-w-3xl text-white/80">
+                <SanityPortableText value={study.context} />
+              </div>
+            </Section>
+          ) : null}
 
-      {hasBlocks(study.solution) ? (
-        <Section title="Ce que j'ai réalisé">
-          <div className="prose-portable max-w-3xl text-white/80">
-            <SanityPortableText value={study.solution} />
-          </div>
-        </Section>
-      ) : null}
+          {hasGalerie ? (
+            <Section id={CASE_FICHE.galerie} title="Galerie">
+              <CaseStudyGallery items={study.gallery!} />
+            </Section>
+          ) : null}
 
-      {hasBlocks(study.results) ? (
-        <Section title="Résultats">
-          <div className="prose-portable max-w-3xl text-white/80">
-            <SanityPortableText value={study.results} />
-          </div>
-        </Section>
-      ) : null}
+          {hasRealise ? (
+            <Section id={CASE_FICHE.realise} title="Ce que j'ai réalisé">
+              <div className="prose-portable max-w-3xl text-white/80">
+                <SanityPortableText value={study.solution} />
+              </div>
+            </Section>
+          ) : null}
 
-      {study.testimonial?.quote ? (
-        <blockquote className="relative overflow-hidden rounded-2xl border border-white/10 bg-white/[0.03] p-8 shadow-[0_0_0_1px_rgba(255,255,255,0.04)] md:p-10">
-          <p className="text-lg leading-relaxed text-white/90 md:text-xl">&ldquo;{study.testimonial.quote}&rdquo;</p>
-          <footer className="mt-4 text-sm text-white/55">
-            <span className="font-medium text-white/80">{study.testimonial.name}</span>
-            {study.testimonial.role ? <span> — {study.testimonial.role}</span> : null}
-          </footer>
-        </blockquote>
-      ) : null}
+          {hasResultats ? (
+            <Section id={CASE_FICHE.resultats} title="Résultats">
+              <div className="prose-portable max-w-3xl text-white/80">
+                <SanityPortableText value={study.results} />
+              </div>
+            </Section>
+          ) : null}
+
+          {study.testimonial?.quote ? (
+            <blockquote className="relative overflow-hidden rounded-2xl border border-white/10 bg-white/[0.03] p-8 shadow-[0_0_0_1px_rgba(255,255,255,0.04)] md:p-10">
+              <p className="text-lg leading-relaxed text-white/90 md:text-xl">&ldquo;{study.testimonial.quote}&rdquo;</p>
+              <footer className="mt-4 text-sm text-white/55">
+                <span className="font-medium text-white/80">{study.testimonial.name}</span>
+                {study.testimonial.role ? <span> — {study.testimonial.role}</span> : null}
+              </footer>
+            </blockquote>
+          ) : null}
+        </div>
+
+        {navItems.length > 0 ? (
+          <aside className="hidden min-w-0 xl:block">
+            <div className="sticky top-28 space-y-3 rounded-2xl border border-white/[0.08] bg-white/[0.02] p-4">
+              <p className="font-mono text-[10px] tracking-[0.2em] text-white/40 uppercase">Sur cette page</p>
+              <CaseStudySectionNav items={navItems} variant="sidebar" />
+            </div>
+          </aside>
+        ) : null}
+      </div>
     </div>
   );
 }
