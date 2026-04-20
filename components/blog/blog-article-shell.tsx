@@ -23,7 +23,7 @@ export function BlogArticleShell({ children, breadcrumb }: Props) {
     <main className="bg-black text-white">
       <PremiumPageBreadcrumb items={breadcrumb} />
       <section
-        className="relative overflow-hidden pt-20 pb-16 md:pt-24 md:pb-24 lg:pt-28 lg:pb-32"
+        className="relative pt-20 pb-16 md:pt-24 md:pb-24 lg:pt-28 lg:pb-32"
         onPointerMoveCapture={onPointerMoveCapture}
         onPointerLeave={onPointerLeave}
       >

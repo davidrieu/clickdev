@@ -18,7 +18,7 @@ export function BlogPostClient({ post, currentSlug, recentPosts }: Props) {
   const dateLabel = formatDateFr(post.publishedAt);
 
   return (
-    <div className="grid gap-12 xl:grid-cols-[minmax(0,1fr)_17.5rem] 2xl:grid-cols-[minmax(0,1fr)_19rem] xl:items-start xl:gap-10 2xl:gap-12">
+    <div className="grid gap-12 xl:grid-cols-[minmax(0,1fr)_17.5rem] 2xl:grid-cols-[minmax(0,1fr)_19rem] xl:items-stretch xl:gap-10 2xl:gap-12">
       <div className="min-w-0 space-y-12 md:space-y-16 lg:space-y-20">
         <header className="max-w-3xl">
           <motion.div

@@ -17,8 +17,8 @@ export function BlogPostSidebar({ currentSlug, posts }: Props) {
     'rounded-2xl border border-white/[0.1] bg-gradient-to-br from-neutral-950/90 via-neutral-900/50 to-white/[0.02] p-5 shadow-[0_0_0_1px_rgba(255,255,255,0.03)]';
 
   return (
-    <aside className="min-w-0" aria-label="Auteur et liens">
-      <div className="sticky top-28 space-y-5">
+    <aside className="relative min-w-0" aria-label="Auteur et liens">
+      <div className="sticky top-[calc(72px+0.75rem)] z-30 max-h-[calc(100vh-5.5rem)] space-y-5 overflow-y-auto overflow-x-hidden [scrollbar-width:thin]">
         <div className={card}>
           <p className="font-mono text-[10px] tracking-[0.22em] text-white/40 uppercase">Qui écrit</p>
           <div className="mt-4 flex gap-4">
