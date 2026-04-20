@@ -37,6 +37,27 @@ export default defineType({
       title: 'Contenu',
       type: 'blockContent',
     }),
+    defineField({
+      name: 'metaTitle',
+      title: 'Titre SEO (balise title)',
+      type: 'string',
+      description:
+        'Optionnel. Titre affiché dans Google (onglet + résultats). Si vide, le titre de l’article est utilisé.',
+    }),
+    defineField({
+      name: 'metaDescription',
+      title: 'Meta description',
+      type: 'text',
+      rows: 3,
+      description: 'Optionnel. ~150–160 caractères. Si vide, le chapô est utilisé.',
+    }),
+    defineField({
+      name: 'ogImage',
+      title: 'Image Open Graph / partage',
+      type: 'image',
+      options: { hotspot: true },
+      description: 'Optionnel. Image pour les aperçus (réseaux, messageries). Si vide, l’image de couverture est utilisée.',
+    }),
   ],
   preview: {
     select: { title: 'title', authorName: 'author.name', media: 'coverImage' },

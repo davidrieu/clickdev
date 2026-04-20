@@ -34,15 +34,17 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     return { title: 'Article introuvable' };
   }
 
+  const title = post.metaTitle?.trim() || post.title;
   const description =
+    post.metaDescription?.trim() ||
     post.excerpt?.trim() ||
     `Article « ${post.title} » — développement web & produits digitaux, par Clickdev.`;
 
   return pageMetadata({
-    title: post.title,
+    title,
     description,
     path: `/blog/${slug}`,
-    ogImage: post.coverImage,
+    ogImage: post.ogImage ?? post.coverImage,
   });
 }
 
@@ -76,9 +78,12 @@ export default async function BlogPostPage({ params }: Props) {
     { label: post.title, href: `/blog/${slug}` },
   ];
 
-  const description =
+  const jsonLdDescription =
+    post.metaDescription?.trim() ||
     post.excerpt?.trim() ||
     `Article « ${post.title} » — développement web & produits digitaux, par Clickdev.`;
+  const jsonLdImage = post.ogImage ?? post.coverImage;
+  const jsonLdHeadline = post.metaTitle?.trim() || post.title;
 
   return (
     <>
@@ -90,11 +95,11 @@ export default async function BlogPostPage({ params }: Props) {
         ]}
       />
       <BlogPostingJsonLd
-        headline={post.title}
-        description={description}
+        headline={jsonLdHeadline}
+        description={jsonLdDescription}
         slug={slug}
         datePublished={post.publishedAt}
-        image={post.coverImage}
+        image={jsonLdImage}
         authorName={post.author?.name ?? null}
       />
       <article className="mx-auto max-w-3xl px-4 py-16 md:px-6 md:py-20">

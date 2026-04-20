@@ -27,6 +27,9 @@ export const postBySlugQuery = `*[_type == "post" && slug.current == $slug][0]{
   excerpt,
   publishedAt,
   "coverImage": coverImage.asset->url,
+  metaTitle,
+  metaDescription,
+  "ogImage": ogImage.asset->url,
   body,
   "author": author->{ name }
 }`;

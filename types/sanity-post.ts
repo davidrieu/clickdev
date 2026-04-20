@@ -16,6 +16,9 @@ export type SanityPostDocument = {
   excerpt: string | null;
   publishedAt: string | null;
   coverImage: string | null;
+  metaTitle: string | null;
+  metaDescription: string | null;
+  ogImage: string | null;
   body: PortableTextBlock[] | null;
   author: { name: string } | null;
 };
