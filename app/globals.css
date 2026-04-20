@@ -238,12 +238,14 @@
 
 .si-premium-section-divider__beam {
   width: min(38vw, 280px);
+  /* Bleu électrique des halos cartes (46, 8, 207 / 36, 6, 160) */
   background: linear-gradient(
     90deg,
     transparent,
-    rgb(255 255 255 / 0.5),
-    rgb(124 92 255 / 0.42),
-    rgb(255 255 255 / 0.45),
+    rgb(255 255 255 / 0.42),
+    rgb(46 8 207 / 0.62),
+    rgb(36 6 160 / 0.48),
+    rgb(255 255 255 / 0.38),
     transparent
   );
   filter: blur(0.5px);

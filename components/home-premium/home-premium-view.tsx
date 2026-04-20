@@ -70,8 +70,7 @@ function HeroClientPill({ label, subtle }: { label: string; subtle?: boolean }) 
 function HpTrustMarquee() {
   const row = useMemo(() => [...HOME_TRUST_MARQUEE_NAMES, ...HOME_TRUST_MARQUEE_NAMES], []);
   return (
-    <div className="relative z-10 mt-14 overflow-hidden border-y border-white/[0.12] bg-black md:mt-20">
-      <PremiumSectionDivider edge="top" />
+    <div className="relative z-10 mt-14 border-y border-white/[0.07] bg-black md:mt-20">
       <div className="mx-auto flex w-full max-w-[1400px] flex-col items-center px-4 py-8 md:px-8 md:py-10">
         <h2 className="text-center font-mono text-[11px] tracking-[0.28em] text-white/45 uppercase">
           Ils me font confiance
@@ -84,7 +83,6 @@ function HpTrustMarquee() {
           </div>
         </div>
       </div>
-      <PremiumSectionDivider edge="bottom" />
     </div>
   );
 }
