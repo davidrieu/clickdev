@@ -30,6 +30,7 @@ import type { SanityPostTeaser } from '@/types/sanity-post';
 import { PlusIcon } from 'lucide-react';
 
 import { HpHero } from './hp-hero';
+import { PremiumSectionDivider } from './premium-section-divider';
 
 function useAnimatedMetric(from: number, target: number, suffix = '', decimals = 0, enabled: boolean) {
   const [v, setV] = useState(from);
@@ -69,7 +70,8 @@ function HeroClientPill({ label, subtle }: { label: string; subtle?: boolean }) 
 function HpTrustMarquee() {
   const row = useMemo(() => [...HOME_TRUST_MARQUEE_NAMES, ...HOME_TRUST_MARQUEE_NAMES], []);
   return (
-    <div className="relative z-10 mt-14 border-y border-white/[0.07] bg-black md:mt-20">
+    <div className="relative z-10 mt-14 overflow-hidden border-y border-white/[0.12] bg-black md:mt-20">
+      <PremiumSectionDivider edge="top" />
       <div className="mx-auto flex w-full max-w-[1400px] flex-col items-center px-4 py-8 md:px-8 md:py-10">
         <h2 className="text-center font-mono text-[11px] tracking-[0.28em] text-white/45 uppercase">
           Ils me font confiance
@@ -82,6 +84,7 @@ function HpTrustMarquee() {
           </div>
         </div>
       </div>
+      <PremiumSectionDivider edge="bottom" />
     </div>
   );
 }
@@ -90,10 +93,11 @@ function HpAudienceGrid() {
   const { pointer, onPointerMoveCapture, onPointerLeave } = useSectionStellarPointer();
   return (
     <section
-      className="relative overflow-hidden border-t border-white/[0.06] bg-black py-24 md:py-32 lg:py-40"
+      className="relative overflow-hidden bg-black py-24 md:py-32 lg:py-40"
       onPointerMoveCapture={onPointerMoveCapture}
       onPointerLeave={onPointerLeave}
     >
+      <PremiumSectionDivider />
       <StellarField count={34} className="opacity-[0.48]" interactive pointer={pointer} />
       <div className="relative z-10 mx-auto max-w-[1400px] px-4 md:px-8">
         <motion.div
@@ -119,16 +123,16 @@ function HpAudienceGrid() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: '-6%' }}
               transition={{ delay: index * 0.06, duration: 0.45 }}
-              className="min-h-[200px]"
+              className="min-h-[268px] md:min-h-[288px]"
             >
               <motion.div
                 className="h-full"
                 whileHover={{ scale: 1.01 }}
                 transition={{ type: 'spring', stiffness: 400, damping: 28 }}
               >
-                <div className="group relative flex h-full min-h-[inherit] flex-col overflow-hidden rounded-2xl border border-white/[0.08] bg-gradient-to-br from-black to-neutral-950 p-6 transition duration-500 hover:border-white/[0.14]">
-                  <ServiceNightGlow />
-                  <div className="relative z-[2] mt-auto">
+                <div className="group relative flex h-full min-h-[inherit] flex-col justify-center overflow-hidden rounded-2xl border border-white/[0.1] bg-gradient-to-br from-neutral-950 via-neutral-900/85 to-neutral-900 p-6 transition duration-500 hover:border-white/[0.16]">
+                  <ServiceCardGlow />
+                  <div className="relative z-[2] flex flex-col justify-center">
                     <h3 className="text-lg font-semibold tracking-tight text-white [text-shadow:0_2px_14px_rgba(0,0,0,0.75)] md:text-xl">
                       {card.title}
                     </h3>
@@ -152,22 +156,7 @@ function HpAudienceGrid() {
   );
 }
 
-function ServiceNightGlow() {
-  return (
-    <div className="pointer-events-none absolute inset-0" aria-hidden>
-      <div
-        className="absolute inset-0 opacity-[0.65] transition duration-500 group-hover:opacity-[0.82]"
-        style={{
-          background:
-            'radial-gradient(ellipse 22% 18% at 96% 6%, rgba(46, 8, 207, 0.58), transparent 68%), radial-gradient(ellipse 16% 14% at 8% 88%, rgba(36, 6, 160, 0.42), transparent 72%)',
-        }}
-      />
-      <div className="absolute inset-x-0 bottom-0 h-[58%] bg-gradient-to-t from-black via-black/85 to-transparent" />
-    </div>
-  );
-}
-
-/** Halo renforcé + fond moins profond — cartes « Ce que je peux faire pour vous » uniquement. */
+/** Halo renforcé + fond moins profond — cartes services & « Pour qui je travaille ». */
 function ServiceCardGlow() {
   return (
     <div className="pointer-events-none absolute inset-0" aria-hidden>
@@ -187,10 +176,11 @@ function HpServices() {
   const { pointer, onPointerMoveCapture, onPointerLeave } = useSectionStellarPointer();
   return (
     <section
-      className="relative overflow-hidden border-t border-white/[0.06] bg-black py-24 md:py-36 lg:py-44"
+      className="relative overflow-hidden bg-black py-24 md:py-36 lg:py-44"
       onPointerMoveCapture={onPointerMoveCapture}
       onPointerLeave={onPointerLeave}
     >
+      <PremiumSectionDivider />
       <StellarField count={40} className="opacity-[0.55]" interactive pointer={pointer} />
       <div className="relative z-10 mx-auto max-w-[1400px] px-4 md:px-8">
         <motion.div
@@ -273,10 +263,11 @@ function HpPortfolioGrid({ caseStudies }: { caseStudies: SanityCaseStudyTeaser[]
 
   return (
     <section
-      className="relative overflow-hidden border-t border-white/[0.06] bg-black py-24 md:py-40 lg:py-48"
+      className="relative overflow-hidden bg-black py-24 md:py-40 lg:py-48"
       onPointerMoveCapture={onPointerMoveCapture}
       onPointerLeave={onPointerLeave}
     >
+      <PremiumSectionDivider />
       <StellarField count={48} className="opacity-[0.68]" interactive pointer={pointer} />
       <div className="relative z-10 mx-auto max-w-[1400px] px-4 md:px-8">
         <motion.div
@@ -416,10 +407,11 @@ function HpMetrics() {
   return (
     <section
       ref={ref}
-      className="relative overflow-hidden border-t border-white/[0.06] bg-[oklch(0.09_0_0)] py-24 md:py-36 lg:py-44"
+      className="relative overflow-hidden bg-[oklch(0.09_0_0)] py-24 md:py-36 lg:py-44"
       onPointerMoveCapture={onPointerMoveCapture}
       onPointerLeave={onPointerLeave}
     >
+      <PremiumSectionDivider />
       <StellarField count={36} className="opacity-[0.5]" interactive pointer={pointer} />
       <div className="relative z-10 mx-auto max-w-[1100px] px-4 md:px-8">
         <motion.h2
@@ -551,10 +543,11 @@ function HpProcess() {
   return (
     <section
       ref={sectionRef}
-      className="relative overflow-hidden border-t border-white/[0.06] bg-black py-24 md:py-40 lg:py-48"
+      className="relative overflow-hidden bg-black py-24 md:py-40 lg:py-48"
       onPointerMoveCapture={onPointerMoveCapture}
       onPointerLeave={onPointerLeave}
     >
+      <PremiumSectionDivider />
       <StellarField count={44} className="opacity-[0.65]" interactive pointer={pointer} />
       <div className="relative z-10 mx-auto max-w-[900px] px-4 md:px-8">
         <motion.div
@@ -609,7 +602,8 @@ function HpStackMarquee() {
   }, []);
 
   return (
-    <section className="border-t border-white/[0.06] bg-black py-24 md:py-36 lg:py-44">
+    <section className="relative overflow-hidden bg-black py-24 md:py-36 lg:py-44">
+      <PremiumSectionDivider />
       <div className="mx-auto grid max-w-[1400px] gap-12 px-4 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.35fr)] lg:items-center lg:gap-16 lg:px-8">
         <motion.div initial={{ opacity: 0, y: 18 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
           <p className="font-mono text-[11px] tracking-[0.28em] text-white/45 uppercase">Stack</p>
@@ -671,10 +665,11 @@ function HpAbout() {
   const { pointer, onPointerMoveCapture, onPointerLeave } = useSectionStellarPointer();
   return (
     <section
-      className="relative overflow-hidden border-t border-white/[0.06] bg-[oklch(0.09_0_0)] py-24 md:py-36 lg:py-44"
+      className="relative overflow-hidden bg-[oklch(0.09_0_0)] py-24 md:py-36 lg:py-44"
       onPointerMoveCapture={onPointerMoveCapture}
       onPointerLeave={onPointerLeave}
     >
+      <PremiumSectionDivider />
       <StellarField count={38} className="opacity-[0.55]" interactive pointer={pointer} />
       <div className="relative z-10 mx-auto max-w-[1100px] px-4 md:px-8">
         <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
@@ -773,10 +768,11 @@ function HpFaq() {
   const { pointer, onPointerMoveCapture, onPointerLeave } = useSectionStellarPointer();
   return (
     <section
-      className="relative overflow-hidden border-t border-white/[0.06] bg-black py-24 md:py-36 lg:py-44"
+      className="relative overflow-hidden bg-black py-24 md:py-36 lg:py-44"
       onPointerMoveCapture={onPointerMoveCapture}
       onPointerLeave={onPointerLeave}
     >
+      <PremiumSectionDivider />
       <StellarField count={32} className="opacity-[0.45]" interactive pointer={pointer} />
       <div className="relative z-10 mx-auto max-w-2xl px-4 md:px-8">
         <motion.h2
@@ -850,10 +846,11 @@ function HpBlog({ posts }: { posts: SanityPostTeaser[] }) {
 
   return (
     <section
-      className="relative overflow-hidden border-t border-white/[0.06] bg-[oklch(0.09_0_0)] py-24 md:py-36 lg:py-44"
+      className="relative overflow-hidden bg-[oklch(0.09_0_0)] py-24 md:py-36 lg:py-44"
       onPointerMoveCapture={onPointerMoveCapture}
       onPointerLeave={onPointerLeave}
     >
+      <PremiumSectionDivider />
       <StellarField count={28} className="opacity-[0.4]" interactive pointer={pointer} />
       <div className="relative z-10 mx-auto max-w-[1100px] px-4 md:px-8">
         <motion.h2

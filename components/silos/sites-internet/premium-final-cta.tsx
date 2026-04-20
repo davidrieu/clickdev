@@ -4,6 +4,8 @@ import Link from 'next/link';
 import { useMemo, type ReactNode } from 'react';
 import { motion, useReducedMotion } from 'framer-motion';
 
+import { PremiumSectionDivider } from '@/components/home-premium/premium-section-divider';
+
 import { StellarField, useSectionStellarPointer } from './stellar-field';
 
 const DEFAULT_TITLE = 'Prêt à passer d’un site qui subit à un site qui performe ?';
@@ -38,10 +40,11 @@ export function PremiumFinalCta({
 
   return (
     <section
-      className="relative overflow-hidden border-t border-white/[0.08] bg-black py-28 md:py-40 lg:py-52"
+      className="relative overflow-hidden bg-black py-28 md:py-40 lg:py-52"
       onPointerMoveCapture={onPointerMoveCapture}
       onPointerLeave={onPointerLeave}
     >
+      <PremiumSectionDivider />
       <StellarField count={56} interactive pointer={pointer} />
 
       <motion.div
