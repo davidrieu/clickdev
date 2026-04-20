@@ -11,7 +11,7 @@ export function IosEditorialContent() {
         contorsionner un framework tiers à chaque release OS.
       </p>
       <p className="mt-4 text-base leading-[1.75] text-white/70">
-        Le silo{' '}
+        L’ensemble{' '}
         <Link
           href="/applications-mobiles"
           className="text-white/75 underline-offset-4 transition hover:text-white hover:underline"
@@ -80,6 +80,14 @@ export function IosEditorialContent() {
         </Link>
         .
       </p>
+      <h3 className="si-editorial-h3 si-serif-display mt-14 text-2xl font-medium tracking-tight text-white md:text-[1.65rem]">
+        TestFlight, analytics, crashs : le quotidien après le “wow” de la démo
+      </h3>
+      <p className="mt-4 text-base leading-[1.75] text-white/70">
+        Je configure tôt les outils qui permettent de voir où ça coince : parcours trop long, écran où les gens
+        abandonnent, version iOS qui casse un composant. Ce n’est pas du flicage utilisateur : c’est éviter de
+        découvrir en production que personne ne valide le panier parce qu’un champ clavier masque le bouton.
+      </p>
       <p className="mt-4 text-base leading-[1.75] text-white/70">
         <Link href="/a-propos" className="text-white/75 underline-offset-4 transition hover:text-white hover:underline">
           À propos
@@ -87,6 +95,18 @@ export function IosEditorialContent() {
         {' · '}
         <Link href="/realisations" className="text-white/75 underline-offset-4 transition hover:text-white hover:underline">
           Réalisations
+        </Link>
+        {' · '}
+        <Link href="/blog" className="text-white/75 underline-offset-4 transition hover:text-white hover:underline">
+          Blog
+        </Link>
+        {' · '}
+        <Link href="/devis" className="text-white/75 underline-offset-4 transition hover:text-white hover:underline">
+          Devis
+        </Link>
+        {' · '}
+        <Link href="/contact" className="text-white/75 underline-offset-4 transition hover:text-white hover:underline">
+          Contact
         </Link>
         .
       </p>

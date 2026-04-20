@@ -23,9 +23,35 @@ export function AgentsIaEditorialContent() {
         Remboursements, messages vers l’extérieur, suppressions : on verrouille tôt, on assouplit quand les retours terrain
         sont rassurants.
       </p>
+      <blockquote className="si-editorial-pullquote si-serif-display my-10 border-l-4 border-white/30 py-1 pl-6 text-lg leading-snug text-white/85 italic md:text-xl">
+        « Un agent sans plafond, c’est une machine à envoyer des mails de trop — ou pire. »
+      </blockquote>
+      <h3 className="si-editorial-h3 si-serif-display mt-14 text-2xl font-medium tracking-tight text-white md:text-[1.65rem]">
+        Orchestration : outils, API, et humains au bon endroit
+      </h3>
+      <p className="mt-4 text-base leading-[1.75] text-white/70">
+        Je découpe en étapes nommées : lecture d’un ticket, proposition de réponse, validation, envoi. Chaque étape a
+        un propriétaire et un budget tokens. Quand ça touche au CRM ou aux factures, je relie plutôt à{' '}
+        <Link href="/crm-outils-metiers/automatisation" className="text-white/75 underline-offset-4 transition hover:text-white hover:underline">
+          l’automatisation métier
+        </Link>{' '}
+        qu’à une boîte noire magique.
+      </p>
       <p className="mt-4 text-base leading-[1.75] text-white/70">
         <Link href="/ia/integration-ia" className="text-white/75 underline-offset-4 transition hover:text-white hover:underline">
           IA site & appli
+        </Link>
+        {' · '}
+        <Link href="/blog" className="text-white/75 underline-offset-4 transition hover:text-white hover:underline">
+          Blog
+        </Link>
+        {' · '}
+        <Link href="/realisations" className="text-white/75 underline-offset-4 transition hover:text-white hover:underline">
+          Réalisations
+        </Link>
+        {' · '}
+        <Link href="/contact" className="text-white/75 underline-offset-4 transition hover:text-white hover:underline">
+          Contact
         </Link>
         .
       </p>

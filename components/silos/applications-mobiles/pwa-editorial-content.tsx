@@ -68,13 +68,30 @@ export function PwaEditorialContent() {
         TWA / Capacitor ou refonte ciblée : si vous anticipez la bascule, on isole la logique métier du shell web pour
         ne pas tout jeter à la première évolution store.
       </p>
+      <h3 className="si-editorial-h3 si-serif-display mt-14 text-2xl font-medium tracking-tight text-white md:text-[1.65rem]">
+        Hors-ligne partiel, notifications, perf : ce qu’une PWA peut (vraiment) faire aujourd’hui
+      </h3>
+      <p className="mt-4 text-base leading-[1.75] text-white/70">
+        Le service worker permet de mettre en cache des écrans critiques pour un réseau faible ; les push web existent
+        sur Android plus volontiers que sur iOS — je vous dis franchement ce qui marchera chez vos utilisateurs sans
+        vous vendre du “100 % comme une app native”. Souvent la PWA est une étape intelligente avant de financer deux
+        stores.
+      </p>
       <p className="mt-4 text-base leading-[1.75] text-white/70">
         <Link href="/realisations" className="text-white/75 underline-offset-4 transition hover:text-white hover:underline">
           Réalisations
         </Link>
         {' · '}
+        <Link href="/blog" className="text-white/75 underline-offset-4 transition hover:text-white hover:underline">
+          Blog
+        </Link>
+        {' · '}
         <Link href="/devis?projectType=app" className="text-white/75 underline-offset-4 transition hover:text-white hover:underline">
           Devis app
+        </Link>
+        {' · '}
+        <Link href="/contact" className="text-white/75 underline-offset-4 transition hover:text-white hover:underline">
+          Contact
         </Link>
         .
       </p>

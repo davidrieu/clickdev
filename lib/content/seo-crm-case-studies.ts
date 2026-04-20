@@ -31,7 +31,7 @@ export function prioritizeSeoCaseStudies(studies: SanityCaseStudyTeaser[]): Sani
     if (ra !== rb) return ra - rb;
     return byDateDesc(a, b);
   });
-  return takeUnique(sorted, 5);
+  return takeUnique(sorted, 3);
 }
 
 export function prioritizeSeoPillarCaseStudies(studies: SanityCaseStudyTeaser[]): SanityCaseStudyTeaser[] {
@@ -51,7 +51,7 @@ export function prioritizeCrmCaseStudies(studies: SanityCaseStudyTeaser[]): Sani
     if (ra !== rb) return ra - rb;
     return byDateDesc(a, b);
   });
-  return takeUnique(sorted, 5);
+  return takeUnique(sorted, 3);
 }
 
 export function prioritizeCrmPillarCaseStudies(studies: SanityCaseStudyTeaser[]): SanityCaseStudyTeaser[] {

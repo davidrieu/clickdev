@@ -27,9 +27,36 @@ export function ChatbotIaEditorialContent() {
         Un bouton « contacter une personne » mal raccordé vaut pire que pas de chatbot : on prévoit le transfert avec le
         contexte et la bonne priorité pour votre équipe.
       </p>
+      <blockquote className="si-editorial-pullquote si-serif-display my-10 border-l-4 border-white/30 py-1 pl-6 text-lg leading-snug text-white/85 italic md:text-xl">
+        « Un chatbot qui ment une fois efface dix réponses utiles — surtout sur du SAV ou de la santé. »
+      </blockquote>
+      <h3 className="si-editorial-h3 si-serif-display mt-14 text-2xl font-medium tracking-tight text-white md:text-[1.65rem]">
+        Contenu source, mises à jour, responsabilité : le trio sous-estimé
+      </h3>
+      <p className="mt-4 text-base leading-[1.75] text-white/70">
+        Qui valide les réponses quand le produit change ? Qui signe quand une phrase touche à la réglementation ? Je
+        mets en place des garde-fous simples : sources affichables, version des documents, filet humain sur les sujets
+        sensibles. Ça se combine avec du{' '}
+        <Link href="/seo/redaction-seo" className="text-white/75 underline-offset-4 transition hover:text-white hover:underline">
+          contenu web soigné
+        </Link>{' '}
+        pour que le chatbot et le site racontent la même chose.
+      </p>
       <p className="mt-4 text-base leading-[1.75] text-white/70">
         <Link href="/ia" className="text-white/75 underline-offset-4 transition hover:text-white hover:underline">
           Vue d’ensemble IA
+        </Link>
+        {' · '}
+        <Link href="/realisations" className="text-white/75 underline-offset-4 transition hover:text-white hover:underline">
+          Réalisations
+        </Link>
+        {' · '}
+        <Link href="/blog" className="text-white/75 underline-offset-4 transition hover:text-white hover:underline">
+          Blog
+        </Link>
+        {' · '}
+        <Link href="/devis" className="text-white/75 underline-offset-4 transition hover:text-white hover:underline">
+          Devis
         </Link>
         .
       </p>

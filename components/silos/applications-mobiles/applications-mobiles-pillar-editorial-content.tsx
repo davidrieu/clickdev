@@ -79,6 +79,43 @@ export function ApplicationsMobilesPillarEditorialContent() {
         </Link>
         .
       </p>
+
+      <h3 className="si-editorial-h3 si-serif-display mt-14 text-2xl font-medium tracking-tight text-white md:text-[1.65rem]">
+        Combien ça coûte, combien ça prend — sans langue de bois
+      </h3>
+      <p className="mt-4 text-base leading-[1.75] text-white/70">
+        Une appli simple avec quelques écrans et un back-office léger n’a rien à voir avec une app synchronisée offline
+        et des paiements in-app. Je vous donne une fourchette réaliste après un court atelier — pas un chiffre sorti
+        d’un chapeau pour “fermer le deal”. Souvent on peut découper : un premier jet sur les stores pour valider le
+        produit, puis les modules qui font vendre ou fidéliser.
+      </p>
+      <p className="mt-4 text-base leading-[1.75] text-white/70">
+        Côté acquisition, le mobile complète souvent un{' '}
+        <Link href="/sites-internet" className="text-white/75 underline-offset-4 transition hover:text-white hover:underline">
+          site
+        </Link>{' '}
+        ou du{' '}
+        <Link href="/seo" className="text-white/75 underline-offset-4 transition hover:text-white hover:underline">
+          référencement
+        </Link>
+        . Pour brancher de l’IA dans l’app ou le site, voyez{' '}
+        <Link href="/ia" className="text-white/75 underline-offset-4 transition hover:text-white hover:underline">
+          l’offre IA
+        </Link>
+        . Des retours d’expérience sur le{' '}
+        <Link href="/blog" className="text-white/75 underline-offset-4 transition hover:text-white hover:underline">
+          blog
+        </Link>
+        ; pour lancer :{' '}
+        <Link href="/devis" className="text-white/75 underline-offset-4 transition hover:text-white hover:underline">
+          devis
+        </Link>{' '}
+        ou{' '}
+        <Link href="/contact" className="text-white/75 underline-offset-4 transition hover:text-white hover:underline">
+          contact
+        </Link>
+        .
+      </p>
     </>
   );
 }

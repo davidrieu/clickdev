@@ -26,9 +26,32 @@ export function AutomatisationIaEditorialContent() {
         On élargit les règles quand la précision et le coût le permettent — pas parce qu’une présentation PowerPoint
         demandait du « full auto ».
       </p>
+      <blockquote className="si-editorial-pullquote si-serif-display my-10 border-l-4 border-white/30 py-1 pl-6 text-lg leading-snug text-white/85 italic md:text-xl">
+        « Automatiser, ce n’est pas supprimer les humains — c’est leur rendre dix minutes par jour, mille fois. »
+      </blockquote>
+      <h3 className="si-editorial-h3 si-serif-display mt-14 text-2xl font-medium tracking-tight text-white md:text-[1.65rem]">
+        Quand l’IA aide — et quand une règle simple suffit
+      </h3>
+      <p className="mt-4 text-base leading-[1.75] text-white/70">
+        Classifier un mail, résumer une pièce jointe, proposer une réponse type : là, un modèle peut gagner du temps. En
+        revanche, si votre process est déjà “si colonne A alors copier B”, commençons par un script clair et mesurable
+        avant d’ajouter du ML. Souvent le duo gagnant, c’est{' '}
+        <Link href="/crm-outils-metiers/integration-crm" className="text-white/75 underline-offset-4 transition hover:text-white hover:underline">
+          intégration CRM
+        </Link>{' '}
+        + petite couche IA sur le texte.
+      </p>
       <p className="mt-4 text-base leading-[1.75] text-white/70">
         <Link href="/ia" className="text-white/75 underline-offset-4 transition hover:text-white hover:underline">
           Vue d’ensemble IA
+        </Link>
+        {' · '}
+        <Link href="/blog" className="text-white/75 underline-offset-4 transition hover:text-white hover:underline">
+          Blog
+        </Link>
+        {' · '}
+        <Link href="/devis" className="text-white/75 underline-offset-4 transition hover:text-white hover:underline">
+          Devis
         </Link>
         .
       </p>

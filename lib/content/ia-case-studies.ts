@@ -16,7 +16,7 @@ export function prioritizeIaCaseStudies(studies: SanityCaseStudyTeaser[]): Sanit
       const tb = b.publishedAt ? new Date(b.publishedAt).getTime() : 0;
       return tb - ta;
     })
-    .slice(0, 5);
+    .slice(0, 3);
 }
 
 /** Pilier : outils & e-commerce d’abord pour couvrir RAG, agents et shops. */
@@ -43,7 +43,7 @@ export function prioritizeIaPillarCaseStudies(studies: SanityCaseStudyTeaser[]):
       seen.add(s.slug);
       out.push(s);
     }
-    if (out.length >= 5) break;
+    if (out.length >= 3) break;
   }
   return out;
 }

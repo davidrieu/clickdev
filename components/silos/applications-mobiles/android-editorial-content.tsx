@@ -60,13 +60,33 @@ export function AndroidEditorialContent() {
         </Link>
         .
       </p>
+      <h3 className="si-editorial-h3 si-serif-display mt-14 text-2xl font-medium tracking-tight text-white md:text-[1.65rem]">
+        Play Console, app bundles, ciblage API : anticiper pour ne pas bloquer une release
+      </h3>
+      <p className="mt-4 text-base leading-[1.75] text-white/70">
+        Google exige des niveaux d’API minimum qui avancent ; les bibliothèques tierces suivent avec parfois des ruptures.
+        Je garde un œil sur la matrice des versions et sur les permissions : trop demandées trop tôt, et l’utilisateur
+        désinstalle avant même d’avoir vu la valeur.
+      </p>
       <p className="mt-4 text-base leading-[1.75] text-white/70">
         <Link href="/realisations" className="text-white/75 underline-offset-4 transition hover:text-white hover:underline">
           Réalisations
         </Link>
         {' · '}
+        <Link href="/blog" className="text-white/75 underline-offset-4 transition hover:text-white hover:underline">
+          Blog
+        </Link>
+        {' · '}
+        <Link href="/a-propos" className="text-white/75 underline-offset-4 transition hover:text-white hover:underline">
+          À propos
+        </Link>
+        {' · '}
         <Link href="/contact" className="text-white/75 underline-offset-4 transition hover:text-white hover:underline">
           Contact
+        </Link>
+        {' · '}
+        <Link href="/devis" className="text-white/75 underline-offset-4 transition hover:text-white hover:underline">
+          Devis
         </Link>
         .
       </p>

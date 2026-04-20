@@ -15,6 +15,22 @@ function S({ children }: { children: ReactNode }) {
   return <p className="mt-4 text-base leading-[1.75] text-white/70">{children}</p>;
 }
 
+function H3({ children }: { children: ReactNode }) {
+  return (
+    <h3 className="si-editorial-h3 si-serif-display mt-14 text-2xl font-medium tracking-tight text-white md:text-[1.65rem]">
+      {children}
+    </h3>
+  );
+}
+
+function Q({ children }: { children: ReactNode }) {
+  return (
+    <blockquote className="si-editorial-pullquote si-serif-display my-10 border-l-4 border-white/30 py-1 pl-6 text-lg leading-snug text-white/85 italic md:text-xl">
+      {children}
+    </blockquote>
+  );
+}
+
 export const CRM_CHILD_EDITORIALS: Record<CrmPremiumSlug, ReactNode> = {
   'crm-sur-mesure': (
     <>
@@ -37,6 +53,41 @@ export const CRM_CHILD_EDITORIALS: Record<CrmPremiumSlug, ReactNode> = {
         clairement le coût d’un développement maîtrisé — et quand votre process ne rentrera jamais dans un template
         générique sans vous déformer.
       </S>
+      <H3>Quand je dis “sur mesure”, je parle d’adoption — pas de gadgets</H3>
+      <S>
+        On commence par des ateliers courts avec les futurs utilisateurs : qu’est-ce qu’ils tapent aujourd’hui dans
+        Excel, qu’est-ce qui les énerve, quelles exceptions arrivent chaque semaine ? Ensuite seulement je propose des
+        écrans. Le but, c’est que le lundi suivant le déploiement, l’outil soit ouvert sans honte — pas rangé dans un
+        dossier “on verra plus tard”.
+      </S>
+      <Q>« Le plus beau CRM du monde ne vaut rien si l’équipe préfère encore le tableur. »</Q>
+      <S>
+        Souvent le projet vit à côté d’un{' '}
+        <Link href="/sites-internet" className="text-white/75 underline-offset-4 transition hover:text-white hover:underline">
+          site vitrine ou e-commerce
+        </Link>{' '}
+        qui alimente les leads : je peux enchaîner sur du{' '}
+        <Link href="/crm-outils-metiers/integration-crm" className="text-white/75 underline-offset-4 transition hover:text-white hover:underline">
+          branchement CRM
+        </Link>
+        . Pour l’IA sur vos procédures, voyez{' '}
+        <Link href="/ia" className="text-white/75 underline-offset-4 transition hover:text-white hover:underline">
+          l’offre IA
+        </Link>
+        . Des exemples sur les{' '}
+        <Link href="/realisations" className="text-white/75 underline-offset-4 transition hover:text-white hover:underline">
+          réalisations
+        </Link>
+        , le{' '}
+        <Link href="/blog" className="text-white/75 underline-offset-4 transition hover:text-white hover:underline">
+          blog
+        </Link>
+        , et le{' '}
+        <Link href="/devis" className="text-white/75 underline-offset-4 transition hover:text-white hover:underline">
+          devis
+        </Link>
+        .
+      </S>
     </>
   ),
   'integration-crm': (
@@ -58,6 +109,41 @@ export const CRM_CHILD_EDITORIALS: Record<CrmPremiumSlug, ReactNode> = {
         </Link>{' '}
         (relances, tâches internes, synchros) — toujours avec des logs lisibles, pas une boîte noire.
       </S>
+      <H3>Cartographie des systèmes : le schéma moche qui vous évite six mois de galère</H3>
+      <S>
+        Avant d’écrire une ligne d’intégration, je liste les sources de vérité : quel CRM, quel site, quelle facturation,
+        quel outil de support. On définit qui est maître sur quel champ, et ce qui se passe en cas de conflit (deux
+        leads pour le même mail, client existant vs nouveau). Ça paraît administratif ; en réalité c’est ce qui évite
+        les “bugs mystérieux” trois semaines après la mise en prod.
+      </S>
+      <S>
+        Si vous avez aussi une app métier ou une{' '}
+        <Link href="/applications-mobiles" className="text-white/75 underline-offset-4 transition hover:text-white hover:underline">
+          application mobile
+        </Link>
+        , on peut pousser les mêmes événements (notification, tâche) vers plusieurs canaux — toujours avec des quotas
+        et des alertes si une API tierce ralentit.
+      </S>
+      <Q>« Une intégration propre, c’est une histoire de contrats entre systèmes — pas un script magique. »</Q>
+      <S>
+        Pour la partie publique (formulaires, tracking), j’aligne souvent avec du{' '}
+        <Link href="/seo/seo-technique" className="text-white/75 underline-offset-4 transition hover:text-white hover:underline">
+          SEO technique
+        </Link>{' '}
+        raisonnable (consentement, perf). Lisez{' '}
+        <Link href="/a-propos" className="text-white/75 underline-offset-4 transition hover:text-white hover:underline">
+          à propos
+        </Link>
+        , les{' '}
+        <Link href="/realisations" className="text-white/75 underline-offset-4 transition hover:text-white hover:underline">
+          réalisations
+        </Link>
+        , ou écrivez sur{' '}
+        <Link href="/contact" className="text-white/75 underline-offset-4 transition hover:text-white hover:underline">
+          contact
+        </Link>
+        .
+      </S>
     </>
   ),
   automatisation: (
@@ -76,6 +162,40 @@ export const CRM_CHILD_EDITORIALS: Record<CrmPremiumSlug, ReactNode> = {
         Pour la vue d’ensemble des offres (CRM, intégrations, automatisations), repartez de la page{' '}
         <Link href="/crm-outils-metiers" className="text-white/75 underline-offset-4 transition hover:text-white hover:underline">
           CRM & outils métiers
+        </Link>
+        .
+      </S>
+      <H3>Automatiser sans fragiliser : retries, alertes, mode dégradé</H3>
+      <S>
+        Je code les scénarios comme des recettes de cuisine avec des variantes : si l’e-mail part, marquer la tâche comme
+        faite ; si l’API CRM répond 500, réessayer deux fois puis prévenir un humain avec le payload en pièce jointe —
+        pas une boucle silencieuse qui spamme vos clients toute la nuit.
+      </S>
+      <S>
+        Quand une étape pourrait bénéficier d’une couche “intelligente” (résumer un mail, classer une demande), je
+        regarde si un modèle externe est pertinent ou si une règle simple suffit — parfois{' '}
+        <Link href="/ia/automatisation-ia" className="text-white/75 underline-offset-4 transition hover:text-white hover:underline">
+          l’IA
+        </Link>{' '}
+        accélère, parfois elle ajoute du bruit. Pour des scénarios multi-outils, voir aussi{' '}
+        <Link href="/ia/agents-ia" className="text-white/75 underline-offset-4 transition hover:text-white hover:underline">
+          agents & étapes
+        </Link>
+        .
+      </S>
+      <Q>« L’automatisation parfaite, c’est celle qu’on peut désactiver en urgence sans appeler un dev à 3 h du matin. »</Q>
+      <S>
+        Des retours de terrain sur les{' '}
+        <Link href="/realisations" className="text-white/75 underline-offset-4 transition hover:text-white hover:underline">
+          réalisations
+        </Link>
+        , des billets sur le{' '}
+        <Link href="/blog" className="text-white/75 underline-offset-4 transition hover:text-white hover:underline">
+          blog
+        </Link>
+        , et pour lancer un projet :{' '}
+        <Link href="/devis" className="text-white/75 underline-offset-4 transition hover:text-white hover:underline">
+          devis
         </Link>
         .
       </S>

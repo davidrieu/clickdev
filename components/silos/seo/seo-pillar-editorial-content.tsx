@@ -56,6 +56,42 @@ export function SeoPillarEditorialContent() {
         </Link>
         .
       </p>
+
+      <h3 className="si-editorial-h3 si-serif-display mt-14 text-2xl font-medium tracking-tight text-white md:text-[1.65rem]">
+        SEO et GEO en 2026 : deux cartes, un même terrain
+      </h3>
+      <p className="mt-4 text-base leading-[1.75] text-white/70">
+        Google reste une porte d’entrée massive ; en parallèle, une partie des gens demande déjà “qui appeler pour…”
+        à un assistant. Je ne vous vends pas la fin du web classique : je vous propose une stratégie où vos pages
+        disent la vérité vite, avec des titres qui ressemblent aux questions réelles — et où vos preuves (avis,
+        références, contenus utiles) sont faciles à citer.
+      </p>
+      <blockquote className="si-editorial-pullquote si-serif-display my-10 border-l-4 border-white/30 py-1 pl-6 text-lg leading-snug text-white/85 italic md:text-xl">
+        « Le référencement, c’est de la patience — mais pas de l’attente passive : on mesure, on ajuste, on explique. »
+      </blockquote>
+      <p className="mt-4 text-base leading-[1.75] text-white/70">
+        Pour aller plus loin sans jargon inutile, j’écris aussi sur le{' '}
+        <Link href="/blog" className="text-white/75 underline-offset-4 transition hover:text-white hover:underline">
+          blog
+        </Link>
+        , je documente des chantiers sur les{' '}
+        <Link href="/realisations" className="text-white/75 underline-offset-4 transition hover:text-white hover:underline">
+          réalisations
+        </Link>
+        , et vous pouvez me contacter pour un{' '}
+        <Link href="/devis" className="text-white/75 underline-offset-4 transition hover:text-white hover:underline">
+          devis
+        </Link>{' '}
+        ou un simple{' '}
+        <Link href="/contact" className="text-white/75 underline-offset-4 transition hover:text-white hover:underline">
+          échange
+        </Link>
+        . La page{' '}
+        <Link href="/a-propos" className="text-white/75 underline-offset-4 transition hover:text-white hover:underline">
+          à propos
+        </Link>{' '}
+        raconte comment je travaille au quotidien avec les équipes métier.
+      </p>
     </>
   );
 }

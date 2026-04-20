@@ -46,7 +46,7 @@ export function categoryLabel(c: SanityCaseStudyTeaser): string {
 }
 
 const DEFAULT_KICKER = 'Portfolio';
-const DEFAULT_TITLE = 'Cinq réalisations récentes';
+const DEFAULT_TITLE = 'Exemples concrets';
 
 export function PremiumCases({
   caseStudies,

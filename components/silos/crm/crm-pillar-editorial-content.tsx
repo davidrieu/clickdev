@@ -46,6 +46,38 @@ export function CrmPillarEditorialContent() {
         </Link>
         .
       </p>
+
+      <h3 className="si-editorial-h3 si-serif-display mt-14 text-2xl font-medium tracking-tight text-white md:text-[1.65rem]">
+        Pourquoi un outil métier coûte souvent moins cher que “faire comme avant”
+      </h3>
+      <p className="mt-4 text-base leading-[1.75] text-white/70">
+        Le vrai coût, ce sont les quinze minutes perdues vingt fois par semaine sur une double saisie, la erreur de
+        stock qui part en livraison, le client qui rappelle parce que le mail de confirmation n’est jamais arrivé. Un
+        outil bien pensé rembourse son développement quand il supprime ces frictions — pas quand il ajoute des écrans
+        pour faire moderne.
+      </p>
+      <blockquote className="si-editorial-pullquote si-serif-display my-10 border-l-4 border-white/30 py-1 pl-6 text-lg leading-snug text-white/85 italic md:text-xl">
+        « Si personne ne peut expliquer le flux en deux minutes, c’est qu’il est trop fragile pour être automatisé. »
+      </blockquote>
+      <p className="mt-4 text-base leading-[1.75] text-white/70">
+        J’aime montrer des exemples concrets : parcourez les{' '}
+        <Link href="/realisations" className="text-white/75 underline-offset-4 transition hover:text-white hover:underline">
+          réalisations
+        </Link>
+        , lisez le{' '}
+        <Link href="/blog" className="text-white/75 underline-offset-4 transition hover:text-white hover:underline">
+          blog
+        </Link>
+        , ou passez par le{' '}
+        <Link href="/devis" className="text-white/75 underline-offset-4 transition hover:text-white hover:underline">
+          formulaire devis
+        </Link>
+        . Pour un premier contact humain, le{' '}
+        <Link href="/contact" className="text-white/75 underline-offset-4 transition hover:text-white hover:underline">
+          contact direct
+        </Link>{' '}
+        fonctionne très bien aussi.
+      </p>
     </>
   );
 }

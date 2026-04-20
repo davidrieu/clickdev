@@ -11,7 +11,7 @@ export function ReactNativeEditorialContent() {
         commence par la navigation, l’état réseau, et une CI qui build vraiment les deux plateformes à chaque merge.
       </p>
       <p className="mt-4 text-base leading-[1.75] text-white/70">
-        Questions classiques côté silo :{' '}
+        Questions classiques sur l’offre mobile :{' '}
         <Link href="/applications-mobiles/ios" className="text-white/75 underline-offset-4 transition hover:text-white hover:underline">
           iOS natif
         </Link>
@@ -68,9 +68,29 @@ export function ReactNativeEditorialContent() {
         </Link>
         .
       </p>
+      <h3 className="si-editorial-h3 si-serif-display mt-14 text-2xl font-medium tracking-tight text-white md:text-[1.65rem]">
+        Mises à jour OS, dépendances natives, build CI : le train qui ne s’arrête jamais
+      </h3>
+      <p className="mt-4 text-base leading-[1.75] text-white/70">
+        React Native vit au rythme d’Apple et Google : je prévois des créneaux de maintenance modeste plutôt que des
+        “gros bangs” annuels impossibles à caser. Les modules natifs (paiement, Bluetooth, SDK métier) sont documentés
+        pour qu’un autre dev puisse reprendre sans archeologie.
+      </p>
       <p className="mt-4 text-base leading-[1.75] text-white/70">
         <Link href="/a-propos" className="text-white/75 underline-offset-4 transition hover:text-white hover:underline">
           À propos
+        </Link>
+        {' · '}
+        <Link href="/realisations" className="text-white/75 underline-offset-4 transition hover:text-white hover:underline">
+          Réalisations
+        </Link>
+        {' · '}
+        <Link href="/blog" className="text-white/75 underline-offset-4 transition hover:text-white hover:underline">
+          Blog
+        </Link>
+        {' · '}
+        <Link href="/devis" className="text-white/75 underline-offset-4 transition hover:text-white hover:underline">
+          Devis
         </Link>
         .
       </p>

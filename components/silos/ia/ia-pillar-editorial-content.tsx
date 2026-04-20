@@ -121,8 +121,20 @@ export function IaPillarEditorialContent() {
           Réalisations
         </Link>
         {' · '}
+        <Link href="/blog" className="text-white/75 underline-offset-4 transition hover:text-white hover:underline">
+          Blog
+        </Link>
+        {' · '}
         <Link href="/a-propos" className="text-white/75 underline-offset-4 transition hover:text-white hover:underline">
           À propos
+        </Link>
+        {' · '}
+        <Link href="/devis" className="text-white/75 underline-offset-4 transition hover:text-white hover:underline">
+          Devis
+        </Link>
+        {' · '}
+        <Link href="/contact" className="text-white/75 underline-offset-4 transition hover:text-white hover:underline">
+          Contact
         </Link>
         .
       </p>
