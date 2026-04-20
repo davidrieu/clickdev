@@ -11,7 +11,6 @@ import { SiteMiseEnRelationEditorialContent } from '@/components/silos/sites-int
 import {
   SiteEcommerceAudienceSection,
   SiteEcommerceBenefitsSection,
-  SiteEcommerceBudgetSection,
   SiteEcommerceCompareSection,
   SiteEcommerceFaqSection,
   SiteEcommerceProcessSection,
@@ -20,7 +19,6 @@ import {
 import {
   SITE_MISE_EN_RELATION_AUDIENCE,
   SITE_MISE_EN_RELATION_BENEFITS,
-  SITE_MISE_EN_RELATION_BUDGET,
   SITE_MISE_EN_RELATION_CASES,
   SITE_MISE_EN_RELATION_COMPARE,
   SITE_MISE_EN_RELATION_EDITORIAL,
@@ -116,11 +114,6 @@ export default async function SiteMiseEnRelationPremiumPage() {
         title={SITE_MISE_EN_RELATION_FAQ.title}
         subtitle={SITE_MISE_EN_RELATION_FAQ.subtitle}
         items={SITE_MISE_EN_RELATION_FAQ_ITEMS}
-      />
-      <SiteEcommerceBudgetSection
-        title={SITE_MISE_EN_RELATION_BUDGET.title}
-        line={SITE_MISE_EN_RELATION_BUDGET.line}
-        note={SITE_MISE_EN_RELATION_BUDGET.note}
       />
       <PremiumFinalCta
         title={SITE_MISE_EN_RELATION_FINAL_CTA.title}

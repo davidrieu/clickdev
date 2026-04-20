@@ -29,7 +29,6 @@ type Stack = { kicker: string; title: string; body: string; labels: readonly str
 type Cases = { kicker: string; title: string; intro: string };
 type FaqBlock = { kicker: string; title: string; subtitle: string };
 type FaqItem = { question: string; answer: string };
-type Budget = { title: string; line: string; note: string };
 type FinalCta = { title: string; primaryHref: string; primaryLabel: string; secondaryHref: string; secondaryLabel: string };
 type JsonLd = { serviceName: string; serviceDescription: string; breadcrumbPageName: string };
 
@@ -50,7 +49,6 @@ export type CrmPremiumChildConfig = {
   cases: Cases;
   faq: FaqBlock;
   faqItems: readonly FaqItem[];
-  budget: Budget;
   finalCta: FinalCta;
 };
 
@@ -228,7 +226,6 @@ export const CRM_PREMIUM_CHILDREN: Record<CrmPremiumSlug, CrmPremiumChildConfig>
           'Souvent à partir de 12 000 € pour un premier module sérieux (authentification, contacts, pipeline, historique). Au-delà, le devis dépend du nombre de rôles, de règles métier et d’intégrations.',
       },
     ],
-    budget: { title: 'Budget', line: 'Un premier CRM sur mesure utile démarre souvent vers 12 000 €', note: 'Devis détaillé après atelier.' },
     finalCta: { title: 'Excel ne suffit plus pour suivre vos affaires ?', primaryHref: '/devis?projectType=outil', primaryLabel: 'Devis CRM', secondaryHref: '/contact', secondaryLabel: 'Appel découverte' },
   },
 
@@ -402,7 +399,6 @@ export const CRM_PREMIUM_CHILDREN: Record<CrmPremiumSlug, CrmPremiumChildConfig>
           'Les APIs changent : forfait mensuel léger ou tickets à la demande pour surveiller et adapter le connecteur.',
       },
     ],
-    budget: { title: 'Budget', line: 'Une intégration simple (ex. formulaire → CRM) démarre souvent vers 2 500 €', note: 'Devis selon nombre d’outils.' },
     finalCta: { title: 'Leads qui se perdent entre le site et le CRM ?', primaryHref: '/devis?projectType=outil', primaryLabel: 'Devis intégration', secondaryHref: '/contact', secondaryLabel: 'En parler' },
   },
 
@@ -576,7 +572,6 @@ export const CRM_PREMIUM_CHILDREN: Record<CrmPremiumSlug, CrmPremiumChildConfig>
           'De quelques jours pour un pilote très ciblé à quelques semaines dès qu’il y a plusieurs branches, outils et exceptions métier.',
       },
     ],
-    budget: { title: 'Budget', line: 'Une automatisation métier cadrée démarre souvent vers 1 800 €', note: 'Devis selon nombre d’étapes et d’outils.' },
     finalCta: { title: 'Même tâche dix fois par semaine ?', primaryHref: '/devis?projectType=outil', primaryLabel: 'Devis automatisation', secondaryHref: '/contact', secondaryLabel: 'Décrire le flux' },
   },
 };

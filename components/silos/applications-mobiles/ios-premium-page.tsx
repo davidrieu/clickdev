@@ -2,7 +2,6 @@ import Link from 'next/link';
 
 import { IosEditorialContent } from '@/components/silos/applications-mobiles/ios-editorial-content';
 import { PremiumChildEditorialShell } from '@/components/silos/sites-internet/premium-child-editorial-shell';
-import { PremiumInternalLinksSection } from '@/components/silos/sites-internet/premium-internal-links-section';
 import { PremiumFinalCta } from '@/components/silos/sites-internet/premium-final-cta';
 import { PremiumCases } from '@/components/silos/sites-internet/premium-cases';
 import { PremiumSitesChildBreadcrumb } from '@/components/silos/sites-internet/premium-sites-child-breadcrumb';
@@ -12,7 +11,6 @@ import { PremiumSitesTrustMarquee } from '@/components/silos/sites-internet/prem
 import {
   SiteEcommerceAudienceSection,
   SiteEcommerceBenefitsSection,
-  SiteEcommerceBudgetSection,
   SiteEcommerceCompareSection,
   SiteEcommerceFaqSection,
   SiteEcommerceProcessSection,
@@ -21,7 +19,6 @@ import {
 import {
   IOS_APP_AUDIENCE,
   IOS_APP_BENEFITS,
-  IOS_APP_BUDGET,
   IOS_APP_CASES,
   IOS_APP_COMPARE,
   IOS_APP_EDITORIAL,
@@ -76,7 +73,6 @@ export default async function IosPremiumPage() {
       <PremiumChildEditorialShell kicker={IOS_APP_EDITORIAL.kicker} title={IOS_APP_EDITORIAL.title}>
         <IosEditorialContent />
       </PremiumChildEditorialShell>
-      <PremiumInternalLinksSection />
       <SiteEcommerceAudienceSection
         kicker={IOS_APP_AUDIENCE.kicker}
         title={IOS_APP_AUDIENCE.title}
@@ -100,6 +96,8 @@ export default async function IosPremiumPage() {
         title={IOS_APP_STACK.title}
         body={IOS_APP_STACK.body}
         labels={IOS_APP_STACK.labels}
+        pillarHref="/applications-mobiles"
+        pillarLabel="Applications mobiles"
       />
       <PremiumCases
         caseStudies={caseStudies}
@@ -114,11 +112,6 @@ export default async function IosPremiumPage() {
         title={IOS_APP_FAQ.title}
         subtitle={IOS_APP_FAQ.subtitle}
         items={IOS_APP_FAQ_ITEMS}
-      />
-      <SiteEcommerceBudgetSection
-        title={IOS_APP_BUDGET.title}
-        line={IOS_APP_BUDGET.line}
-        note={IOS_APP_BUDGET.note}
       />
       <PremiumFinalCta
         title={IOS_APP_FINAL_CTA.title}

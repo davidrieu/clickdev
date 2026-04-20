@@ -3,7 +3,6 @@ import Link from 'next/link';
 import { ApplicationsMobilesPremiumBento } from '@/components/silos/applications-mobiles/applications-mobiles-premium-bento';
 import { ApplicationsMobilesPillarEditorialContent } from '@/components/silos/applications-mobiles/applications-mobiles-pillar-editorial-content';
 import { PremiumChildEditorialShell } from '@/components/silos/sites-internet/premium-child-editorial-shell';
-import { PremiumInternalLinksSection } from '@/components/silos/sites-internet/premium-internal-links-section';
 import { PremiumFinalCta } from '@/components/silos/sites-internet/premium-final-cta';
 import { PremiumCases } from '@/components/silos/sites-internet/premium-cases';
 import { PremiumSitesChildBreadcrumb } from '@/components/silos/sites-internet/premium-sites-child-breadcrumb';
@@ -13,7 +12,6 @@ import { PremiumSitesTrustMarquee } from '@/components/silos/sites-internet/prem
 import {
   SiteEcommerceAudienceSection,
   SiteEcommerceBenefitsSection,
-  SiteEcommerceBudgetSection,
   SiteEcommerceCompareSection,
   SiteEcommerceFaqSection,
   SiteEcommerceProcessSection,
@@ -75,7 +73,6 @@ export default async function ApplicationsMobilesPremiumPage() {
       >
         <ApplicationsMobilesPillarEditorialContent />
       </PremiumChildEditorialShell>
-      <PremiumInternalLinksSection />
       <SiteEcommerceAudienceSection
         kicker={APPLICATIONS_MOBILES_PILLAR_AUDIENCE.kicker}
         title={APPLICATIONS_MOBILES_PILLAR_AUDIENCE.title}
@@ -99,6 +96,8 @@ export default async function ApplicationsMobilesPremiumPage() {
         title={APPLICATIONS_MOBILES_PILLAR_STACK.title}
         body={APPLICATIONS_MOBILES_PILLAR_STACK.body}
         labels={APPLICATIONS_MOBILES_PILLAR_STACK.labels}
+        pillarHref="/"
+        pillarLabel="l'accueil"
       />
       <PremiumCases
         caseStudies={caseStudies}
@@ -113,11 +112,6 @@ export default async function ApplicationsMobilesPremiumPage() {
         title={APPLICATIONS_MOBILES_PILLAR_FAQ.title}
         subtitle={APPLICATIONS_MOBILES_PILLAR_FAQ.subtitle}
         items={APPLICATIONS_MOBILES_PILLAR_FAQ_ITEMS}
-      />
-      <SiteEcommerceBudgetSection
-        title="Budget"
-        line="Les projets mobile sérieux démarrent souvent vers 4 900 € selon le périmètre — chaque page fille détaille une fourchette."
-        note="Devis gratuit, personnalisé, sans engagement."
       />
       <PremiumFinalCta
         title={APPLICATIONS_MOBILES_PILLAR_FINAL_CTA.title}

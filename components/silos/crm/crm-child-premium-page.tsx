@@ -24,8 +24,8 @@ export async function CrmChildPremiumPage({ slug }: { slug: CrmPremiumSlug }) {
       cases={c.cases}
       faq={c.faq}
       faqItems={c.faqItems}
-      budget={c.budget}
       finalCta={c.finalCta}
+      stackPillar={{ href: '/crm-outils-metiers', label: 'CRM & outils métiers' }}
       caseStudiesPick={prioritizeCrmCaseStudies}
     />
   );

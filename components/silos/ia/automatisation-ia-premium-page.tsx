@@ -2,7 +2,6 @@ import Link from 'next/link';
 
 import { AutomatisationIaEditorialContent } from '@/components/silos/ia/automatisation-ia-editorial-content';
 import { PremiumChildEditorialShell } from '@/components/silos/sites-internet/premium-child-editorial-shell';
-import { PremiumInternalLinksSection } from '@/components/silos/sites-internet/premium-internal-links-section';
 import { PremiumFinalCta } from '@/components/silos/sites-internet/premium-final-cta';
 import { PremiumCases } from '@/components/silos/sites-internet/premium-cases';
 import { PremiumSitesChildBreadcrumb } from '@/components/silos/sites-internet/premium-sites-child-breadcrumb';
@@ -12,7 +11,6 @@ import { PremiumSitesTrustMarquee } from '@/components/silos/sites-internet/prem
 import {
   SiteEcommerceAudienceSection,
   SiteEcommerceBenefitsSection,
-  SiteEcommerceBudgetSection,
   SiteEcommerceCompareSection,
   SiteEcommerceFaqSection,
   SiteEcommerceProcessSection,
@@ -21,7 +19,6 @@ import {
 import {
   AUTOMATISATION_IA_AUDIENCE,
   AUTOMATISATION_IA_BENEFITS,
-  AUTOMATISATION_IA_BUDGET,
   AUTOMATISATION_IA_CASES,
   AUTOMATISATION_IA_COMPARE,
   AUTOMATISATION_IA_EDITORIAL,
@@ -72,7 +69,6 @@ export default async function AutomatisationIaPremiumPage() {
       <PremiumChildEditorialShell kicker={AUTOMATISATION_IA_EDITORIAL.kicker} title={AUTOMATISATION_IA_EDITORIAL.title}>
         <AutomatisationIaEditorialContent />
       </PremiumChildEditorialShell>
-      <PremiumInternalLinksSection />
       <SiteEcommerceAudienceSection
         kicker={AUTOMATISATION_IA_AUDIENCE.kicker}
         title={AUTOMATISATION_IA_AUDIENCE.title}
@@ -96,6 +92,8 @@ export default async function AutomatisationIaPremiumPage() {
         title={AUTOMATISATION_IA_STACK.title}
         body={AUTOMATISATION_IA_STACK.body}
         labels={AUTOMATISATION_IA_STACK.labels}
+        pillarHref="/ia"
+        pillarLabel="IA"
       />
       <PremiumCases
         caseStudies={caseStudies}
@@ -110,11 +108,6 @@ export default async function AutomatisationIaPremiumPage() {
         title={AUTOMATISATION_IA_FAQ.title}
         subtitle={AUTOMATISATION_IA_FAQ.subtitle}
         items={AUTOMATISATION_IA_FAQ_ITEMS}
-      />
-      <SiteEcommerceBudgetSection
-        title={AUTOMATISATION_IA_BUDGET.title}
-        line={AUTOMATISATION_IA_BUDGET.line}
-        note={AUTOMATISATION_IA_BUDGET.note}
       />
       <PremiumFinalCta
         title={AUTOMATISATION_IA_FINAL_CTA.title}

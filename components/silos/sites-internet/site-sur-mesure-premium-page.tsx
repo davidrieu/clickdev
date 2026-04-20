@@ -11,7 +11,6 @@ import { SiteSurMesureEditorialContent } from '@/components/silos/sites-internet
 import {
   SiteEcommerceAudienceSection,
   SiteEcommerceBenefitsSection,
-  SiteEcommerceBudgetSection,
   SiteEcommerceCompareSection,
   SiteEcommerceFaqSection,
   SiteEcommerceProcessSection,
@@ -20,7 +19,6 @@ import {
 import {
   SITE_SUR_MESURE_AUDIENCE,
   SITE_SUR_MESURE_BENEFITS,
-  SITE_SUR_MESURE_BUDGET,
   SITE_SUR_MESURE_CASES,
   SITE_SUR_MESURE_COMPARE,
   SITE_SUR_MESURE_EDITORIAL,
@@ -113,11 +111,6 @@ export default async function SiteSurMesurePremiumPage() {
         title={SITE_SUR_MESURE_FAQ.title}
         subtitle={SITE_SUR_MESURE_FAQ.subtitle}
         items={SITE_SUR_MESURE_FAQ_ITEMS}
-      />
-      <SiteEcommerceBudgetSection
-        title={SITE_SUR_MESURE_BUDGET.title}
-        line={SITE_SUR_MESURE_BUDGET.line}
-        note={SITE_SUR_MESURE_BUDGET.note}
       />
       <PremiumFinalCta
         title={SITE_SUR_MESURE_FINAL_CTA.title}

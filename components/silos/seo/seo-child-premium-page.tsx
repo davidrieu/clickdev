@@ -24,8 +24,8 @@ export async function SeoChildPremiumPage({ slug }: { slug: SeoPremiumSlug }) {
       cases={c.cases}
       faq={c.faq}
       faqItems={c.faqItems}
-      budget={c.budget}
       finalCta={c.finalCta}
+      stackPillar={{ href: '/seo', label: 'SEO' }}
       caseStudiesPick={prioritizeSeoCaseStudies}
     />
   );

@@ -364,11 +364,16 @@ export function SiteEcommerceStackSection({
   title,
   body,
   labels,
+  pillarHref = '/sites-internet',
+  pillarLabel = 'Sites internet',
 }: {
   kicker: string;
   title: string;
   body: string;
   labels: readonly string[];
+  /** Lien « Retour à … » sous le bloc stack (page pilier du silo courant). */
+  pillarHref?: string;
+  pillarLabel?: string;
 }) {
   const { pointer, onPointerMoveCapture, onPointerLeave } = useSectionStellarPointer();
   const row = [...labels, ...labels];
@@ -410,8 +415,8 @@ export function SiteEcommerceStackSection({
               WordPress
             </Link>
             ,{' '}
-            <Link href="/sites-internet" className="text-white/70 underline-offset-4 transition hover:text-white hover:underline">
-              retour au pilier
+            <Link href={pillarHref} className="text-white/70 underline-offset-4 transition hover:text-white hover:underline">
+              Retour à {pillarLabel}
             </Link>
             .
           </p>
@@ -508,33 +513,6 @@ export function SiteEcommerceFaqSection({
             </motion.div>
           ))}
         </div>
-      </div>
-    </section>
-  );
-}
-
-export function SiteEcommerceBudgetSection({ title, line, note }: { title: string; line: string; note: string }) {
-  const { pointer, onPointerMoveCapture, onPointerLeave } = useSectionStellarPointer();
-
-  return (
-    <section
-      className="relative overflow-hidden bg-black py-16 md:py-20"
-      onPointerMoveCapture={onPointerMoveCapture}
-      onPointerLeave={onPointerLeave}
-    >
-      <StellarField count={24} className="opacity-[0.35]" interactive pointer={pointer} />
-      <div className="relative z-10 mx-auto max-w-[640px] px-4 md:px-8">
-        <motion.div
-          initial={{ opacity: 0, y: 14 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.45 }}
-          className="rounded-2xl border border-white/[0.1] bg-gradient-to-br from-white/[0.06] to-white/[0.02] px-6 py-8 text-center md:px-10 md:py-10"
-        >
-          <p className="font-mono text-[10px] tracking-[0.28em] text-white/45 uppercase">{title}</p>
-          <p className="si-serif-display mt-3 text-xl font-medium tracking-tight text-white md:text-2xl">{line}</p>
-          <p className="mt-3 text-sm leading-relaxed text-white/55 md:text-base">{note}</p>
-        </motion.div>
       </div>
     </section>
   );

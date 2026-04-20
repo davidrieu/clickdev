@@ -11,7 +11,6 @@ import { LandingPageEditorialContent } from '@/components/silos/sites-internet/l
 import {
   SiteEcommerceAudienceSection,
   SiteEcommerceBenefitsSection,
-  SiteEcommerceBudgetSection,
   SiteEcommerceCompareSection,
   SiteEcommerceFaqSection,
   SiteEcommerceProcessSection,
@@ -20,7 +19,6 @@ import {
 import {
   LANDING_PAGE_AUDIENCE,
   LANDING_PAGE_BENEFITS,
-  LANDING_PAGE_BUDGET,
   LANDING_PAGE_CASES,
   LANDING_PAGE_COMPARE,
   LANDING_PAGE_EDITORIAL,
@@ -112,11 +110,6 @@ export default async function LandingPagePremiumPage() {
         title={LANDING_PAGE_FAQ.title}
         subtitle={LANDING_PAGE_FAQ.subtitle}
         items={LANDING_PAGE_FAQ_ITEMS}
-      />
-      <SiteEcommerceBudgetSection
-        title={LANDING_PAGE_BUDGET.title}
-        line={LANDING_PAGE_BUDGET.line}
-        note={LANDING_PAGE_BUDGET.note}
       />
       <PremiumFinalCta
         title={LANDING_PAGE_FINAL_CTA.title}

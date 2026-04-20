@@ -11,7 +11,6 @@ import { SiteVitrineEditorialContent } from '@/components/silos/sites-internet/s
 import {
   SiteEcommerceAudienceSection,
   SiteEcommerceBenefitsSection,
-  SiteEcommerceBudgetSection,
   SiteEcommerceCompareSection,
   SiteEcommerceFaqSection,
   SiteEcommerceProcessSection,
@@ -20,7 +19,6 @@ import {
 import {
   SITE_VITRINE_AUDIENCE,
   SITE_VITRINE_BENEFITS,
-  SITE_VITRINE_BUDGET,
   SITE_VITRINE_CASES,
   SITE_VITRINE_COMPARE,
   SITE_VITRINE_EDITORIAL,
@@ -112,11 +110,6 @@ export default async function SiteVitrinePremiumPage() {
         title={SITE_VITRINE_FAQ.title}
         subtitle={SITE_VITRINE_FAQ.subtitle}
         items={SITE_VITRINE_FAQ_ITEMS}
-      />
-      <SiteEcommerceBudgetSection
-        title={SITE_VITRINE_BUDGET.title}
-        line={SITE_VITRINE_BUDGET.line}
-        note={SITE_VITRINE_BUDGET.note}
       />
       <PremiumFinalCta
         title={SITE_VITRINE_FINAL_CTA.title}

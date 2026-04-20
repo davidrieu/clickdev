@@ -2,7 +2,6 @@ import Link from 'next/link';
 
 import { ReactNativeEditorialContent } from '@/components/silos/applications-mobiles/react-native-editorial-content';
 import { PremiumChildEditorialShell } from '@/components/silos/sites-internet/premium-child-editorial-shell';
-import { PremiumInternalLinksSection } from '@/components/silos/sites-internet/premium-internal-links-section';
 import { PremiumFinalCta } from '@/components/silos/sites-internet/premium-final-cta';
 import { PremiumCases } from '@/components/silos/sites-internet/premium-cases';
 import { PremiumSitesChildBreadcrumb } from '@/components/silos/sites-internet/premium-sites-child-breadcrumb';
@@ -12,7 +11,6 @@ import { PremiumSitesTrustMarquee } from '@/components/silos/sites-internet/prem
 import {
   SiteEcommerceAudienceSection,
   SiteEcommerceBenefitsSection,
-  SiteEcommerceBudgetSection,
   SiteEcommerceCompareSection,
   SiteEcommerceFaqSection,
   SiteEcommerceProcessSection,
@@ -21,7 +19,6 @@ import {
 import {
   REACT_NATIVE_APP_AUDIENCE,
   REACT_NATIVE_APP_BENEFITS,
-  REACT_NATIVE_APP_BUDGET,
   REACT_NATIVE_APP_CASES,
   REACT_NATIVE_APP_COMPARE,
   REACT_NATIVE_APP_EDITORIAL,
@@ -76,7 +73,6 @@ export default async function ReactNativePremiumPage() {
       <PremiumChildEditorialShell kicker={REACT_NATIVE_APP_EDITORIAL.kicker} title={REACT_NATIVE_APP_EDITORIAL.title}>
         <ReactNativeEditorialContent />
       </PremiumChildEditorialShell>
-      <PremiumInternalLinksSection />
       <SiteEcommerceAudienceSection
         kicker={REACT_NATIVE_APP_AUDIENCE.kicker}
         title={REACT_NATIVE_APP_AUDIENCE.title}
@@ -100,6 +96,8 @@ export default async function ReactNativePremiumPage() {
         title={REACT_NATIVE_APP_STACK.title}
         body={REACT_NATIVE_APP_STACK.body}
         labels={REACT_NATIVE_APP_STACK.labels}
+        pillarHref="/applications-mobiles"
+        pillarLabel="Applications mobiles"
       />
       <PremiumCases
         caseStudies={caseStudies}
@@ -114,11 +112,6 @@ export default async function ReactNativePremiumPage() {
         title={REACT_NATIVE_APP_FAQ.title}
         subtitle={REACT_NATIVE_APP_FAQ.subtitle}
         items={REACT_NATIVE_APP_FAQ_ITEMS}
-      />
-      <SiteEcommerceBudgetSection
-        title={REACT_NATIVE_APP_BUDGET.title}
-        line={REACT_NATIVE_APP_BUDGET.line}
-        note={REACT_NATIVE_APP_BUDGET.note}
       />
       <PremiumFinalCta
         title={REACT_NATIVE_APP_FINAL_CTA.title}

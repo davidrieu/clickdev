@@ -2,7 +2,6 @@ import Link from 'next/link';
 
 import { AgentsIaEditorialContent } from '@/components/silos/ia/agents-ia-editorial-content';
 import { PremiumChildEditorialShell } from '@/components/silos/sites-internet/premium-child-editorial-shell';
-import { PremiumInternalLinksSection } from '@/components/silos/sites-internet/premium-internal-links-section';
 import { PremiumFinalCta } from '@/components/silos/sites-internet/premium-final-cta';
 import { PremiumCases } from '@/components/silos/sites-internet/premium-cases';
 import { PremiumSitesChildBreadcrumb } from '@/components/silos/sites-internet/premium-sites-child-breadcrumb';
@@ -12,7 +11,6 @@ import { PremiumSitesTrustMarquee } from '@/components/silos/sites-internet/prem
 import {
   SiteEcommerceAudienceSection,
   SiteEcommerceBenefitsSection,
-  SiteEcommerceBudgetSection,
   SiteEcommerceCompareSection,
   SiteEcommerceFaqSection,
   SiteEcommerceProcessSection,
@@ -21,7 +19,6 @@ import {
 import {
   AGENTS_IA_AUDIENCE,
   AGENTS_IA_BENEFITS,
-  AGENTS_IA_BUDGET,
   AGENTS_IA_CASES,
   AGENTS_IA_COMPARE,
   AGENTS_IA_EDITORIAL,
@@ -72,7 +69,6 @@ export default async function AgentsIaPremiumPage() {
       <PremiumChildEditorialShell kicker={AGENTS_IA_EDITORIAL.kicker} title={AGENTS_IA_EDITORIAL.title}>
         <AgentsIaEditorialContent />
       </PremiumChildEditorialShell>
-      <PremiumInternalLinksSection />
       <SiteEcommerceAudienceSection
         kicker={AGENTS_IA_AUDIENCE.kicker}
         title={AGENTS_IA_AUDIENCE.title}
@@ -96,6 +92,8 @@ export default async function AgentsIaPremiumPage() {
         title={AGENTS_IA_STACK.title}
         body={AGENTS_IA_STACK.body}
         labels={AGENTS_IA_STACK.labels}
+        pillarHref="/ia"
+        pillarLabel="IA"
       />
       <PremiumCases
         caseStudies={caseStudies}
@@ -110,11 +108,6 @@ export default async function AgentsIaPremiumPage() {
         title={AGENTS_IA_FAQ.title}
         subtitle={AGENTS_IA_FAQ.subtitle}
         items={AGENTS_IA_FAQ_ITEMS}
-      />
-      <SiteEcommerceBudgetSection
-        title={AGENTS_IA_BUDGET.title}
-        line={AGENTS_IA_BUDGET.line}
-        note={AGENTS_IA_BUDGET.note}
       />
       <PremiumFinalCta
         title={AGENTS_IA_FINAL_CTA.title}

@@ -2,7 +2,6 @@ import Link from 'next/link';
 
 import { RagBaseConnaissancesEditorialContent } from '@/components/silos/ia/rag-base-connaissances-editorial-content';
 import { PremiumChildEditorialShell } from '@/components/silos/sites-internet/premium-child-editorial-shell';
-import { PremiumInternalLinksSection } from '@/components/silos/sites-internet/premium-internal-links-section';
 import { PremiumFinalCta } from '@/components/silos/sites-internet/premium-final-cta';
 import { PremiumCases } from '@/components/silos/sites-internet/premium-cases';
 import { PremiumSitesChildBreadcrumb } from '@/components/silos/sites-internet/premium-sites-child-breadcrumb';
@@ -12,7 +11,6 @@ import { PremiumSitesTrustMarquee } from '@/components/silos/sites-internet/prem
 import {
   SiteEcommerceAudienceSection,
   SiteEcommerceBenefitsSection,
-  SiteEcommerceBudgetSection,
   SiteEcommerceCompareSection,
   SiteEcommerceFaqSection,
   SiteEcommerceProcessSection,
@@ -21,7 +19,6 @@ import {
 import {
   RAG_BASE_CONNAISSANCES_AUDIENCE,
   RAG_BASE_CONNAISSANCES_BENEFITS,
-  RAG_BASE_CONNAISSANCES_BUDGET,
   RAG_BASE_CONNAISSANCES_CASES,
   RAG_BASE_CONNAISSANCES_COMPARE,
   RAG_BASE_CONNAISSANCES_EDITORIAL,
@@ -76,7 +73,6 @@ export default async function RagBaseConnaissancesPremiumPage() {
       <PremiumChildEditorialShell kicker={RAG_BASE_CONNAISSANCES_EDITORIAL.kicker} title={RAG_BASE_CONNAISSANCES_EDITORIAL.title}>
         <RagBaseConnaissancesEditorialContent />
       </PremiumChildEditorialShell>
-      <PremiumInternalLinksSection />
       <SiteEcommerceAudienceSection
         kicker={RAG_BASE_CONNAISSANCES_AUDIENCE.kicker}
         title={RAG_BASE_CONNAISSANCES_AUDIENCE.title}
@@ -100,6 +96,8 @@ export default async function RagBaseConnaissancesPremiumPage() {
         title={RAG_BASE_CONNAISSANCES_STACK.title}
         body={RAG_BASE_CONNAISSANCES_STACK.body}
         labels={RAG_BASE_CONNAISSANCES_STACK.labels}
+        pillarHref="/ia"
+        pillarLabel="IA"
       />
       <PremiumCases
         caseStudies={caseStudies}
@@ -114,11 +112,6 @@ export default async function RagBaseConnaissancesPremiumPage() {
         title={RAG_BASE_CONNAISSANCES_FAQ.title}
         subtitle={RAG_BASE_CONNAISSANCES_FAQ.subtitle}
         items={RAG_BASE_CONNAISSANCES_FAQ_ITEMS}
-      />
-      <SiteEcommerceBudgetSection
-        title={RAG_BASE_CONNAISSANCES_BUDGET.title}
-        line={RAG_BASE_CONNAISSANCES_BUDGET.line}
-        note={RAG_BASE_CONNAISSANCES_BUDGET.note}
       />
       <PremiumFinalCta
         title={RAG_BASE_CONNAISSANCES_FINAL_CTA.title}

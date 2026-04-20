@@ -39,7 +39,6 @@ type Stack = { kicker: string; title: string; body: string; labels: readonly str
 type Cases = { kicker: string; title: string; intro: string };
 type FaqBlock = { kicker: string; title: string; subtitle: string };
 type FaqItem = { question: string; answer: string };
-type Budget = { title: string; line: string; note: string };
 type FinalCta = { title: string; primaryHref: string; primaryLabel: string; secondaryHref: string; secondaryLabel: string };
 type JsonLd = { serviceName: string; serviceDescription: string; breadcrumbPageName: string };
 
@@ -60,7 +59,6 @@ export type SeoPremiumChildConfig = {
   cases: Cases;
   faq: FaqBlock;
   faqItems: readonly FaqItem[];
-  budget: Budget;
   finalCta: FinalCta;
 };
 
@@ -238,7 +236,6 @@ export const SEO_PREMIUM_CHILDREN: Record<SeoPremiumSlug, SeoPremiumChildConfig>
           'Sur devis séparé : partie technique si je code chez vous, partie contenu avec vous ou votre rédacteur. L’audit peut aussi servir de base d’appel d’offres si vous travaillez avec une autre équipe — tant que le document est lu.',
       },
     ],
-    budget: { title: 'Budget', line: 'Un audit SEO complet démarre souvent vers 990 € pour un site vitrine', note: 'Devis gratuit selon votre URL.' },
     finalCta: {
       title: 'Envie de savoir où vous en êtes vraiment ?',
       primaryHref: '/devis?projectType=site',
@@ -418,7 +415,6 @@ export const SEO_PREMIUM_CHILDREN: Record<SeoPremiumSlug, SeoPremiumChildConfig>
           'Oui : l’audit liste les problèmes ; une mission SEO technique en implémente une partie — souvent celle qui demande du code ou des réglages serveur.',
       },
     ],
-    budget: { title: 'Budget', line: 'Une mission SEO technique ciblée démarre souvent vers 1 500 €', note: 'Devis selon CMS et nombre de templates.' },
     finalCta: { title: 'Un site lent ou mal indexé ?', primaryHref: '/devis?projectType=site', primaryLabel: 'Demander un devis', secondaryHref: '/contact', secondaryLabel: 'Échanger' },
   },
 
@@ -592,7 +588,6 @@ export const SEO_PREMIUM_CHILDREN: Record<SeoPremiumSlug, SeoPremiumChildConfig>
           'À partir d’environ 1 200 € pour une structure locale simple sur site existant (fiche + quelques pages). Plus si beaucoup de zones ou de langues.',
       },
     ],
-    budget: { title: 'Budget', line: 'Un pack SEO local (fiche + pages) démarre souvent vers 1 200 €', note: 'Devis selon nombre de zones.' },
     finalCta: { title: 'Clients locaux à faire entrer ?', primaryHref: '/devis?projectType=site', primaryLabel: 'Devis SEO local', secondaryHref: '/contact', secondaryLabel: 'Appel découverte' },
   },
 
@@ -766,7 +761,6 @@ export const SEO_PREMIUM_CHILDREN: Record<SeoPremiumSlug, SeoPremiumChildConfig>
           'À partir d’environ 1 800 € pour un cadrage + templates sur une boutique déjà en ligne. Les très gros catalogues multi-langues demandent un devis sur mesure.',
       },
     ],
-    budget: { title: 'Budget', line: 'Un cadrage SEO e-commerce démarre souvent vers 1 800 €', note: 'Devis selon nombre de gabarits et langues.' },
     finalCta: { title: 'Catalogue à structurer avant la saison ?', primaryHref: '/devis?projectType=ecommerce', primaryLabel: 'Devis SEO boutique', secondaryHref: '/contact', secondaryLabel: 'Question rapide' },
   },
 
@@ -940,7 +934,6 @@ export const SEO_PREMIUM_CHILDREN: Record<SeoPremiumSlug, SeoPremiumChildConfig>
           'À partir d’environ 1 500 € pour un site vitrine moyen avec recette et suivi court post-lancement. Les très gros sites e-commerce se chiffrent au cas par cas.',
       },
     ],
-    budget: { title: 'Budget', line: 'Une migration SEO accompagnée démarre souvent vers 1 500 €', note: 'Devis selon volume d’URLs.' },
     finalCta: { title: 'Bascule prévue bientôt ?', primaryHref: '/devis?projectType=site', primaryLabel: 'Devis migration', secondaryHref: '/contact', secondaryLabel: 'Parler calendrier' },
   },
 
@@ -1114,7 +1107,6 @@ export const SEO_PREMIUM_CHILDREN: Record<SeoPremiumSlug, SeoPremiumChildConfig>
           'À partir d’environ 120 € par page simple une fois le plan validé ; forfaits possibles sur des lots de pages sœurs.',
       },
     ],
-    budget: { title: 'Budget', line: 'La rédaction SEO se cote au forfait ou à la page à partir de ~120 €', note: 'Devis selon volume et interviews.' },
     finalCta: { title: 'Pages à refaire avant la saison ?', primaryHref: '/devis?projectType=site', primaryLabel: 'Devis contenu', secondaryHref: '/contact', secondaryLabel: 'Échanger' },
   },
 
@@ -1288,7 +1280,6 @@ export const SEO_PREMIUM_CHILDREN: Record<SeoPremiumSlug, SeoPremiumChildConfig>
           'Non : les liens dépendent de tiers ; on maximise la probabilité avec du contenu et des partenariats sérieux, pas avec des engagements chiffrés artificiels.',
       },
     ],
-    budget: { title: 'Budget', line: 'Un plan netlinking prudent démarre souvent vers 900 € / mois', note: 'Engagement minimum 3 mois en général.' },
     finalCta: { title: 'Besoin de crédibilité aux yeux de Google ?', primaryHref: '/devis?projectType=site', primaryLabel: 'Devis netlinking', secondaryHref: '/contact', secondaryLabel: 'Discuter du profil' },
   },
 
@@ -1462,7 +1453,6 @@ export const SEO_PREMIUM_CHILDREN: Record<SeoPremiumSlug, SeoPremiumChildConfig>
           'Atelier + mise en œuvre sur les pages clés : souvent à partir de 1 000 € selon le nombre de modèles de page et de langues.',
       },
     ],
-    budget: { title: 'Budget', line: 'Un socle GEO (pages + FAQ) démarre souvent vers 1 000 €', note: 'Devis selon nombre de modèles de page.' },
     finalCta: { title: 'On vous cherche mais les IA ne savent pas qui vous êtes ?', primaryHref: '/devis?projectType=site', primaryLabel: 'Devis GEO', secondaryHref: '/contact', secondaryLabel: 'Poser une question' },
   },
 };

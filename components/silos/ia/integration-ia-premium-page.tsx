@@ -2,7 +2,6 @@ import Link from 'next/link';
 
 import { IntegrationIaEditorialContent } from '@/components/silos/ia/integration-ia-editorial-content';
 import { PremiumChildEditorialShell } from '@/components/silos/sites-internet/premium-child-editorial-shell';
-import { PremiumInternalLinksSection } from '@/components/silos/sites-internet/premium-internal-links-section';
 import { PremiumFinalCta } from '@/components/silos/sites-internet/premium-final-cta';
 import { PremiumCases } from '@/components/silos/sites-internet/premium-cases';
 import { PremiumSitesChildBreadcrumb } from '@/components/silos/sites-internet/premium-sites-child-breadcrumb';
@@ -12,7 +11,6 @@ import { PremiumSitesTrustMarquee } from '@/components/silos/sites-internet/prem
 import {
   SiteEcommerceAudienceSection,
   SiteEcommerceBenefitsSection,
-  SiteEcommerceBudgetSection,
   SiteEcommerceCompareSection,
   SiteEcommerceFaqSection,
   SiteEcommerceProcessSection,
@@ -21,7 +19,6 @@ import {
 import {
   INTEGRATION_IA_AUDIENCE,
   INTEGRATION_IA_BENEFITS,
-  INTEGRATION_IA_BUDGET,
   INTEGRATION_IA_CASES,
   INTEGRATION_IA_COMPARE,
   INTEGRATION_IA_EDITORIAL,
@@ -72,7 +69,6 @@ export default async function IntegrationIaPremiumPage() {
       <PremiumChildEditorialShell kicker={INTEGRATION_IA_EDITORIAL.kicker} title={INTEGRATION_IA_EDITORIAL.title}>
         <IntegrationIaEditorialContent />
       </PremiumChildEditorialShell>
-      <PremiumInternalLinksSection />
       <SiteEcommerceAudienceSection
         kicker={INTEGRATION_IA_AUDIENCE.kicker}
         title={INTEGRATION_IA_AUDIENCE.title}
@@ -96,6 +92,8 @@ export default async function IntegrationIaPremiumPage() {
         title={INTEGRATION_IA_STACK.title}
         body={INTEGRATION_IA_STACK.body}
         labels={INTEGRATION_IA_STACK.labels}
+        pillarHref="/ia"
+        pillarLabel="IA"
       />
       <PremiumCases
         caseStudies={caseStudies}
@@ -110,11 +108,6 @@ export default async function IntegrationIaPremiumPage() {
         title={INTEGRATION_IA_FAQ.title}
         subtitle={INTEGRATION_IA_FAQ.subtitle}
         items={INTEGRATION_IA_FAQ_ITEMS}
-      />
-      <SiteEcommerceBudgetSection
-        title={INTEGRATION_IA_BUDGET.title}
-        line={INTEGRATION_IA_BUDGET.line}
-        note={INTEGRATION_IA_BUDGET.note}
       />
       <PremiumFinalCta
         title={INTEGRATION_IA_FINAL_CTA.title}

@@ -2,7 +2,6 @@ import Link from 'next/link';
 
 import { IaGenerativeEcommerceEditorialContent } from '@/components/silos/ia/ia-generative-ecommerce-editorial-content';
 import { PremiumChildEditorialShell } from '@/components/silos/sites-internet/premium-child-editorial-shell';
-import { PremiumInternalLinksSection } from '@/components/silos/sites-internet/premium-internal-links-section';
 import { PremiumFinalCta } from '@/components/silos/sites-internet/premium-final-cta';
 import { PremiumCases } from '@/components/silos/sites-internet/premium-cases';
 import { PremiumSitesChildBreadcrumb } from '@/components/silos/sites-internet/premium-sites-child-breadcrumb';
@@ -12,7 +11,6 @@ import { PremiumSitesTrustMarquee } from '@/components/silos/sites-internet/prem
 import {
   SiteEcommerceAudienceSection,
   SiteEcommerceBenefitsSection,
-  SiteEcommerceBudgetSection,
   SiteEcommerceCompareSection,
   SiteEcommerceFaqSection,
   SiteEcommerceProcessSection,
@@ -21,7 +19,6 @@ import {
 import {
   IA_GENERATIVE_ECOMMERCE_AUDIENCE,
   IA_GENERATIVE_ECOMMERCE_BENEFITS,
-  IA_GENERATIVE_ECOMMERCE_BUDGET,
   IA_GENERATIVE_ECOMMERCE_CASES,
   IA_GENERATIVE_ECOMMERCE_COMPARE,
   IA_GENERATIVE_ECOMMERCE_EDITORIAL,
@@ -76,7 +73,6 @@ export default async function IaGenerativeEcommercePremiumPage() {
       <PremiumChildEditorialShell kicker={IA_GENERATIVE_ECOMMERCE_EDITORIAL.kicker} title={IA_GENERATIVE_ECOMMERCE_EDITORIAL.title}>
         <IaGenerativeEcommerceEditorialContent />
       </PremiumChildEditorialShell>
-      <PremiumInternalLinksSection />
       <SiteEcommerceAudienceSection
         kicker={IA_GENERATIVE_ECOMMERCE_AUDIENCE.kicker}
         title={IA_GENERATIVE_ECOMMERCE_AUDIENCE.title}
@@ -100,6 +96,8 @@ export default async function IaGenerativeEcommercePremiumPage() {
         title={IA_GENERATIVE_ECOMMERCE_STACK.title}
         body={IA_GENERATIVE_ECOMMERCE_STACK.body}
         labels={IA_GENERATIVE_ECOMMERCE_STACK.labels}
+        pillarHref="/ia"
+        pillarLabel="IA"
       />
       <PremiumCases
         caseStudies={caseStudies}
@@ -114,11 +112,6 @@ export default async function IaGenerativeEcommercePremiumPage() {
         title={IA_GENERATIVE_ECOMMERCE_FAQ.title}
         subtitle={IA_GENERATIVE_ECOMMERCE_FAQ.subtitle}
         items={IA_GENERATIVE_ECOMMERCE_FAQ_ITEMS}
-      />
-      <SiteEcommerceBudgetSection
-        title={IA_GENERATIVE_ECOMMERCE_BUDGET.title}
-        line={IA_GENERATIVE_ECOMMERCE_BUDGET.line}
-        note={IA_GENERATIVE_ECOMMERCE_BUDGET.note}
       />
       <PremiumFinalCta
         title={IA_GENERATIVE_ECOMMERCE_FINAL_CTA.title}

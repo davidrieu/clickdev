@@ -3,7 +3,6 @@ import Link from 'next/link';
 import { CrmPillarEditorialContent } from '@/components/silos/crm/crm-pillar-editorial-content';
 import { CrmPremiumBento } from '@/components/silos/crm/crm-premium-bento';
 import { PremiumChildEditorialShell } from '@/components/silos/sites-internet/premium-child-editorial-shell';
-import { PremiumInternalLinksSection } from '@/components/silos/sites-internet/premium-internal-links-section';
 import { PremiumFinalCta } from '@/components/silos/sites-internet/premium-final-cta';
 import { PremiumCases } from '@/components/silos/sites-internet/premium-cases';
 import { PremiumSitesChildBreadcrumb } from '@/components/silos/sites-internet/premium-sites-child-breadcrumb';
@@ -13,7 +12,6 @@ import { PremiumSitesTrustMarquee } from '@/components/silos/sites-internet/prem
 import {
   SiteEcommerceAudienceSection,
   SiteEcommerceBenefitsSection,
-  SiteEcommerceBudgetSection,
   SiteEcommerceCompareSection,
   SiteEcommerceFaqSection,
   SiteEcommerceProcessSection,
@@ -22,7 +20,6 @@ import {
 import {
   CRM_PILLAR_AUDIENCE,
   CRM_PILLAR_BENEFITS,
-  CRM_PILLAR_BUDGET,
   CRM_PILLAR_CASES,
   CRM_PILLAR_COMPARE,
   CRM_PILLAR_EDITORIAL,
@@ -72,7 +69,6 @@ export default async function CrmPillarPremiumPage() {
       <PremiumChildEditorialShell kicker={CRM_PILLAR_EDITORIAL.kicker} title={CRM_PILLAR_EDITORIAL.title}>
         <CrmPillarEditorialContent />
       </PremiumChildEditorialShell>
-      <PremiumInternalLinksSection />
       <SiteEcommerceAudienceSection
         kicker={CRM_PILLAR_AUDIENCE.kicker}
         title={CRM_PILLAR_AUDIENCE.title}
@@ -96,6 +92,8 @@ export default async function CrmPillarPremiumPage() {
         title={CRM_PILLAR_STACK.title}
         body={CRM_PILLAR_STACK.body}
         labels={CRM_PILLAR_STACK.labels}
+        pillarHref="/"
+        pillarLabel="l'accueil"
       />
       <PremiumCases
         caseStudies={caseStudies}
@@ -111,7 +109,6 @@ export default async function CrmPillarPremiumPage() {
         subtitle={CRM_PILLAR_FAQ.subtitle}
         items={CRM_PILLAR_FAQ_ITEMS}
       />
-      <SiteEcommerceBudgetSection title={CRM_PILLAR_BUDGET.title} line={CRM_PILLAR_BUDGET.line} note={CRM_PILLAR_BUDGET.note} />
       <PremiumFinalCta
         title={CRM_PILLAR_FINAL_CTA.title}
         primaryHref={CRM_PILLAR_FINAL_CTA.primaryHref}

@@ -11,7 +11,6 @@ import { SiteEcommerceEditorialContent } from '@/components/silos/sites-internet
 import {
   SiteEcommerceAudienceSection,
   SiteEcommerceBenefitsSection,
-  SiteEcommerceBudgetSection,
   SiteEcommerceCompareSection,
   SiteEcommerceFaqSection,
   SiteEcommerceProcessSection,
@@ -20,7 +19,6 @@ import {
 import {
   SITE_ECOMMERCE_AUDIENCE,
   SITE_ECOMMERCE_BENEFITS,
-  SITE_ECOMMERCE_BUDGET,
   SITE_ECOMMERCE_CASES,
   SITE_ECOMMERCE_COMPARE,
   SITE_ECOMMERCE_EDITORIAL,
@@ -113,11 +111,6 @@ export default async function SiteEcommercePremiumPage() {
         title={SITE_ECOMMERCE_FAQ.title}
         subtitle={SITE_ECOMMERCE_FAQ.subtitle}
         items={SITE_ECOMMERCE_FAQ_ITEMS}
-      />
-      <SiteEcommerceBudgetSection
-        title={SITE_ECOMMERCE_BUDGET.title}
-        line={SITE_ECOMMERCE_BUDGET.line}
-        note={SITE_ECOMMERCE_BUDGET.note}
       />
       <PremiumFinalCta
         title={SITE_ECOMMERCE_FINAL_CTA.title}

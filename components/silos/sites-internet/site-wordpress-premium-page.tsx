@@ -11,7 +11,6 @@ import { SiteWordpressEditorialContent } from '@/components/silos/sites-internet
 import {
   SiteEcommerceAudienceSection,
   SiteEcommerceBenefitsSection,
-  SiteEcommerceBudgetSection,
   SiteEcommerceCompareSection,
   SiteEcommerceFaqSection,
   SiteEcommerceProcessSection,
@@ -20,7 +19,6 @@ import {
 import {
   SITE_WORDPRESS_AUDIENCE,
   SITE_WORDPRESS_BENEFITS,
-  SITE_WORDPRESS_BUDGET,
   SITE_WORDPRESS_CASES,
   SITE_WORDPRESS_COMPARE,
   SITE_WORDPRESS_EDITORIAL,
@@ -112,11 +110,6 @@ export default async function SiteWordpressPremiumPage() {
         title={SITE_WORDPRESS_FAQ.title}
         subtitle={SITE_WORDPRESS_FAQ.subtitle}
         items={SITE_WORDPRESS_FAQ_ITEMS}
-      />
-      <SiteEcommerceBudgetSection
-        title={SITE_WORDPRESS_BUDGET.title}
-        line={SITE_WORDPRESS_BUDGET.line}
-        note={SITE_WORDPRESS_BUDGET.note}
       />
       <PremiumFinalCta
         title={SITE_WORDPRESS_FINAL_CTA.title}

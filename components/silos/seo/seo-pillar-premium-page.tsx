@@ -3,7 +3,6 @@ import Link from 'next/link';
 import { SeoPillarEditorialContent } from '@/components/silos/seo/seo-pillar-editorial-content';
 import { SeoPremiumBento } from '@/components/silos/seo/seo-premium-bento';
 import { PremiumChildEditorialShell } from '@/components/silos/sites-internet/premium-child-editorial-shell';
-import { PremiumInternalLinksSection } from '@/components/silos/sites-internet/premium-internal-links-section';
 import { PremiumFinalCta } from '@/components/silos/sites-internet/premium-final-cta';
 import { PremiumCases } from '@/components/silos/sites-internet/premium-cases';
 import { PremiumSitesChildBreadcrumb } from '@/components/silos/sites-internet/premium-sites-child-breadcrumb';
@@ -13,7 +12,6 @@ import { PremiumSitesTrustMarquee } from '@/components/silos/sites-internet/prem
 import {
   SiteEcommerceAudienceSection,
   SiteEcommerceBenefitsSection,
-  SiteEcommerceBudgetSection,
   SiteEcommerceCompareSection,
   SiteEcommerceFaqSection,
   SiteEcommerceProcessSection,
@@ -22,7 +20,6 @@ import {
 import {
   SEO_PILLAR_AUDIENCE,
   SEO_PILLAR_BENEFITS,
-  SEO_PILLAR_BUDGET,
   SEO_PILLAR_CASES,
   SEO_PILLAR_COMPARE,
   SEO_PILLAR_EDITORIAL,
@@ -72,7 +69,6 @@ export default async function SeoPillarPremiumPage() {
       <PremiumChildEditorialShell kicker={SEO_PILLAR_EDITORIAL.kicker} title={SEO_PILLAR_EDITORIAL.title}>
         <SeoPillarEditorialContent />
       </PremiumChildEditorialShell>
-      <PremiumInternalLinksSection />
       <SiteEcommerceAudienceSection
         kicker={SEO_PILLAR_AUDIENCE.kicker}
         title={SEO_PILLAR_AUDIENCE.title}
@@ -96,6 +92,8 @@ export default async function SeoPillarPremiumPage() {
         title={SEO_PILLAR_STACK.title}
         body={SEO_PILLAR_STACK.body}
         labels={SEO_PILLAR_STACK.labels}
+        pillarHref="/"
+        pillarLabel="l'accueil"
       />
       <PremiumCases
         caseStudies={caseStudies}
@@ -111,7 +109,6 @@ export default async function SeoPillarPremiumPage() {
         subtitle={SEO_PILLAR_FAQ.subtitle}
         items={SEO_PILLAR_FAQ_ITEMS}
       />
-      <SiteEcommerceBudgetSection title={SEO_PILLAR_BUDGET.title} line={SEO_PILLAR_BUDGET.line} note={SEO_PILLAR_BUDGET.note} />
       <PremiumFinalCta
         title={SEO_PILLAR_FINAL_CTA.title}
         primaryHref={SEO_PILLAR_FINAL_CTA.primaryHref}

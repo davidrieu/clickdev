@@ -2,7 +2,6 @@ import Link from 'next/link';
 import type { ReactNode } from 'react';
 
 import { PremiumChildEditorialShell } from '@/components/silos/sites-internet/premium-child-editorial-shell';
-import { PremiumInternalLinksSection } from '@/components/silos/sites-internet/premium-internal-links-section';
 import { PremiumFinalCta } from '@/components/silos/sites-internet/premium-final-cta';
 import { PremiumCases } from '@/components/silos/sites-internet/premium-cases';
 import { PremiumSitesChildBreadcrumb } from '@/components/silos/sites-internet/premium-sites-child-breadcrumb';
@@ -12,7 +11,6 @@ import { PremiumSitesTrustMarquee } from '@/components/silos/sites-internet/prem
 import {
   SiteEcommerceAudienceSection,
   SiteEcommerceBenefitsSection,
-  SiteEcommerceBudgetSection,
   SiteEcommerceCompareSection,
   SiteEcommerceFaqSection,
   SiteEcommerceProcessSection,
@@ -62,8 +60,6 @@ type Faq = { kicker: string; title: string; subtitle: string };
 
 type FaqItem = { question: string; answer: string };
 
-type Budget = { title: string; line: string; note: string };
-
 type FinalCta = { title: string; primaryHref: string; primaryLabel: string; secondaryHref: string; secondaryLabel: string };
 
 export type PremiumSiloServiceTemplateProps = {
@@ -79,8 +75,9 @@ export type PremiumSiloServiceTemplateProps = {
   cases: Cases;
   faq: Faq;
   faqItems: readonly FaqItem[];
-  budget: Budget;
   finalCta: FinalCta;
+  /** Page pilier du silo (lien « Retour à … » dans le bloc stack). */
+  stackPillar: { href: string; label: string };
   caseStudiesPick: (studies: SanityCaseStudyTeaser[]) => SanityCaseStudyTeaser[];
 };
 
@@ -119,7 +116,6 @@ export async function PremiumSiloServiceTemplate(props: PremiumSiloServiceTempla
       <PremiumChildEditorialShell kicker={props.editorial.kicker} title={props.editorial.title}>
         {props.editorialContent}
       </PremiumChildEditorialShell>
-      <PremiumInternalLinksSection />
       <SiteEcommerceAudienceSection
         kicker={props.audience.kicker}
         title={props.audience.title}
@@ -139,6 +135,8 @@ export async function PremiumSiloServiceTemplate(props: PremiumSiloServiceTempla
         title={props.stack.title}
         body={props.stack.body}
         labels={props.stack.labels}
+        pillarHref={props.stackPillar.href}
+        pillarLabel={props.stackPillar.label}
       />
       <PremiumCases
         caseStudies={caseStudies}
@@ -154,7 +152,6 @@ export async function PremiumSiloServiceTemplate(props: PremiumSiloServiceTempla
         subtitle={props.faq.subtitle}
         items={props.faqItems}
       />
-      <SiteEcommerceBudgetSection title={props.budget.title} line={props.budget.line} note={props.budget.note} />
       <PremiumFinalCta
         title={props.finalCta.title}
         primaryHref={props.finalCta.primaryHref}

@@ -11,7 +11,6 @@ import { PremiumSitesTrustMarquee } from '@/components/silos/sites-internet/prem
 import {
   MARKETPLACE_AUDIENCE,
   MARKETPLACE_BENEFITS,
-  MARKETPLACE_BUDGET,
   MARKETPLACE_CASES,
   MARKETPLACE_COMPARE,
   MARKETPLACE_EDITORIAL,
@@ -26,7 +25,6 @@ import { prioritizeMarketplaceCaseStudies } from '@/lib/content/marketplace-case
 import {
   SiteEcommerceAudienceSection,
   SiteEcommerceBenefitsSection,
-  SiteEcommerceBudgetSection,
   SiteEcommerceCompareSection,
   SiteEcommerceFaqSection,
   SiteEcommerceProcessSection,
@@ -113,11 +111,6 @@ export default async function MarketplacePremiumPage() {
         title={MARKETPLACE_FAQ.title}
         subtitle={MARKETPLACE_FAQ.subtitle}
         items={MARKETPLACE_FAQ_ITEMS}
-      />
-      <SiteEcommerceBudgetSection
-        title={MARKETPLACE_BUDGET.title}
-        line={MARKETPLACE_BUDGET.line}
-        note={MARKETPLACE_BUDGET.note}
       />
       <PremiumFinalCta
         title={MARKETPLACE_FINAL_CTA.title}

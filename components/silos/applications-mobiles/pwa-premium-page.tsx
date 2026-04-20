@@ -2,7 +2,6 @@ import Link from 'next/link';
 
 import { PwaEditorialContent } from '@/components/silos/applications-mobiles/pwa-editorial-content';
 import { PremiumChildEditorialShell } from '@/components/silos/sites-internet/premium-child-editorial-shell';
-import { PremiumInternalLinksSection } from '@/components/silos/sites-internet/premium-internal-links-section';
 import { PremiumFinalCta } from '@/components/silos/sites-internet/premium-final-cta';
 import { PremiumCases } from '@/components/silos/sites-internet/premium-cases';
 import { PremiumSitesChildBreadcrumb } from '@/components/silos/sites-internet/premium-sites-child-breadcrumb';
@@ -12,7 +11,6 @@ import { PremiumSitesTrustMarquee } from '@/components/silos/sites-internet/prem
 import {
   SiteEcommerceAudienceSection,
   SiteEcommerceBenefitsSection,
-  SiteEcommerceBudgetSection,
   SiteEcommerceCompareSection,
   SiteEcommerceFaqSection,
   SiteEcommerceProcessSection,
@@ -21,7 +19,6 @@ import {
 import {
   PWA_APP_AUDIENCE,
   PWA_APP_BENEFITS,
-  PWA_APP_BUDGET,
   PWA_APP_CASES,
   PWA_APP_COMPARE,
   PWA_APP_EDITORIAL,
@@ -76,7 +73,6 @@ export default async function PwaPremiumPage() {
       <PremiumChildEditorialShell kicker={PWA_APP_EDITORIAL.kicker} title={PWA_APP_EDITORIAL.title}>
         <PwaEditorialContent />
       </PremiumChildEditorialShell>
-      <PremiumInternalLinksSection />
       <SiteEcommerceAudienceSection
         kicker={PWA_APP_AUDIENCE.kicker}
         title={PWA_APP_AUDIENCE.title}
@@ -100,6 +96,8 @@ export default async function PwaPremiumPage() {
         title={PWA_APP_STACK.title}
         body={PWA_APP_STACK.body}
         labels={PWA_APP_STACK.labels}
+        pillarHref="/applications-mobiles"
+        pillarLabel="Applications mobiles"
       />
       <PremiumCases
         caseStudies={caseStudies}
@@ -114,11 +112,6 @@ export default async function PwaPremiumPage() {
         title={PWA_APP_FAQ.title}
         subtitle={PWA_APP_FAQ.subtitle}
         items={PWA_APP_FAQ_ITEMS}
-      />
-      <SiteEcommerceBudgetSection
-        title={PWA_APP_BUDGET.title}
-        line={PWA_APP_BUDGET.line}
-        note={PWA_APP_BUDGET.note}
       />
       <PremiumFinalCta
         title={PWA_APP_FINAL_CTA.title}

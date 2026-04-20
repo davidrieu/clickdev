@@ -48,7 +48,7 @@ export const SEO_CHILD_EDITORIALS: Record<SeoPremiumSlug, ReactNode> = {
         Quand vous avez fini la lecture, vous devez savoir quoi faire en premier, ce qui peut attendre, et ce qui relève
         plutôt du contenu, du technique ou des deux.{' '}
         <Link href="/seo" className="text-white/75 underline-offset-4 transition hover:text-white hover:underline">
-          Retour à l’ensemble du référencement
+          Retour à SEO
         </Link>
         .
       </S>

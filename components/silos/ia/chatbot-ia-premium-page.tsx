@@ -2,7 +2,6 @@ import Link from 'next/link';
 
 import { ChatbotIaEditorialContent } from '@/components/silos/ia/chatbot-ia-editorial-content';
 import { PremiumChildEditorialShell } from '@/components/silos/sites-internet/premium-child-editorial-shell';
-import { PremiumInternalLinksSection } from '@/components/silos/sites-internet/premium-internal-links-section';
 import { PremiumFinalCta } from '@/components/silos/sites-internet/premium-final-cta';
 import { PremiumCases } from '@/components/silos/sites-internet/premium-cases';
 import { PremiumSitesChildBreadcrumb } from '@/components/silos/sites-internet/premium-sites-child-breadcrumb';
@@ -12,7 +11,6 @@ import { PremiumSitesTrustMarquee } from '@/components/silos/sites-internet/prem
 import {
   SiteEcommerceAudienceSection,
   SiteEcommerceBenefitsSection,
-  SiteEcommerceBudgetSection,
   SiteEcommerceCompareSection,
   SiteEcommerceFaqSection,
   SiteEcommerceProcessSection,
@@ -21,7 +19,6 @@ import {
 import {
   CHATBOT_IA_AUDIENCE,
   CHATBOT_IA_BENEFITS,
-  CHATBOT_IA_BUDGET,
   CHATBOT_IA_CASES,
   CHATBOT_IA_COMPARE,
   CHATBOT_IA_EDITORIAL,
@@ -72,7 +69,6 @@ export default async function ChatbotIaPremiumPage() {
       <PremiumChildEditorialShell kicker={CHATBOT_IA_EDITORIAL.kicker} title={CHATBOT_IA_EDITORIAL.title}>
         <ChatbotIaEditorialContent />
       </PremiumChildEditorialShell>
-      <PremiumInternalLinksSection />
       <SiteEcommerceAudienceSection
         kicker={CHATBOT_IA_AUDIENCE.kicker}
         title={CHATBOT_IA_AUDIENCE.title}
@@ -96,6 +92,8 @@ export default async function ChatbotIaPremiumPage() {
         title={CHATBOT_IA_STACK.title}
         body={CHATBOT_IA_STACK.body}
         labels={CHATBOT_IA_STACK.labels}
+        pillarHref="/ia"
+        pillarLabel="IA"
       />
       <PremiumCases
         caseStudies={caseStudies}
@@ -110,11 +108,6 @@ export default async function ChatbotIaPremiumPage() {
         title={CHATBOT_IA_FAQ.title}
         subtitle={CHATBOT_IA_FAQ.subtitle}
         items={CHATBOT_IA_FAQ_ITEMS}
-      />
-      <SiteEcommerceBudgetSection
-        title={CHATBOT_IA_BUDGET.title}
-        line={CHATBOT_IA_BUDGET.line}
-        note={CHATBOT_IA_BUDGET.note}
       />
       <PremiumFinalCta
         title={CHATBOT_IA_FINAL_CTA.title}

@@ -11,7 +11,6 @@ import { IntranetExtranetEditorialContent } from '@/components/silos/sites-inter
 import {
   SiteEcommerceAudienceSection,
   SiteEcommerceBenefitsSection,
-  SiteEcommerceBudgetSection,
   SiteEcommerceCompareSection,
   SiteEcommerceFaqSection,
   SiteEcommerceProcessSection,
@@ -20,7 +19,6 @@ import {
 import {
   INTRANET_EXTRANET_AUDIENCE,
   INTRANET_EXTRANET_BENEFITS,
-  INTRANET_EXTRANET_BUDGET,
   INTRANET_EXTRANET_CASES,
   INTRANET_EXTRANET_COMPARE,
   INTRANET_EXTRANET_EDITORIAL,
@@ -112,11 +110,6 @@ export default async function IntranetExtranetPremiumPage() {
         title={INTRANET_EXTRANET_FAQ.title}
         subtitle={INTRANET_EXTRANET_FAQ.subtitle}
         items={INTRANET_EXTRANET_FAQ_ITEMS}
-      />
-      <SiteEcommerceBudgetSection
-        title={INTRANET_EXTRANET_BUDGET.title}
-        line={INTRANET_EXTRANET_BUDGET.line}
-        note={INTRANET_EXTRANET_BUDGET.note}
       />
       <PremiumFinalCta
         title={INTRANET_EXTRANET_FINAL_CTA.title}
