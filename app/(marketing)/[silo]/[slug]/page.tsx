@@ -2,7 +2,13 @@ import MarketingShell from '@/components/marketing/marketing-shell';
 import MarketingArticleBody from '@/components/marketing/marketing-article-body';
 import { BreadcrumbJsonLd } from '@/components/seo/breadcrumb-json-ld';
 import { FaqPageJsonLd } from '@/components/seo/faq-page-json-ld';
+import { AgentsIaPageJsonLd } from '@/components/seo/agents-ia-page-json-ld';
 import { AndroidAppPageJsonLd } from '@/components/seo/android-app-page-json-ld';
+import { AutomatisationIaPageJsonLd } from '@/components/seo/automatisation-ia-page-json-ld';
+import { ChatbotIaPageJsonLd } from '@/components/seo/chatbot-ia-page-json-ld';
+import { IaGenerativeEcommercePageJsonLd } from '@/components/seo/ia-generative-ecommerce-page-json-ld';
+import { IntegrationIaPageJsonLd } from '@/components/seo/integration-ia-page-json-ld';
+import { RagBaseConnaissancesPageJsonLd } from '@/components/seo/rag-base-connaissances-page-json-ld';
 import { IntranetExtranetPageJsonLd } from '@/components/seo/intranet-extranet-page-json-ld';
 import { IosAppPageJsonLd } from '@/components/seo/ios-app-page-json-ld';
 import { LandingPageSiloJsonLd } from '@/components/seo/landing-page-json-ld';
@@ -14,6 +20,12 @@ import { SiteMiseEnRelationPageJsonLd } from '@/components/seo/site-mise-en-rela
 import { SiteSurMesurePageJsonLd } from '@/components/seo/site-sur-mesure-page-json-ld';
 import { SiteVitrinePageJsonLd } from '@/components/seo/site-vitrine-page-json-ld';
 import { SiteWordpressPageJsonLd } from '@/components/seo/site-wordpress-page-json-ld';
+import AgentsIaPremiumPage from '@/components/silos/ia/agents-ia-premium-page';
+import AutomatisationIaPremiumPage from '@/components/silos/ia/automatisation-ia-premium-page';
+import ChatbotIaPremiumPage from '@/components/silos/ia/chatbot-ia-premium-page';
+import IaGenerativeEcommercePremiumPage from '@/components/silos/ia/ia-generative-ecommerce-premium-page';
+import IntegrationIaPremiumPage from '@/components/silos/ia/integration-ia-premium-page';
+import RagBaseConnaissancesPremiumPage from '@/components/silos/ia/rag-base-connaissances-premium-page';
 import AndroidPremiumPage from '@/components/silos/applications-mobiles/android-premium-page';
 import IosPremiumPage from '@/components/silos/applications-mobiles/ios-premium-page';
 import PwaPremiumPage from '@/components/silos/applications-mobiles/pwa-premium-page';
@@ -26,6 +38,12 @@ import SiteMiseEnRelationPremiumPage from '@/components/silos/sites-internet/sit
 import SiteSurMesurePremiumPage from '@/components/silos/sites-internet/site-sur-mesure-premium-page';
 import SiteVitrinePremiumPage from '@/components/silos/sites-internet/site-vitrine-premium-page';
 import SiteWordpressPremiumPage from '@/components/silos/sites-internet/site-wordpress-premium-page';
+import { AGENTS_IA_FAQ_ITEMS } from '@/lib/constants/agents-ia-page';
+import { AUTOMATISATION_IA_FAQ_ITEMS } from '@/lib/constants/automatisation-ia-page';
+import { CHATBOT_IA_FAQ_ITEMS } from '@/lib/constants/chatbot-ia-page';
+import { IA_GENERATIVE_ECOMMERCE_FAQ_ITEMS } from '@/lib/constants/ia-generative-ecommerce-page';
+import { INTEGRATION_IA_FAQ_ITEMS } from '@/lib/constants/integration-ia-page';
+import { RAG_BASE_CONNAISSANCES_FAQ_ITEMS } from '@/lib/constants/rag-base-connaissances-page';
 import { ANDROID_APP_FAQ_ITEMS } from '@/lib/constants/android-app-page';
 import { INTRANET_EXTRANET_FAQ_ITEMS } from '@/lib/constants/intranet-extranet-page';
 import { IOS_APP_FAQ_ITEMS } from '@/lib/constants/ios-app-page';
@@ -47,7 +65,13 @@ import {
   isServiceSilo,
 } from '@/lib/constants/sitemap';
 import { listingPageMetadata } from '@/lib/seo/page-metadata';
+import { agentsIaPageMetadata } from '@/lib/seo/agents-ia-metadata';
 import { androidAppPageMetadata } from '@/lib/seo/android-app-metadata';
+import { automatisationIaPageMetadata } from '@/lib/seo/automatisation-ia-metadata';
+import { chatbotIaPageMetadata } from '@/lib/seo/chatbot-ia-metadata';
+import { iaGenerativeEcommercePageMetadata } from '@/lib/seo/ia-generative-ecommerce-metadata';
+import { integrationIaPageMetadata } from '@/lib/seo/integration-ia-metadata';
+import { ragBaseConnaissancesPageMetadata } from '@/lib/seo/rag-base-connaissances-metadata';
 import { intranetExtranetPageMetadata } from '@/lib/seo/intranet-extranet-metadata';
 import { iosAppPageMetadata } from '@/lib/seo/ios-app-metadata';
 import { landingPageSiloMetadata } from '@/lib/seo/landing-page-metadata';
@@ -114,6 +138,24 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   }
   if (silo === 'applications-mobiles' && slug === 'pwa') {
     return pwaAppPageMetadata();
+  }
+  if (silo === 'ia' && slug === 'integration-ia') {
+    return integrationIaPageMetadata();
+  }
+  if (silo === 'ia' && slug === 'chatbot-ia') {
+    return chatbotIaPageMetadata();
+  }
+  if (silo === 'ia' && slug === 'agents-ia') {
+    return agentsIaPageMetadata();
+  }
+  if (silo === 'ia' && slug === 'automatisation-ia') {
+    return automatisationIaPageMetadata();
+  }
+  if (silo === 'ia' && slug === 'rag-base-connaissances') {
+    return ragBaseConnaissancesPageMetadata();
+  }
+  if (silo === 'ia' && slug === 'ia-generative-ecommerce') {
+    return iaGenerativeEcommercePageMetadata();
   }
   const article = getSiloChildArticle(silo, slug, child.label, entry.label);
   return listingPageMetadata({
@@ -241,6 +283,60 @@ export default async function SiloChildPage({ params }: Props) {
       <>
         <PwaAppPageJsonLd faqItems={[...PWA_APP_FAQ_ITEMS]} />
         <PwaPremiumPage />
+      </>
+    );
+  }
+
+  if (silo === 'ia' && slug === 'integration-ia') {
+    return (
+      <>
+        <IntegrationIaPageJsonLd faqItems={[...INTEGRATION_IA_FAQ_ITEMS]} />
+        <IntegrationIaPremiumPage />
+      </>
+    );
+  }
+
+  if (silo === 'ia' && slug === 'chatbot-ia') {
+    return (
+      <>
+        <ChatbotIaPageJsonLd faqItems={[...CHATBOT_IA_FAQ_ITEMS]} />
+        <ChatbotIaPremiumPage />
+      </>
+    );
+  }
+
+  if (silo === 'ia' && slug === 'agents-ia') {
+    return (
+      <>
+        <AgentsIaPageJsonLd faqItems={[...AGENTS_IA_FAQ_ITEMS]} />
+        <AgentsIaPremiumPage />
+      </>
+    );
+  }
+
+  if (silo === 'ia' && slug === 'automatisation-ia') {
+    return (
+      <>
+        <AutomatisationIaPageJsonLd faqItems={[...AUTOMATISATION_IA_FAQ_ITEMS]} />
+        <AutomatisationIaPremiumPage />
+      </>
+    );
+  }
+
+  if (silo === 'ia' && slug === 'rag-base-connaissances') {
+    return (
+      <>
+        <RagBaseConnaissancesPageJsonLd faqItems={[...RAG_BASE_CONNAISSANCES_FAQ_ITEMS]} />
+        <RagBaseConnaissancesPremiumPage />
+      </>
+    );
+  }
+
+  if (silo === 'ia' && slug === 'ia-generative-ecommerce') {
+    return (
+      <>
+        <IaGenerativeEcommercePageJsonLd faqItems={[...IA_GENERATIVE_ECOMMERCE_FAQ_ITEMS]} />
+        <IaGenerativeEcommercePremiumPage />
       </>
     );
   }

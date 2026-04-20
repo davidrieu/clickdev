@@ -2,7 +2,9 @@ import MarketingShell from '@/components/marketing/marketing-shell';
 import MarketingArticleBody from '@/components/marketing/marketing-article-body';
 import SitesInternetPremiumPage from '@/components/silos/sites-internet/premium-page';
 import ApplicationsMobilesPremiumPage from '@/components/silos/applications-mobiles/applications-mobiles-premium-page';
+import IaPillarPremiumPage from '@/components/silos/ia/ia-pillar-premium-page';
 import { ApplicationsMobilesPillarJsonLd } from '@/components/seo/applications-mobiles-pillar-json-ld';
+import { IaPillarJsonLd } from '@/components/seo/ia-pillar-json-ld';
 import { CollectionPageItemListJsonLd } from '@/components/seo/collection-page-item-list-json-ld';
 import { SitesInternetPillarJsonLd } from '@/components/seo/sites-internet-pillar-json-ld';
 import { BreadcrumbJsonLd } from '@/components/seo/breadcrumb-json-ld';
@@ -11,10 +13,12 @@ import { SITE_NAME } from '@/lib/constants/site';
 import { withMarketingVisualPlaceholders } from '@/lib/content/marketing-article-visuals';
 import { getSiloPillarArticle } from '@/lib/content/silo-pillar-articles';
 import { applicationsMobilesPillarFaqJsonLdItems } from '@/lib/constants/applications-mobiles-pillar-premium';
+import { iaPillarFaqJsonLdItems } from '@/lib/constants/ia-pillar-premium';
 import { sitesInternetFaqJsonLdItems } from '@/lib/constants/sites-internet-premium';
 import { NAV_SILOS, SERVICE_SILOS, isServiceSilo } from '@/lib/constants/sitemap';
 import { listingPageMetadata } from '@/lib/seo/page-metadata';
 import { applicationsMobilesPillarMetadata } from '@/lib/seo/applications-mobiles-pillar-metadata';
+import { iaPillarMetadata } from '@/lib/seo/ia-pillar-metadata';
 import { sitesInternetPillarMetadata } from '@/lib/seo/sites-internet-pillar-metadata';
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
@@ -35,6 +39,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   }
   if (silo === 'applications-mobiles') {
     return applicationsMobilesPillarMetadata();
+  }
+  if (silo === 'ia') {
+    return iaPillarMetadata();
   }
   const article = getSiloPillarArticle(silo);
   return listingPageMetadata({
@@ -62,6 +69,8 @@ export default async function SiloPillarPage({ params }: Props) {
         <SitesInternetPillarJsonLd faqItems={sitesInternetFaqJsonLdItems()} />
       ) : silo === 'applications-mobiles' ? (
         <ApplicationsMobilesPillarJsonLd faqItems={applicationsMobilesPillarFaqJsonLdItems()} />
+      ) : silo === 'ia' ? (
+        <IaPillarJsonLd faqItems={iaPillarFaqJsonLdItems()} />
       ) : (
         <>
           <BreadcrumbJsonLd
@@ -82,6 +91,8 @@ export default async function SiloPillarPage({ params }: Props) {
         <SitesInternetPremiumPage />
       ) : silo === 'applications-mobiles' ? (
         <ApplicationsMobilesPremiumPage />
+      ) : silo === 'ia' ? (
+        <IaPillarPremiumPage />
       ) : (
         <MarketingShell
           eyebrow="Clickdev"
