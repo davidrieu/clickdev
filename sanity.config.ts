@@ -1,3 +1,4 @@
+import { StarIcon } from '@sanity/icons';
 import { defineConfig } from 'sanity';
 import { structureTool } from 'sanity/structure';
 import { schemaTypes } from './sanity/schemaTypes';
@@ -16,6 +17,23 @@ export default defineConfig({
   dataset,
   /** Requis quand le Studio est monté sur le site (ex. /studio sur Vercel) */
   basePath: '/studio',
-  plugins: [structureTool()],
+  plugins: [
+    structureTool({
+      structure: (S) =>
+        S.list()
+          .title('Contenu')
+          .items([
+            S.listItem()
+              .title('Projets phares (6 max.)')
+              .icon(StarIcon)
+              .id('portfolioHighlights')
+              .child(S.document().schemaType('portfolioHighlights').documentId('portfolioHighlights')),
+            S.divider(),
+            ...S.documentTypeListItems().filter(
+              (item) => item.getId() !== 'portfolioHighlights',
+            ),
+          ]),
+    }),
+  ],
   schema: { types: schemaTypes },
 });

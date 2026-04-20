@@ -1,14 +1,11 @@
-import PageBreadcrumb from '@/components/marketing/page-breadcrumb';
-import MarketingShell from '@/components/marketing/marketing-shell';
-import SanityPortableText from '@/components/portable/sanity-portable-text';
+import { BlogPostClient } from '@/components/blog/blog-post-client';
+import { RealisationDetailShell } from '@/components/realisations/realisation-detail-shell';
 import { BlogPostingJsonLd } from '@/components/seo/blog-posting-json-ld';
 import { BreadcrumbJsonLd } from '@/components/seo/breadcrumb-json-ld';
-import { formatDateFr } from '@/lib/format/date';
 import { getPostBySlug, getPostSlugs } from '@/lib/sanity/fetch';
 import { isSanityConfigured } from '@/lib/sanity/env';
 import { pageMetadata } from '@/lib/seo/page-metadata';
 import type { Metadata } from 'next';
-import Image from 'next/image';
 import { notFound } from 'next/navigation';
 
 type Props = { params: Promise<{ slug: string }> };
@@ -53,16 +50,20 @@ export default async function BlogPostPage({ params }: Props) {
 
   if (!isSanityConfigured()) {
     return (
-      <MarketingShell
-        eyebrow="Blog"
-        title={slug.replace(/-/g, ' ')}
-        description="Branchez Sanity (NEXT_PUBLIC_SANITY_PROJECT_ID) pour afficher le contenu CMS sur cette URL."
+      <RealisationDetailShell
         breadcrumb={[
-          { label: 'Accueil', href: '/' },
-          { label: 'Blog', href: '/blog' },
-          { label: slug.replace(/-/g, ' '), href: `/blog/${slug}` },
+          { href: '/', label: 'Accueil' },
+          { href: '/blog', label: 'Blog' },
+          { href: `/blog/${slug}`, label: slug.replace(/-/g, ' '), current: true },
         ]}
-      />
+      >
+        <div className="mx-auto max-w-xl rounded-2xl border border-dashed border-white/20 bg-white/[0.03] p-8 text-center text-sm text-white/65 md:p-10">
+          <p>
+            Branchez Sanity (<code className="rounded bg-white/10 px-1.5 py-0.5 font-mono text-xs">NEXT_PUBLIC_SANITY_PROJECT_ID</code>)
+            pour afficher le contenu CMS sur cette URL.
+          </p>
+        </div>
+      </RealisationDetailShell>
     );
   }
 
@@ -70,13 +71,6 @@ export default async function BlogPostPage({ params }: Props) {
   if (!post) {
     notFound();
   }
-
-  const dateLabel = formatDateFr(post.publishedAt);
-  const crumbs = [
-    { label: 'Accueil', href: '/' },
-    { label: 'Blog', href: '/blog' },
-    { label: post.title, href: `/blog/${slug}` },
-  ];
 
   const jsonLdDescription =
     post.metaDescription?.trim() ||
@@ -102,36 +96,15 @@ export default async function BlogPostPage({ params }: Props) {
         image={jsonLdImage}
         authorName={post.author?.name ?? null}
       />
-      <article className="mx-auto max-w-3xl px-4 py-16 md:px-6 md:py-20">
-        <PageBreadcrumb items={crumbs} />
-        <p className="font-mono text-[11px] tracking-widest text-white/45 uppercase">Blog</p>
-        <h1 className="mt-3 text-3xl font-semibold tracking-tight text-balance text-white md:text-4xl">
-          {post.title}
-        </h1>
-        <div className="mt-4 flex flex-wrap gap-3 text-sm text-white/55">
-          {dateLabel ? (
-            <time dateTime={post.publishedAt ?? undefined}>{dateLabel}</time>
-          ) : null}
-          {post.author?.name ? (
-            <span>{dateLabel ? '· ' : null}Par {post.author.name}</span>
-          ) : null}
-        </div>
-        {post.coverImage ? (
-          <div className="relative mt-10 aspect-[16/9] w-full overflow-hidden rounded-xl border border-white/10">
-            <Image
-              src={post.coverImage}
-              alt=""
-              fill
-              className="object-cover"
-              sizes="(max-width: 768px) 100vw, 720px"
-              priority
-            />
-          </div>
-        ) : null}
-        <div className="prose-portable mt-12">
-          <SanityPortableText value={post.body} />
-        </div>
-      </article>
+      <RealisationDetailShell
+        breadcrumb={[
+          { href: '/', label: 'Accueil' },
+          { href: '/blog', label: 'Blog' },
+          { href: `/blog/${slug}`, label: post.title, current: true },
+        ]}
+      >
+        <BlogPostClient post={post} />
+      </RealisationDetailShell>
     </>
   );
 }

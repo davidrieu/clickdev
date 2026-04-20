@@ -3,6 +3,12 @@ import type { SanityPostDocument, SanityPostTeaser } from '@/types/sanity-post';
 
 import { sanityClient } from './client';
 import {
+  isMobileCaseCategory,
+  isWebCaseCategory,
+  mergeHighlightOrder,
+  takeWithHighlightsFirst,
+} from './portfolio-highlights-utils';
+import {
   allCaseStudiesTeasersQuery,
   allPostsTeasersQuery,
   caseStudyBySlugQuery,
@@ -15,6 +21,7 @@ import {
   postBySlugQuery,
   postSlugsQuery,
   postSitemapEntriesQuery,
+  portfolioHighlightsQuery,
 } from './queries';
 
 export type SanitySitemapEntry = { slug: string; lastModified: string | null };
@@ -83,12 +90,35 @@ export async function getPostBySlug(slug: string): Promise<SanityPostDocument | 
   }
 }
 
+/** Projets phares (singleton) ou `null` si le document n’existe pas / liste vide. */
+export async function getPortfolioHighlightTeasers(): Promise<SanityCaseStudyTeaser[] | null> {
+  if (!sanityClient) {
+    return null;
+  }
+
+  try {
+    const rows = await sanityClient.fetch<(SanityCaseStudyTeaser | null)[] | null>(portfolioHighlightsQuery);
+    const list = (rows ?? []).filter((r): r is SanityCaseStudyTeaser => Boolean(r?._id && r.slug));
+    return list.length > 0 ? list : null;
+  } catch {
+    return null;
+  }
+}
+
+/**
+ * 6 visibles en accueil : d’abord le document **Projets phares** (ordre),
+ * sinon repli : booléen `featured` + date de publication.
+ */
 export async function getFeaturedCaseStudies(): Promise<SanityCaseStudyTeaser[]> {
   if (!sanityClient) {
     return [];
   }
 
   try {
+    const fromPicker = await getPortfolioHighlightTeasers();
+    if (fromPicker?.length) {
+      return fromPicker.slice(0, 6);
+    }
     const rows = await sanityClient.fetch<SanityCaseStudyTeaser[]>(featuredCaseStudiesQuery);
     return rows ?? [];
   } catch {
@@ -102,36 +132,53 @@ export async function getAllCaseStudyTeasers(): Promise<SanityCaseStudyTeaser[]>
   }
 
   try {
-    const rows = await sanityClient.fetch<SanityCaseStudyTeaser[]>(allCaseStudiesTeasersQuery);
-    return rows ?? [];
+    const [rows, highlights] = await Promise.all([
+      sanityClient.fetch<SanityCaseStudyTeaser[]>(allCaseStudiesTeasersQuery),
+      getPortfolioHighlightTeasers(),
+    ]);
+    const all = rows ?? [];
+    if (highlights?.length) {
+      return mergeHighlightOrder(all, highlights);
+    }
+    return all;
   } catch {
     return [];
   }
 }
 
-/** 5 dernières études de cas web (site / e-commerce / marketplace), les plus récentes d’abord. */
+/**
+ * Jusqu’à 5 études « web » : d’abord les projets phares qui matchent la catégorie (ordre global), puis le reste par date.
+ */
 export async function getRecentWebCaseStudies(): Promise<SanityCaseStudyTeaser[]> {
   if (!sanityClient) {
     return [];
   }
 
   try {
-    const rows = await sanityClient.fetch<SanityCaseStudyTeaser[]>(recentWebCaseStudiesQuery);
-    return rows ?? [];
+    const [recents, highlights] = await Promise.all([
+      sanityClient.fetch<SanityCaseStudyTeaser[]>(recentWebCaseStudiesQuery),
+      getPortfolioHighlightTeasers(),
+    ]);
+    return takeWithHighlightsFirst(highlights, recents ?? [], 5, isWebCaseCategory);
   } catch {
     return [];
   }
 }
 
-/** 5 dernières études de cas « app mobile », les plus récentes d’abord. */
+/**
+ * Jusqu’à 5 études « app mobile » : mêmes phares d’abord, puis repli sur les plus récents.
+ */
 export async function getRecentMobileCaseStudies(): Promise<SanityCaseStudyTeaser[]> {
   if (!sanityClient) {
     return [];
   }
 
   try {
-    const rows = await sanityClient.fetch<SanityCaseStudyTeaser[]>(recentMobileCaseStudiesQuery);
-    return rows ?? [];
+    const [recents, highlights] = await Promise.all([
+      sanityClient.fetch<SanityCaseStudyTeaser[]>(recentMobileCaseStudiesQuery),
+      getPortfolioHighlightTeasers(),
+    ]);
+    return takeWithHighlightsFirst(highlights, recents ?? [], 5, isMobileCaseCategory);
   } catch {
     return [];
   }

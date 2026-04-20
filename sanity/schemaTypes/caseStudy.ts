@@ -236,7 +236,15 @@ export default defineType({
         },
       ],
     }),
-    defineField({ name: 'featured', title: 'Mise en avant (home / tri)', type: 'boolean', initialValue: false, fieldset: 'extra' }),
+    defineField({
+      name: 'featured',
+      title: 'Mise en avant (secours, si le doc. « Projets phares » est vide)',
+      type: 'boolean',
+      initialValue: false,
+      fieldset: 'extra',
+      description:
+        'Déprécié : préférez le document **Projets phares** (menu) pour choisir les 6 visibles. Ce champ sert de repli si le document n’est pas renseigné.',
+    }),
     defineField({ name: 'order', title: "Ordre manuel d'affichage", type: 'number', fieldset: 'extra' }),
     defineField({ name: 'publishedAt', title: 'Date de publication', type: 'datetime', fieldset: 'extra' }),
 

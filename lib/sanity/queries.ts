@@ -50,7 +50,12 @@ const caseStudyTeaserProjection = `{
   publishedAt
 }`;
 
-export const featuredCaseStudiesQuery = `*[_type == "caseStudy" && defined(slug.current)] | order(featured desc, publishedAt desc)[0...6]${caseStudyTeaserProjection}`;
+/** Jusqu’à 6 références déréférencées, ordre = ordre dans le Studio (document singleton). */
+export const portfolioHighlightsQuery = `*[_type == "portfolioHighlights" && _id == "portfolioHighlights"][0]{
+  "projects": highlightedProjects[]->${caseStudyTeaserProjection}
+}.projects`;
+
+export const featuredCaseStudiesQuery = `*[_type == "caseStudy" && defined(slug.current)] | order(featured desc, coalesce(publishedAt, _updatedAt) desc)[0...6]${caseStudyTeaserProjection}`;
 
 /** Derniers projets « web » (site, e-commerce, marketplace) pour la page pilier /sites-internet. */
 export const recentWebCaseStudiesQuery = `*[_type == "caseStudy" && defined(slug.current) && category in ["website", "ecommerce", "marketplace"]] | order(coalesce(publishedAt, _updatedAt) desc)[0...5]${caseStudyTeaserProjection}`;

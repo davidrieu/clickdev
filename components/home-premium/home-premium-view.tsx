@@ -26,6 +26,7 @@ import {
   HOME_TRUST_MARQUEE_NAMES,
 } from '@/lib/constants/home-content';
 import type { HomeCasePreview } from '@/lib/constants/home-content';
+import { formatDateFr } from '@/lib/format/date';
 import type { SanityCaseStudyTeaser } from '@/types/sanity-case-study';
 import type { SanityPostTeaser } from '@/types/sanity-post';
 import { PlusIcon } from 'lucide-react';
@@ -853,7 +854,7 @@ function HpBlog({ posts }: { posts: SanityPostTeaser[] }) {
       onPointerLeave={onPointerLeave}
     >
       <PremiumSectionDivider />
-      <StellarField count={28} className="opacity-[0.4]" interactive pointer={pointer} />
+      <StellarField count={40} className="opacity-[0.55]" interactive pointer={pointer} />
       <div className="relative z-10 mx-auto max-w-[1100px] px-4 md:px-8">
         <motion.h2
           className="si-serif-display text-center text-[clamp(1.75rem,3.2vw,2.75rem)] font-medium tracking-[-0.02em] text-white"
@@ -868,46 +869,68 @@ function HpBlog({ posts }: { posts: SanityPostTeaser[] }) {
             ? 'Articles pour y voir clair : site web, budget, perf — sans jargon.'
             : 'Mes derniers articles publiés.'}
         </p>
-        <div className="mt-10 grid gap-6 md:grid-cols-3">
-          {display.map((post, index) => (
-            <motion.article
-              key={post._id}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: index * 0.06 }}
-              className="flex flex-col overflow-hidden rounded-xl border border-white/[0.08] bg-black/30 transition hover:border-white/[0.12]"
-            >
-              <div className="relative aspect-[16/10] bg-white/5">
-                {post.coverImage ? (
-                  <Image
-                    src={post.coverImage}
-                    alt={`Illustration de l’article de blog : ${post.title}`}
-                    fill
-                    className="object-cover"
-                    sizes="(max-width:768px) 100vw, 33vw"
-                  />
-                ) : (
-                  <div className="absolute inset-0 bg-gradient-to-br from-white/10 to-transparent" aria-hidden />
-                )}
-                {isPlaceholder && (
-                  <span className="absolute left-3 top-3 rounded bg-black/60 px-2 py-0.5 text-[10px] font-medium uppercase text-white/80 backdrop-blur-sm">
-                    Bientôt
-                  </span>
-                )}
-              </div>
-              <div className="flex flex-1 flex-col p-5">
-                <p className="font-mono text-[10px] tracking-widest text-white/40 uppercase">Article</p>
-                <h3 className="mt-2 text-base font-semibold leading-snug">
-                  <Link href={`/blog/${post.slug}`} className="transition hover:text-white/90 hover:underline">
-                    {post.title}
+        <ul className="mt-10 grid list-none gap-4 p-0 md:grid-cols-3 md:gap-5">
+          {display.map((post, index) => {
+            const dateLabel = formatDateFr(post.publishedAt);
+            return (
+              <motion.li
+                key={post._id}
+                initial={{ opacity: 0, y: 22 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: '-6%' }}
+                transition={{ delay: index * 0.05, duration: 0.45 }}
+                className="min-h-0"
+              >
+                <motion.div
+                  className="h-full"
+                  whileHover={{ scale: 1.01 }}
+                  transition={{ type: 'spring', stiffness: 400, damping: 28 }}
+                >
+                  <Link
+                    href={`/blog/${post.slug}`}
+                    className="group relative flex h-full min-h-[inherit] flex-col overflow-hidden rounded-2xl border border-white/[0.1] bg-gradient-to-br from-neutral-950 via-neutral-900/85 to-neutral-900 transition duration-500 hover:border-white/[0.16]"
+                  >
+                    <div className="relative aspect-[16/10] overflow-hidden bg-neutral-950">
+                      {post.coverImage ? (
+                        <Image
+                          src={post.coverImage}
+                          alt={`Illustration — ${post.title}`}
+                          fill
+                          className="object-cover transition duration-700 ease-out group-hover:scale-[1.04]"
+                          sizes="(max-width:768px) 100vw, 33vw"
+                        />
+                      ) : (
+                        <div className="absolute inset-0 bg-gradient-to-br from-neutral-900 via-neutral-950 to-black" aria-hidden />
+                      )}
+                      <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black via-black/35 to-transparent" />
+                      {isPlaceholder ? (
+                        <span className="absolute left-3 top-3 z-[1] rounded-full border border-white/15 bg-zinc-950/75 px-2.5 py-1 text-[10px] font-medium uppercase text-white/85 backdrop-blur-sm">
+                          Bientôt
+                        </span>
+                      ) : null}
+                    </div>
+                    <div className="relative z-[2] flex flex-1 flex-col p-6">
+                      <span className="font-mono text-[10px] tracking-[0.22em] text-white/40 uppercase">
+                        {dateLabel || 'Article'}
+                      </span>
+                      <h3 className="mt-2 text-base font-semibold leading-snug tracking-tight text-white [text-shadow:0_2px_14px_rgba(0,0,0,0.75)] md:text-lg">
+                        {post.title}
+                      </h3>
+                      {post.excerpt ? (
+                        <p className="mt-2 line-clamp-2 flex-1 text-sm leading-relaxed text-white/75 [text-shadow:0_1px_10px_rgba(0,0,0,0.8)]">
+                          {post.excerpt}
+                        </p>
+                      ) : null}
+                      <span className="mt-4 inline-flex items-center gap-2 font-mono text-[10px] tracking-wider text-white/60 uppercase transition group-hover:gap-3 group-hover:text-white">
+                        Lire l’article <span aria-hidden>↗</span>
+                      </span>
+                    </div>
                   </Link>
-                </h3>
-                {post.excerpt && <p className="mt-2 line-clamp-3 flex-1 text-sm text-white/65">{post.excerpt}</p>}
-              </div>
-            </motion.article>
-          ))}
-        </div>
+                </motion.div>
+              </motion.li>
+            );
+          })}
+        </ul>
         <p className="mt-10 text-center">
           <Link href="/blog" className="text-sm font-medium text-white/70 underline-offset-4 transition hover:text-white hover:underline">
             Voir tous les articles →
