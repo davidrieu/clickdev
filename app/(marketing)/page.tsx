@@ -7,6 +7,8 @@ import type { Metadata } from 'next';
 
 const ogImagePath = '/assets/web-app-manifest-512x512.png';
 
+export const revalidate = 60;
+
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: 'Développeur web freelance — Sites, apps, SEO & IA | Clickdev',

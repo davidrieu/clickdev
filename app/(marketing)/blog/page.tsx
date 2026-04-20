@@ -9,6 +9,9 @@ import type { Metadata } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
 
+/** Liste blog : re-fetch Sanity (littéral requis par Next). Sans ISR, seul le build compte. */
+export const revalidate = 60;
+
 export const metadata: Metadata = listingPageMetadata({
   title: 'Blog',
   description: 'Articles sur Next.js, e-commerce, SEO, IA et retours de terrain — Clickdev.',
