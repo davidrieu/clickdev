@@ -1,6 +1,5 @@
-import PageBreadcrumb from '@/components/marketing/page-breadcrumb';
-import MarketingShell from '@/components/marketing/marketing-shell';
 import CaseStudyDetail from '@/components/realisations/case-study-detail';
+import { RealisationDetailShell } from '@/components/realisations/realisation-detail-shell';
 import { BreadcrumbJsonLd } from '@/components/seo/breadcrumb-json-ld';
 import { CaseStudyArticleJsonLd } from '@/components/seo/case-study-article-json-ld';
 import { getCaseStudyBySlug, getCaseStudySlugs } from '@/lib/sanity/fetch';
@@ -53,16 +52,20 @@ export default async function CaseStudyPage({ params }: Props) {
 
   if (!isSanityConfigured()) {
     return (
-      <MarketingShell
-        eyebrow="Étude de cas"
-        title={slug.replace(/-/g, ' ')}
-        description="Connectez Sanity pour afficher le portfolio dynamique sur cette URL."
+      <RealisationDetailShell
         breadcrumb={[
-          { label: 'Accueil', href: '/' },
-          { label: 'Réalisations', href: '/realisations' },
-          { label: slug.replace(/-/g, ' '), href: `/realisations/${slug}` },
+          { href: '/', label: 'Accueil' },
+          { href: '/realisations', label: 'Réalisations' },
+          { href: `/realisations/${slug}`, label: slug.replace(/-/g, ' '), current: true },
         ]}
-      />
+      >
+        <div className="rounded-2xl border border-dashed border-white/20 bg-white/[0.03] p-8 text-center text-sm text-white/65 md:p-10">
+          <p>
+            Renseignez <code className="rounded bg-white/10 px-1.5 py-0.5 font-mono text-xs">NEXT_PUBLIC_SANITY_PROJECT_ID</code>{' '}
+            sur l’environnement pour afficher cette fiche.
+          </p>
+        </div>
+      </RealisationDetailShell>
     );
   }
 
@@ -70,12 +73,6 @@ export default async function CaseStudyPage({ params }: Props) {
   if (!study) {
     notFound();
   }
-
-  const crumbs = [
-    { label: 'Accueil', href: '/' },
-    { label: 'Réalisations', href: '/realisations' },
-    { label: study.title, href: `/realisations/${slug}` },
-  ];
 
   const articleDescription =
     study.metaDescription?.trim() ||
@@ -98,10 +95,15 @@ export default async function CaseStudyPage({ params }: Props) {
         slug={slug}
         image={articleImage}
       />
-      <article className="mx-auto max-w-5xl px-4 py-16 md:px-6 md:py-20">
-        <PageBreadcrumb items={crumbs} />
+      <RealisationDetailShell
+        breadcrumb={[
+          { href: '/', label: 'Accueil' },
+          { href: '/realisations', label: 'Réalisations' },
+          { href: `/realisations/${slug}`, label: study.title, current: true },
+        ]}
+      >
         <CaseStudyDetail study={study} />
-      </article>
+      </RealisationDetailShell>
     </>
   );
 }

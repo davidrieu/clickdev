@@ -40,6 +40,8 @@ export function displayMetric(c: SanityCaseStudyTeaser): string {
 }
 
 export function categoryLabel(c: SanityCaseStudyTeaser): string {
+  const t = c.typeTag?.trim();
+  if (t) return t;
   const k = c.category ?? '';
   if (!k) return '—';
   return CASE_STUDY_CATEGORY_LABELS[k] ?? k;
