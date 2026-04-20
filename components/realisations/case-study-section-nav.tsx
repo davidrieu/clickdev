@@ -59,7 +59,7 @@ export function CaseStudySectionNav({ items, variant, className }: Props) {
       activeId === id
         ? isBar
           ? 'border-white/25 bg-white/[0.08] text-white'
-          : 'border-[#F26A06] bg-white/[0.1] text-white shadow-[inset_0_0_0_1px_rgba(255,255,255,0.06)]'
+          : 'border-white bg-white/[0.12] text-white shadow-[inset_0_0_0_1px_rgba(255,255,255,0.1)]'
         : isBar
           ? 'border-white/10 text-white/55 hover:border-white/20 hover:text-white/90'
           : 'text-white/75 hover:bg-white/[0.06] hover:text-white',

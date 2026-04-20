@@ -124,11 +124,11 @@ export default function CaseStudyDetail({ study }: Props) {
       <div
         className={cn(
           navItems.length > 0 &&
-            'lg:grid lg:grid-cols-[min(15rem,32vw)_minmax(0,1fr)] lg:items-start lg:gap-8 xl:grid-cols-[16rem_minmax(0,1fr)] xl:gap-10 2xl:grid-cols-[17rem_minmax(0,1fr)] 2xl:gap-12',
+            'lg:grid lg:grid-cols-[min(15rem,32vw)_minmax(0,1fr)] lg:items-start lg:gap-10 xl:grid-cols-[16rem_minmax(0,1fr)] xl:gap-14 2xl:grid-cols-[17rem_minmax(0,1fr)] 2xl:gap-16',
         )}
       >
         {navItems.length > 0 ? (
-          <aside className="hidden min-w-0 lg:block">
+          <aside className="hidden min-w-0 self-start lg:block">
             <div className="sticky top-28 z-20 space-y-3 rounded-2xl border border-white/20 bg-gradient-to-b from-white/[0.08] to-white/[0.02] p-4 shadow-[0_0_0_1px_rgba(255,255,255,0.06),0_12px_40px_-12px_rgba(0,0,0,0.5)] backdrop-blur-sm">
               <p className="font-mono text-[10px] tracking-[0.22em] text-white/70 uppercase">Sur cette page</p>
               <CaseStudySectionNav items={navItems} variant="sidebar" />
@@ -139,7 +139,7 @@ export default function CaseStudyDetail({ study }: Props) {
         <div className="min-w-0 space-y-20 md:space-y-24 lg:space-y-28">
           {hasProjet ? (
             <Section id={CASE_FICHE.projet} title="Le projet">
-              <div className="prose-portable max-w-3xl text-white/80">
+              <div className="prose-portable w-full max-w-none text-white/80">
                 <SanityPortableText value={study.context} />
               </div>
             </Section>
@@ -153,7 +153,7 @@ export default function CaseStudyDetail({ study }: Props) {
 
           {hasRealise ? (
             <Section id={CASE_FICHE.realise} title="Ce que j'ai réalisé">
-              <div className="prose-portable max-w-3xl text-white/80">
+              <div className="prose-portable w-full max-w-none text-white/80">
                 <SanityPortableText value={study.solution} />
               </div>
             </Section>
@@ -161,7 +161,7 @@ export default function CaseStudyDetail({ study }: Props) {
 
           {hasResultats ? (
             <Section id={CASE_FICHE.resultats} title="Résultats">
-              <div className="prose-portable max-w-3xl text-white/80">
+              <div className="prose-portable w-full max-w-none text-white/80">
                 <SanityPortableText value={study.results} />
               </div>
             </Section>
