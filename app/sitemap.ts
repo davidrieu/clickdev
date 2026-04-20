@@ -1,11 +1,14 @@
 import { SITE_URL } from '@/lib/constants/site';
 import { getCaseStudySitemapEntries, getPostSitemapEntries } from '@/lib/sanity/fetch';
-import { getAllStaticMarketingPaths } from '@/lib/seo/marketing-paths';
+import { getAllStaticMarketingPathsForSitemap } from '@/lib/seo/marketing-paths';
 import type { MetadataRoute } from 'next';
 
 function origin(): string {
   return SITE_URL.replace(/\/$/, '');
 }
+
+/** Régénère le sitemap pour inclure nouveaux contenus Sanity + nouvelles pages `app/(marketing)` */
+export const revalidate = 60;
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const base = origin();
@@ -13,7 +16,9 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
   const skipInSitemap = new Set(['/mentions-legales', '/confidentialite']);
 
-  const staticEntries: MetadataRoute.Sitemap = getAllStaticMarketingPaths()
+  const staticPaths = await getAllStaticMarketingPathsForSitemap();
+
+  const staticEntries: MetadataRoute.Sitemap = staticPaths
     .filter((path) => !skipInSitemap.has(path))
     .map((path) => ({
       url: `${base}${path}`,
