@@ -2,6 +2,7 @@
 
 import Image from 'next/image';
 import Link from 'next/link';
+import type { ReactNode } from 'react';
 import { useCallback, useState } from 'react';
 import { motion } from 'framer-motion';
 
@@ -13,6 +14,11 @@ import { StellarField, useSectionStellarPointer } from './stellar-field';
 
 type Props = {
   caseStudies: SanityCaseStudyTeaser[];
+  /** Ancre in-page (ex. lien « Voir des exemples »). */
+  sectionId?: string;
+  kicker?: string;
+  title?: string;
+  intro?: ReactNode;
 };
 
 export function displayYear(c: SanityCaseStudyTeaser): string {
@@ -39,13 +45,23 @@ export function categoryLabel(c: SanityCaseStudyTeaser): string {
   return CASE_STUDY_CATEGORY_LABELS[k] ?? k;
 }
 
-export function PremiumCases({ caseStudies }: Props) {
+const DEFAULT_KICKER = 'Portfolio';
+const DEFAULT_TITLE = 'Cinq réalisations récentes';
+
+export function PremiumCases({
+  caseStudies,
+  sectionId,
+  kicker = DEFAULT_KICKER,
+  title = DEFAULT_TITLE,
+  intro,
+}: Props) {
   const [activeId, setActiveId] = useState<string | null>(null);
   const clear = useCallback(() => setActiveId(null), []);
   const { pointer, onPointerMoveCapture, onPointerLeave } = useSectionStellarPointer();
 
   return (
     <section
+      id={sectionId}
       className="relative overflow-hidden bg-black py-24 md:py-40 lg:py-48"
       onMouseLeave={clear}
       onPointerMoveCapture={onPointerMoveCapture}
@@ -61,17 +77,19 @@ export function PremiumCases({ caseStudies }: Props) {
           transition={{ duration: 0.5 }}
           className="max-w-2xl"
         >
-          <p className="font-mono text-[11px] tracking-[0.28em] text-white/40 uppercase">Portfolio</p>
+          <p className="font-mono text-[11px] tracking-[0.28em] text-white/40 uppercase">{kicker}</p>
           <h2 className="si-serif-display mt-4 text-[clamp(1.85rem,3.5vw,3rem)] font-medium tracking-[-0.03em] text-white">
-            Cinq réalisations récentes
+            {title}
           </h2>
-          <p className="mt-4 text-sm text-white/55 md:text-base">
-            Les derniers sites livrés, par ordre chronologique. Pour d&apos;autres exemples, voir aussi{' '}
-            <Link href="/realisations" className="text-white/70 underline-offset-4 transition hover:text-white hover:underline">
-              l’ensemble des réalisations
-            </Link>
-            .
-          </p>
+          {intro ?? (
+            <p className="mt-4 text-sm text-white/55 md:text-base">
+              Les derniers sites livrés, par ordre chronologique. Pour d&apos;autres exemples, voir aussi{' '}
+              <Link href="/realisations" className="text-white/70 underline-offset-4 transition hover:text-white hover:underline">
+                l’ensemble des réalisations
+              </Link>
+              .
+            </p>
+          )}
         </motion.div>
 
         {caseStudies.length === 0 ? (
