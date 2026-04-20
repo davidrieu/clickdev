@@ -9,7 +9,7 @@ type FaqItem = { question: string; answer: string };
 const serviceSchema = {
   '@type': 'Service',
   '@id': `${pageUrl}#service`,
-  name: 'RAG et base de connaissances',
+  name: 'Assistant sur vos documents',
   url: pageUrl,
   provider: {
     '@type': 'Person',
@@ -17,7 +17,7 @@ const serviceSchema = {
     jobTitle: 'Développeur web freelance',
   },
   description:
-    'RAG sur documents d’entreprise : chunking, embeddings, retrieval, reranking et pipelines d’ingestion.',
+    'Questions-réponses sur vos PDF et procédures internes : sources citées, mises à jour et droits d’accès.',
   areaServed: 'FR',
 };
 
@@ -26,7 +26,7 @@ const breadcrumbSchema = {
   itemListElement: [
     { '@type': 'ListItem', position: 1, name: 'Accueil', item: `${origin}/` },
     { '@type': 'ListItem', position: 2, name: 'IA', item: `${origin}/ia` },
-    { '@type': 'ListItem', position: 3, name: 'RAG & base de connaissances', item: pageUrl },
+    { '@type': 'ListItem', position: 3, name: 'Assistant sur vos documents', item: pageUrl },
   ],
 };
 

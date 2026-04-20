@@ -9,7 +9,7 @@ type FaqItem = { question: string; answer: string };
 const serviceSchema = {
   '@type': 'Service',
   '@id': `${pageUrl}#service`,
-  name: 'Conception d’agents IA',
+  name: 'Scénarios d’IA multi-étapes',
   url: pageUrl,
   provider: {
     '@type': 'Person',
@@ -17,7 +17,7 @@ const serviceSchema = {
     jobTitle: 'Développeur web freelance',
   },
   description:
-    'Agents IA : planification d’actions, outils typés, garde-fous, budgets et supervision humaine.',
+    'Scénarios qui enchaînent plusieurs actions dans vos outils : limites, validation humaine et historique clair.',
   areaServed: 'FR',
 };
 
@@ -26,7 +26,7 @@ const breadcrumbSchema = {
   itemListElement: [
     { '@type': 'ListItem', position: 1, name: 'Accueil', item: `${origin}/` },
     { '@type': 'ListItem', position: 2, name: 'IA', item: `${origin}/ia` },
-    { '@type': 'ListItem', position: 3, name: 'Agents IA', item: pageUrl },
+    { '@type': 'ListItem', position: 3, name: 'Scénarios multi-étapes', item: pageUrl },
   ],
 };
 

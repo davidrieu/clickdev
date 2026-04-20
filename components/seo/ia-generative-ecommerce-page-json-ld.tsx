@@ -9,7 +9,7 @@ type FaqItem = { question: string; answer: string };
 const serviceSchema = {
   '@type': 'Service',
   '@id': `${pageUrl}#service`,
-  name: 'IA générative pour e-commerce',
+  name: 'IA pour boutique en ligne',
   url: pageUrl,
   provider: {
     '@type': 'Person',
@@ -26,7 +26,7 @@ const breadcrumbSchema = {
   itemListElement: [
     { '@type': 'ListItem', position: 1, name: 'Accueil', item: `${origin}/` },
     { '@type': 'ListItem', position: 2, name: 'IA', item: `${origin}/ia` },
-    { '@type': 'ListItem', position: 3, name: 'IA générative e-commerce', item: pageUrl },
+    { '@type': 'ListItem', position: 3, name: 'IA & e-commerce', item: pageUrl },
   ],
 };
 

@@ -12,33 +12,33 @@ type BentoItem = { href: string; title: string; description: string };
 const ITEMS: BentoItem[] = [
   {
     href: '/ia/integration-ia',
-    title: 'Intégration IA',
-    description: 'Brancher des LLM sur votre produit avec garde-fous, budgets tokens et monitoring.',
+    title: 'IA dans le site ou l’appli',
+    description: 'Assistant, formulaires intelligents : intégration propre, budget maîtrisé, données protégées.',
   },
   {
     href: '/ia/chatbot-ia',
-    title: 'Chatbot IA',
-    description: 'Support et conversion : corpus, handoff humain, intégrations CRM et helpdesk.',
+    title: 'Chatbot & assistant',
+    description: 'Réponses basées sur vos textes, transfert vers une vraie personne, lien avec le support.',
   },
   {
     href: '/ia/agents-ia',
-    title: 'Agents IA',
-    description: 'Chaînes d’actions avec outils typés, budgets et supervision sur les cas sensibles.',
+    title: 'Scénarios sur plusieurs étapes',
+    description: 'Enchaîner des actions dans vos outils avec limites, validation humaine et suivi clair.',
   },
   {
     href: '/ia/automatisation-ia',
     title: 'Automatisation IA',
-    description: 'Extraction, classification, routage : file humaine et scores de confiance.',
+    description: 'Tri de demandes, extraction d’infos : relecture humaine quand la confiance n’est pas totale.',
   },
   {
     href: '/ia/rag-base-connaissances',
-    title: 'RAG & base de connaissances',
-    description: 'Retrieval sur vos documents : chunking, index, citations et ingestion.',
+    title: 'Vos documents, vos réponses',
+    description: 'FAQ interne, notices, PDF : l’assistant cite vos sources et dit quand il ne sait pas.',
   },
   {
     href: '/ia/ia-generative-ecommerce',
-    title: 'IA générative e-commerce',
-    description: 'Fiches, search, support : templates, validation humaine et SEO sous contrôle.',
+    title: 'IA & boutique en ligne',
+    description: 'Brouillons de fiches, aide au support : sous votre contrôle, sans promesses inventées.',
   },
 ];
 
@@ -102,10 +102,10 @@ export function IaPremiumBento() {
         >
           <p className="font-mono text-[11px] tracking-[0.28em] text-white/55 uppercase">Offres</p>
           <h2 className="si-serif-display mt-4 text-[clamp(2rem,4vw,3.5rem)] leading-[1.08] font-medium tracking-[-0.03em] text-white">
-            Six façons d’utiliser l’IA sans sacrifier la maîtrise
+            Six façons d’utiliser l’IA au service de votre activité
           </h2>
           <p className="mt-5 max-w-xl text-sm leading-relaxed text-white/60 md:text-base">
-            Chaque page détaille périmètre, comparatifs, process et budget indicatif.
+            Chaque page résume l’idée, pour qui c’est fait, le déroulé et une fourchette de budget indicative.
           </p>
         </motion.div>
 

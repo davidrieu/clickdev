@@ -1,26 +1,26 @@
-/** Contenus page premium `/ia/ia-generative-ecommerce`. */
+/** Contenus page premium `/ia/ia-generative-ecommerce` — ton accessible. */
 
 export const IA_GENERATIVE_ECOMMERCE_PATH = '/ia/ia-generative-ecommerce';
 
 export const IA_GENERATIVE_ECOMMERCE_KEYWORDS = [
-  'IA générative e-commerce',
-  'rédaction fiches produit IA',
-  'search conversationnel e-commerce',
-  'IA Shopify WooCommerce',
-  'freelance IA e-commerce',
+  'IA boutique en ligne',
+  'aide rédaction fiches produit',
+  'assistant e-commerce',
+  'freelance IA Shopify WooCommerce',
+  'contenu boutique IA',
 ] as const;
 
 export const iaGenerativeEcommerceMetaDescription =
-  'IA générative e-commerce : fiches produit, search, support — templates, validation humaine, SEO duplicate & canonical. Freelance Clickdev.';
+  'IA pour votre boutique en ligne : brouillons de fiches produit, aide au support, recherche plus parlante — toujours sous votre contrôle, sans promesses inventées. Clickdev.';
 
-export const iaGenerativeEcommerceMetaTitle = 'IA générative e-commerce — Contenus & conversion | Clickdev';
+export const iaGenerativeEcommerceMetaTitle = 'IA pour e-commerce — Fiches & support | Clickdev';
 
 export const IA_GENERATIVE_ECOMMERCE_HERO = {
-  chapter: 'Chapitre 03.6 · IA générative e-commerce',
-  subline: 'Développeur freelance — Shop & conformité',
-  h1: 'IA générative pour votre e-commerce',
+  chapter: 'Chapitre 03.6 · Boutique en ligne',
+  subline: 'Développeur freelance — Vente en ligne',
+  h1: 'L’IA pour avancer sur votre catalogue — sans dire n’importe quoi',
   lead:
-    'L’IA peut accélérer rédaction, recherche conversationnelle ou support — à condition de ne pas inventer des promesses légales ou des specs produit. Je cadre les sorties (templates, validation humaine sur catégories sensibles) et le SEO (duplicate, canonical) pour que le gain interne ne dégrade pas votre visibilité.',
+    'Rédiger des fiches plus vite, aider le support avec des brouillons basés sur votre politique de retour, proposer une recherche plus “en langage courant” : oui, si on encadre les sorties. Pas de promesses légales ou techniques inventées, pas de prix ou de stock “devinés” : votre boutique reste la référence pour l’essentiel.',
   primaryCta: { href: '/devis?projectType=ecommerce', label: 'Demander un devis' },
   secondaryCta: { href: `${IA_GENERATIVE_ECOMMERCE_PATH}#portfolio`, label: 'Voir des exemples' },
 } as const;
@@ -28,77 +28,77 @@ export const IA_GENERATIVE_ECOMMERCE_HERO = {
 export const IA_GENERATIVE_ECOMMERCE_BENEFITS = {
   kicker: 'Ce que vous obtenez',
   title: 'Du contenu plus vite — sans casser la confiance',
-  subtitle: 'Templates, garde-fous et SEO : le trio pour scaler sans dette.',
+  subtitle: 'Modèles de texte, relecture sur le sensible, et référencement sous contrôle.',
   items: [
     {
-      title: 'Fiches & variantes structurées',
-      body: 'Champs obligatoires, ton de marque, longueurs : le modèle remplit le cadre.',
+      title: 'Fiches structurées',
+      body: 'Champs obligatoires, ton de marque, longueurs : l’outil remplit le cadre que vous imposez.',
     },
     {
-      title: 'Validation humaine ciblée',
-      body: 'Médical, légal, specs techniques : ce qui doit passer par un humain passe.',
+      title: 'Relecture humaine ciblée',
+      body: 'Santé, légal, fiches techniques : ce qui doit passer par une personne passe.',
     },
     {
-      title: 'SEO duplicate sous contrôle',
-      body: 'Canonical, noindex sur variantes fines, contrôle des pages générées.',
+      title: 'SEO : pas de doublons sauvages',
+      body: 'Pages canoniques, indexation réfléchie : on évite la multiplication de pages vides.',
     },
     {
-      title: 'A/B et rollback',
-      body: 'Tester un module IA visible client, revenir en arrière si la conversion baisse.',
+      title: 'Tests et retour arrière',
+      body: 'On peut tester une fonction visible par les clients et revenir en arrière si les chiffres baissent.',
     },
   ],
 } as const;
 
 export const IA_GENERATIVE_ECOMMERCE_EDITORIAL = {
   kicker: 'Lecture',
-  title: 'Fiches produit IA : le vrai risque est juridique autant que SEO',
+  title: 'Fiches produit et IA : le vrai risque est juridique autant que le référencement',
 } as const;
 
 export const IA_GENERATIVE_ECOMMERCE_AUDIENCE = {
   kicker: 'Pour vous',
   title: 'Pour qui c’est fait',
-  subtitle: 'E-commerçants et équipes marketing sous pression contenu.',
+  subtitle: 'Commerçants et équipes marketing sous pression “contenu”.',
   cards: [
-    { title: 'Catalogues larges', body: 'Esquisses de fiches, enrichissement, traduction assistée.' },
-    { title: 'Marketplaces & multi-canal', body: 'Cohérence des claims entre canaux.' },
-    { title: 'Support e-commerce', body: 'Brouillons de réponses ancrés sur politique retour / garantie.' },
-    { title: 'Search conversationnelle', body: 'Intent + produits : sans inventer la dispo stock.' },
+    { title: 'Gros catalogues', body: 'Brouillons de fiches, enrichissement, aide à la traduction avec glossaire.' },
+    { title: 'Marketplaces & plusieurs canaux', body: 'Cohérence des messages entre site, marketplaces et réseaux.' },
+    { title: 'Support e-commerce', body: 'Brouillons alignés sur vos conditions de retour et garanties publiées.' },
+    { title: 'Recherche “comme on parle”', body: 'Proposer des produits sans inventer la disponibilité en stock.' },
   ],
 } as const;
 
 export const IA_GENERATIVE_ECOMMERCE_COMPARE = {
   kicker: 'Décision',
-  title: 'Rédaction pure IA, assistée, ou 100 % humaine ?',
+  title: 'Texte 100 % IA, assisté, ou 100 % humain ?',
   subtitle: 'L’assistance gagne souvent : vitesse + humain sur le sensible.',
-  columns: ['100 % IA', 'Assistée', '100 % humaine'] as const,
+  columns: ['100 % IA', 'Assisté', '100 % humain'] as const,
   rows: [
     { label: 'Débit maximal', c: [true, true, false] as const },
     { label: 'Risque légal maîtrisé', c: [false, true, true] as const },
-    { label: 'Cohérence SEO & duplicate', c: [false, true, true] as const },
+    { label: 'Référencement & doublons sous contrôle', c: [false, true, true] as const },
     { label: 'Coût rédaction bas', c: [true, true, false] as const },
     { label: 'Qualité premium garantie', c: [false, true, true] as const },
-    { label: 'Time-to-market rapide', c: [true, true, false] as const },
+    { label: 'Mise en ligne rapide', c: [true, true, false] as const },
   ],
 } as const;
 
 export const IA_GENERATIVE_ECOMMERCE_PROCESS = {
   kicker: 'Process',
-  title: 'Cinq étapes pour scaler le contenu sans dérapage',
+  title: 'Cinq étapes pour gagner du temps sans déraper',
   steps: [
     { n: '01', title: 'Grille éditoriale', body: 'Champs, interdits, preuves obligatoires, catégories sensibles.' },
-    { n: '02', title: 'Templates & prompts', body: 'Structures stables pour limiter la dérive.' },
-    { n: '03', title: 'Flux validation', body: 'Workflow humain par catégorie ou score.' },
-    { n: '04', title: 'Publication & SEO', body: 'URLs, canonicals, indexation contrôlée.' },
-    { n: '05', title: 'Mesure', body: 'A/B, temps gagné, incidents qualité : itération guidée.' },
+    { n: '02', title: 'Modèles & consignes', body: 'Structures stables pour limiter les dérives de ton ou de promesse.' },
+    { n: '03', title: 'Circuit de validation', body: 'Qui relit quoi selon la catégorie ou un score de confiance.' },
+    { n: '04', title: 'Publication & SEO', body: 'Adresses web, pages canoniques, indexation maîtrisée.' },
+    { n: '05', title: 'Mesure', body: 'Temps gagné, incidents qualité, tests A/B si pertinent : on itère.' },
   ],
 } as const;
 
 export const IA_GENERATIVE_ECOMMERCE_STACK = {
-  kicker: 'Stack',
-  title: 'Shop, CMS, APIs catalogue',
+  kicker: 'Technologies',
+  title: 'Boutique, contenu, catalogue',
   body:
-    'Shopify, WooCommerce, headless Next.js + API produit ; LLM via API ; stock et prix toujours source système — jamais “inventés” par le modèle.',
-  labels: ['Shopify', 'WooCommerce', 'Next.js', 'OpenAI', 'Sanity', 'Algolia', 'GA4'],
+    'Shopify, WooCommerce, ou site sur mesure avec catalogue en ligne ; l’IA passe par des API. Prix et stock viennent toujours de votre système — jamais “inventés” par le modèle.',
+  labels: ['Shopify', 'WooCommerce', 'Next.js', 'OpenAI', 'Sanity', 'Analytics'],
 } as const;
 
 export const IA_GENERATIVE_ECOMMERCE_CASES = {
@@ -109,45 +109,45 @@ export const IA_GENERATIVE_ECOMMERCE_CASES = {
 
 export const IA_GENERATIVE_ECOMMERCE_FAQ = {
   kicker: 'FAQ',
-  title: 'Questions fréquentes — IA générative e-commerce',
-  subtitle: 'SEO, données clients, conformité.',
+  title: 'Questions fréquentes — IA & boutique en ligne',
+  subtitle: 'Référencement, données clients, conformité.',
 } as const;
 
 export const IA_GENERATIVE_ECOMMERCE_FAQ_ITEMS = [
   {
-    question: 'Données clients dans le LLM ?',
+    question: 'Les données clients partent vers l’IA ?',
     answer:
-      'À éviter par défaut : anonymisation, prompts côté serveur, et fournisseurs avec DPA adaptés au RGPD.',
+      'À éviter par défaut : anonymisation, traitement côté serveur, et contrats adaptés au RGPD avec le fournisseur.',
   },
   {
-    question: 'Risque duplicate SEO ?',
+    question: 'Risque de contenu dupliqué pour Google ?',
     answer:
-      'On contrôle indexation, canonicals, et pages générées ; pas de multiplication de pages pauvres sans intention.',
+      'On contrôle l’indexation, les pages canoniques et ce qui est publié ; pas de multiplication de pages pauvres sans intention.',
   },
   {
     question: 'Combien coûte un dispositif ?',
     answer:
-      'Souvent à partir de 4 200 € pour un premier module (ex. brouillons fiches + workflow validation). Au-delà, le budget suit le nombre de templates, langues, et connecteurs PIM. Devis gratuit.',
+      'Souvent à partir de 4 200 € pour un premier module (ex. brouillons de fiches + circuit de validation). Ensuite le budget suit les modèles de page, les langues et les connexions catalogue. Devis gratuit.',
   },
   {
     question: 'Shopify ou sur mesure ?',
     answer:
-      'Les deux : l’important est où vit la vérité prix/stock et comment on publie sans casser le thème.',
+      'Les deux : l’important est où vivent prix et stock, et comment on publie sans casser votre thème ou votre site.',
   },
   {
     question: 'Traductions ?',
     answer:
-      'Assistées avec glossaire et relecture sur pages clés ; pas de “traduction aveugle” sur claims légaux.',
+      'Assistées avec glossaire et relecture sur les pages clés ; pas de traduction aveugle sur les mentions légales.',
   },
   {
-    question: 'Search sur catalogue ?',
+    question: 'Recherche sur le catalogue ?',
     answer:
-      'Hybride classique + sémantique possible ; coût et latence cadrés selon trafic.',
+      'On peut combiner recherche classique et compréhension du langage naturel ; coût et rapidité cadrés selon le trafic.',
   },
   {
     question: 'Lien avec le SEO classique ?',
     answer:
-      'Oui : le silo SEO et les gabarits produit restent le cadre ; l’IA accélère sans remplacer la stratégie.',
+      'Oui : le silo SEO et vos gabarits produit restent le cadre ; l’IA accélère sans remplacer la stratégie.',
   },
 ] as const;
 
@@ -158,7 +158,7 @@ export const IA_GENERATIVE_ECOMMERCE_BUDGET = {
 } as const;
 
 export const IA_GENERATIVE_ECOMMERCE_FINAL_CTA = {
-  title: 'Un catalogue à enrichir sans exploser la qualité ni le SEO ?',
+  title: 'Un catalogue à enrichir sans sacrifier la qualité ni le référencement ?',
   primaryHref: '/devis?projectType=ecommerce',
   primaryLabel: 'Demander un devis e-commerce + IA',
   secondaryHref: '/contact',

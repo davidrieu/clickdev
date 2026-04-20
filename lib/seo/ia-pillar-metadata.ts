@@ -7,25 +7,24 @@ const canonical = `${SITE_URL.replace(/\/$/, '')}${path}`;
 
 /** Métadonnées pilier `/ia`. */
 export function iaPillarMetadata(): Metadata {
-  const title = 'Intégration IA freelance — Chatbots, agents, RAG | Clickdev';
+  const title = 'IA pour sites, apps & chatbots — Freelance Clickdev';
   const description =
-    'Intégration IA en produit : APIs, RAG, chatbots, agents, automatisation. Garde-fous, coûts et sécurité. Freelance expérimenté — devis gratuit.';
+    'Intégration d’IA dans sites et applications mobiles, chatbots, automatisation et boutique en ligne : un langage clair, des objectifs concrets, devis gratuit.';
   const ogTitle = 'IA — Clickdev';
   const ogDesc =
-    'LLM en production : intégrations utiles, mesurables et maîtrisées — du POC au run.';
+    'Sites, applications, assistants conversationnels : de l’IA utile pour vos clients et vos équipes.';
   const ogImage = '/og-sites-internet.png';
 
   return {
     title,
     description,
     keywords: [
-      'intégration IA',
-      'freelance IA',
-      'RAG entreprise',
-      'chatbot IA',
-      'agents IA',
-      'automatisation IA',
-      'OpenAI freelance',
+      'IA site web',
+      'chatbot freelance',
+      'application mobile IA',
+      'intégration IA PME',
+      'assistant boutique en ligne',
+      'freelance intelligence artificielle',
     ],
     alternates: { canonical },
     openGraph: {

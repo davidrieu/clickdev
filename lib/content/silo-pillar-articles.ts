@@ -45,39 +45,39 @@ const ARTICLES: Record<ServiceSilo, MarketingLongArticle> = {
   },
   ia: {
     metaDescription:
-      'Intégration IA : chatbots, agents, RAG, automatisation — produits utiles et maîtrisés des coûts, avec Clickdev.',
+      'IA pour sites, applications mobiles et chatbots : intégrations utiles, langage clair, budgets suivis — Clickdev.',
     lead:
-      'L’IA générative sert quand elle réduit un coût, accélère une décision ou améliore l’expérience utilisateur — pas pour afficher un gadget. Je conçois des intégrations pragmatiques (API OpenAI / Anthropic, RAG sur vos documents, workflows n8n/Make).',
+      'L’IA sert quand elle fait gagner du temps au support, aide un visiteur sur le site, ou allège une tâche répétitive dans l’entreprise — pas pour la frime. Je conçois des assistants, des chatbots et des branchements dans vos outils, avec un œil sur le coût et la confidentialité.',
     sections: [
       {
         heading: 'Cas d’usage',
         paragraphs: [
-          'Assistants internes sur base documentaire (RAG), qualification de leads, génération de contenus contrôlés, extraction d’informations depuis des tickets ou emails, et orchestration avec vos outils existants (CRM, helpdesk).',
-          'Chaque intégration inclut garde-fous : prompts versionnés, limitation des hallucinations, journaux et budgets tokens pour maîtriser les coûts.',
+          'Chatbot sur le site ou la boutique, aide sur vos documents internes, petites automatisations (tri de demandes, brouillons de réponse), ou fonctions intelligentes dans une application mobile.',
+          'Chaque projet inclut des limites claires : ce que l’outil peut dire, quand une personne reprend la main, et un suivi du budget lié aux services d’IA.',
         ],
       },
       {
         heading: 'Sécurité & conformité',
         paragraphs: [
-          'Classement des données, rétention, anonymisation et choix des modèles (cloud vs hébergement) sont discutés en amont. Les flux sensibles peuvent rester on-prem ou derrière vos API.',
+          'On classe ce qui est sensible, ce qu’on garde chez vous, et ce qui peut transiter vers un fournisseur externe. Les flux les plus délicats restent sous votre contrôle ou derrière vos propres accès.',
         ],
       },
     ],
     faq: [
       {
-        question: 'Faut-il fine-tuner un modèle ?',
+        question: 'Faut-il “entraîner” un modèle sur mes données ?',
         answer:
-          'Rarement en première étape : prompt engineering, outils (function calling) et RAG donnent souvent 80 % de la valeur. Le fine-tuning se discute lorsque le volume et la stabilité des données l’exigent.',
+          'Rarement au début : on obtient déjà beaucoup en s’appuyant sur vos textes existants, en cadrant les réponses et en reliant vos outils. Un entraînement spécifique se discute seulement si le volume et la stabilité des données le justifient.',
       },
       {
         question: 'Combien coûte une intégration IA ?',
         answer:
-          'Les coûts sont liés au volume d’appels, au modèle choisi et à la complexité du pipeline. Un POC cadré permet de mesurer le coût marginal avant industrialisation.',
+          'Ça dépend du nombre de parcours, des contenus à brancher et du volume d’usage. Un petit pilote permet de mesurer coût et qualité avant d’élargir.',
       },
       {
         question: 'Quelle différence avec un simple chatbot ?',
         answer:
-          'Un chatbot peut être une fenêtre de chat. Une intégration produit relie l’IA à vos données, vos règles métier et vos actions (création de ticket, mise à jour CRM, brouillon d’email validé par un humain).',
+          'Un chatbot répond surtout dans une fenêtre de discussion. Une intégration plus poussée relie aussi vos règles et vos actions (ticket, CRM, brouillon validé par un humain).',
       },
     ],
   },

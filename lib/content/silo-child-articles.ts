@@ -100,28 +100,28 @@ const OVERRIDES: Partial<Record<string, MarketingLongArticle>> = {
   },
   'ia:integration-ia': {
     metaDescription:
-      'Intégration IA en produit : APIs, garde-fous, coûts et sécurité — accompagnement freelance Clickdev.',
+      'IA dans votre site ou application : assistants, sécurité et budget — accompagnement freelance Clickdev.',
     lead:
-      'Intégrer l’IA dans un produit existant, c’est brancher des modèles sur vos données et vos règles — avec des limites claires sur ce que l’IA peut décider seule. Je conçois des flux avec validation humaine, journaux et budgets tokens.',
+      'Ajouter de l’intelligence à votre site ou à votre appli, c’est clarifier ce que l’outil peut faire seul, ce qui doit rester humain, et comment suivre le coût. Je mets en place des parcours simples à expliquer, avec vos données protégées et une note pour la suite.',
     sections: [
       {
         heading: 'Chaîne de valeur',
         paragraphs: [
-          'Identification des tâches à fort ROI (support, qualification, synthèse), choix du modèle, prompts versionnés et tests sur cas limites. Les données sensibles sont filtrées avant envoi au fournisseur.',
+          'On part des usages : support, qualification, formulaires plus malins. Les données sensibles sont limitées ou anonymisées avant tout envoi vers un service externe.',
         ],
       },
       {
         heading: 'Exploitation',
         paragraphs: [
-          'Monitoring des latences, quotas, erreurs et repli si le fournisseur est indisponible. Documentation pour que votre équipe puisse itérer sans dépendre d’une boîte noire.',
+          'Suivi des temps de réponse, des erreurs et du budget “IA”. Une documentation courte pour que vous ou une autre personne puissiez faire évoluer le dispositif sans tout reprendre.',
         ],
       },
     ],
     faq: [
       {
-        question: 'On commence par un POC ?',
+        question: 'On peut commencer par un petit test ?',
         answer:
-          'Souvent oui : un périmètre restreint mais mesurable en 2–4 semaines permet de valider coût et qualité avant industrialisation.',
+          'Oui : un périmètre clair sur quelques semaines permet de valider coût et qualité avant d’aller plus loin.',
       },
     ],
   },
@@ -149,14 +149,14 @@ const OVERRIDES: Partial<Record<string, MarketingLongArticle>> = {
   },
   'ia:chatbot-ia': {
     metaDescription:
-      'Chatbot IA : scénarios, garde-fous, intégration CRM et mesure — conception freelance Clickdev.',
+      'Chatbot sur site : réponses basées sur vos textes, transfert humain, outils de support — Clickdev.',
     lead:
-      'Un chatbot utile réduit le temps de première réponse et qualifie les demandes — sans remplacer l’humain sur les cas sensibles. Je conçois des scénarios explicites, des sources de vérité (FAQ, base interne) et des garde-fous pour limiter les hallucinations.',
+      'Un bon chatbot répond vite aux questions récurrentes et sait passer la main à une vraie personne. Je m’appuie sur vos contenus déjà publiés (FAQ, conditions) et je limite les sujets où l’IA ne doit pas improviser.',
     sections: [
       {
         heading: 'Expérience & fiabilité',
         paragraphs: [
-          'Handoff vers un agent humain, journaux de conversation, catégorisation des intents et limitation des sujets hors périmètre. Les contenus sont versionnés et testés sur jeux de questions clients réels.',
+          'Transfert vers un humain avec le contexte, sujets hors périmètre refusés poliment, tests sur les questions que vos clients posent vraiment.',
         ],
       },
     ],
@@ -164,7 +164,7 @@ const OVERRIDES: Partial<Record<string, MarketingLongArticle>> = {
       {
         question: 'Chatbot sur le site ou sur WhatsApp ?',
         answer:
-          'Les deux sont possibles selon vos canaux : widget web, messagerie, ou intégration helpdesk. Le périmètre détermine l’architecture (webhooks, OAuth, stockage).',
+          'Les deux sont possibles selon vos canaux : fenêtre sur le site, messagerie ou lien avec votre outil de tickets.',
       },
     ],
   },
@@ -212,22 +212,22 @@ const OVERRIDES: Partial<Record<string, MarketingLongArticle>> = {
   },
   'ia:agents-ia': {
     metaDescription:
-      'Agents IA : planification d’actions, outils, garde-fous et supervision — conception freelance Clickdev.',
+      'Scénarios d’IA sur plusieurs étapes : actions dans vos outils, validation humaine — Clickdev.',
     lead:
-      'Un agent IA en production enchaîne des étapes (lire un ticket, proposer une réponse, appeler une API) avec des règles de repli. Je conçois des boucles testables : prompts versionnés, outils typés, budgets et journaux pour auditer chaque décision.',
+      'Quand il faut enchaîner plusieurs actions (lire une demande, mettre à jour un dossier, envoyer un message), je conçois des scénarios avec limites de temps et d’étapes, validation sur ce qui est sensible, et un historique pour comprendre ce qui s’est passé.',
     sections: [
       {
         heading: 'Fiabilité',
         paragraphs: [
-          'Human-in-the-loop sur les actions sensibles, limitation des boucles, timeouts et idempotence sur les effets de bord. Les secrets et tokens restent côté serveur.',
+          'Validation humaine sur remboursements ou messages sensibles, plafonds pour éviter les boucles infinies, mots de passe et accès uniquement côté serveur.',
         ],
       },
     ],
     faq: [
       {
-        question: 'Agents vs simple chatbot ?',
+        question: 'Différence avec un simple chatbot ?',
         answer:
-          'L’agent enchaîne plusieurs outils et étapes ; le chatbot répond sur un corpus. Le surcoût en complexité doit être justifié par le gain mesurable.',
+          'Le chatbot répond surtout à partir de textes ; ici on enchaîne des actions concrètes dans vos systèmes. La complexité doit être payée par un gain clair.',
       },
     ],
   },
@@ -401,14 +401,14 @@ const OVERRIDES: Partial<Record<string, MarketingLongArticle>> = {
   },
   'ia:automatisation-ia': {
     metaDescription:
-      'Automatisation IA : extraction, classification, routage et garde-fous — freelance Clickdev.',
+      'Automatisation avec IA : tri, extraction, routage avec relecture humaine — freelance Clickdev.',
     lead:
-      'L’automatisation par modèles doit rester observable : scores de confiance, seuils de rejet, file d’attente humaine et journaux pour expliquer chaque décision automatique. Je branche les flux sur vos outils (CRM, helpdesk, ERP) sans multiplier les copies de données sensibles.',
+      'Classer une demande ou relever des infos dans un document peut être aidé par l’IA si on garde une file pour les cas douteux et un minimum de trace. Je relie tout à vos outils habituels sans disperser des copies sensibles partout.',
     sections: [
       {
         heading: 'Données',
         paragraphs: [
-          'Minimisation, rétention, et cloisonnement des clés API. Les prompts et jeux de test sont versionnés comme du code.',
+          'On n’envoie que le nécessaire, durées de conservation cadrées, accès aux services externes sécurisés. Les consignes et exemples de test évoluent comme un petit projet logiciel.',
         ],
       },
     ],
@@ -416,49 +416,49 @@ const OVERRIDES: Partial<Record<string, MarketingLongArticle>> = {
       {
         question: '100 % automatique ?',
         answer:
-          'Rarement souhaitable au départ : un pilote avec revue humaine réduit les risques avant d’élargir les seuils.',
+          'Rarement au début : un pilote avec relecture humaine réduit les risques avant d’assouplir les règles.',
       },
     ],
   },
   'ia:rag-base-connaissances': {
     metaDescription:
-      'RAG et base de connaissances : chunking, embeddings, retrieval et évaluation — freelance Clickdev.',
+      'Assistant sur vos documents : FAQ interne, PDF, procédures — réponses sourcées — Clickdev.',
     lead:
-      'Un RAG efficace dépend du découpage des documents, de la qualité des embeddings et du reranking. Je mets en place des jeux de questions/réponses attendues, des métriques simples (taux de citation correcte) et des garde-fous quand la base ne contient pas la réponse.',
+      'Plutôt que de laisser l’IA inventer, on indexe vos textes officiels et on répond en s’y référant. Quand l’information manque, l’assistant le dit. On organise les mises à jour et, si besoin, qui a le droit de voir quoi.',
     sections: [
       {
         heading: 'Mise à jour',
         paragraphs: [
-          'Pipeline d’ingestion (webhooks, batch), invalidation du cache vectoriel et traçabilité des versions de documents ingérés.',
+          'Import régulier ou à chaque publication selon votre site ou votre drive, avec suivi des versions pour éviter les réponses sur d’anciennes notices.',
         ],
       },
     ],
     faq: [
       {
-        question: 'Vector DB ?',
+        question: 'Où sont stockées les informations ?',
         answer:
-          'Choix selon volumétrie, latence et contraintes d’hébergement (cloud managé vs self-hosted). Le cadrage inclut coût et reprise après incident.',
+          'Selon la taille de votre documentation et vos contraintes d’hébergement ; le devis précise coût et reprise après incident.',
       },
     ],
   },
   'ia:ia-generative-ecommerce': {
     metaDescription:
-      'IA générative e-commerce : fiches produit, search, support et conformité — freelance Clickdev.',
+      'IA pour boutique en ligne : fiches produit, support, recherche — sous contrôle — freelance Clickdev.',
     lead:
-      'L’IA peut accélérer rédaction, recherche conversationnelle ou support — à condition de ne pas inventer des promesses légales ou des specs produit. Je cadre les sorties (templates, validation humaine sur catégories sensibles) et le SEO (duplicate, canonical).',
+      'L’IA peut aider à rédiger des fiches ou des réponses support plus vite, à condition de ne pas inventer des promesses légales ni des caractéristiques produit. Prix et stock restent ce que dit votre boutique ; je cadre les textes et le référencement pour éviter les pages vides ou trompeuses.',
     sections: [
       {
         heading: 'Conversion',
         paragraphs: [
-          'Tests A/B sur les modules IA visibles client, mesure du temps gagné en interne, et rollback rapide si la qualité baisse.',
+          'Tests sur les parties visibles par vos clients, mesure du temps gagné en interne, et possibilité de revenir en arrière vite si les résultats baissent.',
         ],
       },
     ],
     faq: [
       {
-        question: 'Données clients dans le LLM ?',
+        question: 'Les données clients partent vers l’IA ?',
         answer:
-          'À éviter par défaut : anonymisation, prompts côté serveur, et fournisseurs avec DPA adaptés au RGPD.',
+          'À éviter par défaut : anonymisation, traitement côté serveur, et contrats adaptés au RGPD avec le fournisseur.',
       },
     ],
   },

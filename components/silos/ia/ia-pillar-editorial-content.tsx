@@ -4,26 +4,25 @@ export function IaPillarEditorialContent() {
   return (
     <>
       <p className="mt-5 text-base leading-[1.75] text-white/70 first-letter:float-left first-letter:mr-3 first-letter:font-serif first-letter:text-[3.25rem] first-letter:leading-[0.85] first-letter:font-medium first-letter:text-white/90 md:first-letter:text-[3.75rem]">
-        L’<strong className="font-medium text-white/90">IA en production</strong>, ce n’est pas une démo sur un
-        slide : c’est une dépendance externe (fournisseur, modèle, quota), des données qui bougent, et des utilisateurs
-        qui jugent en secondes. D’où les <strong className="font-medium text-white/90">garde-fous</strong>, les{' '}
-        <strong className="font-medium text-white/90">journaux</strong>, et les budgets tokens traités comme une ligne
-        de marge — pas comme une footnote ops.
+        L’<strong className="font-medium text-white/90">intelligence artificielle</strong> sur un site ou dans une appli,
+        ce n’est pas une démo : vos clients la jugent en quelques secondes, et le coût d’utilisation doit rester lisible
+        pour vous. D’où des <strong className="font-medium text-white/90">règles simples</strong>, un suivi honnête, et
+        des priorités claires avant de parler d’outils.
       </p>
       <p className="mt-4 text-base leading-[1.75] text-white/70">
         Les pages{' '}
         <Link href="/ia/integration-ia" className="text-white/75 underline-offset-4 transition hover:text-white hover:underline">
-          intégration
+          site & appli
         </Link>
         ,{' '}
         <Link href="/ia/rag-base-connaissances" className="text-white/75 underline-offset-4 transition hover:text-white hover:underline">
-          RAG
+          documents internes
         </Link>{' '}
         et{' '}
         <Link href="/ia/agents-ia" className="text-white/75 underline-offset-4 transition hover:text-white hover:underline">
-          agents
+          scénarios sur plusieurs étapes
         </Link>{' '}
-        couvrent des niveaux de complexité différents ;{' '}
+        ne demandent pas le même niveau d’investissement ;{' '}
         <Link href="/ia/chatbot-ia" className="text-white/75 underline-offset-4 transition hover:text-white hover:underline">
           chatbot
         </Link>{' '}
@@ -32,41 +31,40 @@ export function IaPillarEditorialContent() {
           href="/ia/ia-generative-ecommerce"
           className="text-white/75 underline-offset-4 transition hover:text-white hover:underline"
         >
-          e-commerce
+          boutique en ligne
         </Link>{' '}
-        restent souvent les portes d’entrée les plus lisibles côté métier.
+        restent souvent les portes d’entrée les plus parlantes pour un indépendant ou une PME.
       </p>
 
       <h3 className="si-editorial-h3 si-serif-display mt-14 text-2xl font-medium tracking-tight text-white md:text-[1.65rem]">
-        POC : mesurer avant d’étiqueter “IA partout”
+        Un petit pilote vaut mieux qu’une grande annonce vide
       </h3>
       <p className="mt-4 text-base leading-[1.75] text-white/70">
-        Un périmètre restreint mais mesurable en quelques semaines bat une roadmap floue sur six mois. Les métriques
-        utiles sont souvent le temps gagné, le taux d’erreur humaine évitée, ou le coût marginal par ticket — pas le
-        nombre de tokens affichés sur un dashboard vanity.
+        Quelques semaines sur un périmètre réel (temps gagné au téléphone, demandes traitées sur le site) bat une feuille
+        de route floue sur six mois. Les chiffres utiles sont ceux que vous comprenez sans être développeur.
       </p>
 
       <blockquote className="si-editorial-pullquote si-serif-display my-10 border-l-4 border-white/30 py-1 pl-6 text-lg leading-snug text-white/85 italic md:text-xl">
-        « Si personne ne peut expliquer pourquoi le modèle a proposé cette action, vous n’êtes pas prêt à scaler. »
+        « Si vous ne pouvez pas expliquer à un client ce que fait l’outil, il n’est pas prêt à être généralisé. »
       </blockquote>
 
       <h3 className="si-editorial-h3 si-serif-display mt-14 text-2xl font-medium tracking-tight text-white md:text-[1.65rem]">
-        Données : minimiser avant d’“optimiser le prompt”
+        Données : moins d’infos inutiles, avant toute chose
       </h3>
       <p className="mt-4 text-base leading-[1.75] text-white/70">
-        Le prompt parfait ne sauve pas un flux qui envoie trop de champs personnels. Le cadrage RGPD et produit vient
-        avant l’ingénierie — je peux implémenter proprement une fois les règles clarifiées avec vos responsables.
+        Même la meilleure formulation ne rattrape pas un flux qui envoie trop de données personnelles. Le cadre légal et
+        vos règles internes viennent en premier ; je mets en œuvre la partie technique une fois que c’est clair pour vous.
       </p>
 
       <h3 className="si-editorial-h3 si-serif-display mt-14 text-2xl font-medium tracking-tight text-white md:text-[1.65rem]">
-        IA et SEO : deux silos, une même exigence de clarté
+        IA et SEO : deux sujets, une même exigence de clarté
       </h3>
       <p className="mt-4 text-base leading-[1.75] text-white/70">
-        Pour le référencement classique et le contenu : le silo{' '}
+        Pour le référencement classique : le silo{' '}
         <Link href="/seo" className="text-white/75 underline-offset-4 transition hover:text-white hover:underline">
           SEO
         </Link>
-        . Pour des parcours web sans store :{' '}
+        . Pour les parcours web hors boutique :{' '}
         <Link href="/sites-internet" className="text-white/75 underline-offset-4 transition hover:text-white hover:underline">
           sites internet
         </Link>

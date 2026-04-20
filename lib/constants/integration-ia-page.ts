@@ -1,176 +1,176 @@
-/** Contenus page premium `/ia/integration-ia`. */
+/** Contenus page premium `/ia/integration-ia` — ton accessible. */
 
 export const INTEGRATION_IA_PATH = '/ia/integration-ia';
 
 export const INTEGRATION_IA_KEYWORDS = [
-  'intégration IA produit',
-  'API OpenAI freelance',
-  'LLM en production',
-  'garde-fous IA',
+  'intégration IA site web',
+  'IA dans application mobile',
+  'assistant sur mesure site',
   'freelance intégration IA',
+  'ChatGPT sur mon site',
 ] as const;
 
 export const integrationIaMetaDescription =
-  'Intégration IA en produit : APIs, prompts versionnés, budgets tokens, sécurité et monitoring. Accompagnement freelance Clickdev — devis gratuit.';
+  'Intégrer l’IA dans votre site ou votre application : assistant, formulaires intelligents, réponses cadrées. Sécurité, budget et suivi — Clickdev, devis gratuit.';
 
-export const integrationIaMetaTitle = 'Intégration IA en produit — APIs & garde-fous | Clickdev';
+export const integrationIaMetaTitle = 'IA dans votre site ou appli — Intégration sur mesure | Clickdev';
 
 export const INTEGRATION_IA_HERO = {
   chapter: 'Chapitre 03.1 · Intégration IA',
-  subline: 'Développeur freelance — LLM en prod',
-  h1: 'Intégration d’IA dans votre produit existant',
+  subline: 'Développeur freelance — Sites & applications',
+  h1: 'Mettre de l’intelligence artificielle dans ce que vous avez déjà',
   lead:
-    'Brancher un modèle sur vos données et vos règles, ce n’est pas coller une clé API : c’est définir ce que l’IA peut décider seule, où l’humain valide, et comment vous surveillez latences, quotas et erreurs. Prompts versionnés, journaux, repli si le fournisseur est indisponible : une intégration prête pour la vraie vie.',
+    'Vous avez un site ou une application : on peut y ajouter des fonctions “intelligentes” — aide à la rédaction, réponses aux questions fréquentes, tri de demandes — sans tout refaire. Les accès sensibles restent côté serveur, le coût d’utilisation est surveillé, et on peut commencer par un petit périmètre pour voir si ça vous convient.',
   primaryCta: { href: '/devis?projectType=outil', label: 'Demander un devis' },
   secondaryCta: { href: `${INTEGRATION_IA_PATH}#portfolio`, label: 'Voir des exemples' },
 } as const;
 
 export const INTEGRATION_IA_BENEFITS = {
   kicker: 'Ce que vous obtenez',
-  title: 'Une chaîne IA observable, pas une boîte noire',
-  subtitle: 'Du POC mesurable à la prod sans perdre le fil des versions.',
+  title: 'Une intégration qu’on peut expliquer et faire évoluer',
+  subtitle: 'Pas de boîte noire : vous savez ce que fait l’IA et ce qu’elle ne doit pas faire.',
   items: [
     {
-      title: 'Cartographie ROI & risques',
-      body: 'Tâches à fort gain, données sensibles, actions irréversibles : on trace les frontières avant le code.',
+      title: 'On clarifie l’objectif avant le code',
+      body: 'Gagner du temps au support ? Mieux orienter les visiteurs ? On définit ce qui compte pour vous.',
     },
     {
-      title: 'Filtrage & minimisation des données',
-      body: 'Ce qui part au modèle est explicitement choisi ; le reste reste chez vous.',
+      title: 'Vos informations restent maîtrisées',
+      body: 'On n’envoie au service d’IA que ce qui est utile ; le reste reste chez vous, avec les bons mots de passe et accès.',
     },
     {
-      title: 'Monitoring coûts & qualité',
-      body: 'Tokens, latences, taux d’échec : des tableaux de bord simples pour arbitrer modèle vs marge.',
+      title: 'Suivi du budget “IA”',
+      body: 'Les appels aux services type ChatGPT ont un coût : on met en place des garde-fous pour ne pas avoir de mauvaise surprise.',
     },
     {
-      title: 'Documentation pour votre équipe',
-      body: 'Runbooks, variables d’environnement, comment retester un prompt : vous n’êtes pas captifs.',
+      title: 'Une note pour la suite',
+      body: 'Résumé de ce qui a été branché et comment le désactiver ou l’améliorer plus tard.',
     },
   ],
 } as const;
 
 export const INTEGRATION_IA_EDITORIAL = {
   kicker: 'Lecture',
-  title: 'POC en 2–4 semaines : ce qu’il faut mesurer pour ne pas mentir',
+  title: 'Commencer petit, mesurer, puis élargir',
 } as const;
 
 export const INTEGRATION_IA_AUDIENCE = {
   kicker: 'Pour vous',
   title: 'Pour qui c’est fait',
-  subtitle: 'Produit, plateforme, équipe technique qui doit industrialiser.',
+  subtitle: 'Toute structure qui veut de l’IA utile dans son outil du quotidien.',
   cards: [
     {
-      title: 'Produits avec backlog IA',
-      body: 'Vous savez déjà quoi automatiser : il manque l’architecture et les garde-fous.',
+      title: 'Vous avez déjà un site ou une appli',
+      body: 'On ajoute une brique (assistant, aide contextuelle) sans forcément tout reconstruire.',
     },
     {
-      title: 'Équipes qui ont testé ChatGPT “à la main”',
-      body: 'On transforme les prompts artisanaux en pipeline versionné et testable.',
+      title: 'Vous testez l’IA “à la main” aujourd’hui',
+      body: 'On transforme ces essais en quelque chose de stable, intégré à votre parcours clients.',
     },
     {
-      title: 'CTO qui veut éviter la dette shadow IT',
-      body: 'Clés centralisées, logs, conformité : l’IA au même niveau qu’une API tierce.',
+      title: 'Vous voulez éviter le “chaque outil sa clé API”',
+      body: 'Un point central pour les accès et les règles, plus simple à gérer pour votre équipe.',
     },
     {
-      title: 'Scale-ups post-PMF',
-      body: 'Le coût marginal doit tenir : choix de modèle et cache là où ça compte.',
+      title: 'Vous grandissez et le temps manque',
+      body: 'L’objectif est que le gain de temps dépasse clairement le coût de la solution.',
     },
   ],
 } as const;
 
 export const INTEGRATION_IA_COMPARE = {
   kicker: 'Décision',
-  title: 'Feature “OpenAI”, intégration sur mesure, ou rien ?',
-  subtitle: 'Le bon niveau dépend de votre maturité data et de votre capacité à maintenir.',
-  columns: ['Feature SaaS', 'Sur mesure', 'Reporter'] as const,
+  title: 'Fonction toute faite, accompagnement sur mesure, ou on attend ?',
+  subtitle: 'Le bon choix dépend de votre outil actuel, de votre budget et de l’urgence.',
+  columns: ['Option intégrée au logiciel', 'Sur mesure avec moi', 'On garde l’existant'] as const,
   rows: [
-    { label: 'Contrôle fin des prompts & versions', c: [false, true, false] as const },
-    { label: 'Mise en prod en quelques clics', c: [true, false, true] as const },
-    { label: 'Logs & audit propres à votre domaine', c: [false, true, false] as const },
-    { label: 'Coût initial faible', c: [true, false, true] as const },
-    { label: 'Échappatoire hors catalogue fournisseur', c: [false, true, false] as const },
-    { label: 'Équipe interne pour maintenir', c: [false, true, false] as const },
+    { label: 'Mise en ligne très rapide', c: [true, false, true] as const },
+    { label: 'Adapté à votre façon de travailler', c: [false, true, false] as const },
+    { label: 'Contrôle fin des messages et des règles', c: [false, true, true] as const },
+    { label: 'Coût initial modeste', c: [true, false, true] as const },
+    { label: 'Évolutif sur mesure besoins', c: [false, true, true] as const },
+    { label: 'Peu d’implication de votre côté', c: [true, false, true] as const },
   ],
 } as const;
 
 export const INTEGRATION_IA_PROCESS = {
   kicker: 'Process',
-  title: 'Cinq étapes pour brancher l’IA proprement',
+  title: 'Cinq étapes pour intégrer l’IA sereinement',
   steps: [
-    { n: '01', title: 'Atelier valeur & données', body: 'Cas d’usage, risques, jeux de tests : le cadrage qui évite le scope flou.' },
-    { n: '02', title: 'Design du flux', body: 'Entrées, sorties, validation humaine, idempotence des effets de bord.' },
-    { n: '03', title: 'Implémentation & secrets', body: 'Serveur, clés, retries, timeouts : rien de sensible côté client.' },
-    { n: '04', title: 'POC & métriques', body: 'Mesure qualité + coût sur un échantillon représentatif.' },
-    { n: '05', title: 'Prod & run', body: 'Alertes, budgets, runbook ; puis itérations guidées par les chiffres.' },
+    { n: '01', title: 'Échange & cadrage', body: 'Ce que vous voulez améliorer, ce qui est interdit, quelques exemples concrets.' },
+    { n: '02', title: 'Parcours utilisateur', body: 'Où l’IA intervient, quand une personne reprend la main, que se passe-t-il en cas d’erreur.' },
+    { n: '03', title: 'Mise en œuvre technique', body: 'Connexion à votre site ou appli, comptes et mots de passe au bon endroit, temps de réponse raisonnables.' },
+    { n: '04', title: 'Essai contrôlé', body: 'On mesure qualité et coût sur un échantillon réel avant d’ouvrir à tout le monde.' },
+    { n: '05', title: 'Mise en service & suivi', body: 'Alertes simples si ça coince, puis améliorations quand vous avez du retour terrain.' },
   ],
 } as const;
 
 export const INTEGRATION_IA_STACK = {
-  kicker: 'Stack',
-  title: 'Ce qui tourne en prod chez vous',
+  kicker: 'Technologies',
+  title: 'Des briques solides, sans jargon inutile',
   body:
-    'Next.js / Node, Python si pipelines lourds, SDK OpenAI ou Anthropic, stockage des prompts en repo, observabilité (logs structurés, tracing léger).',
-  labels: ['OpenAI', 'Anthropic', 'TypeScript', 'Next.js', 'Python', 'LangSmith', 'PostgreSQL'],
+    'Souvent un site Next.js ou une API derrière votre application, avec les services d’OpenAI ou équivalents pour la partie “intelligente”. L’important est que ça reste maintenable pour vous.',
+  labels: ['Sites web', 'Apps mobiles', 'OpenAI', 'Next.js', 'API sécurisée', 'Suivi'],
 } as const;
 
 export const INTEGRATION_IA_CASES = {
   kicker: 'Portfolio',
   title: 'Outils et plateformes livrés en conditions réelles',
-  intro: 'Études de cas récentes — priorité aux projets outils & intégrations.',
+  intro: 'Études de cas récentes — dont intégrations et produits avec fonctions intelligentes.',
 } as const;
 
 export const INTEGRATION_IA_FAQ = {
   kicker: 'FAQ',
   title: 'Questions fréquentes — intégration IA',
-  subtitle: 'POC, coûts, données, maintenance.',
+  subtitle: 'Essai, coûts, données, maintenance.',
 } as const;
 
 export const INTEGRATION_IA_FAQ_ITEMS = [
   {
-    question: 'On commence par un POC ?',
+    question: 'On peut commencer par un petit test ?',
     answer:
-      'Souvent oui : un périmètre restreint mais mesurable en 2–4 semaines permet de valider coût et qualité avant industrialisation.',
+      'Oui, c’est même recommandé : un périmètre clair sur quelques semaines permet de voir si la qualité et le budget vous conviennent avant d’aller plus loin.',
   },
   {
-    question: 'Qui héberge les appels au modèle ?',
+    question: 'Où passent les demandes vers l’IA ?',
     answer:
-      'En général votre backend pour garder les clés et filtrer les données ; le front ne parle pas au fournisseur en direct.',
+      'En général par votre serveur ou votre hébergement : ainsi les clés d’accès ne sont pas exposées sur le navigateur de vos visiteurs.',
   },
   {
     question: 'Combien coûte une intégration ?',
     answer:
-      'Souvent à partir de 4 900 € pour un POC ou un premier module bien cadré. Au-delà, le budget suit le nombre de flux, du RAG, et des intégrations métiers. Devis gratuit.',
+      'Souvent à partir de 4 900 € pour un premier module ou un essai bien cadré. Ensuite le budget dépend du nombre de parcours, des contenus à brancher et des outils métiers. Devis gratuit.',
   },
   {
-    question: 'OpenAI ou Anthropic ?',
+    question: 'Faut-il choisir un fournisseur précis ?',
     answer:
-      'Choix selon qualité/latence/coût sur vos cas ; parfois les deux en A/B technique. Pas de religion, des critères mesurables.',
+      'Non : on choisit selon la qualité des réponses, la rapidité et le coût sur vos cas. L’objectif est un critère mesurable, pas une marque imposée.',
   },
   {
-    question: 'Gestion des mises à jour des modèles ?',
+    question: 'Et quand les services d’IA changent ?',
     answer:
-      'Versioning des prompts, tests de non-régression sur jeux de cas, et pin de modèle quand la stabilité prime.',
+      'On versionne les consignes et les scénarios comme du code classique, avec des tests sur vos exemples pour limiter les mauvaises surprises.',
   },
   {
-    question: 'RGPD ?',
+    question: 'RGPD et données personnelles ?',
     answer:
-      'Minimisation, DPA, documentation des traitements : on aligne l’implémentation avec votre légal / DPO quand il existe.',
+      'On limite ce qui est envoyé et on documente le flux ; le cadre légal final reste avec vous ou votre conseil, je mets en œuvre ce que vous validez.',
   },
   {
-    question: 'Vous formez nos devs ?',
+    question: 'Vous pouvez former mon équipe ?',
     answer:
-      'Oui : session de passation, README, et patterns pour qu’ils puissent itérer sans casser les garde-fous.',
+      'Oui : passation orale, petit guide écrit, et bonnes pratiques pour que vos développeurs puissent faire évoluer le tout sans casser les garde-fous.',
   },
 ] as const;
 
 export const INTEGRATION_IA_BUDGET = {
   title: 'Budget',
-  line: 'Les intégrations IA (POC ou premier module) démarrent souvent à partir de 4 900 €',
+  line: 'Les intégrations IA (essai ou premier module) démarrent souvent à partir de 4 900 €',
   note: 'Devis gratuit, personnalisé, sans engagement.',
 } as const;
 
 export const INTEGRATION_IA_FINAL_CTA = {
-  title: 'Prêt à passer du “prompt dans Slack” à du produit versionné ?',
+  title: 'Vous voulez de l’IA dans votre site ou votre appli, sans prise de tête ?',
   primaryHref: '/devis?projectType=outil',
   primaryLabel: 'Demander un devis intégration IA',
   secondaryHref: '/contact',

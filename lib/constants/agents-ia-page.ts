@@ -1,104 +1,104 @@
-/** Contenus page premium `/ia/agents-ia`. */
+/** Contenus page premium `/ia/agents-ia` — ton accessible (scénarios multi-étapes). */
 
 export const AGENTS_IA_PATH = '/ia/agents-ia';
 
 export const AGENTS_IA_KEYWORDS = [
-  'agents IA',
-  'agentic AI',
-  'LLM outils API',
-  'automatisation agent freelance',
-  'freelance agents IA',
+  'automatisation intelligente plusieurs étapes',
+  'IA qui enchaîne des actions',
+  'assistant connecté CRM',
+  'freelance automatisation IA',
+  'scénario IA entreprise',
 ] as const;
 
 export const agentsIaMetaDescription =
-  'Agents IA : planification d’actions, appels d’outils typés, garde-fous, budgets et supervision humaine. Freelance Clickdev — devis gratuit.';
+  'Scénarios d’IA sur plusieurs étapes : lire une demande, proposer une action, relier vos outils — avec validation humaine sur les cas sensibles. Clickdev — devis gratuit.';
 
-export const agentsIaMetaTitle = 'Agents IA — Planification, outils & supervision | Clickdev';
+export const agentsIaMetaTitle = 'Scénarios d’IA multi-étapes — Connecté à vos outils | Clickdev';
 
 export const AGENTS_IA_HERO = {
-  chapter: 'Chapitre 03.3 · Agents IA',
-  subline: 'Développeur freelance — Boucles fiables',
-  h1: 'Conception d’agents IA en production',
+  chapter: 'Chapitre 03.3 · Scénarios avancés',
+  subline: 'Développeur freelance — Automatisations intelligentes',
+  h1: 'Quand l’IA enchaîne plusieurs actions pour vous',
   lead:
-    'Un agent enchaîne lire, décider, appeler une API — avec des effets de bord. Je conçois des boucles testables : outils typés, timeouts, idempotence, human-in-the-loop sur les actions sensibles, et journaux pour auditer chaque étape. Les secrets restent côté serveur.',
+    'Au-delà d’un simple chat, parfois il faut : lire une demande, chercher une info, remplir un champ, envoyer un message — avec des règles strictes. Je conçois des enchaînements fiables : limites de temps et d’étapes, validation humaine sur ce qui touche à l’argent ou aux données sensibles, et un journal lisible pour comprendre ce qui s’est passé. Les mots de passe et accès restent côté serveur.',
   primaryCta: { href: '/devis?projectType=outil', label: 'Demander un devis' },
   secondaryCta: { href: `${AGENTS_IA_PATH}#portfolio`, label: 'Voir des exemples' },
 } as const;
 
 export const AGENTS_IA_BENEFITS = {
   kicker: 'Ce que vous obtenez',
-  title: 'Des agents qu’on peut auditer — et arrêter',
-  subtitle: 'Limiter les boucles infinies et les actions stupides coûte moins cher qu’un incident.',
+  title: 'Des scénarios qu’on peut suivre — et arrêter',
+  subtitle: 'Mieux vaut des limites claires qu’une chaîne qui part dans tous les sens.',
   items: [
     {
-      title: 'Outils typés & contrats clairs',
-      body: 'Entrées/sorties des functions : moins de “le modèle a inventé un paramètre”.',
+      title: 'Actions bien définies',
+      body: 'Chaque étape sait ce qu’elle doit recevoir et ce qu’elle doit renvoyer : moins d’improvisation dangereuse.',
     },
     {
-      title: 'Human-in-the-loop ciblé',
-      body: 'Validation humaine sur remboursement, email externe, suppression : ce qui doit bloquer bloque.',
+      title: 'Validation humaine au bon endroit',
+      body: 'Remboursement, mail vers l’extérieur, suppression : ce qui doit être validé par une personne l’est.',
     },
     {
-      title: 'Budgets & plafonds',
-      body: 'Nombre d’étapes, tokens, durée : l’agent ne part pas en spirale silencieuse.',
+      title: 'Plafonds',
+      body: 'Nombre d’étapes, durée, coût d’utilisation : l’assistant ne tourne pas indéfiniment.',
     },
     {
-      title: 'Journaux exploitables',
-      body: 'Pour comprendre pourquoi une action a été proposée — et corriger prompt ou outil.',
+      title: 'Historique utile',
+      body: 'Pour comprendre pourquoi une action a été proposée et corriger le tir si besoin.',
     },
   ],
 } as const;
 
 export const AGENTS_IA_EDITORIAL = {
   kicker: 'Lecture',
-  title: 'Agents vs chatbot : quand la complexité se paie (ou pas)',
+  title: 'Scénario multi-étapes ou simple chatbot : quand la complexité se justifie',
 } as const;
 
 export const AGENTS_IA_AUDIENCE = {
   kicker: 'Pour vous',
   title: 'Pour qui c’est fait',
-  subtitle: 'Quand plusieurs systèmes doivent être orchestrés avec règles.',
+  subtitle: 'Quand plusieurs systèmes doivent travailler ensemble avec des règles.',
   cards: [
-    { title: 'Ops & support avancé', body: 'Lire un ticket, proposer une action, ouvrir un cas CRM : chaîne courte.' },
-    { title: 'Sales & qualification', body: 'Enrichissement, routage, brouillon — avec validation avant envoi.' },
-    { title: 'Back-office documentaire', body: 'Extraire, classer, déclencher workflows — sans double saisie.' },
-    { title: 'Équipes tech matures', body: 'Vous assumez la supervision ; je livre la ossature fiable.' },
+    { title: 'Support ou opérations', body: 'Lire une demande, proposer une action, ouvrir un dossier dans votre outil : chaîne courte et répétable.' },
+    { title: 'Ventes & qualification', body: 'Enrichissement, routage, brouillon de message — avec validation avant envoi.' },
+    { title: 'Back-office documentaire', body: 'Extraire, classer, déclencher une suite d’étapes sans resaisir trois fois la même chose.' },
+    { title: 'Équipes à l’aise avec le suivi', body: 'Vous gardez la main sur la supervision ; je livre une base solide et documentée.' },
   ],
 } as const;
 
 export const AGENTS_IA_COMPARE = {
   kicker: 'Décision',
-  title: 'Workflow no-code, agent sur mesure, ou script classique ?',
-  subtitle: 'L’agent n’est pertinent que si la chaîne d’actions le justifie.',
-  columns: ['No-code / Make', 'Agent sur mesure', 'Script déterministe'] as const,
+  title: 'Outil no-code, scénario sur mesure, ou règles fixes ?',
+  subtitle: 'La version « plusieurs étapes » n’a d’intérêt que si le gain le justifie.',
+  columns: ['Outils type Zapier / Make', 'Scénario sur mesure', 'Règles fixes / script'] as const,
   rows: [
-    { label: 'Logique complexe multi-API', c: [true, true, false] as const },
-    { label: 'Comportement adaptatif (langage)', c: [false, true, false] as const },
-    { label: 'Auditabilité maximale', c: [false, true, true] as const },
-    { label: 'Time-to-market très rapide', c: [true, false, true] as const },
-    { label: 'Coût tokens maîtrisé finement', c: [false, true, true] as const },
-    { label: 'Zéro imprévu sur chemins figés', c: [true, false, true] as const },
+    { label: 'Plusieurs outils reliés entre eux', c: [true, true, false] as const },
+    { label: 'Comportement adapté au langage naturel', c: [false, true, false] as const },
+    { label: 'Traçabilité maximale', c: [false, true, true] as const },
+    { label: 'Mise en place très rapide au départ', c: [true, false, true] as const },
+    { label: 'Maîtrise fine du coût d’utilisation', c: [false, true, true] as const },
+    { label: 'Zéro surprise sur un chemin figé', c: [true, false, true] as const },
   ],
 } as const;
 
 export const AGENTS_IA_PROCESS = {
   kicker: 'Process',
-  title: 'Cinq étapes pour un agent livrable',
+  title: 'Cinq étapes pour un scénario livrable',
   steps: [
-    { n: '01', title: 'Cartographie actions', body: 'Liste des outils, effets de bord, niveaux de risque.' },
-    { n: '02', title: 'Spécifications outils', body: 'Schémas, erreurs, idempotence, timeouts.' },
-    { n: '03', title: 'Boucle & prompts', body: 'Planification, re-planification, critères d’arrêt.' },
-    { n: '04', title: 'Tests adversariaux', body: 'Cas limites, injections, données manquantes.' },
-    { n: '05', title: 'Prod & supervision', body: 'Dashboards, alertes, file humaine pour exceptions.' },
+    { n: '01', title: 'Liste des actions', body: 'Ce que l’outil peut faire, ce qui est risqué, ce qui doit rester humain.' },
+    { n: '02', title: 'Spécifications', body: 'Erreurs possibles, délais, ce qui se passe en cas de doublon ou d’échec.' },
+    { n: '03', title: 'Enchaînement & consignes', body: 'Ordre des étapes, critères d’arrêt, messages en cas de blocage.' },
+    { n: '04', title: 'Tests poussés', body: 'Cas limites, données manquantes, tentatives de détournement.' },
+    { n: '05', title: 'Mise en service', body: 'Alertes simples, file d’attente pour les exceptions, ajustements selon les retours.' },
   ],
 } as const;
 
 export const AGENTS_IA_STACK = {
-  kicker: 'Stack',
+  kicker: 'Technologies',
   title: 'Orchestration & exécution',
   body:
-    'LangChain / orchestration légère maison, exécution Node ou Python, files d’attente si besoin, stockage des traces.',
-  labels: ['LangChain', 'TypeScript', 'Python', 'OpenAI', 'Zod', 'PostgreSQL', 'Redis'],
+    'En pratique : orchestration avec des briques éprouvées ou une logique maison légère, exécution sur serveur, files d’attente si le volume le demande, stockage des traces pour le suivi.',
+  labels: ['Serveur', 'OpenAI', 'API métiers', 'Files d’attente', 'Base de données'],
 } as const;
 
 export const AGENTS_IA_CASES = {
@@ -109,58 +109,58 @@ export const AGENTS_IA_CASES = {
 
 export const AGENTS_IA_FAQ = {
   kicker: 'FAQ',
-  title: 'Questions fréquentes — agents IA',
-  subtitle: 'Risques, coûts, différences avec un chatbot.',
+  title: 'Questions fréquentes — scénarios multi-étapes',
+  subtitle: 'Risques, coûts, différence avec un chatbot.',
 } as const;
 
 export const AGENTS_IA_FAQ_ITEMS = [
   {
-    question: 'Agents vs simple chatbot ?',
+    question: 'Différence avec un chatbot classique ?',
     answer:
-      'L’agent enchaîne plusieurs outils et étapes ; le chatbot répond sur un corpus. Le surcoût en complexité doit être justifié par le gain mesurable.',
+      'Le chatbot répond surtout à partir de textes. Ici on enchaîne des actions concrètes (plusieurs outils ou étapes). Le surcoût en complexité doit être payé par un gain clair.',
   },
   {
-    question: 'Combien coûte un agent ?',
+    question: 'Combien ça coûte ?',
     answer:
-      'Souvent à partir de 5 500 € pour un premier périmètre d’actions limité et supervisé. Au-delà, le budget suit le nombre d’outils, de chemins, et du niveau d’autonomie. Devis gratuit.',
+      'Souvent à partir de 5 500 € pour un premier périmètre limité et supervisé. Ensuite le budget suit le nombre d’actions, de chemins possibles et le niveau d’autonomie. Devis gratuit.',
   },
   {
-    question: 'Peut-on commencer très restrictif ?',
+    question: 'On peut commencer très prudent ?',
     answer:
-      'Oui : une action, un outil, validation systématique — puis élargissement quand les métriques sont bonnes.',
+      'Oui : une seule action, une seule connexion, validation systématique — puis on élargit quand les résultats sont bons.',
   },
   {
-    question: 'Sécurité des tokens & secrets ?',
+    question: 'Sécurité des accès ?',
     answer:
-      'Jamais exposés au client ; rotation, scopes minimaux, audit des appels d’outils sensibles.',
+      'Jamais exposés côté navigateur ; droits minimaux, rotation des mots de passe, journal des actions sensibles.',
   },
   {
-    question: 'Latence ?',
+    question: 'Ça peut être lent ?',
     answer:
-      'Plusieurs tours modèle + API : on dimensionne timeouts et UX (streaming, états intermédiaires).',
+      'Plusieurs étapes prennent du temps : on dimensionne les délais et l’interface (messages d’attente, progression) pour rester acceptable.',
   },
   {
-    question: 'Observabilité ?',
+    question: 'Comment suivre ce qui se passe ?',
     answer:
-      'Traces structurées par run : entrées, outils appelés, sorties, erreurs — pour débugger sans deviner.',
+      'Un journal structuré par exécution : entrée, actions déclenchées, sortie, erreurs — pour corriger sans deviner.',
   },
   {
-    question: 'Reprise sur incident ?',
+    question: 'En cas de panne ?',
     answer:
-      'Stratégies de retry, dead-letter, et repli humain quand l’agent bloque ou dépasse le budget.',
+      'Nouvelles tentatives raisonnables, file d’attente pour les cas bloqués, et repli vers un humain quand les limites sont atteintes.',
   },
 ] as const;
 
 export const AGENTS_IA_BUDGET = {
   title: 'Budget',
-  line: 'Les agents IA (premier périmètre supervisé) démarrent souvent à partir de 5 500 €',
+  line: 'Les scénarios multi-étapes (premier périmètre supervisé) démarrent souvent à partir de 5 500 €',
   note: 'Devis gratuit, personnalisé, sans engagement.',
 } as const;
 
 export const AGENTS_IA_FINAL_CTA = {
   title: 'Une chaîne d’actions à automatiser sans perdre le contrôle ?',
   primaryHref: '/devis?projectType=outil',
-  primaryLabel: 'Demander un devis agent IA',
+  primaryLabel: 'Demander un devis',
   secondaryHref: '/contact',
   secondaryLabel: 'Réserver un appel',
 } as const;

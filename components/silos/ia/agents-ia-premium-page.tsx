@@ -51,7 +51,7 @@ export default async function AgentsIaPremiumPage() {
   return (
     <main className="bg-black text-white">
       <PremiumSitesChildBreadcrumb
-        items={[{ label: 'Accueil', href: '/' }, { label: 'IA', href: '/ia' }, { label: 'Agents IA' }]}
+        items={[{ label: 'Accueil', href: '/' }, { label: 'IA', href: '/ia' }, { label: 'Scénarios multi-étapes' }]}
       />
       <PremiumSitesChildHero
         chapter={AGENTS_IA_HERO.chapter}

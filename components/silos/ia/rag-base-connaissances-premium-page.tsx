@@ -54,7 +54,7 @@ export default async function RagBaseConnaissancesPremiumPage() {
         items={[
           { label: 'Accueil', href: '/' },
           { label: 'IA', href: '/ia' },
-          { label: 'RAG & base de connaissances' },
+          { label: 'Assistant sur vos documents' },
         ]}
       />
       <PremiumSitesChildHero

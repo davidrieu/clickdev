@@ -54,7 +54,7 @@ export default async function IaGenerativeEcommercePremiumPage() {
         items={[
           { label: 'Accueil', href: '/' },
           { label: 'IA', href: '/ia' },
-          { label: 'IA générative e-commerce' },
+          { label: 'IA & e-commerce' },
         ]}
       />
       <PremiumSitesChildHero

@@ -110,7 +110,7 @@ export default async function IaPillarPremiumPage() {
       />
       <SiteEcommerceBudgetSection
         title="Budget"
-        line="Les budgets IA varient fortement selon POC, RAG, agents ou e-commerce — chaque page fille propose un ordre de grandeur."
+        line="Les budgets dépendent du projet (chatbot, site, boutique…) : chaque page dédiée indique une fourchette de départ."
         note="Devis gratuit, personnalisé, sans engagement."
       />
       <PremiumFinalCta

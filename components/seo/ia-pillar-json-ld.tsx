@@ -14,18 +14,18 @@ const serviceSchema = {
     jobTitle: 'Développeur web freelance',
   },
   description:
-    'Intégration IA : chatbots, agents, RAG, automatisation et IA générative e-commerce — avec garde-fous et maîtrise des coûts.',
+    'IA pour sites web, applications mobiles et boutiques : chatbots, automatisation, assistant sur documents — objectifs clairs et suivi du budget.',
   areaServed: 'FR',
   hasOfferCatalog: {
     '@type': 'OfferCatalog',
     name: 'Offres IA',
     itemListElement: [
-      { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Intégration IA' } },
-      { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Chatbot IA' } },
-      { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Agents IA' } },
+      { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'IA dans le site ou l’application' } },
+      { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Chatbot & assistant' } },
+      { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Scénarios multi-étapes' } },
       { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Automatisation IA' } },
-      { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'RAG & base de connaissances' } },
-      { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'IA générative e-commerce' } },
+      { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Assistant sur vos documents' } },
+      { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'IA pour e-commerce' } },
     ],
   },
 };

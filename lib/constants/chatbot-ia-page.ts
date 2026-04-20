@@ -1,83 +1,83 @@
-/** Contenus page premium `/ia/chatbot-ia`. */
+/** Contenus page premium `/ia/chatbot-ia` — ton accessible. */
 
 export const CHATBOT_IA_PATH = '/ia/chatbot-ia';
 
 export const CHATBOT_IA_KEYWORDS = [
-  'chatbot IA',
+  'chatbot site web',
   'assistant conversationnel entreprise',
-  'chatbot site web freelance',
-  'RAG chatbot',
+  'chatbot pour boutique en ligne',
   'freelance chatbot IA',
+  'réponses automatiques site',
 ] as const;
 
 export const chatbotIaMetaDescription =
-  'Chatbot IA sur mesure : scénarios, sources de vérité, handoff humain, intégration CRM/helpdesk. Freelance Clickdev — devis gratuit.';
+  'Chatbot sur votre site ou votre boutique : réponses basées sur vos textes, transfert vers une vraie personne, lien avec vos outils. Clickdev — devis gratuit.';
 
-export const chatbotIaMetaTitle = 'Chatbot IA — Scénarios, fiabilité & intégrations | Clickdev';
+export const chatbotIaMetaTitle = 'Chatbot & assistant sur le site — Réponses utiles | Clickdev';
 
 export const CHATBOT_IA_HERO = {
   chapter: 'Chapitre 03.2 · Chatbot IA',
-  subline: 'Développeur freelance — Support & conversion',
-  h1: 'Conception de chatbot IA utile et fiable',
+  subline: 'Développeur freelance — Support & ventes',
+  h1: 'Un chatbot qui aide vos visiteurs — sans inventer',
   lead:
-    'Un chatbot qui réduit le temps de première réponse sans inventer des réponses : scénarios explicites, corpus versionné, handoff propre vers un humain quand le sujet dépasse le périmètre. Widget web, helpdesk ou messagerie : l’architecture suit vos canaux.',
+    'L’idée est simple : répondre plus vite aux questions récurrentes, orienter vers la bonne page ou le bon formulaire, et passer la main à un humain quand le sujet est délicat. Le chatbot s’appuie sur vos textes (FAQ, conditions, catalogue) pour limiter les réponses “dans le vide”. Sur le site, dans une appli ou relié à votre outil de support : on adapte le canal.',
   primaryCta: { href: '/devis?projectType=outil', label: 'Demander un devis' },
   secondaryCta: { href: `${CHATBOT_IA_PATH}#portfolio`, label: 'Voir des exemples' },
 } as const;
 
 export const CHATBOT_IA_BENEFITS = {
   kicker: 'Ce que vous obtenez',
-  title: 'Un assistant qui sait dire “je ne sais pas”',
-  subtitle: 'Mieux vaut une abstention qu’une hallucination sur votre marque.',
+  title: 'Un assistant qui sait dire « je ne sais pas »',
+  subtitle: 'Mieux vaut proposer de contacter une personne qu’affirmer une fausseté avec votre logo.',
   items: [
     {
-      title: 'Sources de vérité branchées',
-      body: 'FAQ, Notion, base interne : retrieval + citations quand le format s’y prête.',
+      title: 'Branché sur vos contenus',
+      body: 'FAQ, pages du site, notices : les réponses restent proches de ce que vous avez déjà publié.',
     },
     {
-      title: 'Garde-fous & sujets hors scope',
-      body: 'Limites claires, refus polis, escalade humaine sur les cas sensibles.',
+      title: 'Limites et sujets sensibles',
+      body: 'Sujets hors périmètre, ton adapté à votre marque, escalade vers un humain quand c’est nécessaire.',
     },
     {
-      title: 'Intégration CRM / helpdesk',
-      body: 'Création de ticket, tags, métadonnées : le chatbot alimente vos outils existants.',
+      title: 'Lien avec vos outils',
+      body: 'Création de ticket, étiquettes, suivi : le chatbot nourrit ce que vous utilisez déjà (support, CRM).',
     },
     {
-      title: 'Mesure & amélioration',
-      body: 'Intentions, abandons, temps gagné : des métriques pour prioriser les contenus manquants.',
+      title: 'Amélioration dans le temps',
+      body: 'On regarde ce que les gens demandent vraiment pour compléter les contenus ou ajuster le parcours.',
     },
   ],
 } as const;
 
 export const CHATBOT_IA_EDITORIAL = {
   kicker: 'Lecture',
-  title: 'Chatbot marketing vs chatbot support : même tech, pas même risque',
+  title: 'Chatbot marketing et chatbot support : pas le même enjeu',
 } as const;
 
 export const CHATBOT_IA_AUDIENCE = {
   kicker: 'Pour vous',
   title: 'Pour qui c’est fait',
-  subtitle: 'Support, sales, ou self-service sur votre site.',
+  subtitle: 'Support, ventes ou self-service sur votre site.',
   cards: [
-    { title: 'Équipes support saturées', body: 'Réponses brouillon, tri des tickets, FAQ dynamique : soulagement mesurable.' },
-    { title: 'Sites à fort trafic', body: 'Qualification avant formulaire ou appel : moins de bruit pour les humains.' },
-    { title: 'SaaS B2B', body: 'Onboarding conversationnel, liens vers la doc : moins de “je n’ai pas trouvé”.' },
-    { title: 'Marques réglementées', body: 'Ton maîtrisé, disclaimers, traçabilité : le chatbot ne remplace pas la conformité.' },
+    { title: 'Équipes support débordées', body: 'Brouillons de réponse, tri des demandes, FAQ dynamique : du temps gagné au quotidien.' },
+    { title: 'Sites avec beaucoup de visites', body: 'Qualifier avant un appel ou un formulaire : moins de demandes inutiles pour vos équipes.' },
+    { title: 'Logiciels en ligne (SaaS)', body: 'Aider les nouveaux utilisateurs à trouver la bonne aide sans relire toute la doc.' },
+    { title: 'Secteurs avec exigence de prudence', body: 'Ton encadré, mentions légales : l’outil assiste, il ne remplace pas vos obligations.' },
   ],
 } as const;
 
 export const CHATBOT_IA_COMPARE = {
   kicker: 'Décision',
-  title: 'Widget no-code, sur mesure, ou humain seul ?',
-  subtitle: 'Le bon choix dépend du volume, de la sensibilité des réponses, et de vos systèmes.',
-  columns: ['No-code rapide', 'Sur mesure', 'Humain seul'] as const,
+  title: 'Outil tout prêt, sur mesure, ou uniquement humain ?',
+  subtitle: 'Ça dépend du volume, de la sensibilité des sujets et de vos systèmes.',
+  columns: ['Solution clé en main', 'Sur mesure', 'Équipe seule'] as const,
   rows: [
-    { label: 'Mise en ligne en jours', c: [true, false, true] as const },
-    { label: 'Contrôle fin du retrieval & prompts', c: [false, true, false] as const },
-    { label: 'Intégration profonde CRM / API', c: [false, true, false] as const },
-    { label: 'Coût récurrent modéré au départ', c: [true, false, false] as const },
-    { label: 'Tolérance zéro aux erreurs factuelles', c: [false, true, true] as const },
-    { label: 'Scalabilité forte', c: [true, true, false] as const },
+    { label: 'Mise en ligne en peu de temps', c: [true, false, true] as const },
+    { label: 'Contrôle fin des sources et des réponses', c: [false, true, false] as const },
+    { label: 'Connexion poussée à vos outils métiers', c: [false, true, false] as const },
+    { label: 'Coût récurrent modeste au départ', c: [true, false, false] as const },
+    { label: 'Très peu de risque d’erreur factuelle', c: [false, true, true] as const },
+    { label: 'Tient la charge si le trafic augmente', c: [true, true, false] as const },
   ],
 } as const;
 
@@ -85,80 +85,80 @@ export const CHATBOT_IA_PROCESS = {
   kicker: 'Process',
   title: 'Cinq étapes pour un chatbot adopté',
   steps: [
-    { n: '01', title: 'Parcours & intents', body: 'Questions réelles clients, priorités, sujets interdits.' },
-    { n: '02', title: 'Corpus & structure', body: 'Sources, fraîcheur, ownership : qui met à jour quoi.' },
-    { n: '03', title: 'Prototype conversationnel', body: 'Ton, longueur, handoff : test interne avant public.' },
-    { n: '04', title: 'Intégrations', body: 'Widget, auth utilisateur, webhooks vers votre stack.' },
-    { n: '05', title: 'Pilote & itération', body: 'Logs, corrections, enrichissement du corpus selon les trous.' },
+    { n: '01', title: 'Questions & priorités', body: 'Ce que vos clients demandent vraiment, ce qui est prioritaire, ce qui est tabou.' },
+    { n: '02', title: 'Sources & mise à jour', body: 'Quels textes utiliser, qui les met à jour, à quelle fréquence.' },
+    { n: '03', title: 'Essai interne', body: 'Ton, longueur des messages, passage à un humain : on ajuste avant l’ouverture au public.' },
+    { n: '04', title: 'Intégration', body: 'Fenêtre sur le site, compte utilisateur si besoin, liens vers vos outils.' },
+    { n: '05', title: 'Lancement progressif', body: 'Retours, corrections, enrichissement des contenus selon les trous repérés.' },
   ],
 } as const;
 
 export const CHATBOT_IA_STACK = {
-  kicker: 'Stack',
-  title: 'RAG, streaming, canaux',
+  kicker: 'Technologies',
+  title: 'Ce qui tourne derrière',
   body:
-    'Next.js ou API dédiée, streaming SSE, embeddings + vector store, connecteurs helpdesk (Zendesk, Intercom…) selon besoin.',
-  labels: ['Next.js', 'OpenAI', 'Anthropic', 'pgvector', 'SSE', 'Zendesk', 'Intercom'],
+    'Souvent une page ou une API dédiée, avec réponses qui arrivent au fil de l’eau pour une conversation fluide, et vos contenus indexés pour que l’assistant reste proche de la réalité.',
+  labels: ['Site web', 'OpenAI', 'Support client', 'Formulaires', 'Messagerie'],
 } as const;
 
 export const CHATBOT_IA_CASES = {
   kicker: 'Portfolio',
   title: 'Outils et expériences digitales récentes',
-  intro: 'Réalisations — dont automatisations et produits avec composants conversationnels.',
+  intro: 'Réalisations — dont automatisations et produits avec partie conversationnelle.',
 } as const;
 
 export const CHATBOT_IA_FAQ = {
   kicker: 'FAQ',
-  title: 'Questions fréquentes — chatbot IA',
+  title: 'Questions fréquentes — chatbot',
   subtitle: 'Canaux, coûts, fiabilité.',
 } as const;
 
 export const CHATBOT_IA_FAQ_ITEMS = [
   {
-    question: 'Chatbot sur le site ou sur WhatsApp ?',
+    question: 'Sur le site, sur WhatsApp, ou les deux ?',
     answer:
-      'Les deux sont possibles selon vos canaux : widget web, messagerie, ou intégration helpdesk. Le périmètre détermine l’architecture (webhooks, OAuth, stockage).',
+      'Les deux sont possibles selon vos canaux : fenêtre sur le site, messagerie, ou lien avec votre outil de tickets. Le périmètre fixe la façon de brancher les choses.',
   },
   {
-    question: 'Combien coûte un chatbot IA ?',
+    question: 'Combien coûte un chatbot ?',
     answer:
-      'Souvent à partir de 3 900 € pour un périmètre FAQ + handoff cadré. Au-delà, le prix suit le nombre de sources, des langues, et des intégrations API. Devis gratuit.',
+      'Souvent à partir de 3 900 € pour une FAQ claire + transfert vers un humain. Ensuite le prix suit le nombre de sources, les langues et les connexions avec d’autres logiciels. Devis gratuit.',
   },
   {
-    question: 'Comment limiter les hallucinations ?',
+    question: 'Comment limiter les mauvaises réponses ?',
     answer:
-      'RAG sur sources validées, refus hors corpus, seuils de confiance, et humain sur les catégories sensibles.',
+      'On s’appuie sur vos textes validés, on refuse de répondre hors sujet, et une personne reprend la main sur les cas sensibles.',
   },
   {
-    question: 'Données clients dans le LLM ?',
+    question: 'Les données clients partent vers l’IA ?',
     answer:
-      'Évité par défaut : anonymisation, agrégation, et traitement côté serveur avec politiques claires.',
+      'On évite autant que possible : anonymisation, traitement côté serveur, et règles claires sur ce qui peut être envoyé.',
   },
   {
-    question: 'Multilingue ?',
+    question: 'Plusieurs langues ?',
     answer:
-      'Possible avec stratégie de contenu par langue ; coût et maintenance augmentent avec le nombre de corpus.',
+      'Possible, avec un contenu par langue ; le coût et l’entretien augmentent avec le nombre de versions.',
   },
   {
-    question: 'Hébergement des conversations ?',
+    question: 'On garde l’historique des conversations ?',
     answer:
-      'Durée de rétention définie avec vous, chiffrement en transit, accès restreints — cadré au devis.',
+      'Durée de conservation définie avec vous, accès restreint, chiffrement en transit — cadré dans le devis.',
   },
   {
-    question: 'Maintenance ?',
+    question: 'Et la maintenance ?',
     answer:
-      'Forfait mensuel ou tickets : évolution des prompts, mises à jour SDK, suivi des coûts tokens.',
+      'Forfait mensuel ou au ticket : évolution des scénarios, mises à jour techniques, suivi du coût d’utilisation.',
   },
 ] as const;
 
 export const CHATBOT_IA_BUDGET = {
   title: 'Budget',
-  line: 'Les chatbots IA (FAQ + handoff) démarrent souvent à partir de 3 900 €',
+  line: 'Les chatbots (FAQ + transfert humain) démarrent souvent à partir de 3 900 €',
   note: 'Devis gratuit, personnalisé, sans engagement.',
 } as const;
 
 export const CHATBOT_IA_FINAL_CTA = {
-  title: 'Un canal support à soulager sans prendre de risques réputationnels ?',
+  title: 'Vous voulez soulager le support sans prendre de risque sur votre image ?',
   primaryHref: '/devis?projectType=outil',
   primaryLabel: 'Demander un devis chatbot',
   secondaryHref: '/contact',

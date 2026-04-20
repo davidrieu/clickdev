@@ -51,7 +51,7 @@ export default async function IntegrationIaPremiumPage() {
   return (
     <main className="bg-black text-white">
       <PremiumSitesChildBreadcrumb
-        items={[{ label: 'Accueil', href: '/' }, { label: 'IA', href: '/ia' }, { label: 'Intégration IA' }]}
+        items={[{ label: 'Accueil', href: '/' }, { label: 'IA', href: '/ia' }, { label: 'IA site & appli' }]}
       />
       <PremiumSitesChildHero
         chapter={INTEGRATION_IA_HERO.chapter}

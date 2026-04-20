@@ -9,7 +9,7 @@ type FaqItem = { question: string; answer: string };
 const serviceSchema = {
   '@type': 'Service',
   '@id': `${pageUrl}#service`,
-  name: 'Intégration d’IA dans un produit',
+  name: 'IA dans votre site ou application',
   url: pageUrl,
   provider: {
     '@type': 'Person',
@@ -17,7 +17,7 @@ const serviceSchema = {
     jobTitle: 'Développeur web freelance',
   },
   description:
-    'Intégration IA en produit : APIs LLM, prompts versionnés, budgets tokens, sécurité et monitoring.',
+    'Intégration d’IA dans site ou application : assistants, formulaires intelligents, sécurité et suivi des coûts.',
   areaServed: 'FR',
 };
 
@@ -26,7 +26,7 @@ const breadcrumbSchema = {
   itemListElement: [
     { '@type': 'ListItem', position: 1, name: 'Accueil', item: `${origin}/` },
     { '@type': 'ListItem', position: 2, name: 'IA', item: `${origin}/ia` },
-    { '@type': 'ListItem', position: 3, name: 'Intégration IA', item: pageUrl },
+    { '@type': 'ListItem', position: 3, name: 'IA dans le site ou l’appli', item: pageUrl },
   ],
 };
 

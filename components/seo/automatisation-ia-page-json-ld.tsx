@@ -17,7 +17,7 @@ const serviceSchema = {
     jobTitle: 'Développeur web freelance',
   },
   description:
-    'Automatisation IA : extraction, classification, routage avec scores de confiance et file humaine.',
+    'Automatisation avec IA : tri et extraction, passage à un humain quand la confiance est insuffisante.',
   areaServed: 'FR',
 };
 

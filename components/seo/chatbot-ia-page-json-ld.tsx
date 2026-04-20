@@ -9,7 +9,7 @@ type FaqItem = { question: string; answer: string };
 const serviceSchema = {
   '@type': 'Service',
   '@id': `${pageUrl}#service`,
-  name: 'Conception de chatbot IA',
+  name: 'Chatbot & assistant sur le site',
   url: pageUrl,
   provider: {
     '@type': 'Person',
@@ -17,7 +17,7 @@ const serviceSchema = {
     jobTitle: 'Développeur web freelance',
   },
   description:
-    'Chatbot IA : scénarios, sources de vérité, handoff humain, intégration CRM et helpdesk.',
+    'Chatbot sur site ou boutique : réponses basées sur vos contenus, transfert vers un humain, lien avec vos outils.',
   areaServed: 'FR',
 };
 
@@ -26,7 +26,7 @@ const breadcrumbSchema = {
   itemListElement: [
     { '@type': 'ListItem', position: 1, name: 'Accueil', item: `${origin}/` },
     { '@type': 'ListItem', position: 2, name: 'IA', item: `${origin}/ia` },
-    { '@type': 'ListItem', position: 3, name: 'Chatbot IA', item: pageUrl },
+    { '@type': 'ListItem', position: 3, name: 'Chatbot & assistant', item: pageUrl },
   ],
 };
 

@@ -1,177 +1,177 @@
-/** Contenu page pilier premium `/ia`. */
+/** Contenu page pilier premium `/ia` — ton accessible (sites, apps, chatbots). */
 
 export const IA_PILLAR_PATH = '/ia';
 
 export const IA_PILLAR_HERO = {
   chapter: 'Chapitre 03 · Intelligence artificielle',
-  subline: 'Développeur freelance — Produit, données, garde-fous',
-  h1: 'Intégration IA utile, mesurable et maîtrisée',
+  subline: 'Développeur freelance — Pour votre site, votre appli, votre équipe',
+  h1: 'L’intelligence artificielle au service de vos clients — sans prise de tête',
   lead:
-    'L’IA générative sert quand elle réduit un coût, accélère une décision ou améliore l’expérience — pas pour afficher un gadget. APIs OpenAI / Anthropic, RAG sur vos documents, agents avec outils, chatbots et automatisations : je conçois des flux avec budgets tokens, journaux et validation humaine quand il le faut.',
+    'Beaucoup de monde veut “mettre de l’IA” : moi je m’en sers pour des choses concrètes — aider vos visiteurs sur le site, soulager le support, accélérer un peu le quotidien dans l’entreprise. Chatbots, assistants dans une application mobile, petites automatisations : on choisit ce qui a du sens pour vous, avec un œil sur le budget et la confidentialité.',
   primaryCta: { href: '/devis?projectType=outil', label: 'Demander un devis' },
   secondaryCta: { href: `${IA_PILLAR_PATH}#offres`, label: 'Voir les offres' },
 } as const;
 
 export const IA_PILLAR_BENEFITS = {
   kicker: 'Ce que vous obtenez',
-  title: 'De l’IA branchée sur vos règles — pas sur du vent',
-  subtitle: 'Garde-fous, coûts et sécurité : le trio qui évite le POC éternel.',
+  title: 'Des projets IA qu’on peut expliquer à table',
+  subtitle: 'Pas de promesse miracle : des objectifs clairs et un suivi honnête.',
   items: [
     {
-      title: 'Périmètre & ROI cadrés',
-      body: 'On commence par ce qui est mesurable (temps gagné, tickets évités, leads qualifiés) avant d’élargir.',
+      title: 'On commence par l’usage',
+      body: 'Moins de temps perdu au téléphone ? Plus de demandes traitées sur le site ? On définit ce qu’on veut améliorer avant de parler technique.',
     },
     {
-      title: 'Données minimisées & tracées',
-      body: 'Filtrage avant envoi au modèle, rétention claire, journaux pour expliquer une réponse automatique.',
+      title: 'Vos données, traitées avec sérieux',
+      body: 'On ne diffuse pas tout “parce que l’IA en a besoin” : on limite ce qui circule, et on reste dans le cadre légal adapté à votre activité.',
     },
     {
-      title: 'Prompts et pipelines versionnés',
-      body: 'Comme du code : revue, tests sur cas limites, rollback quand une release dégrade la qualité.',
+      title: 'Une solution qui peut évoluer',
+      body: 'Quand ça marche, on peut élargir ; si ça coince, on ajuste sans repartir de zéro à chaque fois.',
     },
     {
-      title: 'Exploitation sans boîte noire',
-      body: 'Monitoring latences, quotas, erreurs ; documentation pour que votre équipe itère sans dépendre d’une seule tête.',
+      title: 'Vous n’êtes pas prisonnier d’un outil opaque',
+      body: 'Je documente ce qui a été fait pour que vous ou une autre personne puissiez reprendre le fil plus tard.',
     },
   ],
 } as const;
 
 export const IA_PILLAR_EDITORIAL = {
   kicker: 'Lecture',
-  title: 'Pourquoi 80 % de la valeur vient souvent sans fine-tuning',
+  title: 'L’IA utile, ce n’est pas toujours la plus “impressionnante”',
 } as const;
 
 export const IA_PILLAR_AUDIENCE = {
   kicker: 'Pour vous',
-  title: 'Qui est concerné',
-  subtitle: 'Produit, support, ops, e-commerce : les cas d’usage diffèrent, la discipline non.',
+  title: 'À qui ça s’adresse',
+  subtitle: 'Indépendants, PME, associations, ou équipes plus grandes : le principe reste le même.',
   cards: [
     {
-      title: 'Produits SaaS & plateformes',
-      body: 'Assistants, agents, features IA visibles : qualité, coût marginal et repli si le fournisseur flanche.',
+      title: 'Vous avez un site ou une boutique en ligne',
+      body: 'Formulaire intelligent, petit assistant pour guider l’achat ou répondre aux questions fréquentes.',
     },
     {
-      title: 'Support & success',
-      body: 'RAG sur FAQ interne, brouillons d’articles, qualification : moins de copier-coller, plus de temps humain sur le dur.',
+      title: 'Vous avez une application mobile',
+      body: 'Aide à la saisie, suggestions, parcours plus fluide : toujours dans le respect de votre charte et de vos règles.',
     },
     {
-      title: 'Ops & back-office',
-      body: 'Extraction, classification, routage : automatisation observable avec file d’attente humaine.',
+      title: 'Vous noyez sous les e-mails ou les demandes',
+      body: 'Un chatbot ou un tri automatique peut faire gagner du temps — avec une vraie personne quand la situation le demande.',
     },
     {
-      title: 'E-commerce & contenus',
-      body: 'Fiches, search conversationnelle : templates et validation humaine sur le sensible (légal, specs).',
+      title: 'Vous vendez en ligne et la rédaction vous prend trop de temps',
+      body: 'Aide à rédiger ou reformuler, sous votre contrôle, sans inventer des promesses sur vos produits.',
     },
   ],
 } as const;
 
 export const IA_PILLAR_COMPARE = {
   kicker: 'Décision',
-  title: 'Widget IA, intégration sur mesure, ou rien ?',
-  subtitle: 'Le bon choix dépend de votre donnée, de votre dette, et de ce que vous acceptez de ne pas contrôler.',
-  columns: ['SaaS “IA” intégré', 'Intégration sur mesure', 'Pas d’IA'] as const,
+  title: 'Une fonction toute faite, un accompagnement sur mesure, ou on attend ?',
+  subtitle: 'Ça dépend de votre activité, de votre budget et de ce que vos clients attendent vraiment.',
+  columns: ['Solution clé en main', 'Sur mesure avec moi', 'Pas pour tout de suite'] as const,
   rows: [
-    { label: 'Time-to-market très rapide', c: [true, false, true] as const },
-    { label: 'Contrôle fin des prompts & logs', c: [false, true, false] as const },
-    { label: 'Données sensibles maîtrisées', c: [false, true, true] as const },
-    { label: 'Coût marginal tokens maîtrisable', c: [false, true, true] as const },
-    { label: 'Évolution sans plafond du produit', c: [false, true, true] as const },
-    { label: 'Zéro dette technique', c: [true, false, true] as const },
+    { label: 'Mise en place très rapide', c: [true, false, true] as const },
+    { label: 'Adapté à votre façon de travailler', c: [false, true, false] as const },
+    { label: 'Maîtrise fine des contenus et des messages', c: [false, true, true] as const },
+    { label: 'Coût prévisible au départ', c: [true, false, true] as const },
+    { label: 'Évolutif sur le long terme', c: [false, true, true] as const },
+    { label: 'Zéro réflexion de votre côté', c: [true, false, true] as const },
   ],
 } as const;
 
 export const IA_PILLAR_PROCESS = {
   kicker: 'Process',
-  title: 'Cinq étapes pour une intégration IA sérieuse',
+  title: 'Cinq étapes simples',
   steps: [
     {
       n: '01',
-      title: 'Cas d’usage & risques',
-      body: 'ROI hypothèse, données impliquées, actions automatiques : on liste ce qui ne doit jamais partir sans humain.',
+      title: 'On en parle',
+      body: 'Ce qui vous prend du temps aujourd’hui, ce que vos clients reprochent souvent, ce que vous refuseriez qu’une machine fiche toute seule.',
     },
     {
       n: '02',
-      title: 'Architecture & fournisseurs',
-      body: 'Modèles, DPA, hébergement, clés : le cadre légal et technique avant la première ligne de prompt.',
+      title: 'Une proposition claire',
+      body: 'Je vous explique ce que je peux faire, dans quel délai, et à quoi ça ressemble côté utilisateur.',
     },
     {
       n: '03',
-      title: 'POC mesurable',
-      body: 'Périmètre court, métriques simples, jeux de tests : on valide coût et qualité avant d’industrialiser.',
+      title: 'Un petit test si besoin',
+      body: 'Souvent on commence petit pour voir si ça colle avant d’engager gros.',
     },
     {
       n: '04',
-      title: 'Prod & observabilité',
-      body: 'Quotas, alertes, versions, rollback : l’IA devient un composant observable comme une API.',
+      title: 'Mise en ligne ou intégration',
+      body: 'Sur votre site, dans votre appli, ou dans les outils que vous utilisez déjà.',
     },
     {
       n: '05',
-      title: 'Itération & formation',
-      body: 'Roadmap, handoff équipe, garde-fous renforcés selon les retours terrain.',
+      title: 'Suivi',
+      body: 'On regarde ensemble si ça aide vraiment ; on corrige ou on simplifie selon les retours.',
     },
   ],
 } as const;
 
 export const IA_PILLAR_STACK = {
-  kicker: 'Stack',
-  title: 'APIs, orchestration, retrieval',
+  kicker: 'Technologies',
+  title: 'Des outils modernes — expliqués simplement',
   body:
-    'OpenAI / Anthropic, embeddings, vector DB (Pinecone, Supabase pgvector…), LangChain ou orchestration maison, n8n/Make pour prototypes — toujours avec secrets côté serveur.',
-  labels: ['OpenAI', 'Anthropic', 'LangChain', 'pgvector', 'n8n', 'Next.js', 'Python', 'TypeScript'],
+    'Selon le projet : site avec Next.js, application mobile, outils comme ChatGPT en arrière-plan pour la partie “intelligente”, ou solutions adaptées aux petites structures. Vous n’avez pas besoin de tout connaître : je choisis ce qui est solide et maintenable.',
+  labels: ['Sites web', 'Apps mobiles', 'ChatGPT / OpenAI', 'Automatisations', 'Formulaires', 'E-commerce'],
 } as const;
 
 export const IA_PILLAR_CASES = {
   kicker: 'Portfolio',
-  title: 'Outils, plateformes et produits digitaux récents',
-  intro: 'Sélection orientée outils & e-commerce — détail sur chaque étude de cas.',
+  title: 'Des projets web, mobiles et outils récents',
+  intro: 'Quelques exemples de réalisations — chaque fiche raconte le contexte et le résultat.',
 } as const;
 
 export const IA_PILLAR_FAQ = {
   kicker: 'FAQ',
-  title: 'Questions fréquentes — IA en produit',
-  subtitle: 'Coûts, sécurité, chatbot vs agent, RAG.',
+  title: 'Questions fréquentes',
+  subtitle: 'Prix, données, chatbot, site, appli.',
 } as const;
 
 export const IA_PILLAR_FAQ_ITEMS = [
   {
-    question: 'Faut-il fine-tuner un modèle ?',
+    question: 'Est-ce que l’IA remplace les humains ?',
     answer:
-      'Rarement en première étape : prompt engineering, function calling et RAG donnent souvent 80 % de la valeur. Le fine-tuning se discute quand le volume et la stabilité des données le justifient.',
+      'Non, l’idée est plutôt d’enlever les tâches répétitives ou d’aider à répondre plus vite. Dès que c’est sensible (litige, santé, argent), une personne garde la main.',
   },
   {
-    question: 'Combien coûte une intégration IA ?',
+    question: 'Combien ça coûte ?',
     answer:
-      'Les coûts dépendent du volume d’appels, du modèle, et de la complexité du pipeline (RAG, agents, intégrations). Un POC cadré permet de mesurer le coût marginal avant industrialisation.',
+      'Ça dépend beaucoup du projet : un petit assistant sur le site n’a pas le même prix qu’un gros dispositif sur plusieurs outils. Je vous fais une fourchette honnête après un court échange, sans engagement.',
   },
   {
-    question: 'Quelle différence avec un simple chatbot ?',
+    question: 'Quelle différence avec un chatbot tout prêt sur internet ?',
     answer:
-      'Un chatbot peut être une fenêtre de chat. Une intégration produit relie l’IA à vos données, règles métier et actions (ticket, CRM, email validé).',
+      'Les outils génériques vont vite mais ne connaissent pas votre activité. Sur mesure, on branche votre contenu, vos règles, et vos canaux (site, mail, etc.).',
   },
   {
-    question: 'Mes données partent chez OpenAI ?',
+    question: 'Mes données sont-elles envoyées aux États-Unis ?',
     answer:
-      'Seulement ce que vous décidez explicitement, avec options entreprise / zéro rétention quand c’est disponible, et filtrage des champs sensibles en amont.',
+      'On regarde ensemble ce qui est strictement nécessaire et les options proposées par les fournisseurs (souvent des réglages “entreprise” ou européens). Je ne remplace pas un avocat, mais je peux mettre en œuvre ce que vous validez.',
   },
   {
-    question: 'Agents IA ou simple prompt ?',
+    question: 'C’est pour les grandes entreprises seulement ?',
     answer:
-      'Les agents enchaînent outils et étapes ; le surcoût doit être payé par un gain mesurable. Sinon on reste sur un flux plus simple et plus auditable.',
+      'Non : un artisan ou une petite équipe peut déjà gagner du temps avec un bon formulaire ou un assistant sur la page contact.',
   },
   {
-    question: 'RGPD et IA ?',
+    question: 'Et si je veux arrêter plus tard ?',
     answer:
-      'Minimisation, base légale, DPA avec le fournisseur, documentation des traitements : on cadrage avec votre contexte, je ne remplace pas un juriste.',
+      'On prévoit dès le départ que vous restiez propriétaire de vos comptes et de vos contenus, et qu’on puisse désactiver ou remplacer la fonction sans tout casser.',
   },
   {
-    question: 'Pouvez-vous reprendre une intégration existante ?',
+    question: 'Ça marche avec mon site actuel ?',
     answer:
-      'Oui : audit des prompts, coûts, points de fuite données, puis plan de durcissement ou migration vers un stack plus maîtrisable.',
+      'Souvent oui : on peut ajouter une brique sans refaire tout le site. Si une refonte est plus pertinente, je vous le dis franchement.',
   },
   {
-    question: 'Et le SEO avec l’IA générative ?',
+    question: 'L’IA et le référencement Google ?',
     answer:
-      'Voir le silo SEO et la page dédiée e-commerce : duplicate, canonical, validation humaine sur les contenus sensibles.',
+      'Pour le référencement classique, voir aussi le silo SEO. L’important est de ne pas publier des pages vides ou trompeuses “pour le volume”.',
   },
 ] as const;
 
@@ -180,9 +180,9 @@ export function iaPillarFaqJsonLdItems(): { question: string; answer: string }[]
 }
 
 export const IA_PILLAR_FINAL_CTA = {
-  title: 'Un cas d’usage IA à cadrer avant de scaler ?',
+  title: 'Une idée en tête pour votre site, votre appli ou votre équipe ?',
   primaryHref: '/devis?projectType=outil',
-  primaryLabel: 'Demander un devis IA',
+  primaryLabel: 'Demander un devis',
   secondaryHref: '/contact',
-  secondaryLabel: 'Réserver un appel',
+  secondaryLabel: 'Échanger par téléphone',
 } as const;
