@@ -4,41 +4,46 @@ export const APPLICATIONS_MOBILES_PILLAR_PATH = '/applications-mobiles';
 
 export const APPLICATIONS_MOBILES_PILLAR_HERO = {
   chapter: 'Chapitre 02 · Applications mobiles',
-  subline: 'Développeur freelance — iOS, Android, React Native & PWA',
-  h1: 'Applications mobiles qui tiennent la route en production',
+  subline: 'Développeur freelance — iOS & Android',
+  h1: 'Développeur d’applications mobiles sur mesure',
   lead:
-    'Fluidité, hors-ligne partiel, notifications et stores : je conçois des apps natives ou cross-platform et des PWA quand le web suffit. Auth sécurisée, API métiers, crash reporting et releases sans panique — du MVP à la v1 store-ready.',
+    'Vous avez une idée d’appli ? Parfait, j’adore ça. Je conçois et je développe des applications iOS et Android qui tiennent vraiment la route — de la première maquette jusqu’à la publication sur les stores. Sans prise de tête : on parle usage, budget et calendrier comme des adultes, pas comme dans une série sur les start-up.',
   primaryCta: { href: '/devis?projectType=app', label: 'Demander un devis' },
   secondaryCta: { href: `${APPLICATIONS_MOBILES_PILLAR_PATH}#offres`, label: 'Voir les offres' },
 } as const;
 
 export const APPLICATIONS_MOBILES_PILLAR_BENEFITS = {
-  kicker: 'Ce que vous obtenez',
-  title: 'Du code que vous pouvez faire évoluer',
-  subtitle: 'Stores, qualité, mesure : les trois piliers quand l’app est un canal critique.',
+  kicker: 'Ce que je fais concrètement',
+  title: 'De l’idée à l’appli dans la poche de vos clients',
+  subtitle:
+    'Je code, je teste, je publie — et je vous explique ce qui se passe quand Apple ou Google change les règles.',
   items: [
     {
-      title: 'Parcours utilisateur courts',
-      body: 'Moins d’étapes inutiles, erreurs réseau explicites, états de chargement honnêtes : la base du bon NPS.',
+      title: 'Je code votre appli de A à Z',
+      body:
+        'Écrans, logique métier, appels à vos serveurs : je m’occupe de la partie technique pour que vous vous concentriez sur le produit et les retours terrain.',
     },
     {
-      title: 'Publication App Store & Play',
-      body: 'Permissions justifiées, fiches cohérentes, réponses review : on réduit les refus évitables.',
+      title: 'Je la mets sur l’App Store et Google Play',
+      body:
+        'Captures, textes, permissions, conformité : les stores sont une admin à part entière — je la connais et je vous évite les refus bêtes.',
     },
     {
-      title: 'Observabilité dès le départ',
-      body: 'Crash reporting, logs utiles, versions traçables : quand ça casse en prod, vous voyez pourquoi.',
+      title: 'Je la rends rapide et stable',
+      body:
+        'Une appli qui plante au premier réseau pourri, ça part en avis négatif vite fait. Perf, crash reporting, versions : on ne rigole pas avec ça.',
     },
     {
-      title: 'Stratégie native / cross / web',
-      body: 'Pas de dogme : iOS seul, Android terrain, React Native pour la parité, ou PWA si le store n’est pas indispensable.',
+      title: 'Je reste là après le lancement',
+      body:
+        'iOS et Android bougent tout le temps : mises à jour, correctifs, petites features. Je peux rester votre filet de sécurité en forfait ou au ticket.',
     },
   ],
 } as const;
 
 export const APPLICATIONS_MOBILES_PILLAR_EDITORIAL = {
   kicker: 'Lecture',
-  title: 'Pourquoi le mobile est un produit, pas une “miniature du site”',
+  title: 'Avoir une appli mobile en 2026 : pourquoi et comment faire les bons choix',
 } as const;
 
 export const APPLICATIONS_MOBILES_PILLAR_AUDIENCE = {

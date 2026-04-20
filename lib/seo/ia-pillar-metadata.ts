@@ -3,28 +3,30 @@ import type { Metadata } from 'next';
 import { SITE_NAME, SITE_URL } from '@/lib/constants/site';
 
 const path = '/ia';
-const canonical = `${SITE_URL.replace(/\/$/, '')}${path}`;
+const base = SITE_URL.replace(/\/$/, '');
+const canonical = `${base}${path}`;
+const ogImage = `${base}/assets/workflow1.png`;
 
-/** Métadonnées pilier `/ia`. */
+/** Métadonnées pilier `/ia` — alignées brief (intégration IA entreprise). */
 export function iaPillarMetadata(): Metadata {
-  const title = 'IA pour sites, apps & chatbots — Freelance Clickdev';
+  const title = 'Intégration IA entreprise — Freelance | Clickdev';
   const description =
-    'Intégration d’IA dans sites et applications mobiles, chatbots, automatisation et boutique en ligne : un langage clair, des objectifs concrets, devis gratuit.';
-  const ogTitle = 'IA — Clickdev';
+    'J’intègre de l’IA dans vos outils : chatbots, agents, automatisation, ChatGPT, Claude. Développeur freelance, langage clair. Devis dès 3 500 €, sans engagement.';
+  const ogTitle = 'Intégration IA — Clickdev';
   const ogDesc =
-    'Sites, applications, assistants conversationnels : de l’IA utile pour vos clients et vos équipes.';
-  const ogImage = '/og-sites-internet.png';
+    'IA utile dans le site, l’appli ou les process : je code, j’explique, je mesure. Chatbots, RAG, automatisations.';
 
   return {
     title,
     description,
     keywords: [
-      'IA site web',
-      'chatbot freelance',
-      'application mobile IA',
-      'intégration IA PME',
-      'assistant boutique en ligne',
-      'freelance intelligence artificielle',
+      'intégration IA entreprise',
+      'développeur IA freelance',
+      'chatbot IA personnalisé',
+      'agent IA sur mesure',
+      'intégration ChatGPT',
+      'intégration Claude API',
+      'RAG entreprise',
     ],
     alternates: { canonical },
     openGraph: {
@@ -32,7 +34,7 @@ export function iaPillarMetadata(): Metadata {
       description: ogDesc,
       url: canonical,
       siteName: SITE_NAME,
-      images: [{ url: ogImage, width: 1200, height: 630, alt: 'Clickdev — IA' }],
+      images: [{ url: ogImage, width: 1200, height: 630, alt: 'Clickdev — Intégration IA entreprise' }],
       locale: 'fr_FR',
       type: 'website',
     },

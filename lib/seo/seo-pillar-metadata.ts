@@ -3,25 +3,29 @@ import type { Metadata } from 'next';
 import { SITE_NAME, SITE_URL } from '@/lib/constants/site';
 
 const path = '/seo';
-const canonical = `${SITE_URL.replace(/\/$/, '')}${path}`;
+const base = SITE_URL.replace(/\/$/, '');
+const canonical = `${base}${path}`;
+const ogImage = `${base}/assets/workflow3.png`;
 
 export function seoPillarMetadata(): Metadata {
-  const title = 'SEO freelance — Google, local & e-commerce | Clickdev';
+  const title = 'Freelance SEO & GEO — Google & visibilité IA | Clickdev';
   const description =
-    'Référencement naturel accessible : audit, technique, local, e-commerce, contenu. Je conçois et j’implémente — devis gratuit. PME, artisans, associations.';
-  const ogTitle = 'SEO — Clickdev';
-  const ogDesc = 'Visibilité Google sans jargon : priorités claires et exemples concrets.';
+    'Je travaille votre référencement Google et votre visibilité dans les IA (ChatGPT, Claude…). Audit, technique, contenu, GEO. Accompagnement dès 1 900 € — devis gratuit.';
+  const ogTitle = 'SEO & GEO — Clickdev';
+  const ogDesc =
+    'Référencement naturel + GEO : pages claires, perf, contenu honnête. Sans promesse de #1 magique.';
 
   return {
     title,
     description,
     keywords: [
-      'SEO freelance',
-      'référencement naturel PME',
+      'freelance SEO',
+      'freelance GEO',
+      'référencement naturel',
       'audit SEO',
-      'SEO local',
-      'SEO e-commerce',
-      'migration SEO',
+      'optimisation Google',
+      'visibilité ChatGPT',
+      'generative engine optimization',
     ],
     alternates: { canonical },
     openGraph: {
@@ -29,14 +33,25 @@ export function seoPillarMetadata(): Metadata {
       description: ogDesc,
       url: canonical,
       siteName: SITE_NAME,
+      images: [{ url: ogImage, width: 1200, height: 630, alt: 'Clickdev — SEO et GEO' }],
       locale: 'fr_FR',
       type: 'website',
     },
     twitter: {
-      card: 'summary',
+      card: 'summary_large_image',
       title: ogTitle,
       description: ogDesc,
+      images: [ogImage],
     },
-    robots: { index: true, follow: true },
+    robots: {
+      index: true,
+      follow: true,
+      googleBot: {
+        index: true,
+        follow: true,
+        'max-image-preview': 'large',
+        'max-snippet': -1,
+      },
+    },
   };
 }

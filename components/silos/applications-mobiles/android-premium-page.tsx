@@ -2,6 +2,7 @@ import Link from 'next/link';
 
 import { AndroidEditorialContent } from '@/components/silos/applications-mobiles/android-editorial-content';
 import { PremiumChildEditorialShell } from '@/components/silos/sites-internet/premium-child-editorial-shell';
+import { PremiumInternalLinksSection } from '@/components/silos/sites-internet/premium-internal-links-section';
 import { PremiumFinalCta } from '@/components/silos/sites-internet/premium-final-cta';
 import { PremiumCases } from '@/components/silos/sites-internet/premium-cases';
 import { PremiumSitesChildBreadcrumb } from '@/components/silos/sites-internet/premium-sites-child-breadcrumb';
@@ -75,6 +76,7 @@ export default async function AndroidPremiumPage() {
       <PremiumChildEditorialShell kicker={ANDROID_APP_EDITORIAL.kicker} title={ANDROID_APP_EDITORIAL.title}>
         <AndroidEditorialContent />
       </PremiumChildEditorialShell>
+      <PremiumInternalLinksSection />
       <SiteEcommerceAudienceSection
         kicker={ANDROID_APP_AUDIENCE.kicker}
         title={ANDROID_APP_AUDIENCE.title}

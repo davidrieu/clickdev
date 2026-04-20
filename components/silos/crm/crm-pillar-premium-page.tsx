@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { CrmPillarEditorialContent } from '@/components/silos/crm/crm-pillar-editorial-content';
 import { CrmPremiumBento } from '@/components/silos/crm/crm-premium-bento';
 import { PremiumChildEditorialShell } from '@/components/silos/sites-internet/premium-child-editorial-shell';
+import { PremiumInternalLinksSection } from '@/components/silos/sites-internet/premium-internal-links-section';
 import { PremiumFinalCta } from '@/components/silos/sites-internet/premium-final-cta';
 import { PremiumCases } from '@/components/silos/sites-internet/premium-cases';
 import { PremiumSitesChildBreadcrumb } from '@/components/silos/sites-internet/premium-sites-child-breadcrumb';
@@ -71,6 +72,7 @@ export default async function CrmPillarPremiumPage() {
       <PremiumChildEditorialShell kicker={CRM_PILLAR_EDITORIAL.kicker} title={CRM_PILLAR_EDITORIAL.title}>
         <CrmPillarEditorialContent />
       </PremiumChildEditorialShell>
+      <PremiumInternalLinksSection />
       <SiteEcommerceAudienceSection
         kicker={CRM_PILLAR_AUDIENCE.kicker}
         title={CRM_PILLAR_AUDIENCE.title}

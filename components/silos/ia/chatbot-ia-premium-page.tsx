@@ -2,6 +2,7 @@ import Link from 'next/link';
 
 import { ChatbotIaEditorialContent } from '@/components/silos/ia/chatbot-ia-editorial-content';
 import { PremiumChildEditorialShell } from '@/components/silos/sites-internet/premium-child-editorial-shell';
+import { PremiumInternalLinksSection } from '@/components/silos/sites-internet/premium-internal-links-section';
 import { PremiumFinalCta } from '@/components/silos/sites-internet/premium-final-cta';
 import { PremiumCases } from '@/components/silos/sites-internet/premium-cases';
 import { PremiumSitesChildBreadcrumb } from '@/components/silos/sites-internet/premium-sites-child-breadcrumb';
@@ -71,6 +72,7 @@ export default async function ChatbotIaPremiumPage() {
       <PremiumChildEditorialShell kicker={CHATBOT_IA_EDITORIAL.kicker} title={CHATBOT_IA_EDITORIAL.title}>
         <ChatbotIaEditorialContent />
       </PremiumChildEditorialShell>
+      <PremiumInternalLinksSection />
       <SiteEcommerceAudienceSection
         kicker={CHATBOT_IA_AUDIENCE.kicker}
         title={CHATBOT_IA_AUDIENCE.title}

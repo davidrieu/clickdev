@@ -57,14 +57,60 @@ export function IaPillarEditorialContent() {
       </p>
 
       <h3 className="si-editorial-h3 si-serif-display mt-14 text-2xl font-medium tracking-tight text-white md:text-[1.65rem]">
+        L’IA qu’on voit sur LinkedIn vs l’IA qui vous rend une demi-journée par semaine
+      </h3>
+      <p className="mt-4 text-base leading-[1.75] text-white/70">
+        Il y a plein de bruit autour de l’IA : slides futuristes, prompts magiques, “agents autonomes” qui n’existent que
+        dans une démo. Dans la vraie vie, ce qui marche souvent, c’est beaucoup plus terre-à-terre : un formulaire qui
+        pose les bonnes questions, un assistant qui cite vos documents, une petite automatisation qui évite à quelqu’un
+        de recopier la même chose dix fois. Moi je pars de votre irritant du lundi matin — pas du mot à la mode.
+      </p>
+      <p className="mt-4 text-base leading-[1.75] text-white/70">
+        Trois cas où j’intègre de l’IA sans me prendre la tête : le support qui répète les mêmes réponses (on documente
+        les bonnes réponses puis on les rend consultables), le site e-commerce où les gens hésitent entre deux produits
+        (on aide à choisir sans inventer des specs), et l’équipe interne qui perd du temps sur des mails ou des PDF
+        (on résume, on classe, on signale quand un humain doit reprendre). À l’inverse, je déconseille d’automatiser ce
+        qui touche à l’argent ou à la santé sans filet humain clair — ce n’est pas “anti-tech”, c’est du bon sens.
+      </p>
+
+      <h3 className="si-editorial-h3 si-serif-display mt-14 text-2xl font-medium tracking-tight text-white md:text-[1.65rem]">
+        ChatGPT, Claude, Mistral… : je choisis avec vous, pas à votre place
+      </h3>
+      <p className="mt-4 text-base leading-[1.75] text-white/70">
+        Chaque fournisseur a ses forces : qualité de texte, prix à la requête, vitesse, options d’hébergement en Europe,
+        fenêtre de contexte pour de gros documents… Je vous explique les compromis en français simple — parce que
+        signer un contrat SaaS sur la base d’un thread Twitter, c’est risqué. Souvent on commence avec un modèle
+        “large audience” pour un prototype, puis on resserre quand on sait ce qui compte vraiment pour vous.
+      </p>
+      <p className="mt-4 text-base leading-[1.75] text-white/70">
+        Le RAG — récupérer des bouts de vos docs pour répondre — est devenu le truc le plus demandé : c’est
+        l’équivalent d’un collègue qui aurait lu tout votre drive… sans inventer quand il ne sait pas. Si vous voulez le
+        détail, la page{' '}
+        <Link href="/ia/rag-base-connaissances" className="text-white/75 underline-offset-4 transition hover:text-white hover:underline">
+          assistant sur vos documents
+        </Link>{' '}
+        raconte comment je le monte proprement.
+      </p>
+
+      <h3 className="si-editorial-h3 si-serif-display mt-14 text-2xl font-medium tracking-tight text-white md:text-[1.65rem]">
+        Combien ça coûte vraiment — et comment éviter la facture surprise
+      </h3>
+      <p className="mt-4 text-base leading-[1.75] text-white/70">
+        Il y a deux budgets : le développement (moi) et l’usage des API (les fournisseurs). Le second peut grimper si on
+        envoie des romans entiers à chaque clic. D’où l’intérêt de cadrer : prompts courts, mise en cache raisonnable,
+        modèles adaptés à la tâche. Je préfère vous montrer une courbe sur un pilote plutôt que promettre “zéro euro
+        ensuite” — ce serait vous mentir.
+      </p>
+
+      <h3 className="si-editorial-h3 si-serif-display mt-14 text-2xl font-medium tracking-tight text-white md:text-[1.65rem]">
         IA et SEO : deux sujets, une même exigence de clarté
       </h3>
       <p className="mt-4 text-base leading-[1.75] text-white/70">
-        Pour le référencement classique : le silo{' '}
+        Pour le référencement classique, toute la partie{' '}
         <Link href="/seo" className="text-white/75 underline-offset-4 transition hover:text-white hover:underline">
-          SEO
-        </Link>
-        . Pour les parcours web hors boutique :{' '}
+          SEO & GEO
+        </Link>{' '}
+        est détaillée ici sur le site. Pour les parcours web hors boutique :{' '}
         <Link href="/sites-internet" className="text-white/75 underline-offset-4 transition hover:text-white hover:underline">
           sites internet
         </Link>

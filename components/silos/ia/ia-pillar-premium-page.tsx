@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { IaPillarEditorialContent } from '@/components/silos/ia/ia-pillar-editorial-content';
 import { IaPremiumBento } from '@/components/silos/ia/ia-premium-bento';
 import { PremiumChildEditorialShell } from '@/components/silos/sites-internet/premium-child-editorial-shell';
+import { PremiumInternalLinksSection } from '@/components/silos/sites-internet/premium-internal-links-section';
 import { PremiumFinalCta } from '@/components/silos/sites-internet/premium-final-cta';
 import { PremiumCases } from '@/components/silos/sites-internet/premium-cases';
 import { PremiumSitesChildBreadcrumb } from '@/components/silos/sites-internet/premium-sites-child-breadcrumb';
@@ -70,6 +71,7 @@ export default async function IaPillarPremiumPage() {
       <PremiumChildEditorialShell kicker={IA_PILLAR_EDITORIAL.kicker} title={IA_PILLAR_EDITORIAL.title}>
         <IaPillarEditorialContent />
       </PremiumChildEditorialShell>
+      <PremiumInternalLinksSection />
       <SiteEcommerceAudienceSection
         kicker={IA_PILLAR_AUDIENCE.kicker}
         title={IA_PILLAR_AUDIENCE.title}
@@ -110,7 +112,7 @@ export default async function IaPillarPremiumPage() {
       />
       <SiteEcommerceBudgetSection
         title="Budget"
-        line="Les budgets dépendent du projet (chatbot, site, boutique…) : chaque page dédiée indique une fourchette de départ."
+        line="Une première intégration IA sérieuse démarre souvent vers 3 500 € — chaque page fille précise son ordre de grandeur."
         note="Devis gratuit, personnalisé, sans engagement."
       />
       <PremiumFinalCta

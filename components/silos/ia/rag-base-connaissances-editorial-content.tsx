@@ -28,7 +28,7 @@ export function RagBaseConnaissancesEditorialContent() {
       </p>
       <p className="mt-4 text-base leading-[1.75] text-white/70">
         <Link href="/ia" className="text-white/75 underline-offset-4 transition hover:text-white hover:underline">
-          Silo IA
+          Vue d’ensemble IA
         </Link>
         .
       </p>

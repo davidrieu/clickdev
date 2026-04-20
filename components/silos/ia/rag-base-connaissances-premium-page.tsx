@@ -2,6 +2,7 @@ import Link from 'next/link';
 
 import { RagBaseConnaissancesEditorialContent } from '@/components/silos/ia/rag-base-connaissances-editorial-content';
 import { PremiumChildEditorialShell } from '@/components/silos/sites-internet/premium-child-editorial-shell';
+import { PremiumInternalLinksSection } from '@/components/silos/sites-internet/premium-internal-links-section';
 import { PremiumFinalCta } from '@/components/silos/sites-internet/premium-final-cta';
 import { PremiumCases } from '@/components/silos/sites-internet/premium-cases';
 import { PremiumSitesChildBreadcrumb } from '@/components/silos/sites-internet/premium-sites-child-breadcrumb';
@@ -75,6 +76,7 @@ export default async function RagBaseConnaissancesPremiumPage() {
       <PremiumChildEditorialShell kicker={RAG_BASE_CONNAISSANCES_EDITORIAL.kicker} title={RAG_BASE_CONNAISSANCES_EDITORIAL.title}>
         <RagBaseConnaissancesEditorialContent />
       </PremiumChildEditorialShell>
+      <PremiumInternalLinksSection />
       <SiteEcommerceAudienceSection
         kicker={RAG_BASE_CONNAISSANCES_AUDIENCE.kicker}
         title={RAG_BASE_CONNAISSANCES_AUDIENCE.title}

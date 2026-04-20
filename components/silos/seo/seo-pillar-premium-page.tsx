@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { SeoPillarEditorialContent } from '@/components/silos/seo/seo-pillar-editorial-content';
 import { SeoPremiumBento } from '@/components/silos/seo/seo-premium-bento';
 import { PremiumChildEditorialShell } from '@/components/silos/sites-internet/premium-child-editorial-shell';
+import { PremiumInternalLinksSection } from '@/components/silos/sites-internet/premium-internal-links-section';
 import { PremiumFinalCta } from '@/components/silos/sites-internet/premium-final-cta';
 import { PremiumCases } from '@/components/silos/sites-internet/premium-cases';
 import { PremiumSitesChildBreadcrumb } from '@/components/silos/sites-internet/premium-sites-child-breadcrumb';
@@ -71,6 +72,7 @@ export default async function SeoPillarPremiumPage() {
       <PremiumChildEditorialShell kicker={SEO_PILLAR_EDITORIAL.kicker} title={SEO_PILLAR_EDITORIAL.title}>
         <SeoPillarEditorialContent />
       </PremiumChildEditorialShell>
+      <PremiumInternalLinksSection />
       <SiteEcommerceAudienceSection
         kicker={SEO_PILLAR_AUDIENCE.kicker}
         title={SEO_PILLAR_AUDIENCE.title}

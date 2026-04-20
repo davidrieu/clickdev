@@ -3,17 +3,18 @@ import type { Metadata } from 'next';
 import { SITE_NAME, SITE_URL } from '@/lib/constants/site';
 
 const path = '/applications-mobiles';
-const canonical = `${SITE_URL.replace(/\/$/, '')}${path}`;
+const base = SITE_URL.replace(/\/$/, '');
+const canonical = `${base}${path}`;
 
 /** Métadonnées pilier /applications-mobiles. */
 export function applicationsMobilesPillarMetadata(): Metadata {
-  const title = 'Développeur application mobile freelance — iOS, Android, React Native | Clickdev';
+  const title = 'Développeur application mobile freelance — iOS & Android | Clickdev';
   const description =
-    'Développement d’applications mobiles : iOS, Android, React Native, PWA. Stores, performance, maintenance. Freelance expérimenté — devis gratuit.';
+    'Je conçois des apps iOS et Android sur mesure : natif, React Native ou PWA. Idée → stores, avec perf et suivi. Projets dès 4 900 € — devis gratuit.';
   const ogTitle = 'Applications mobiles — Clickdev';
   const ogDesc =
-    'Apps natives, cross-platform et PWA : de l’idée à la prod, avec qualité store et observabilité.';
-  const ogImage = '/og-sites-internet.png';
+    'Apps qui tiennent la route : soumission stores, crash reporting, roadmap honnête. iOS, Android, React Native, PWA.';
+  const ogImage = `${base}/assets/workflow2.png`;
 
   return {
     title,

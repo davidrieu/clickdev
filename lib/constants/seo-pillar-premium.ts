@@ -3,46 +3,47 @@
 export const SEO_PILLAR_PATH = '/seo';
 
 export const SEO_PILLAR_HERO = {
-  chapter: 'Chapitre 04 · Référencement',
-  subline: 'Développeur freelance — Je conçois & j’implémente',
-  h1: 'SEO : être trouvé sur Google sans se noyer dans le jargon',
+  chapter: 'Chapitre 04 · SEO & GEO',
+  subline: 'Développeur freelance — Référencement Google & visibilité IA',
+  h1: 'Référencement Google et IA (GEO) sur mesure',
   lead:
-    'Que vous vendiez des gâteaux, des conseils juridiques ou des abonnements logiciels, le principe reste le même : des pages qui répondent à une vraie question, un site qui s’ouvre vite, et les formulations que vos clients tapent déjà dans la barre de recherche. Je ne vends pas de “pack miracle” : je priorise ce qui a du sens pour votre activité, je code les correctifs quand il le faut, et je vous explique pourquoi — sans promettre la première place comme si c’était un diplôme.',
+    'Aujourd’hui vos clients vous cherchent sur Google, mais aussi en demandant à ChatGPT, Claude ou Perplexity. Le SEO “classique” ne suffit plus tout seul : il faut aussi des pages claires, des faits vérifiables, une structure honnête — pour les humains et pour les modèles. Je travaille les deux avec la même exigence, sans vous vendre la première place comme un billet de loto.',
   primaryCta: { href: '/devis?projectType=site', label: 'Demander un devis' },
   secondaryCta: { href: `${SEO_PILLAR_PATH}#offres`, label: 'Voir les offres' },
 } as const;
 
 export const SEO_PILLAR_BENEFITS = {
-  kicker: 'Ce que vous obtenez',
-  title: 'Une approche lisible par toute l’équipe',
-  subtitle: 'Priorités, chiffres simples, pas de PowerPoint opaque.',
+  kicker: 'Ce que je fais concrètement',
+  title: 'Google, vos pages, et les IA qui vous résument',
+  subtitle:
+    'Je ne vous envoie pas un PDF de 120 pages illisible : je priorise, je code quand il faut, et je vous dis la vérité sur les délais.',
   items: [
     {
-      title: 'Je parle humain puis je code',
+      title: 'J’audite votre site pour voir ce qui coince vraiment',
       body:
-        'On commence par votre terrain : qui appelle, qui commande, quelle saison est critique. Ensuite seulement on aligne titres, maillage interne et performance. Exemple réel : un salon qui veut remplir le mardi après-midi — ce n’est pas la même stratégie qu’une boutique nationale qui vit des soldes.',
+        'Technique, contenu, maillage, signaux locaux ou e-commerce : je regarde ce qui explique pourquoi vous stagnez ou pourquoi vous avez chuté — avant de dépenser six mois de blog pour rien.',
     },
     {
-      title: 'Technique + contenu, sans faux débat',
+      title: 'Je corrige les fondations techniques',
       body:
-        'Un texte soigné sur un site qui met six secondes à afficher la page d’accueil, ou des pages en double par milliers, ne tiendra jamais la route. Quand c’est pertinent, je corrige le gabarit, le cache, les redirections ; quand c’est le contenu qui manque de clarté, on travaille les intentions de recherche et la structure des pages.',
+        'Vitesse, indexation, erreurs, données structurées utiles : tout ce qui aide Google à comprendre sans se fatiguer — et vos visiteurs aussi.',
     },
     {
-      title: 'Des exemples qui ressemblent à votre quotidien',
+      title: 'J’écris ou je structure des contenus qui servent',
       body:
-        'Boutique qui a perdu ses positions après une refonte “jolie mais bancale”, artisan introuvable hors Google Maps, blog alimenté trois ans durant sans un seul clic utile, e-commerce où chaque filtre crée une URL fantôme… Ce sont des situations que l’on peut débloquer étape par étape.',
+        'Pages services, FAQ, fiches utiles : ce qui répond à une vraie question et peut être repris par une IA sans inventer votre métier.',
     },
     {
-      title: 'Une mesure qui sert à décider',
+      title: 'Je travaille aussi votre visibilité “dans les IA” (GEO)',
       body:
-        'Search Console pour voir ce que Google montre déjà, quelques pages vitales, et chez vous : appels, devis, prises de rendez-vous. Pas besoin d’un tableau de bord de vingt courbes si trois indicateurs suffisent à piloter.',
+        'Qui êtes-vous, où intervenez-vous, quelles preuves ? La page GEO détaille l’approche ; l’idée, c’est d’être cité honnêtement quand on pose la question à un assistant.',
     },
   ],
 } as const;
 
 export const SEO_PILLAR_EDITORIAL = {
   kicker: 'Lecture',
-  title: 'Le référencement, c’est de la patience… mais pas de l’attente passive',
+  title: 'SEO et GEO en 2026 : être trouvé sur Google et dans les réponses des IA',
 } as const;
 
 export const SEO_PILLAR_AUDIENCE = {
@@ -167,6 +168,21 @@ export const SEO_PILLAR_FAQ_ITEMS = [
     answer:
       'C’est un sujet à part : la page GEO détaille comment rendre votre activité facile à résumer pour un assistant, sans mentir sur ce que vous faites. Ça complète le SEO Google classique plutôt que de le remplacer.',
   },
+  {
+    question: 'Vous travaillez sur quels CMS ou frameworks ?',
+    answer:
+      'Next.js, WordPress, Shopify, parfois du sur mesure : ce qui compte, c’est que je puisse intervenir sur le code ou sur le thème quand le SEO technique le demande.',
+  },
+  {
+    question: 'Faites-vous aussi de la rédaction SEO vous-même ?',
+    answer:
+      'Oui : trames, réécriture, FAQ, pages services. Si vous avez déjà un rédacteur, je peux me concentrer sur la structure et la technique.',
+  },
+  {
+    question: 'Comment se passe un audit SEO chez vous ?',
+    answer:
+      'Échange court, accès Search Console / CMS si possible, analyse, puis document priorisé + appel pour le décortiquer ensemble. Pas de liste d’erreurs sans ordre.',
+  },
 ] as const;
 
 export function seoPillarFaqJsonLdItems(): { question: string; answer: string }[] {
@@ -175,7 +191,7 @@ export function seoPillarFaqJsonLdItems(): { question: string; answer: string }[
 
 export const SEO_PILLAR_BUDGET = {
   title: 'Budget',
-  line: 'Les tarifs varient : un audit complet vers 990 €, missions techniques ou contenu sur devis selon pages.',
+  line: 'Un accompagnement SEO + GEO sérieux démarre souvent vers 1 900 € selon la taille du site — audits et pages filles ont leurs propres ordres de grandeur.',
   note: 'Devis gratuit, sans engagement.',
 } as const;
 

@@ -3,9 +3,9 @@
 export const CRM_PILLAR_PATH = '/crm-outils-metiers';
 
 export const CRM_PILLAR_HERO = {
-  chapter: 'Chapitre 05 · Outils métiers',
-  subline: 'Développeur freelance — Je conçois & je développe',
-  h1: 'CRM & outils : moins de tableurs, plus de temps pour vendre',
+  chapter: 'Chapitre 05 · CRM & outils métiers',
+  subline: 'Développeur freelance — Outils internes sur mesure',
+  h1: 'CRM sur mesure et outils métiers pour votre activité',
   lead:
     'Quand les devis, les relances et les factures vivent dans cinq fichiers différents — ou pire, dans la boîte mail du commercial parti en congés — les oublis et les doubles saisies arrivent vite. Je conçois des petits CRM web adaptés à votre vocabulaire métier, je relie votre site à HubSpot ou Pipedrive quand vous avez déjà choisi un outil du marché, et je code des automatisations avec des filets de sécurité (logs, alertes) pour que le “zéro paperasse” ne devienne pas “zéro traçabilité”. Que vous soyez trois ou trente, l’objectif reste le même : moins de friction entre ce qui se passe sur le terrain et ce qui est noté quelque part.',
   primaryCta: { href: '/devis?projectType=outil', label: 'Demander un devis' },
@@ -13,9 +13,10 @@ export const CRM_PILLAR_HERO = {
 } as const;
 
 export const CRM_PILLAR_BENEFITS = {
-  kicker: 'Ce que vous obtenez',
-  title: 'Des outils alignés sur votre vraie journée de travail',
-  subtitle: 'Pas de usine à gaz : ce dont vous avez besoin maintenant, évolutif ensuite.',
+  kicker: 'Ce que je fais concrètement',
+  title: 'Des outils qui collent à votre façon de travailler',
+  subtitle:
+    'Moins de “on fait avec Excel parce que le logiciel du marché ne comprend pas notre métier”.',
   items: [
     {
       title: 'Je développe, je ne “vends” pas juste une licence',
@@ -162,6 +163,26 @@ export const CRM_PILLAR_FAQ_ITEMS = [
     answer:
       'Je livre pour que ce soit possible : dépôt Git, documentation, variables d’environnement. Les petits réglages peuvent rester chez vous ; pour des refontes de flux ou des mises à jour d’API critiques, un regard technique externe évite les mauvaises surprises.',
   },
+  {
+    question: 'Quelle différence entre un CRM sur mesure et HubSpot ou Salesforce ?',
+    answer:
+      'Les gros outils imposent leur vocabulaire et leur pricing. Le sur mesure, c’est votre pipeline, vos champs, vos règles — utile quand vous payez déjà des licences pour 10 % des menus.',
+  },
+  {
+    question: 'Peut-on migrer depuis notre CRM actuel ?',
+    answer:
+      'Souvent oui, par étapes : export, nettoyage, import, double saisie temporaire ou passerelles. On évite le big bang si votre équipe est en pleine saison.',
+  },
+  {
+    question: 'On peut commencer petit et enrichir après ?',
+    answer:
+      'C’est même ce que je recommande : un premier module utile (pipeline + historique), puis reporting, portail client, etc. quand les gens ont adopté la base.',
+  },
+  {
+    question: 'Comment éviter que personne n’utilise le nouvel outil ?',
+    answer:
+      'Ateliers avec les futurs utilisateurs, écrans simples, formation courte, et une doc qui explique les cas d’erreur — pas seulement le chemin heureux.',
+  },
 ] as const;
 
 export function crmPillarFaqJsonLdItems(): { question: string; answer: string }[] {
@@ -170,7 +191,7 @@ export function crmPillarFaqJsonLdItems(): { question: string; answer: string }[
 
 export const CRM_PILLAR_BUDGET = {
   title: 'Budget',
-  line: 'Intégration simple dès ~2 500 €, automatisations dès ~1 800 €, CRM sur mesure souvent 12 k€ et +.',
+  line: 'Un premier outil métier ou CRM sur mesure utile démarre souvent vers 4 900 € ; intégrations et automatisations peuvent commencer plus bas.',
   note: 'Devis gratuit après échange court.',
 } as const;
 

@@ -4,41 +4,46 @@ export const IA_PILLAR_PATH = '/ia';
 
 export const IA_PILLAR_HERO = {
   chapter: 'Chapitre 03 · Intelligence artificielle',
-  subline: 'Développeur freelance — Pour votre site, votre appli, votre équipe',
-  h1: 'L’intelligence artificielle au service de vos clients — sans prise de tête',
+  subline: 'Développeur freelance — IA pratique',
+  h1: 'J’intègre l’IA dans vos produits et vos outils',
   lead:
-    'Beaucoup de monde veut “mettre de l’IA” : moi je m’en sers pour des choses concrètes — aider vos visiteurs sur le site, soulager le support, accélérer un peu le quotidien dans l’entreprise. Chatbots, assistants dans une application mobile, petites automatisations : on choisit ce qui a du sens pour vous, avec un œil sur le budget et la confidentialité.',
+    'L’IA, ce n’est plus seulement ChatGPT ouvert dans un onglet : c’est une techno qu’on peut brancher dans votre site, votre appli ou vos outils internes pour gagner du temps, mieux répondre aux clients, ou enlever les tâches répétitives que tout le monde repousse. Je vous montre où ça vaut le coup — et où ça ne vaut pas le coup — sans slide “transformation digitale” et sans vous noyer dans le jargon.',
   primaryCta: { href: '/devis?projectType=outil', label: 'Demander un devis' },
   secondaryCta: { href: `${IA_PILLAR_PATH}#offres`, label: 'Voir les offres' },
 } as const;
 
 export const IA_PILLAR_BENEFITS = {
-  kicker: 'Ce que vous obtenez',
-  title: 'Des projets IA qu’on peut expliquer à table',
-  subtitle: 'Pas de promesse miracle : des objectifs clairs et un suivi honnête.',
+  kicker: 'Ce que je fais concrètement',
+  title: 'De l’IA qui sert à quelque chose dans votre journée',
+  subtitle:
+    'Pas de démo tape-à-l’œil pour LinkedIn : je préfère un truc modeste qui tourne tous les jours chez vous.',
   items: [
     {
-      title: 'On commence par l’usage',
-      body: 'Moins de temps perdu au téléphone ? Plus de demandes traitées sur le site ? On définit ce qu’on veut améliorer avant de parler technique.',
+      title: 'Des chatbots qui connaissent vraiment votre boîte',
+      body:
+        'Pas un widget qui répond “je n’ai pas compris” en boucle : un assistant branché sur vos contenus, votre ton, vos règles — avec une vraie porte de sortie vers un humain quand la situation est sensible.',
     },
     {
-      title: 'Vos données, traitées avec sérieux',
-      body: 'On ne diffuse pas tout “parce que l’IA en a besoin” : on limite ce qui circule, et on reste dans le cadre légal adapté à votre activité.',
+      title: 'Des petits agents qui agissent, pas seulement qui discutent',
+      body:
+        'Qualifier un lead, préparer un brouillon d’e-mail, remplir un champ CRM, déclencher une tâche : je code des flux où l’IA fait un pas de plus que “juste répondre dans une bulle”.',
     },
     {
-      title: 'Une solution qui peut évoluer',
-      body: 'Quand ça marche, on peut élargir ; si ça coince, on ajuste sans repartir de zéro à chaque fois.',
+      title: 'De l’automatisation qui vous rend des heures',
+      body:
+        'Trier, classer, résumer, extraire : tout ce qui vous fait perdre un mercredi après-midi chaque semaine mérite qu’on regarde si une règle claire + un modèle peut le prendre en charge proprement.',
     },
     {
-      title: 'Vous n’êtes pas prisonnier d’un outil opaque',
-      body: 'Je documente ce qui a été fait pour que vous ou une autre personne puissiez reprendre le fil plus tard.',
+      title: 'Une IA branchée sur VOS docs (RAG)',
+      body:
+        'Je branche vos PDF, Notion, fiches produit ou wiki interne pour que les réponses restent ancrées dans ce que vous avez déjà écrit — avec des limites pour éviter les inventions.',
     },
   ],
 } as const;
 
 export const IA_PILLAR_EDITORIAL = {
   kicker: 'Lecture',
-  title: 'L’IA utile, ce n’est pas toujours la plus “impressionnante”',
+  title: 'L’IA en entreprise en 2026 : sortir de la hype, rentrer dans le concret',
 } as const;
 
 export const IA_PILLAR_AUDIENCE = {
@@ -134,44 +139,44 @@ export const IA_PILLAR_FAQ = {
 
 export const IA_PILLAR_FAQ_ITEMS = [
   {
-    question: 'Est-ce que l’IA remplace les humains ?',
+    question: 'Concrètement, l’IA peut faire quoi pour mon entreprise ?',
     answer:
-      'Non, l’idée est plutôt d’enlever les tâches répétitives ou d’aider à répondre plus vite. Dès que c’est sensible (litige, santé, argent), une personne garde la main.',
+      'Répondre plus vite sur le site, qualifier des demandes, résumer des mails longs, aider à remplir un CRM, proposer des brouillons de texte sous contrôle humain… On commence par un irritant précis, pas par “on met de l’IA partout”.',
   },
   {
-    question: 'Combien ça coûte ?',
+    question: 'Combien coûte un chatbot IA personnalisé ?',
     answer:
-      'Ça dépend beaucoup du projet : un petit assistant sur le site n’a pas le même prix qu’un gros dispositif sur plusieurs outils. Je vous fais une fourchette honnête après un court échange, sans engagement.',
+      'Ça dépend du volume de questions, des langues, des intégrations (prise de rendez-vous, ticketing…) et du niveau de sécurité. En ordre de grandeur, on parle souvent de quelques milliers d’euros pour un premier périmètre sérieux — je vous donne une fourchette après un court échange.',
   },
   {
-    question: 'Quelle différence avec un chatbot tout prêt sur internet ?',
+    question: 'Mes données restent-elles privées ?',
     answer:
-      'Les outils génériques vont vite mais ne connaissent pas votre activité. Sur mesure, on branche votre contenu, vos règles, et vos canaux (site, mail, etc.).',
+      'On limite ce qui part chez les fournisseurs, on évite d’envoyer des infos inutiles, et on choisit des options adaptées à votre secteur. Le cadre légal final reste avec vous ou votre conseil ; je mets en œuvre ce que vous validez.',
   },
   {
-    question: 'Mes données sont-elles envoyées aux États-Unis ?',
+    question: 'Quelle différence entre ChatGPT dans un onglet et une IA intégrée sur mesure ?',
     answer:
-      'On regarde ensemble ce qui est strictement nécessaire et les options proposées par les fournisseurs (souvent des réglages “entreprise” ou européens). Je ne remplace pas un avocat, mais je peux mettre en œuvre ce que vous validez.',
+      'ChatGPT générique ne connaît pas vos règles internes ni votre catalogue à jour. Une intégration sur mesure, c’est votre vocabulaire, vos liens, vos garde-fous — et souvent moins de copier-coller pour l’équipe.',
   },
   {
-    question: 'C’est pour les grandes entreprises seulement ?',
+    question: 'Combien de temps pour intégrer l’IA dans mon outil ?',
     answer:
-      'Non : un artisan ou une petite équipe peut déjà gagner du temps avec un bon formulaire ou un assistant sur la page contact.',
+      'Un pilote ciblé peut aller vite (quelques semaines) ; un dispositif large multi-outils prend plus de temps. Je préfère annoncer large et livrer serré plutôt que l’inverse.',
   },
   {
-    question: 'Et si je veux arrêter plus tard ?',
+    question: 'Les hallucinations de l’IA, on peut les gérer ?',
     answer:
-      'On prévoit dès le départ que vous restiez propriétaire de vos comptes et de vos contenus, et qu’on puisse désactiver ou remplacer la fonction sans tout casser.',
+      'On réduit le risque : sources obligatoires, température basse, prompts serrés, garde-fous côté serveur, et humain sur les sujets sensibles. Zéro promesse de zéro erreur — ce serait mentir.',
   },
   {
-    question: 'Ça marche avec mon site actuel ?',
+    question: 'C’est réservé aux grandes entreprises ?',
     answer:
-      'Souvent oui : on peut ajouter une brique sans refaire tout le site. Si une refonte est plus pertinente, je vous le dis franchement.',
+      'Non : une petite structure avec beaucoup de questions répétitives sur le site ou par mail peut déjà gagner du temps. L’enjeu, c’est surtout la clarté du besoin, pas le chiffre d’affaires.',
   },
   {
-    question: 'L’IA et le référencement Google ?',
+    question: 'Comment mesurer le retour sur investissement ?',
     answer:
-      'Pour le référencement classique, voir aussi le silo SEO. L’important est de ne pas publier des pages vides ou trompeuses “pour le volume”.',
+      'Avant/après sur le temps de traitement, le taux de réponses sans escalade, le panier moyen, le nombre de tickets évités… On choisit une ou deux métriques simples avec vous, pas quinze tableaux de bord.',
   },
 ] as const;
 

@@ -55,11 +55,11 @@ export function ApplicationsMobilesPillarEditorialContent() {
       </h3>
       <p className="mt-4 text-base leading-[1.75] text-white/70">
         Beaucoup de parcours commencent sur le web et se concluent dans l’app — ou l’inverse. Si votre enjeu principal
-        reste la acquisition SEO, le silo{' '}
+        reste l’acquisition via Google, la partie{' '}
         <Link href="/sites-internet" className="text-white/75 underline-offset-4 transition hover:text-white hover:underline">
           sites internet
         </Link>{' '}
-        reste central ; le mobile accélère la fidélisation et les usages répétés.
+        reste centrale ; le mobile accélère la fidélisation et les usages répétés.
       </p>
 
       <h3 className="si-editorial-h3 si-serif-display mt-14 text-2xl font-medium tracking-tight text-white md:text-[1.65rem]">
