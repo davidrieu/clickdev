@@ -6,6 +6,8 @@ import { motion, useReducedMotion } from 'framer-motion';
 import { PremiumSectionDivider } from '@/components/home-premium/premium-section-divider';
 import { ServiceCardGlow } from '@/components/premium/service-card-glow';
 
+import { StellarField, useSectionStellarPointer } from './stellar-field';
+
 type BentoItem = {
   href: string;
   title: string;
@@ -94,10 +96,17 @@ function BentoTile({ item, index }: { item: BentoItem; index: number }) {
 }
 
 export function PremiumBento() {
+  const { pointer, onPointerMoveCapture, onPointerLeave } = useSectionStellarPointer();
+
   return (
-    <section className="relative overflow-hidden bg-black/82 py-24 md:py-36 lg:py-44">
+    <section
+      className="relative overflow-hidden bg-black py-24 md:py-36 lg:py-44"
+      onPointerMoveCapture={onPointerMoveCapture}
+      onPointerLeave={onPointerLeave}
+    >
       <PremiumSectionDivider />
-      <div className="mx-auto max-w-[1400px] px-4 md:px-8">
+      <StellarField count={40} className="opacity-[0.55]" interactive pointer={pointer} />
+      <div className="relative z-10 mx-auto max-w-[1400px] px-4 md:px-8">
         <motion.div
           initial={{ opacity: 0, y: 28 }}
           whileInView={{ opacity: 1, y: 0 }}

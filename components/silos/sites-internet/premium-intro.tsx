@@ -3,6 +3,8 @@
 import { useEffect, useRef, useState } from 'react';
 import { animate, motion, useInView } from 'framer-motion';
 
+import { StellarField, useSectionStellarPointer } from './stellar-field';
+
 function useAnimatedMetric(
   from: number,
   target: number,
@@ -27,6 +29,7 @@ function useAnimatedMetric(
 export function PremiumIntro() {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: '-12%' });
+  const { pointer, onPointerMoveCapture, onPointerLeave } = useSectionStellarPointer();
 
   const lh = useAnimatedMetric(0, 100, '', 0, inView);
   const speed = useAnimatedMetric(2.4, 0.9, '', 1, inView);
@@ -35,9 +38,12 @@ export function PremiumIntro() {
   return (
     <section
       ref={ref}
-      className="bg-[oklch(0.11_0_0/0.84)] py-24 md:py-36 lg:py-44"
+      className="relative overflow-hidden bg-[oklch(0.11_0_0)] py-24 md:py-36 lg:py-44"
+      onPointerMoveCapture={onPointerMoveCapture}
+      onPointerLeave={onPointerLeave}
     >
-      <div className="mx-auto max-w-[1100px] px-4 md:px-8">
+      <StellarField count={38} className="opacity-[0.5]" interactive pointer={pointer} />
+      <div className="relative z-10 mx-auto max-w-[1100px] px-4 md:px-8">
         <motion.h2
           className="si-serif-display text-balance text-[clamp(1.85rem,4.2vw,3.75rem)] leading-[1.12] font-medium tracking-[-0.03em] text-white"
           initial={{ opacity: 0, y: 32 }}

@@ -10,14 +10,22 @@ import {
   type SitesInternetFaqTabId,
 } from '@/lib/constants/sites-internet-premium';
 
+import { StellarField, useSectionStellarPointer } from './stellar-field';
+
 const TAB_ORDER: SitesInternetFaqTabId[] = ['budget', 'tech', 'process'];
 
 export function PremiumFaq() {
   const [tab, setTab] = useState<SitesInternetFaqTabId>('budget');
+  const { pointer, onPointerMoveCapture, onPointerLeave } = useSectionStellarPointer();
 
   return (
-    <section className="relative overflow-hidden bg-[oklch(0.09_0_0/0.86)] py-24 md:py-40 lg:py-48">
+    <section
+      className="relative overflow-hidden bg-[oklch(0.09_0_0)] py-24 md:py-40 lg:py-48"
+      onPointerMoveCapture={onPointerMoveCapture}
+      onPointerLeave={onPointerLeave}
+    >
       <PremiumSectionDivider />
+      <StellarField count={36} className="opacity-[0.5]" interactive pointer={pointer} />
       <div className="relative z-10 mx-auto max-w-[800px] px-4 md:px-8">
         <motion.div
           initial={{ opacity: 0, y: 18 }}

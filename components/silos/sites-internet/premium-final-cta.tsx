@@ -24,8 +24,6 @@ export type PremiumFinalCtaProps = {
   primaryLabel?: string;
   secondaryHref?: string;
   secondaryLabel?: string;
-  /** Quand true (page sites-internet dans le shell stellaire global), pas de champ local. */
-  useGlobalStellar?: boolean;
 };
 
 export function PremiumFinalCta({
@@ -35,7 +33,6 @@ export function PremiumFinalCta({
   primaryLabel = 'Demander un devis site web',
   secondaryHref = '/contact',
   secondaryLabel = 'Réserver un appel',
-  useGlobalStellar = false,
 }: PremiumFinalCtaProps) {
   const reduce = useReducedMotion();
   const words = useMemo(() => title.split(' '), [title]);
@@ -43,15 +40,12 @@ export function PremiumFinalCta({
 
   return (
     <section
-      className={`relative overflow-hidden py-28 md:py-40 lg:py-52 ${useGlobalStellar ? 'bg-black/82' : 'bg-black'}`}
-      {...(useGlobalStellar
-        ? {}
-        : { onPointerMoveCapture, onPointerLeave })}
+      className="relative overflow-hidden bg-black py-28 md:py-40 lg:py-52"
+      onPointerMoveCapture={onPointerMoveCapture}
+      onPointerLeave={onPointerLeave}
     >
       <PremiumSectionDivider />
-      {!useGlobalStellar ? (
-        <StellarField count={56} interactive pointer={pointer} />
-      ) : null}
+      <StellarField count={56} interactive pointer={pointer} />
 
       <motion.div
         className="pointer-events-none absolute -left-24 top-1/4 size-[380px] rounded-full bg-white/10 blur-3xl"

@@ -5,13 +5,21 @@ import { motion } from 'framer-motion';
 import { PremiumSectionDivider } from '@/components/home-premium/premium-section-divider';
 import { SITES_INTERNET_STACK } from '@/lib/constants/sites-internet-premium';
 
+import { StellarField, useSectionStellarPointer } from './stellar-field';
+
 export function PremiumStackMarquee() {
+  const { pointer, onPointerMoveCapture, onPointerLeave } = useSectionStellarPointer();
   const row = [...SITES_INTERNET_STACK, ...SITES_INTERNET_STACK];
   const rowB = [...[...SITES_INTERNET_STACK].reverse(), ...[...SITES_INTERNET_STACK].reverse()];
 
   return (
-    <section className="relative overflow-hidden bg-black/82 py-24 md:py-36 lg:py-44">
+    <section
+      className="relative overflow-hidden bg-black py-24 md:py-36 lg:py-44"
+      onPointerMoveCapture={onPointerMoveCapture}
+      onPointerLeave={onPointerLeave}
+    >
       <PremiumSectionDivider />
+      <StellarField count={40} className="opacity-[0.55]" interactive pointer={pointer} />
       <div className="relative z-10 mx-auto grid max-w-[1400px] gap-14 px-4 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.4fr)] lg:items-center lg:gap-16 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
