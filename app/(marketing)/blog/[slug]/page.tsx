@@ -1,8 +1,8 @@
+import { BlogArticleShell } from '@/components/blog/blog-article-shell';
 import { BlogPostClient } from '@/components/blog/blog-post-client';
-import { RealisationDetailShell } from '@/components/realisations/realisation-detail-shell';
 import { BlogPostingJsonLd } from '@/components/seo/blog-posting-json-ld';
 import { BreadcrumbJsonLd } from '@/components/seo/breadcrumb-json-ld';
-import { getPostBySlug, getPostSlugs } from '@/lib/sanity/fetch';
+import { getLatestPosts, getPostBySlug, getPostSlugs } from '@/lib/sanity/fetch';
 import { isSanityConfigured } from '@/lib/sanity/env';
 import { pageMetadata } from '@/lib/seo/page-metadata';
 import type { Metadata } from 'next';
@@ -50,7 +50,7 @@ export default async function BlogPostPage({ params }: Props) {
 
   if (!isSanityConfigured()) {
     return (
-      <RealisationDetailShell
+      <BlogArticleShell
         breadcrumb={[
           { href: '/', label: 'Accueil' },
           { href: '/blog', label: 'Blog' },
@@ -63,14 +63,16 @@ export default async function BlogPostPage({ params }: Props) {
             pour afficher le contenu CMS sur cette URL.
           </p>
         </div>
-      </RealisationDetailShell>
+      </BlogArticleShell>
     );
   }
 
-  const post = await getPostBySlug(slug);
+  const [post, recentList] = await Promise.all([getPostBySlug(slug), getLatestPosts(12)]);
   if (!post) {
     notFound();
   }
+
+  const recentForSidebar = recentList.filter((p) => p.slug !== slug).slice(0, 5);
 
   const jsonLdDescription =
     post.metaDescription?.trim() ||
@@ -96,15 +98,15 @@ export default async function BlogPostPage({ params }: Props) {
         image={jsonLdImage}
         authorName={post.author?.name ?? null}
       />
-      <RealisationDetailShell
+      <BlogArticleShell
         breadcrumb={[
           { href: '/', label: 'Accueil' },
           { href: '/blog', label: 'Blog' },
           { href: `/blog/${slug}`, label: post.title, current: true },
         ]}
       >
-        <BlogPostClient post={post} />
-      </RealisationDetailShell>
+        <BlogPostClient post={post} currentSlug={slug} recentPosts={recentForSidebar} />
+      </BlogArticleShell>
     </>
   );
 }

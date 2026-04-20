@@ -52,17 +52,17 @@ export function CaseStudySectionNav({ items, variant, className }: Props) {
     : 'space-y-0.5';
   const itemClass = (id: string) =>
     cn(
-      'whitespace-nowrap text-left text-[13px] leading-snug transition',
+      'whitespace-nowrap text-left leading-snug transition',
       isBar
-        ? 'shrink-0 rounded-full border px-3 py-2 font-medium'
-        : 'w-full border-l-2 border-transparent py-1.5 pl-4 -ml-px',
+        ? 'shrink-0 rounded-full border px-3 py-2 text-[13px] font-medium'
+        : 'w-full rounded-r-lg border-l-[3px] border-transparent py-2.5 pl-4 pr-2 text-[14px] font-medium -ml-px',
       activeId === id
         ? isBar
           ? 'border-white/25 bg-white/[0.08] text-white'
-          : 'border-white/50 bg-white/[0.04] text-white'
+          : 'border-[#F26A06] bg-white/[0.1] text-white shadow-[inset_0_0_0_1px_rgba(255,255,255,0.06)]'
         : isBar
           ? 'border-white/10 text-white/55 hover:border-white/20 hover:text-white/90'
-          : 'text-white/50 hover:text-white/90',
+          : 'text-white/75 hover:bg-white/[0.06] hover:text-white',
     );
 
   return (

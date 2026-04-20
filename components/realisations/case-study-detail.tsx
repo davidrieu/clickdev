@@ -114,14 +114,28 @@ export default function CaseStudyDetail({ study }: Props) {
       </header>
 
       {navItems.length > 0 ? (
-        <div className="xl:hidden">
-          <div className="sticky top-0 z-30 -mx-4 border-b border-white/10 bg-black/90 px-4 py-3 backdrop-blur-md md:-mx-8 md:px-8">
+        <div className="lg:hidden">
+          <div className="sticky top-0 z-30 -mx-4 border-b border-white/15 bg-black/95 px-4 py-3 shadow-[0_8px_24px_-8px_rgba(0,0,0,0.6)] backdrop-blur-md md:-mx-8 md:px-8">
             <CaseStudySectionNav items={navItems} variant="bar" />
           </div>
         </div>
       ) : null}
 
-      <div className="xl:grid xl:grid-cols-[minmax(0,1fr)_13.5rem] xl:items-start xl:gap-10 2xl:grid-cols-[minmax(0,1fr)_15rem] 2xl:gap-12">
+      <div
+        className={cn(
+          navItems.length > 0 &&
+            'lg:grid lg:grid-cols-[min(15rem,32vw)_minmax(0,1fr)] lg:items-start lg:gap-8 xl:grid-cols-[16rem_minmax(0,1fr)] xl:gap-10 2xl:grid-cols-[17rem_minmax(0,1fr)] 2xl:gap-12',
+        )}
+      >
+        {navItems.length > 0 ? (
+          <aside className="hidden min-w-0 lg:block">
+            <div className="sticky top-28 z-20 space-y-3 rounded-2xl border border-white/20 bg-gradient-to-b from-white/[0.08] to-white/[0.02] p-4 shadow-[0_0_0_1px_rgba(255,255,255,0.06),0_12px_40px_-12px_rgba(0,0,0,0.5)] backdrop-blur-sm">
+              <p className="font-mono text-[10px] tracking-[0.22em] text-white/70 uppercase">Sur cette page</p>
+              <CaseStudySectionNav items={navItems} variant="sidebar" />
+            </div>
+          </aside>
+        ) : null}
+
         <div className="min-w-0 space-y-20 md:space-y-24 lg:space-y-28">
           {hasProjet ? (
             <Section id={CASE_FICHE.projet} title="Le projet">
@@ -163,15 +177,6 @@ export default function CaseStudyDetail({ study }: Props) {
             </blockquote>
           ) : null}
         </div>
-
-        {navItems.length > 0 ? (
-          <aside className="hidden min-w-0 xl:block">
-            <div className="sticky top-28 space-y-3 rounded-2xl border border-white/[0.08] bg-white/[0.02] p-4">
-              <p className="font-mono text-[10px] tracking-[0.2em] text-white/40 uppercase">Sur cette page</p>
-              <CaseStudySectionNav items={navItems} variant="sidebar" />
-            </div>
-          </aside>
-        ) : null}
       </div>
     </div>
   );
