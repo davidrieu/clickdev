@@ -1,4 +1,4 @@
-import { defineField, defineType } from 'sanity';
+import { defineField, defineType, defineArrayMember } from 'sanity';
 
 const categoryList = [
   { title: 'Site web', value: 'website' },
@@ -9,172 +9,191 @@ const categoryList = [
   { title: 'Outil métier', value: 'tool' },
 ] as const;
 
+const galleryItem = defineArrayMember({
+  type: 'object',
+  title: 'Capture / image',
+  fields: [
+    {
+      name: 'image',
+      title: 'Image (grande, pleine page sur le site)',
+      type: 'image',
+      options: { hotspot: true },
+      description: "Aperçu : vignette sur fond gris clair dans le Studio (c’est voulu).",
+    },
+    { name: 'caption', title: 'Légende (sous l’image sur le site)', type: 'string' },
+  ],
+  preview: {
+    select: { cap: 'caption', media: 'image' },
+    prepare({ cap, media }) {
+      return {
+        title: cap && cap.trim() ? cap : 'Image',
+        subtitle: 'Capture d’écran / maquette',
+        media,
+      };
+    },
+  },
+});
+
 /**
- * Même contenu qu’avant côté API (noms de champs inchangés) :
- * l’ordre & les onglets Studio reflètent la fiche /realisations/[slug].
+ * Tout le formulaire est sur une seule page : gros blocs repliquables, pas d’onglets
+ * cachant « Contenu ». Même noms de champs API (context, gallery, solution, results).
  */
 export default defineType({
   name: 'caseStudy',
   title: 'Réalisation (portfolio)',
   type: 'document',
   description:
-    'Remplissez d’abord l’en-tête puis les 4 blocs de contenu. Les boutons « Discuter d’un projet similaire » (vers Contact) et « Accéder au site » (URL live) viennent du thème, pas d’un texte ici.',
-  groups: [
-    { name: 'header', title: 'En-tête (titre, image, tags)', default: true },
-    { name: 'blocks', title: 'Contenu (les 4 blocs sur le site)' },
-    { name: 'extra', title: 'Détails & listing' },
-    { name: 'seo', title: 'SEO' },
+    "↓ Scrollez : après le titre, vous avez 4 champs d’affilée : Le projet, Galerie, Ce que j'ai réalisé, Résultats. Les champs vides n’apparaissent pas sur le site. Les boutons (Contact, Site live) sont gérés sur le thème, pas ici.",
+  fieldsets: [
+    {
+      name: 'identity',
+      title: '— Titre & adresse de la page',
+      options: { collapsible: true, collapsed: false },
+    },
+    {
+      name: 'block1',
+      title: '1. Le projet (texte sur le site, sous le hero)',
+      options: { collapsible: true, collapsed: false },
+    },
+    {
+      name: 'block2',
+      title: '2. Galerie (ajoutez une ligne par image — aperçu en vignette ci-dessous)',
+      options: { collapsible: true, collapsed: false },
+    },
+    {
+      name: 'block3',
+      title: "3. Ce que j'ai réalisé",
+      options: { collapsible: true, collapsed: false },
+    },
+    { name: 'block4', title: '4. Résultats', options: { collapsible: true, collapsed: false } },
+    {
+      name: 'head',
+      title: 'En-tête visuel (accroche, image hero, liens, badges)',
+      options: { collapsible: true, collapsed: true },
+    },
+    {
+      name: 'extra',
+      title: 'Détails optionnels (client, année, listing, anciens champs)',
+      options: { collapsible: true, collapsed: true },
+    },
+    { name: 'seo', title: 'SEO', options: { collapsible: true, collapsed: true } },
   ],
   fields: [
-    /* ——— En-tête = hero du site (hors boutons) ——— */
     defineField({
       name: 'title',
-      title: 'Titre du projet (H1)',
+      title: 'Titre du projet',
       type: 'string',
-      group: 'header',
-      description: "Grand titre en haut de la page, à gauche.",
+      fieldset: 'identity',
       validation: (Rule) => Rule.required(),
     }),
     defineField({
       name: 'slug',
-      title: 'Adresse de la page (slug)',
+      title: 'Adresse (slug) /realisations/...',
       type: 'slug',
-      group: 'header',
+      fieldset: 'identity',
       options: { source: 'title', maxLength: 96 },
-      description: "Ex. mon-projet → /realisations/mon-projet",
       validation: (Rule) => Rule.required(),
     }),
-    defineField({
-      name: 'tagline',
-      title: 'Texte sous le titre',
-      type: 'string',
-      group: 'header',
-      description: 'Phrases courtes, sous le H1 (biscuit / accroche).',
-    }),
-    defineField({
-      name: 'typeTag',
-      title: "Tag sur l'image (texte libre)",
-      type: 'string',
-      group: 'header',
-      description:
-        'Affiché en badge sur l’image (ex. « E-commerce B2B », « Refonte »). Si vide : libellé de la catégorie ci-dessous.',
-    }),
-    defineField({
-      name: 'category',
-      title: 'Type de projet (catégorie)',
-      type: 'string',
-      group: 'header',
-      options: { list: [...categoryList], layout: 'radio' },
-      description: 'Sert de secours si le tag libre est vide ; utile pour filtrer / classer côté site.',
-    }),
-    defineField({
-      name: 'heroImage',
-      title: 'Image principale (grande, à droite sur desktop)',
-      type: 'image',
-      group: 'header',
-      options: { hotspot: true },
-      description: 'Image du bloc hero. Si vide, la vignette (listing) est utilisée à la place.',
-    }),
-    defineField({
-      name: 'thumbnail',
-      title: 'Vignette (grille du portfolio + secours image hero)',
-      type: 'image',
-      group: 'header',
-      options: { hotspot: true },
-      description: "Carte sur /realisations ; utilisée en hero si l'image principale est absente.",
-    }),
-    defineField({
-      name: 'liveUrl',
-      title: 'Bouton « Accéder au site » (URL du projet)',
-      type: 'url',
-      group: 'header',
-      description: 'Ouvre un nouvel onglet. Laissez vide si pas de site public : le bouton ne s’affichera pas.',
-    }),
-    defineField({
-      name: 'heroVideo',
-      title: 'Vidéo hero (optionnel, actuellement non affiché sur le site)',
-      type: 'file',
-      group: 'header',
-      options: { accept: 'video/*' },
-    }),
 
-    /* ——— 4 blocs tels qu’en page ——— */
     defineField({
       name: 'context',
-      title: '1. Le projet',
+      title: 'Rédigez ici (titres, listes, liens) — c’est le bloc « Le projet » sur le site',
       type: 'blockContent',
-      group: 'blocks',
-      description: '1er bloc sous le hero : contexte, besoin, cadrage.',
+      fieldset: 'block1',
+      description: 'Cliquez dans la zone, puis le + pour un paragraphe ou un titre. Contenu = ce qui s’affiche en premier sur la fiche.',
     }),
+
     defineField({
       name: 'gallery',
-      title: '2. Galerie (captures)',
+      title: 'Galerie',
       type: 'array',
-      group: 'blocks',
-      of: [
-        {
-          type: 'object',
-          fields: [
-            { name: 'image', title: 'Image / capture (pleine largeur)', type: 'image', options: { hotspot: true } },
-            { name: 'caption', title: 'Légende (optionnelle)', type: 'string' },
-          ],
-        },
-      ],
-      description: 'Autant d’images que nécessaire : affichées en pleine largeur, une par une.',
+      fieldset: 'block2',
+      of: [galleryItem],
+      options: { layout: 'grid' },
+      description: 'Bouton « + Ajouter un élément » : une ligne = une image. Aperçu = vignette sur fond gris (normal dans le Studio).',
     }),
+
     defineField({
       name: 'solution',
-      title: "3. Ce que j'ai réalisé",
+      title: "Texte riche (bloc « Ce que j'ai réalisé » sur le site)",
       type: 'blockContent',
-      group: 'blocks',
-      description: "Travail livré, fonctionnalités, rôle, méthode.",
+      fieldset: 'block3',
     }),
     defineField({
       name: 'results',
-      title: '4. Résultats',
+      title: 'Texte riche (bloc « Résultats » sur le site)',
       type: 'blockContent',
-      group: 'blocks',
-      description: 'KPI, impact, suite du projet, apprentissages.',
+      fieldset: 'block4',
     }),
 
-    /* ——— Témoignage & métadonnées de listing (onglet séparé) ——— */
+    /* En-tête visuel (après les 4 blocs en formulaire, mais replié par défaut) */
+    defineField({
+      name: 'tagline',
+      title: 'Texte court sous le titre (dans le hero, au-dessus des boutons)',
+      type: 'string',
+      fieldset: 'head',
+    }),
+    defineField({
+      name: 'typeTag',
+      title: "Badge sur l’image (ex. E-commerce, Refonte)",
+      type: 'string',
+      fieldset: 'head',
+    }),
+    defineField({
+      name: 'category',
+      title: 'Catégorie (remplace le badge si le texte libre est vide)',
+      type: 'string',
+      fieldset: 'head',
+      options: { list: [...categoryList], layout: 'radio' },
+    }),
+    defineField({
+      name: 'heroImage',
+      title: 'Image à droite du hero (grande sur desktop)',
+      type: 'image',
+      fieldset: 'head',
+      options: { hotspot: true },
+    }),
+    defineField({
+      name: 'thumbnail',
+      title: 'Vignette pour la page liste / realisations (et secours du hero si pas d’image large)',
+      type: 'image',
+      fieldset: 'head',
+      options: { hotspot: true },
+    }),
+    defineField({
+      name: 'liveUrl',
+      title: 'Bouton « Accéder au site » (URL — nouvel onglet sur le site)',
+      type: 'url',
+      fieldset: 'head',
+    }),
+    defineField({
+      name: 'heroVideo',
+      title: 'Vidéo hero (non affichée sur le site actuellement)',
+      type: 'file',
+      fieldset: 'head',
+      options: { accept: 'video/*' },
+    }),
+
     defineField({
       name: 'testimonial',
-      title: 'Témoignage (encadré en fin de fiche, si lié)',
+      title: 'Témoignage (fin de fiche, si lié)',
       type: 'reference',
       to: [{ type: 'testimonial' }],
-      group: 'extra',
+      fieldset: 'extra',
     }),
-    defineField({ name: 'client', title: 'Client (sous le titre, listing)', type: 'string', group: 'extra' }),
-    defineField({ name: 'clientLogo', title: 'Logo client (optionnel)', type: 'image', options: { hotspot: true }, group: 'extra' }),
-    defineField({ name: 'year', title: 'Année (badge sur la carte du portfolio)', type: 'number', group: 'extra' }),
-    defineField({ name: 'duration', title: 'Durée (ex. 3 mois)', type: 'string', group: 'extra' }),
-    defineField({ name: 'role', title: 'Mon rôle (non affiché sur le nouveau modèle, conservé en base)', type: 'string', group: 'extra' }),
-    defineField({
-      name: 'sectors',
-      title: 'Secteurs',
-      type: 'array',
-      of: [{ type: 'string' }],
-      group: 'extra',
-    }),
-    defineField({
-      name: 'technologies',
-      title: 'Technologies (non affichées sur le modèle allégé, utiles en base)',
-      type: 'array',
-      of: [{ type: 'string' }],
-      group: 'extra',
-    }),
-    defineField({
-      name: 'featuredMetric',
-      title: 'Chiffre phare (ex. +34% conversion) — non affiché sur le modèle allégé',
-      type: 'string',
-      group: 'extra',
-    }),
+    defineField({ name: 'client', title: 'Client (carte portfolio)', type: 'string', fieldset: 'extra' }),
+    defineField({ name: 'clientLogo', title: 'Logo client', type: 'image', options: { hotspot: true }, fieldset: 'extra' }),
+    defineField({ name: 'year', title: 'Année (badge sur la carte)', type: 'number', fieldset: 'extra' }),
+    defineField({ name: 'duration', title: 'Durée (ex. 3 mois)', type: 'string', fieldset: 'extra' }),
+    defineField({ name: 'role', title: 'Rôle (non affiché, conservé en base)', type: 'string', fieldset: 'extra' }),
+    defineField({ name: 'sectors', title: 'Secteurs', type: 'array', of: [{ type: 'string' }], fieldset: 'extra' }),
+    defineField({ name: 'technologies', title: 'Technologies (non sur le modèle allégé)', type: 'array', of: [{ type: 'string' }], fieldset: 'extra' }),
+    defineField({ name: 'featuredMetric', title: 'Chiffre phare (non sur le modèle allégé)', type: 'string', fieldset: 'extra' }),
     defineField({
       name: 'metrics',
-      title: '4 métriques (optionnel, réservé usage futur)',
+      title: '4 métriques (usage futur)',
       type: 'array',
-      group: 'extra',
+      fieldset: 'extra',
       of: [
         {
           type: 'object',
@@ -188,9 +207,9 @@ export default defineType({
     }),
     defineField({
       name: 'challenges',
-      title: 'Ancien bloc « Défis » (conservé en base, non sur le modèle actuel)',
+      title: 'Ancien bloc « Défis » (en base, non sur le thème actuel)',
       type: 'array',
-      group: 'extra',
+      fieldset: 'extra',
       of: [
         {
           type: 'object',
@@ -204,31 +223,26 @@ export default defineType({
     }),
     defineField({
       name: 'stackDetails',
-      title: 'Stack détaillée (non sur le modèle allégé)',
+      title: 'Stack détaillée (non sur le thème allégé)',
       type: 'array',
-      group: 'extra',
+      fieldset: 'extra',
       of: [
         {
           type: 'object',
           fields: [
-            { name: 'category', title: 'Catégorie (ex: Frontend)', type: 'string' },
+            { name: 'category', title: 'Catégorie', type: 'string' },
             { name: 'items', title: 'Outils', type: 'array', of: [{ type: 'string' }] },
           ],
         },
       ],
     }),
-    defineField({ name: 'featured', title: "Mettre en avant (priorité d'ordre / home)", type: 'boolean', initialValue: false, group: 'extra' }),
-    defineField({ name: 'order', title: "Position manuelle (si besoin, avec « Mis en avant »)", type: 'number', group: 'extra' }),
-    defineField({
-      name: 'publishedAt',
-      title: 'Date de publication',
-      type: 'datetime',
-      group: 'extra',
-    }),
+    defineField({ name: 'featured', title: 'Mise en avant (home / tri)', type: 'boolean', initialValue: false, fieldset: 'extra' }),
+    defineField({ name: 'order', title: "Ordre manuel d'affichage", type: 'number', fieldset: 'extra' }),
+    defineField({ name: 'publishedAt', title: 'Date de publication', type: 'datetime', fieldset: 'extra' }),
 
-    defineField({ name: 'metaTitle', title: 'Titre SEO (balise <title>)', type: 'string', group: 'seo' }),
-    defineField({ name: 'metaDescription', title: 'Meta description', type: 'text', rows: 3, group: 'seo' }),
-    defineField({ name: 'ogImage', title: 'Image Open Graph / partage', type: 'image', options: { hotspot: true }, group: 'seo' }),
+    defineField({ name: 'metaTitle', title: 'Titre SEO', type: 'string', fieldset: 'seo' }),
+    defineField({ name: 'metaDescription', title: 'Meta description', type: 'text', rows: 3, fieldset: 'seo' }),
+    defineField({ name: 'ogImage', title: 'Image Open Graph', type: 'image', options: { hotspot: true }, fieldset: 'seo' }),
   ],
   orderings: [
     {
