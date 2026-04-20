@@ -12,8 +12,14 @@ const DEFAULT_TITLE = 'Prêt à passer d’un site qui subit à un site qui perf
 
 const defaultDescription = (
   <>
-    Expliquez votre contexte en quelques lignes : proposition réaliste sous{' '}
-    <strong className="font-medium text-white/85">24h ouvrées</strong> (périmètre, jalons, ordre de grandeur).
+    <p>
+      Expliquez votre contexte en quelques lignes : proposition réaliste sous{' '}
+      <strong className="font-medium text-white/85">24h ouvrées</strong> (périmètre, jalons, ordre de grandeur).
+    </p>
+    <p className="mt-4 text-white/55">
+      30 minutes de discussion, sans engagement. Vous repartez avec des conseils concrets, même si on ne bosse pas
+      ensemble.
+    </p>
   </>
 );
 

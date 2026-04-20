@@ -18,42 +18,48 @@ const ITEMS: BentoItem[] = [
   {
     href: '/sites-internet/site-vitrine',
     title: 'Site vitrine',
-    description: 'Présenter votre activité avec une hiérarchie claire et un mobile irréprochable.',
+    description:
+      'Pour présenter votre activité avec élégance et convertir vos visiteurs en prospects. Rapide, beau, efficace.',
   },
   {
     href: '/sites-internet/site-ecommerce',
     title: 'E-commerce',
-    description: 'Tunnel, perf, SEO catalogue — sans sacrifier la vélocité business.',
+    description:
+      'Pour vendre en ligne sans prise de tête. Stocks, paiements sécurisés, tunnel de conversion : je vous guide.',
   },
   {
     href: '/sites-internet/marketplace',
     title: 'Marketplace',
-    description: 'Multi-vendeurs, confiance, modération — architecture à la hauteur.',
+    description:
+      'Pour mettre en relation acheteurs et vendeurs. Commissions, profils, paiements fractionnés : je m’occupe du technique.',
   },
   {
     href: '/sites-internet/site-mise-en-relation',
     title: 'Mise en relation',
-    description: 'Matching, confiance, conversion des deux côtés du marché.',
+    description:
+      'Pour connecter prestataires et clients. Profils, messagerie, avis, réservations : ce qu’il faut pour que ça vive.',
   },
   {
     href: '/sites-internet/site-sur-mesure',
     title: 'Sur mesure',
-    description: 'Règles métiers complexes, intégrations, produit web comme actif.',
+    description:
+      'Pour quand aucune solution toute faite ne colle. Votre activité a ses règles ? Je les traduis en code propre.',
   },
   {
     href: '/sites-internet/site-wordpress',
     title: 'WordPress',
-    description: 'Autonomie rédactionnelle avec discipline perf & sécurité.',
+    description:
+      'Pour quand WordPress est vraiment la bonne solution. Rapide, sécurisé, loin des usines à gaz qu’on voit partout.',
   },
   {
     href: '/sites-internet/intranet-extranet',
     title: 'Intranet / extranet',
-    description: 'Portails RH, docs, workflows — usage interne exigeant.',
+    description: 'Pour vos équipes ou vos partenaires. Espace privé, sécurisé, pensé autour de vos processus.',
   },
   {
     href: '/sites-internet/landing-page',
     title: 'Landing page',
-    description: 'Campagne, message unique, vitesse de chargement et tracking propres.',
+    description: 'Pour une pub, un lancement, un événement. Une page. Un objectif. Un résultat lisible.',
   },
 ];
 
@@ -100,6 +106,7 @@ export function PremiumBento() {
 
   return (
     <section
+      id="types-sites"
       className="relative overflow-hidden bg-black py-24 md:py-36 lg:py-44"
       onPointerMoveCapture={onPointerMoveCapture}
       onPointerLeave={onPointerLeave}
@@ -116,10 +123,10 @@ export function PremiumBento() {
         >
           <p className="font-mono text-[11px] tracking-[0.28em] text-white/55 uppercase">Typologies</p>
           <h2 className="si-serif-display mt-4 text-[clamp(2rem,4vw,3.5rem)] leading-[1.08] font-medium tracking-[-0.03em] text-white">
-            Huit façons de faire web — une seule exigence : la qualité.
+            Huit types de sites, une seule obsession : la qualité
           </h2>
           <p className="mt-5 max-w-xl text-sm leading-relaxed text-white/60 md:text-base">
-            Huit cartes en quatre colonnes : chacune mène vers une page détaillée.
+            Chaque projet est différent. Mais l’exigence reste la même.
           </p>
         </motion.div>
 

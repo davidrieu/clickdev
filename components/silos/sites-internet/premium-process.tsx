@@ -11,27 +11,27 @@ const STEPS = [
   {
     n: '01',
     title: 'Cadrage',
-    body: 'Objectifs business, risques, SEO et contraintes éditoriales — priorisation par valeur.',
+    body: 'On discute une trentaine de minutes pour comprendre votre projet. Objectifs, contraintes, budget : tout est mis à plat, sans jargon.',
   },
   {
     n: '02',
     title: 'Design',
-    body: 'Parcours, contenu, composants — le design sert la conversion et la vitesse perçue.',
+    body: 'Je dessine les maquettes sur Figma. Vous validez. On ajuste jusqu’à ce que le visuel soit clair pour vos clients et pour vos équipes.',
   },
   {
     n: '03',
     title: 'Développement',
-    body: 'Implémentation propre, revues, CI, préproduction réaliste — dette maîtrisée.',
+    body: 'Je code votre site avec une démo régulière. Vous suivez l’avancement, vous donnez votre avis, et on corrige au fil de l’eau.',
   },
   {
     n: '04',
     title: 'Tests',
-    body: 'Devices réels, accessibilité, perf, cas limites — rien n’atteint la prod par surprise.',
+    body: 'Je vérifie tout : rapidité, SEO de base, accessibilité, mobile, sécurité. Rien n’est laissé au hasard avant la mise en ligne.',
   },
   {
     n: '05',
     title: 'Lancement',
-    body: 'Mise en ligne, redirections, monitoring — et une feuille de route post go-live.',
+    body: 'Votre site est mis en ligne. Je vous forme à l’essentiel, et je reste disponible pour les évolutions ou la maintenance.',
   },
 ] as const;
 
@@ -48,6 +48,7 @@ export function PremiumProcess() {
 
   return (
     <section
+      id="process"
       ref={sectionRef}
       className="relative overflow-hidden bg-black py-24 md:py-40 lg:py-48"
       onPointerMoveCapture={onPointerMoveCapture}

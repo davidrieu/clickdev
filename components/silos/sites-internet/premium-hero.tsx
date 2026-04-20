@@ -1,10 +1,7 @@
 'use client';
 
 import Link from 'next/link';
-import { useMemo } from 'react';
 import { motion } from 'framer-motion';
-
-import { SITES_INTERNET_MARQUEE_CLIENTS } from '@/lib/constants/sites-internet-premium';
 
 import { StellarField, useSectionStellarPointer } from './stellar-field';
 
@@ -13,23 +10,8 @@ const lineDraw = {
   animate: { scaleX: 1, transition: { duration: 0.9, ease: [0.22, 1, 0.36, 1] as const } },
 };
 
-function HeroClientPill({ label, subtle }: { label: string; subtle?: boolean }) {
-  return (
-    <span
-      className={`shrink-0 rounded-full border px-5 py-2.5 font-mono text-[11px] tracking-wider uppercase transition ${
-        subtle
-          ? 'border-white/[0.07] bg-white/[0.02] text-white/45'
-          : 'border-white/12 bg-white/[0.04] text-white/70'
-      }`}
-    >
-      {label}
-    </span>
-  );
-}
-
 export function PremiumHero() {
   const { pointer, onPointerMoveCapture, onPointerLeave } = useSectionStellarPointer();
-  const marquee = useMemo(() => [...SITES_INTERNET_MARQUEE_CLIENTS, ...SITES_INTERNET_MARQUEE_CLIENTS], []);
 
   return (
     <section
@@ -49,21 +31,26 @@ export function PremiumHero() {
       <div className="relative z-10 mx-auto grid max-w-[1400px] gap-12 px-4 md:grid-cols-12 md:items-center md:gap-8 md:px-8 lg:gap-12">
         <div className="flex flex-col justify-center md:col-span-6 md:py-4 lg:py-6">
           <motion.div
-            className="flex items-center gap-4"
+            className="flex flex-col gap-2"
             initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
           >
-            <span className="font-mono text-[11px] tracking-[0.28em] text-white/55 uppercase">
-              01 — Sites internet
-            </span>
-            <motion.span
-              className="block h-px max-w-[160px] flex-1 origin-left bg-gradient-to-r from-white/50 to-white/12"
-              variants={lineDraw}
-              initial="rest"
-              animate="animate"
-              aria-hidden
-            />
+            <div className="flex items-center gap-4">
+              <span className="font-mono text-[11px] tracking-[0.28em] text-white/55 uppercase">
+                Chapitre 01 · Sites internet
+              </span>
+              <motion.span
+                className="block h-px max-w-[160px] flex-1 origin-left bg-gradient-to-r from-white/50 to-white/12"
+                variants={lineDraw}
+                initial="rest"
+                animate="animate"
+                aria-hidden
+              />
+            </div>
+            <p className="font-mono text-[10px] tracking-[0.22em] text-white/45 uppercase md:text-[11px] md:tracking-[0.24em]">
+              Développeur web freelance — Sites sur mesure
+            </p>
           </motion.div>
 
           <motion.h1
@@ -72,7 +59,7 @@ export function PremiumHero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.06, duration: 0.65, ease: [0.22, 1, 0.36, 1] }}
           >
-            Des sites qui ne se contentent pas <em className="text-white/80 italic">d’exister</em>.
+            Des sites web qui ne se contentent pas <em className="text-white/80 italic">d’exister</em>.
           </motion.h1>
 
           <motion.p
@@ -81,9 +68,9 @@ export function PremiumHero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.14, duration: 0.55 }}
           >
-            Vitrine, e-commerce, marketplace ou sur-mesure : je conçois des expériences rapides, SEO-ready,
-            accessibles — et tenables dans la durée. Pas de slides creux : des jalons, de la perf mesurable, du code
-            propre.
+            Vitrines, e-commerce, marketplaces, plateformes de mise en relation… Depuis 10 ans, je construis des sites
+            web sur mesure, pour des artisans comme pour des grandes marques. Objectif : qu’ils vous rapportent de
+            vrais clients.
           </motion.p>
 
           <motion.div
@@ -96,17 +83,17 @@ export function PremiumHero() {
               href="/devis?projectType=site"
               className="si-btn-pill-shine si-btn-pill-shine-on-light group relative isolate inline-flex overflow-hidden rounded-full bg-white px-8 py-3.5 text-sm font-semibold text-black shadow-[0_0_36px_-10px_rgba(255,255,255,0.35)] transition duration-300 hover:bg-white/95 hover:shadow-[0_0_48px_-8px_rgba(255,255,255,0.45)]"
             >
-              <span className="relative z-10">Demander un devis</span>
+              <span className="relative z-10">Parlons de votre projet</span>
               <span
                 className="absolute inset-0 z-[2] -translate-x-full bg-black/[0.06] transition duration-500 group-hover:translate-x-0"
                 aria-hidden
               />
             </Link>
             <Link
-              href="/realisations"
+              href="/sites-internet#types-sites"
               className="si-btn-pill-shine relative isolate inline-flex overflow-hidden rounded-full border border-white/20 bg-white/[0.04] px-8 py-3.5 text-sm font-medium text-white/90 shadow-[inset_0_1px_0_0_rgb(255_255_255/0.08)] backdrop-blur-sm transition duration-300 hover:border-white/35 hover:bg-white/[0.08]"
             >
-              <span className="relative z-10">Voir les réalisations</span>
+              <span className="relative z-10">Voir les 8 types de sites ↓</span>
             </Link>
           </motion.div>
         </div>
@@ -116,18 +103,6 @@ export function PremiumHero() {
         </div>
       </div>
 
-      {/* Bandeau clients : entre deux traits, pills centrés verticalement (pas collées au hero). */}
-      <div className="relative z-10 mt-14 border-y border-white/[0.07] md:mt-20">
-        <div className="mx-auto flex w-full max-w-[1400px] min-h-[100px] items-center justify-center px-4 py-8 md:min-h-[112px] md:px-8 md:py-10">
-          <div className="w-full overflow-hidden mask-[linear-gradient(90deg,transparent,black_6%,black_94%,transparent)]">
-            <div className="si-marquee-l flex w-max flex-nowrap items-center gap-3 pr-3">
-              {marquee.map((label, i) => (
-                <HeroClientPill key={`${label}-${i}`} label={label} subtle={i % 2 === 1} />
-              ))}
-            </div>
-          </div>
-        </div>
-      </div>
     </section>
   );
 }

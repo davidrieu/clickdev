@@ -16,6 +16,67 @@ export const SITES_INTERNET_MARQUEE_CLIENTS = [
   'Libertie',
 ] as const;
 
+/** Bandeau confiance sous le hero (page pilier). */
+export const SITES_INTERNET_TRUST_MARQUEE_NAMES = [
+  'Accor',
+  'Greenweez',
+  'Spreadshirt',
+  'Made in France',
+  'SIF Group',
+  'The French Maisons',
+  'Urbawise',
+] as const;
+
+export type SitesInternetAudienceCard = { title: string; body: string };
+
+export const SITES_INTERNET_AUDIENCE_CARDS: SitesInternetAudienceCard[] = [
+  {
+    title: 'Grandes marques & groupes',
+    body: 'Projets à fort enjeu, trafic important, exigence maximale. J’ai notamment développé pour Accor, Greenweez et Spreadshirt.',
+  },
+  {
+    title: 'Startups & scale-ups',
+    body: 'Vitesse d’exécution et expertise pointue. Du MVP au produit mature, j’accompagne votre croissance.',
+  },
+  {
+    title: 'PME & TPE',
+    body: 'Vous voulez sortir d’un WordPress vieillissant ou moderniser votre site ? Je vous accompagne, sans jargon, sans surprise.',
+  },
+  {
+    title: 'Artisans & indépendants',
+    body: 'Votre projet compte autant que les autres. Un site pro, à votre image, à un prix qui reste raisonnable.',
+  },
+];
+
+export type SitesInternetPageTestimonial = { quote: string; name: string; role: string };
+
+export const SITES_INTERNET_PAGE_TESTIMONIALS: SitesInternetPageTestimonial[] = [
+  {
+    quote:
+      'Interlocuteur unique, très clair sur les arbitrages perf / SEO. On a livré dans les temps, et le site tient la charge des pics médias.',
+    name: '[À REMPLACER] — Product Manager',
+    role: 'Scale-up — SaaS B2B',
+  },
+  {
+    quote:
+      'Je ne connaissais rien à la technique : tout m’a été expliqué simplement. Le site reflète enfin notre image, et on reçoit des demandes qualifiées.',
+    name: '[À REMPLACER] — Dirigeante',
+    role: 'PME — services B2B',
+  },
+  {
+    quote:
+      'Site vitrine pro, rapide sur mobile, et je peux mettre à jour mes textes sans galère. Exactement ce qu’il nous fallait.',
+    name: '[À REMPLACER] — Artisan',
+    role: 'Artisanat — clientèle locale',
+  },
+  {
+    quote:
+      'Projet un peu atypique pour une association : budget serré, besoin clair. Résultat propre, et une vraie disponibilité.',
+    name: '[À REMPLACER] — Présidente',
+    role: 'Association — bénévolat',
+  },
+];
+
 export const SITES_INTERNET_STACK = [
   'Next.js',
   'React',
@@ -47,71 +108,71 @@ export const SITES_INTERNET_FAQ_BY_TAB: Record<
     {
       question: 'Combien coûte un site vitrine pro ?',
       answer:
-        'Ça dépend du périmètre (nombre de gabarits, CMS, intégrations, SEO technique). Un site vitrine sérieux — performant, accessible, prêt pour la prod — se cadre plutôt en milliers d’euros que en centaines. Un échange court permet d’aligner ambition et budget sans surprise.',
+        'Un site vitrine sérieux — rapide, lisible sur mobile, bien structuré pour Google — se compte en milliers d’euros, pas en centaines. Le prix exact dépend du nombre de pages, des contenus et des petites fonctionnalités (formulaire, réservation, etc.). On en parle 30 minutes : je vous donne une fourchette honnête.',
     },
     {
       question: 'Combien coûte un e-commerce sur mesure ?',
       answer:
-        'Un e-commerce sur mesure intègre tunnel, paiement, logistique d’infos, SEO catalogue et souvent des pics de charge. Shopify ou WooCommerce réduit parfois le temps ; du headless Next.js + CMS gagne en contrôle. On découpe en jalons facturables (MVP puis extensions).',
+        'Un e-commerce, c’est le tunnel d’achat, les paiements, la gestion des produits, souvent des pics de trafic. Selon que l’on part sur une base éprouvée (Shopify, WooCommerce) ou sur du sur mesure, la facture et le calendrier changent. Je découpe en jalons clairs pour que vous payiez au fil de l’eau.',
     },
     {
       question: 'Combien coûte une marketplace ?',
       answer:
-        'Une marketplace ajoute identités multiples, paiements, modération, litiges et SEO multi-offres : c’est un autre ordre de grandeur qu’une boutique classique. On estime après atelier sur les rôles (acheteur / vendeur / admin) et les volumes attendus.',
+        'Une marketplace, c’est plusieurs types d’utilisateurs, des paiements à séparer, de la modération, parfois des litiges. C’est un projet plus lourd qu’une boutique classique. Après un atelier sur qui fait quoi (acheteur, vendeur, admin), je vous propose un ordre de grandeur réaliste.',
     },
     {
-      question: 'Quel est le délai moyen de livraison ?',
+      question: 'Quel est le délai moyen ?',
       answer:
-        'Un vitrine cadré : souvent plusieurs semaines à quelques mois selon contenus et validations. Un e-commerce ou une refonte critique : plutôt plusieurs mois avec releases intermédiaires. Je préfère annoncer large et tenir le planning que l’inverse.',
+        'Pour un site vitrine bien cadré : souvent plusieurs semaines à quelques mois, selon vos contenus et le temps de validation. Pour un e-commerce ou une plateforme : plutôt plusieurs mois, avec des versions intermédiaires que vous pouvez tester. Je préfère annoncer large et tenir mes dates.',
     },
     {
-      question: 'Puis-je étaler le paiement en plusieurs fois ?',
+      question: 'Je peux payer en plusieurs fois ?',
       answer:
-        'Oui, selon le montant : jalons liés au cadrage, à la validation design, à la mise en préproduction et au go-live. Les modalités sont fixées au devis.',
+        'Oui, quand le montant le justifie : on aligne les factures sur les grandes étapes (cadrage, design validé, mise en ligne…). Tout est écrit noir sur blanc dans le devis.',
     },
   ],
   tech: [
     {
-      question: 'Utilisez-vous WordPress ou des frameworks modernes ?',
+      question: 'Vous utilisez WordPress ou du sur mesure ?',
       answer:
-        'Les deux selon le besoin : WordPress pour l’autonomie éditoriale et l’écosystème ; Next.js / React pour la performance, le e-commerce headless ou les produits très interactifs. La réponse se lit dans vos contraintes internes et votre horizon 18–36 mois, pas dans la mode du moment.',
+        'Les deux, selon votre besoin. WordPress quand vous devez beaucoup publier vous-même. Du sur mesure (souvent avec Next.js) quand la vitesse, le sur-mesure métier ou un fort trafic est au centre. Je vous explique pourquoi je recommande l’un ou l’autre, sans dogme.',
     },
     {
-      question: 'Le site sera-t-il optimisé pour le SEO et le GEO ?',
+      question: 'Le site sera optimisé pour Google et les IA ?',
       answer:
-        'Oui sur le volet technique : structure, performance (Core Web Vitals), données structurées utiles, maillage, migrations propres. Le GEO (visibilité dans les réponses d’IA) s’appuie sur des contenus clairs et vérifiables — je peux cadrer avec vous ce qui est réaliste.',
+        'Oui côté technique : structure claire, temps de chargement, bases du référencement, données propres pour Google. Pour les assistants (ChatGPT, etc.), ça s’appuie sur des pages factuelles et utiles — pas de promesse magique, mais une base saine.',
     },
     {
-      question: 'Mon site sera-t-il mobile-friendly et accessible ?',
+      question: 'Mon site sera bien sur mobile ?',
       answer:
-        'Mobile-first est la norme : mise en page fluide, contrastes, focus clavier, alternatives utiles aux images, animations respectueuses de `prefers-reduced-motion`. L’objectif est un site utilisable pour tous — et plus agréable pour tout le monde.',
+        'Oui. Aujourd’hui la majorité des visites passent par le téléphone : on conçoit d’abord pour le petit écran, puis on adapte au bureau. Le texte reste lisible, les boutons cliquables, le site ne “saute” pas quand on charge la page.',
     },
     {
-      question: 'Puis-je gérer le contenu moi-même après la livraison ?',
+      question: 'Je pourrai gérer mon site moi-même après ?',
       answer:
-        'Oui : WordPress, Sanity ou autre CMS selon le projet. Je documente les types de contenus, les champs sensibles et les bonnes pratiques pour ne pas casser la mise en page. Si vous préférez un accompagnement rédactionnel, je peux recommander des partenaires.',
+        'Souvent oui pour les textes et images, via un outil simple (WordPress, Sanity…). Je vous montre comment faire sans tout casser. Pour le technique, je reste disponible ou on met en place une petite maintenance.',
     },
   ],
   process: [
     {
-      question: 'Travaillez-vous avec les petites structures ?',
+      question: 'Vous travaillez aussi avec les petites structures ?',
       answer:
-        'Oui, lorsque le projet est réaliste et qu’une personne peut trancher vite. Une TPE ou un artisan a souvent besoin d’un site vitrine professionnel rapide, clair sur mobile et bien positionné localement — c’est un investissement rentable quand il est bien cadré.',
+        'Oui. Artisan, TPE, association : ce qui compte, c’est un projet réaliste et quelqu’un pour décider vite. Je prends le temps d’expliquer, et on avance à votre rythme.',
     },
     {
       question: 'Comment se déroule un projet type ?',
       answer:
-        'Cadrage court, proposition de périmètre, maquettes ou design system intégré, développement par itérations visibles sur préproduction, tests (perf, accessibilité, cas limites), puis lancement avec redirections et monitoring. Vous savez où on en est à chaque jalon — pas de boîte noire.',
+        'On commence par un cadrage court. Ensuite maquettes, développement par étapes visibles sur une préproduction, tests, puis mise en ligne. Vous savez toujours où on en est — le détail est dans la section « process » un peu plus bas sur cette page.',
     },
     {
-      question: 'Assurez-vous la maintenance après livraison ?',
+      question: 'Vous faites la maintenance après livraison ?',
       answer:
-        'Oui en TMA ou au ticket : mises à jour de sécurité, correctifs, petites évolutions. L’idée est que vous ne repartiez pas de zéro avec quelqu’un qui découvre le code dans l’urgence.',
+        'Oui : mises à jour, petits correctifs, sécurité. Soit au forfait raisonnable, soit au ticket. L’idée, c’est que vous ne vous retrouviez pas seul le jour où il faut intervenir vite.',
     },
     {
-      question: 'Intervenez-vous sur des sites existants ?',
+      question: 'Vous pouvez reprendre un site existant ?',
       answer:
-        'Oui : audit UX + technique, quick wins (perf, SEO, sécurité), puis roadmap de refonte totale ou progressive selon le risque business et le trafic.',
+        'Oui : parfois on améliore ce qui existe (vitesse, SEO, sécurité), parfois on refait proprement en gardant le référencement. Je commence par un audit clair pour éviter les mauvaises surprises.',
     },
   ],
 };

@@ -50,10 +50,18 @@ export function PremiumIntro() {
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.65, ease: [0.22, 1, 0.36, 1] }}
         >
-          Chaque site que je construis est une promesse tenue : performant, pérenne, et pensé pour convertir.
+          Chaque site que je livre tient sa promesse.
         </motion.h2>
+        <motion.p
+          className="mt-5 max-w-3xl text-base leading-relaxed text-white/65 md:text-lg"
+          initial={{ opacity: 0, y: 16 }}
+          animate={inView ? { opacity: 1, y: 0 } : {}}
+          transition={{ delay: 0.08, duration: 0.55 }}
+        >
+          Performance, SEO, accessibilité, conversion. Pas un seul de ces points n&apos;est optionnel.
+        </motion.p>
 
-        <div className="mt-20 grid gap-12 border-t border-white/10 pt-16 md:grid-cols-3 md:gap-8 md:pt-20">
+        <div className="mt-16 grid gap-12 border-t border-white/10 pt-16 md:grid-cols-3 md:gap-8 md:pt-20">
           <motion.div
             initial={{ opacity: 0, y: 24 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
@@ -65,7 +73,7 @@ export function PremiumIntro() {
               {lh}
               <span className="text-white/50">/100</span>
             </p>
-            <p className="mt-2 text-sm text-white/55">Lighthouse — objectif mobile.</p>
+            <p className="mt-2 text-sm text-white/55">Score Lighthouse moyen — le maximum possible.</p>
           </motion.div>
 
           <motion.div
@@ -80,7 +88,7 @@ export function PremiumIntro() {
               {speed}
               <span className="text-white/50">s</span>
             </p>
-            <p className="mt-2 text-sm text-white/55">Chargement perçu cible sur vitrine cadrée.</p>
+            <p className="mt-2 text-sm text-white/55">De chargement, même sur la page la plus lourde.</p>
           </motion.div>
 
           <motion.div
@@ -92,7 +100,7 @@ export function PremiumIntro() {
             <p className="mt-3 text-5xl font-semibold tabular-nums tracking-tight text-white md:text-6xl lg:text-7xl">
               {zero}
             </p>
-            <p className="mt-2 text-sm text-white/55">Site web livré sans être laissé en plan — objectif zéro abandon.</p>
+            <p className="mt-2 text-sm text-white/55">Projet livré en retard en 10 ans. Vraiment zéro.</p>
           </motion.div>
         </div>
       </div>

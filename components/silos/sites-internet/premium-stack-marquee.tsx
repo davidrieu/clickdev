@@ -1,5 +1,6 @@
 'use client';
 
+import Link from 'next/link';
 import { motion } from 'framer-motion';
 
 import { PremiumSectionDivider } from '@/components/home-premium/premium-section-divider';
@@ -32,8 +33,29 @@ export function PremiumStackMarquee() {
             La techno au service du produit — pas l’inverse.
           </h2>
           <p className="mt-5 max-w-md text-sm leading-relaxed text-white/58 md:text-base">
-            Next.js, WordPress, Shopify, headless CMS… Je choisis ce qui maximise vos chances de livrer vite, proprement,
-            et sans vous enfermer.
+            Je ne suis pas fan d&apos;une techno en particulier. Je choisis celle qui sert votre projet — pas l&apos;
+            inverse.{' '}
+            <Link
+              href="/sites-internet/site-sur-mesure"
+              className="text-white/70 underline-offset-4 transition hover:text-white hover:underline"
+            >
+              Next.js
+            </Link>{' '}
+            pour un site ultra rapide,{' '}
+            <Link
+              href="/sites-internet/site-ecommerce"
+              className="text-white/70 underline-offset-4 transition hover:text-white hover:underline"
+            >
+              Shopify
+            </Link>{' '}
+            pour un e-commerce qui doit scaler,{' '}
+            <Link
+              href="/sites-internet/site-wordpress"
+              className="text-white/70 underline-offset-4 transition hover:text-white hover:underline"
+            >
+              WordPress
+            </Link>{' '}
+            quand ça a du sens. La bonne techno, pour le bon besoin.
           </p>
         </motion.div>
 

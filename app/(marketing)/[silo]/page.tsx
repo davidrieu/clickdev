@@ -1,8 +1,9 @@
 import MarketingShell from '@/components/marketing/marketing-shell';
 import MarketingArticleBody from '@/components/marketing/marketing-article-body';
 import SitesInternetPremiumPage from '@/components/silos/sites-internet/premium-page';
-import { BreadcrumbJsonLd } from '@/components/seo/breadcrumb-json-ld';
 import { CollectionPageItemListJsonLd } from '@/components/seo/collection-page-item-list-json-ld';
+import { SitesInternetPillarJsonLd } from '@/components/seo/sites-internet-pillar-json-ld';
+import { BreadcrumbJsonLd } from '@/components/seo/breadcrumb-json-ld';
 import { FaqPageJsonLd } from '@/components/seo/faq-page-json-ld';
 import { SITE_NAME } from '@/lib/constants/site';
 import { withMarketingVisualPlaceholders } from '@/lib/content/marketing-article-visuals';
@@ -10,6 +11,7 @@ import { getSiloPillarArticle } from '@/lib/content/silo-pillar-articles';
 import { sitesInternetFaqJsonLdItems } from '@/lib/constants/sites-internet-premium';
 import { NAV_SILOS, SERVICE_SILOS, isServiceSilo } from '@/lib/constants/sitemap';
 import { listingPageMetadata } from '@/lib/seo/page-metadata';
+import { sitesInternetPillarMetadata } from '@/lib/seo/sites-internet-pillar-metadata';
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 
@@ -24,6 +26,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   if (!isServiceSilo(silo)) return {};
   const entry = NAV_SILOS.find((s) => s.href === `/${silo}`);
   if (!entry) return {};
+  if (silo === 'sites-internet') {
+    return sitesInternetPillarMetadata();
+  }
   const article = getSiloPillarArticle(silo);
   return listingPageMetadata({
     title: entry.label,
@@ -46,18 +51,24 @@ export default async function SiloPillarPage({ params }: Props) {
 
   return (
     <>
-      <BreadcrumbJsonLd
-        items={[
-          { name: 'Accueil', path: '/' },
-          { name: entry.label, path: entry.href },
-        ]}
-      />
+      {silo === 'sites-internet' ? (
+        <SitesInternetPillarJsonLd faqItems={sitesInternetFaqJsonLdItems()} />
+      ) : (
+        <>
+          <BreadcrumbJsonLd
+            items={[
+              { name: 'Accueil', path: '/' },
+              { name: entry.label, path: entry.href },
+            ]}
+          />
+          <FaqPageJsonLd items={article.faq} />
+        </>
+      )}
       <CollectionPageItemListJsonLd
         pagePath={entry.href}
         pageTitle={`${entry.label} — ${SITE_NAME}`}
         items={listItems}
       />
-      <FaqPageJsonLd items={silo === 'sites-internet' ? sitesInternetFaqJsonLdItems() : article.faq} />
       {silo === 'sites-internet' ? (
         <SitesInternetPremiumPage />
       ) : (

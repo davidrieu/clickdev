@@ -66,7 +66,11 @@ export function PremiumCases({ caseStudies }: Props) {
             Cinq réalisations récentes
           </h2>
           <p className="mt-4 text-sm text-white/55 md:text-base">
-            Les derniers sites livrés, par ordre chronologique.
+            Les derniers sites livrés, par ordre chronologique. Pour d&apos;autres exemples, voir aussi{' '}
+            <Link href="/realisations" className="text-white/70 underline-offset-4 transition hover:text-white hover:underline">
+              l’ensemble des réalisations
+            </Link>
+            .
           </p>
         </motion.div>
 
@@ -114,7 +118,13 @@ export function PremiumCases({ caseStudies }: Props) {
                         aria-hidden
                       >
                         <div className="relative aspect-[16/10] w-full">
-                          <Image src={c.thumbnail} alt="" fill className="object-cover" sizes="280px" />
+                          <Image
+                            src={c.thumbnail}
+                            alt={`Aperçu du projet ${c.title} — étude de cas site web`}
+                            fill
+                            className="object-cover"
+                            sizes="280px"
+                          />
                         </div>
                       </div>
                     ) : null}
