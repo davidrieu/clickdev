@@ -167,6 +167,22 @@ function ServiceNightGlow() {
   );
 }
 
+/** Halo renforcé + fond moins profond — cartes « Ce que je peux faire pour vous » uniquement. */
+function ServiceCardGlow() {
+  return (
+    <div className="pointer-events-none absolute inset-0" aria-hidden>
+      <div
+        className="absolute inset-0 opacity-[0.74] transition duration-500 group-hover:opacity-[0.94]"
+        style={{
+          background:
+            'radial-gradient(ellipse 36% 30% at 94% 4%, rgba(46, 8, 207, 0.68), transparent 72%), radial-gradient(ellipse 28% 24% at 8% 92%, rgba(36, 6, 160, 0.52), transparent 76%)',
+        }}
+      />
+      <div className="absolute inset-x-0 bottom-0 h-[64%] bg-gradient-to-t from-neutral-950/90 via-neutral-950/50 to-transparent" />
+    </div>
+  );
+}
+
 function HpServices() {
   const { pointer, onPointerMoveCapture, onPointerLeave } = useSectionStellarPointer();
   return (
@@ -200,7 +216,7 @@ function HpServices() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: '-6%' }}
               transition={{ delay: index * 0.06, duration: 0.45 }}
-              className="min-h-[220px]"
+              className="min-h-[268px] md:min-h-[288px]"
             >
               <motion.div
                 className="h-full"
@@ -209,10 +225,10 @@ function HpServices() {
               >
                 <Link
                   href={card.href}
-                  className="group relative flex h-full min-h-[inherit] flex-col overflow-hidden rounded-2xl border border-white/[0.08] bg-gradient-to-br from-black to-neutral-950 p-6 transition duration-500 hover:border-white/[0.14]"
+                  className="group relative flex h-full min-h-[inherit] flex-col justify-center overflow-hidden rounded-2xl border border-white/[0.1] bg-gradient-to-br from-neutral-950 via-neutral-900/85 to-neutral-900 p-6 transition duration-500 hover:border-white/[0.16]"
                 >
-                  <ServiceNightGlow />
-                  <div className="relative z-[2] mt-auto">
+                  <ServiceCardGlow />
+                  <div className="relative z-[2] flex flex-col justify-center">
                     <span className="font-mono text-[10px] text-white/40">{card.number}</span>
                     <h3 className="mt-2 text-lg font-semibold tracking-tight text-white [text-shadow:0_2px_14px_rgba(0,0,0,0.75)] md:text-xl">
                       {card.title}
