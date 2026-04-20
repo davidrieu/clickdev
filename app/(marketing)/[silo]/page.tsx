@@ -1,6 +1,8 @@
 import MarketingShell from '@/components/marketing/marketing-shell';
 import MarketingArticleBody from '@/components/marketing/marketing-article-body';
 import SitesInternetPremiumPage from '@/components/silos/sites-internet/premium-page';
+import ApplicationsMobilesPremiumPage from '@/components/silos/applications-mobiles/applications-mobiles-premium-page';
+import { ApplicationsMobilesPillarJsonLd } from '@/components/seo/applications-mobiles-pillar-json-ld';
 import { CollectionPageItemListJsonLd } from '@/components/seo/collection-page-item-list-json-ld';
 import { SitesInternetPillarJsonLd } from '@/components/seo/sites-internet-pillar-json-ld';
 import { BreadcrumbJsonLd } from '@/components/seo/breadcrumb-json-ld';
@@ -8,9 +10,11 @@ import { FaqPageJsonLd } from '@/components/seo/faq-page-json-ld';
 import { SITE_NAME } from '@/lib/constants/site';
 import { withMarketingVisualPlaceholders } from '@/lib/content/marketing-article-visuals';
 import { getSiloPillarArticle } from '@/lib/content/silo-pillar-articles';
+import { applicationsMobilesPillarFaqJsonLdItems } from '@/lib/constants/applications-mobiles-pillar-premium';
 import { sitesInternetFaqJsonLdItems } from '@/lib/constants/sites-internet-premium';
 import { NAV_SILOS, SERVICE_SILOS, isServiceSilo } from '@/lib/constants/sitemap';
 import { listingPageMetadata } from '@/lib/seo/page-metadata';
+import { applicationsMobilesPillarMetadata } from '@/lib/seo/applications-mobiles-pillar-metadata';
 import { sitesInternetPillarMetadata } from '@/lib/seo/sites-internet-pillar-metadata';
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
@@ -28,6 +32,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   if (!entry) return {};
   if (silo === 'sites-internet') {
     return sitesInternetPillarMetadata();
+  }
+  if (silo === 'applications-mobiles') {
+    return applicationsMobilesPillarMetadata();
   }
   const article = getSiloPillarArticle(silo);
   return listingPageMetadata({
@@ -53,6 +60,8 @@ export default async function SiloPillarPage({ params }: Props) {
     <>
       {silo === 'sites-internet' ? (
         <SitesInternetPillarJsonLd faqItems={sitesInternetFaqJsonLdItems()} />
+      ) : silo === 'applications-mobiles' ? (
+        <ApplicationsMobilesPillarJsonLd faqItems={applicationsMobilesPillarFaqJsonLdItems()} />
       ) : (
         <>
           <BreadcrumbJsonLd
@@ -71,6 +80,8 @@ export default async function SiloPillarPage({ params }: Props) {
       />
       {silo === 'sites-internet' ? (
         <SitesInternetPremiumPage />
+      ) : silo === 'applications-mobiles' ? (
+        <ApplicationsMobilesPremiumPage />
       ) : (
         <MarketingShell
           eyebrow="Clickdev"

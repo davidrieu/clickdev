@@ -10,6 +10,7 @@ import {
   caseStudySitemapEntriesQuery,
   featuredCaseStudiesQuery,
   latestPostsQuery,
+  recentMobileCaseStudiesQuery,
   recentWebCaseStudiesQuery,
   postBySlugQuery,
   postSlugsQuery,
@@ -116,6 +117,20 @@ export async function getRecentWebCaseStudies(): Promise<SanityCaseStudyTeaser[]
 
   try {
     const rows = await sanityClient.fetch<SanityCaseStudyTeaser[]>(recentWebCaseStudiesQuery);
+    return rows ?? [];
+  } catch {
+    return [];
+  }
+}
+
+/** 5 dernières études de cas « app mobile », les plus récentes d’abord. */
+export async function getRecentMobileCaseStudies(): Promise<SanityCaseStudyTeaser[]> {
+  if (!sanityClient) {
+    return [];
+  }
+
+  try {
+    const rows = await sanityClient.fetch<SanityCaseStudyTeaser[]>(recentMobileCaseStudiesQuery);
     return rows ?? [];
   } catch {
     return [];

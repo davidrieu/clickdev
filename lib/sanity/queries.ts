@@ -51,6 +51,9 @@ export const featuredCaseStudiesQuery = `*[_type == "caseStudy" && defined(slug.
 /** Derniers projets « web » (site, e-commerce, marketplace) pour la page pilier /sites-internet. */
 export const recentWebCaseStudiesQuery = `*[_type == "caseStudy" && defined(slug.current) && category in ["website", "ecommerce", "marketplace"]] | order(coalesce(publishedAt, _updatedAt) desc)[0...5]${caseStudyTeaserProjection}`;
 
+/** Derniers projets « app mobile » (catégorie Sanity `mobile`) pour le silo applications mobiles. */
+export const recentMobileCaseStudiesQuery = `*[_type == "caseStudy" && defined(slug.current) && category == "mobile"] | order(coalesce(publishedAt, _updatedAt) desc)[0...5]${caseStudyTeaserProjection}`;
+
 export const allCaseStudiesTeasersQuery = `*[_type == "caseStudy" && defined(slug.current)] | order(featured desc, coalesce(publishedAt, _updatedAt) desc)${caseStudyTeaserProjection}`;
 
 export const caseStudySlugsQuery = `*[_type == "caseStudy" && defined(slug.current)].slug.current`;
