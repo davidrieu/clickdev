@@ -1,4 +1,5 @@
 import SanityPortableText from '@/components/portable/sanity-portable-text';
+import { CaseStudyGallery } from '@/components/realisations/case-study-gallery';
 import { CASE_STUDY_CATEGORY_LABELS } from '@/lib/constants/case-study';
 import { cn } from '@/lib/utils';
 import type { SanityCaseStudyDocument } from '@/types/sanity-case-study';
@@ -54,9 +55,7 @@ export default function CaseStudyDetail({ study }: Props) {
             {study.title}
           </h1>
           {study.tagline ? (
-            <div className="mt-8 max-w-2xl border-l-4 border-[#F26A06] bg-white/[0.03] py-4 pl-5 pr-4 md:pl-6">
-              <p className="text-base leading-relaxed text-white/80 md:text-lg">{study.tagline}</p>
-            </div>
+            <p className="mt-8 max-w-3xl text-base leading-relaxed text-white/72 md:text-lg">{study.tagline}</p>
           ) : null}
           <div className="mt-8 flex flex-wrap gap-3">
             <Link
@@ -117,33 +116,7 @@ export default function CaseStudyDetail({ study }: Props) {
 
       {study.gallery && study.gallery.some((g) => g.image) ? (
         <Section title="Galerie">
-          <ul className="space-y-8">
-            {study.gallery.map(
-              (g, i) =>
-                g.image && (
-                  <li
-                    key={`${g.image}-${i}`}
-                    className="overflow-hidden rounded-2xl border border-white/[0.1] bg-gradient-to-br from-neutral-950/50 to-white/[0.02]"
-                  >
-                    <div className="relative w-full">
-                      <Image
-                        src={g.image}
-                        alt={g.caption ?? 'Capture du projet'}
-                        width={1920}
-                        height={1200}
-                        className="h-auto w-full object-contain"
-                        sizes="(max-width: 1280px) 100vw, 1152px"
-                      />
-                    </div>
-                    {g.caption ? (
-                      <p className="border-t border-white/10 px-4 py-3 text-center text-sm text-white/60">
-                        {g.caption}
-                      </p>
-                    ) : null}
-                  </li>
-                ),
-            )}
-          </ul>
+          <CaseStudyGallery items={study.gallery} />
         </Section>
       ) : null}
 

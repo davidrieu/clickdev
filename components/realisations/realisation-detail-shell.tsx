@@ -25,7 +25,7 @@ export function RealisationDetailShell({ children, breadcrumb }: Props) {
         onPointerLeave={onPointerLeave}
       >
         <StellarField
-          count={48}
+          count={200}
           className="opacity-[0.88]"
           interactive
           pointer={pointer}
