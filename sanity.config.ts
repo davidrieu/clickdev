@@ -14,6 +14,8 @@ export default defineConfig({
   title: 'Clickdev',
   projectId,
   dataset,
+  /** Requis quand le Studio est monté sur le site (ex. /studio sur Vercel) */
+  basePath: '/studio',
   plugins: [structureTool()],
   schema: { types: schemaTypes },
 });
