@@ -4,7 +4,6 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
 
-import { PremiumSectionDivider } from '@/components/home-premium/premium-section-divider';
 import { PremiumFinalCta } from '@/components/silos/sites-internet/premium-final-cta';
 import { StellarField, useSectionStellarPointer } from '@/components/silos/sites-internet/stellar-field';
 import { caseStudyTypeOrCategoryLabel } from '@/lib/constants/case-study';
@@ -34,9 +33,8 @@ export function RealisationsListClient({ cases, configured }: Props) {
         ]}
       />
 
-      {/* Hero — même esprit que PremiumHero / accueil */}
       <section
-        className="relative overflow-hidden pt-20 pb-6 md:pt-24 md:pb-10 lg:pt-28"
+        className="relative overflow-hidden bg-black pt-20 pb-16 md:pt-24 md:pb-24 lg:pt-28 lg:pb-32"
         onPointerMoveCapture={onPointerMoveCapture}
         onPointerLeave={onPointerLeave}
       >
@@ -61,17 +59,8 @@ export function RealisationsListClient({ cases, configured }: Props) {
             </h1>
             <p className="mt-8 max-w-3xl text-base leading-relaxed text-white/72 md:text-lg">{INTRO}</p>
           </motion.div>
-        </div>
-      </section>
 
-      <section
-        className="relative overflow-hidden bg-black py-16 md:py-24 lg:py-32"
-        onPointerMoveCapture={onPointerMoveCapture}
-        onPointerLeave={onPointerLeave}
-      >
-        <PremiumSectionDivider />
-        <StellarField count={40} className="opacity-[0.55]" interactive pointer={pointer} />
-        <div className="relative z-10 mx-auto max-w-[1400px] px-4 md:px-8">
+          <div className="mt-12 md:mt-16">
           {!configured ? (
             <div className="mx-auto max-w-xl rounded-2xl border border-dashed border-white/20 bg-white/[0.03] p-8 text-center text-sm text-white/65 md:p-10">
               <p>
@@ -147,6 +136,7 @@ export function RealisationsListClient({ cases, configured }: Props) {
               ))}
             </ul>
           )}
+          </div>
         </div>
       </section>
 

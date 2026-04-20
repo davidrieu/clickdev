@@ -20,14 +20,20 @@ export function RealisationDetailShell({ children, breadcrumb }: Props) {
     <main className="bg-black text-white">
       <PremiumPageBreadcrumb items={breadcrumb} />
       <section
-        className="relative overflow-hidden pt-8 pb-20 md:pt-10 md:pb-28"
+        className="relative overflow-hidden pt-20 pb-16 md:pt-24 md:pb-24 lg:pt-28 lg:pb-32"
         onPointerMoveCapture={onPointerMoveCapture}
         onPointerLeave={onPointerLeave}
       >
-        <StellarField count={44} className="opacity-[0.62]" interactive pointer={pointer} />
+        <StellarField
+          count={48}
+          className="opacity-[0.88]"
+          interactive
+          pointer={pointer}
+          shootingMeteors
+        />
         <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_80%_50%_at_50%_-20%,rgba(255,255,255,0.05),transparent)]" />
-        <div className="relative z-10 mx-auto max-w-[1400px] px-4 md:px-8">
-          <div className="mx-auto max-w-5xl">{children}</div>
+        <div className="relative z-10 mx-auto w-full max-w-[1400px] px-4 md:px-8">
+          {children}
         </div>
       </section>
       <PremiumFinalCta
