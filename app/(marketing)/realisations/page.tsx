@@ -9,9 +9,12 @@ import type { Metadata } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
 
+export const revalidate = 60;
+
 export const metadata: Metadata = listingPageMetadata({
   title: 'Réalisations',
-  description: 'Portfolio et études de cas — développement web, mobile et outils métiers.',
+  description:
+    'Découvrez le portfolio de David Rieu, développeur web freelance : sites, applications et solutions digitales, avec chaque cas raconté en transparence.',
   path: '/realisations',
 });
 
@@ -37,14 +40,17 @@ export default async function RealisationsPage() {
         items={listItems}
         pageEntity="CollectionPage"
       />
-      <article className="mx-auto max-w-5xl px-4 py-16 md:px-6 md:py-20">
+      <article className="mx-auto max-w-6xl px-4 py-16 md:px-6 md:py-20">
         <PageBreadcrumb items={jsonLdItems.map((j) => ({ label: j.name, href: j.path }))} />
         <p className="font-mono text-[11px] tracking-widest text-white/45 uppercase">Portfolio</p>
         <h1 className="mt-3 text-3xl font-semibold tracking-tight text-white md:text-4xl">
           Réalisations
         </h1>
-        <p className="mt-6 max-w-2xl text-sm leading-relaxed text-white/75 md:text-base">
-          Études de cas détaillées : contexte, stack, résultats — synchronisées avec Sanity.
+        <p className="mt-6 max-w-3xl text-sm leading-relaxed text-white/75 md:text-base">
+          Découvrez mon portfolio en tant que développeur web freelance spécialisé en création de sites
+          web, applications mobiles et solutions digitales. Chaque réalisation est une histoire de
+          collaboration, d&apos;innovation et de résultats concrets. 110+ projets variés — du site
+          vitrine à la plateforme complexe — que j&apos;ai eu le plaisir de mener.
         </p>
 
         {!configured ? (
@@ -65,9 +71,10 @@ export default async function RealisationsPage() {
             </p>
           </div>
         ) : (
-          <ul className="mt-14 grid gap-8 sm:grid-cols-2">
+          <ul className="mt-14 grid gap-8 sm:grid-cols-2 xl:grid-cols-3">
             {cases.map((c) => {
               const cat = c.category ? CASE_STUDY_CATEGORY_LABELS[c.category] ?? c.category : null;
+              const typeLabel = c.typeTag?.trim() || cat;
               return (
                 <li key={c._id}>
                   <Link href={`/realisations/${c.slug}`} className="group block h-full">
@@ -79,7 +86,7 @@ export default async function RealisationsPage() {
                             alt=""
                             fill
                             className="object-cover transition group-hover:scale-[1.02]"
-                            sizes="(max-width: 640px) 100vw, 50vw"
+                            sizes="(max-width: 640px) 100vw, (max-width: 1280px) 50vw, 33vw"
                           />
                         ) : (
                           <div className="flex h-full items-center justify-center bg-white/[0.04] text-sm text-white/40">
@@ -89,9 +96,9 @@ export default async function RealisationsPage() {
                       </div>
                       <div className="flex flex-1 flex-col p-5">
                         <div className="flex flex-wrap gap-2">
-                          {cat ? (
+                          {typeLabel ? (
                             <span className="rounded-full border border-white/15 px-2 py-0.5 text-[11px] text-white/70">
-                              {cat}
+                              {typeLabel}
                             </span>
                           ) : null}
                           {c.year ? (

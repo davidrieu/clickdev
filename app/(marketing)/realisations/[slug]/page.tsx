@@ -11,6 +11,8 @@ import { notFound } from 'next/navigation';
 
 type Props = { params: Promise<{ slug: string }> };
 
+export const revalidate = 60;
+
 export async function generateStaticParams() {
   const slugs = await getCaseStudySlugs();
   return slugs.map((slug) => ({ slug }));
@@ -96,9 +98,8 @@ export default async function CaseStudyPage({ params }: Props) {
         slug={slug}
         image={articleImage}
       />
-      <article className="mx-auto max-w-4xl px-4 py-16 md:px-6 md:py-20">
+      <article className="mx-auto max-w-5xl px-4 py-16 md:px-6 md:py-20">
         <PageBreadcrumb items={crumbs} />
-        <p className="font-mono text-[11px] tracking-widest text-white/45 uppercase">Étude de cas</p>
         <CaseStudyDetail study={study} />
       </article>
     </>

@@ -60,7 +60,14 @@ export default defineType({
       type: 'array',
       of: [{ type: 'string' }],
     }),
-    defineField({ name: 'tagline', title: 'Tagline (1 phrase forte)', type: 'string' }),
+    defineField({ name: 'tagline', title: 'Accroche (courte description sous le titre)', type: 'string' }),
+    defineField({
+      name: 'typeTag',
+      title: "Tag d'affichage (type de projet)",
+      type: 'string',
+      description:
+        'Texte libre (ex. « Refonte e-commerce », « App mobile »). Affiché près de l’image. La catégorie structurée reste utile pour le filtrage interne.',
+    }),
     defineField({
       name: 'heroImage',
       title: 'Image hero',

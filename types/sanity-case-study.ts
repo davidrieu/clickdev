@@ -9,6 +9,7 @@ export type SanityCaseStudyTeaser = {
   client: string | null;
   year: number | null;
   category: string | null;
+  typeTag: string | null;
   tagline: string | null;
   featuredMetric: string | null;
   metrics: SanityCaseStudyMetric[] | null;
@@ -46,6 +47,7 @@ export type SanityCaseStudyDocument = {
   sectors: string[] | null;
   technologies: string[] | null;
   tagline: string | null;
+  typeTag: string | null;
   featuredMetric: string | null;
   metrics: SanityCaseStudyMetric[] | null;
   context: PortableTextBlock[] | null;
