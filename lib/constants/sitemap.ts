@@ -57,7 +57,7 @@ export const NAV_SILOS: NavSilo[] = [
       { label: 'Scénarios multi-étapes', href: '/ia/agents-ia' },
       { label: 'Automatisation IA', href: '/ia/automatisation-ia' },
       { label: 'Assistant sur vos documents', href: '/ia/rag-base-connaissances' },
-      { label: 'IA générative e-commerce', href: '/ia/ia-generative-ecommerce' },
+      { label: 'IA & e-commerce', href: '/ia/ia-generative-ecommerce' },
     ],
   },
   {
