@@ -64,9 +64,11 @@ export function CaseStudyGallery({ items }: Props) {
 
       <Dialog open={open} onOpenChange={(isOpen) => !isOpen && setOpenIndex(null)}>
         <DialogContent
+          /* Lenis écoute la molette sur window : sans ça, le scroll lisse la page au lieu du conteneur ci-dessous */
+          data-lenis-prevent
           overlayClassName="bg-black/80 backdrop-blur-sm supports-backdrop-filter:backdrop-blur-sm"
           className={cn(
-            'fixed top-1/2 left-1/2 z-50 max-h-[min(92vh,1000px)] w-[min(96vw,1200px)] -translate-x-1/2 -translate-y-1/2',
+            'fixed top-1/2 left-1/2 z-50 h-[min(92vh,1000px)] max-h-[min(92vh,1000px)] w-[min(96vw,1200px)] -translate-x-1/2 -translate-y-1/2',
             'border border-white/15 bg-zinc-950/95 p-0 text-white !shadow-none !ring-0 !ring-offset-0',
             '!max-w-[min(96vw,1200px)] sm:!max-w-[min(96vw,1200px)]',
             '[&_button]:text-white [&_button]:hover:bg-white/15',
@@ -86,7 +88,7 @@ export function CaseStudyGallery({ items }: Props) {
                 <span>Faites défiler dans cette fenêtre pour voir toute la capture.</span>
               </p>
               <div
-                className="min-h-0 flex-1 overflow-y-auto overflow-x-hidden overscroll-y-contain p-3 sm:p-4 [scrollbar-color:rgba(255,255,255,0.22)_transparent] [scrollbar-width:thin] [&::-webkit-scrollbar]:w-1.5 [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-thumb]:bg-white/25"
+                className="min-h-0 min-w-0 flex-1 overflow-y-auto overflow-x-hidden overscroll-y-contain p-3 sm:p-4 [scrollbar-color:rgba(255,255,255,0.22)_transparent] [scrollbar-width:thin] [&::-webkit-scrollbar]:w-1.5 [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-thumb]:bg-white/25"
                 aria-describedby="case-study-gallery-lightbox-hint"
               >
                 <Image
