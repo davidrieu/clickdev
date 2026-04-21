@@ -5,6 +5,7 @@ import { motion, useInView } from 'framer-motion';
 
 import { PremiumSectionDivider } from '@/components/home-premium/premium-section-divider';
 import { StellarField, useSectionStellarPointer } from '@/components/silos/sites-internet/stellar-field';
+import { cn } from '@/lib/utils';
 
 const sections = [
   {
@@ -74,6 +75,7 @@ export function AboutBody() {
         onPointerLeave={onPointerLeave}
       >
         <StellarField count={32} className="opacity-[0.45]" interactive pointer={pointer} />
+        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_70%_45%_at_50%_30%,rgba(255,255,255,0.04),transparent)]" />
         <div className="relative z-10 mx-auto max-w-[820px] px-4 md:px-8">
           <motion.p
             className="si-serif-display text-balance text-[clamp(1.35rem,2.8vw,1.85rem)] leading-snug font-medium tracking-[-0.02em] text-white/90"
@@ -102,15 +104,11 @@ export function AboutBody() {
         <PremiumSectionDivider />
       </div>
 
-      <section className="relative overflow-hidden bg-black py-20 md:py-28 lg:py-32">
-        <div className="mx-auto max-w-[1100px] space-y-16 px-4 md:space-y-20 md:px-8 lg:space-y-24">
-          {sections.map((s, index) => (
-            <AboutSectionBlock key={s.title} kicker={s.kicker} title={s.title} index={index}>
-              {s.body}
-            </AboutSectionBlock>
-          ))}
-        </div>
-      </section>
+      {sections.map((s, index) => (
+        <AboutSectionBlock key={s.title} kicker={s.kicker} title={s.title} index={index}>
+          {s.body}
+        </AboutSectionBlock>
+      ))}
     </>
   );
 }
@@ -128,36 +126,53 @@ function AboutSectionBlock({
 }) {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: '-12%' });
+  const { pointer, onPointerMoveCapture, onPointerLeave } = useSectionStellarPointer();
+  const starCount = 30 + index * 4;
 
   return (
-    <article
+    <section
       ref={ref}
-      className={`relative scroll-mt-28 border-t border-white/10 pt-14 md:pt-16 ${index === 0 ? 'border-t-0 pt-0 md:pt-0' : ''}`}
+      className={cn(
+        'relative overflow-hidden bg-black py-20 md:py-28 lg:py-32',
+        index > 0 && 'border-t border-white/10',
+      )}
+      onPointerMoveCapture={onPointerMoveCapture}
+      onPointerLeave={onPointerLeave}
     >
-      <motion.p
-        className="font-mono text-[10px] tracking-[0.26em] text-white/40 uppercase"
-        initial={{ opacity: 0, y: 12 }}
-        animate={inView ? { opacity: 1, y: 0 } : {}}
-        transition={{ duration: 0.45 }}
-      >
-        {kicker}
-      </motion.p>
-      <motion.h2
-        className="si-serif-display mt-4 max-w-3xl text-balance text-[clamp(1.5rem,3.2vw,2.35rem)] font-medium leading-[1.15] tracking-[-0.03em] text-white"
-        initial={{ opacity: 0, y: 22 }}
-        animate={inView ? { opacity: 1, y: 0 } : {}}
-        transition={{ delay: 0.05, duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
-      >
-        {title}
-      </motion.h2>
-      <motion.div
-        className="mt-6 max-w-3xl text-base leading-relaxed text-white/65 md:text-lg [&_p]:text-pretty"
-        initial={{ opacity: 0, y: 16 }}
-        animate={inView ? { opacity: 1, y: 0 } : {}}
-        transition={{ delay: 0.12, duration: 0.5 }}
-      >
-        {children}
-      </motion.div>
-    </article>
+      <StellarField
+        count={starCount}
+        className="opacity-[0.48]"
+        interactive
+        pointer={pointer}
+      />
+      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_75%_50%_at_50%_20%,rgba(255,255,255,0.035),transparent)]" />
+
+      <div className="relative z-10 mx-auto max-w-[820px] px-4 text-center md:px-8">
+        <motion.p
+          className="font-mono text-[10px] tracking-[0.26em] text-white/40 uppercase"
+          initial={{ opacity: 0, y: 12 }}
+          animate={inView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.45 }}
+        >
+          {kicker}
+        </motion.p>
+        <motion.h2
+          className="si-serif-display mx-auto mt-4 max-w-3xl text-balance text-[clamp(1.5rem,3.2vw,2.35rem)] font-medium leading-[1.15] tracking-[-0.03em] text-white"
+          initial={{ opacity: 0, y: 22 }}
+          animate={inView ? { opacity: 1, y: 0 } : {}}
+          transition={{ delay: 0.05, duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
+        >
+          {title}
+        </motion.h2>
+        <motion.div
+          className="mx-auto mt-6 max-w-3xl text-base leading-relaxed text-white/65 md:text-lg [&_p]:text-pretty"
+          initial={{ opacity: 0, y: 16 }}
+          animate={inView ? { opacity: 1, y: 0 } : {}}
+          transition={{ delay: 0.12, duration: 0.5 }}
+        >
+          {children}
+        </motion.div>
+      </div>
+    </section>
   );
 }
