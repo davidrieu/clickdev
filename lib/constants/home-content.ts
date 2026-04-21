@@ -121,6 +121,7 @@ const STACK_LABELS: Record<ExpertiseSlug, string> = {
   openai: 'OpenAI',
   'claude-api': 'Claude API',
   langchain: 'LangChain',
+  n8n: 'n8n',
 };
 
 export type HomeStackItem = { name: string; slug: ExpertiseSlug };

@@ -235,6 +235,27 @@ const ARTICLES: Record<ExpertiseSlug, MarketingLongArticle> = {
       },
     ],
   },
+  n8n: {
+    metaDescription:
+      'Freelance n8n : workflows, webhooks, intégrations SaaS, self-hosted et bonnes pratiques prod — Clickdev.',
+    lead:
+      'n8n sert à enchaîner apps, APIs et bases sans tout recoder : synchronisations, alertes, enrichissement de leads, pipelines vers le CRM ou la facturation. Je conçois des workflows lisibles (nommage, erreurs, retries), des secrets hors repo et des scénarios testables avant passage en prod.',
+    sections: [
+      {
+        heading: 'Fiabilité',
+        paragraphs: [
+          'Gestion des quotas API, idempotence sur les webhooks, files d’attente et logs exploitables quand un nœud casse à 2 h du matin. Self-hosted ou cloud : on cale la stratégie sur vos contraintes RGPD et d’exploitation.',
+        ],
+      },
+    ],
+    faq: [
+      {
+        question: 'n8n plutôt que du code custom ?',
+        answer:
+          'Quand le flux est stable et surtout de l’intégration entre services, n8n va vite. Dès que la logique métier devient dense ou critique, un service dédié (Node, Python, Laravel) prend le relais — souvent en hybride avec n8n en orchestrateur.',
+      },
+    ],
+  },
 };
 
 export function getExpertiseArticle(slug: ExpertiseSlug): MarketingLongArticle {

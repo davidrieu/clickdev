@@ -35,7 +35,8 @@ export function ExpertisesIndexFaq({ items }: { items: readonly FaqItem[] }) {
             Questions sur les expertises
           </h2>
           <p className="mx-auto mt-4 max-w-lg text-sm text-white/55 md:text-base">
-            Réponses courtes, utiles pour le référencement et pour cadrer votre prochain échange.
+            Alignées sur les fiches (Next.js à n8n, en passant par Laravel ou Python) : court pour le SEO, concret pour
+            votre prochain échange.
           </p>
         </motion.div>
 

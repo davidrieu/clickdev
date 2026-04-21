@@ -36,7 +36,7 @@ export const metadata: Metadata = {
   ...listingPageMetadata({
     title: 'Expertises techniques (stack web, mobile & IA)',
     description:
-      'Fiches SEO par techno : Next.js, WordPress, Shopify, WooCommerce, React Native, Laravel, Node.js, Python, OpenAI, Claude, LangChain. Méthode, livrables et liens vers sites, apps, IA et CRM — développeur freelance.',
+      'Fiches SEO par techno : Next.js, WordPress, Shopify, WooCommerce, React Native, Laravel, Node.js, Python, OpenAI, Claude, LangChain, n8n. Méthode, livrables et liens vers sites, apps, IA et CRM — développeur freelance.',
     path: '/expertises',
   }),
   keywords: [
@@ -52,6 +52,8 @@ export const metadata: Metadata = {
     'OpenAI intégration',
     'Claude API',
     'LangChain',
+    'n8n freelance',
+    'automatisation workflows',
     'SEO technique freelance',
     'développeur full-stack',
   ],

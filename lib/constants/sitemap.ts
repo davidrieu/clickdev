@@ -115,6 +115,7 @@ export const EXPERTISE_SLUGS = [
   'openai',
   'claude-api',
   'langchain',
+  'n8n',
 ] as const;
 
 export type ExpertiseSlug = (typeof EXPERTISE_SLUGS)[number];

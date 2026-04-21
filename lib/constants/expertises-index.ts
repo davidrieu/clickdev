@@ -25,8 +25,8 @@ export const EXPERTISE_INDEX_GROUPS: {
     id: 'ia',
     title: 'IA & automatisation',
     description:
-      'Modèles conversationnels, chaînage d’outils et intégrations : l’IA au service de vos process, pas l’inverse.',
-    slugs: ['openai', 'claude-api', 'langchain'],
+      'Modèles (OpenAI, Claude), orchestration RAG (LangChain) et workflows n8n : de la preuve de concept aux automatisations fiables en production.',
+    slugs: ['openai', 'claude-api', 'langchain', 'n8n'],
   },
 ];
 
@@ -35,12 +35,12 @@ export const EXPERTISE_INDEX_FAQ = [
   {
     question: 'À quoi servent les pages expertises ?',
     answer:
-      'Chaque page décrit comment j’utilise une techno concrète (Next.js, Shopify, Laravel, Python, APIs OpenAI ou Claude, etc.) dans des projets réels : périmètre, bonnes pratiques, pièges à éviter et liens vers les offres associées (sites, apps, IA, CRM). C’est utile pour le référencement longue traîne et pour vous projeter vite.',
+      'Chaque fiche détaille une techno précise parmi celles que j’emploie au quotidien. Côté web & e-commerce : Next.js, WordPress, Shopify, WooCommerce. Côté apps & back-end : React Native, Laravel, Node.js, Python. Côté IA & automatisation : OpenAI, Claude (API), LangChain et n8n pour les workflows. Vous y trouvez périmètre, bonnes pratiques, pièges fréquents et liens vers les offres (sites, applications mobiles, IA, CRM).',
   },
   {
     question: 'Puis-je vous solliciter sur une stack qui n’est pas listée ?',
     answer:
-      'Oui : la liste couvre mes socles les plus demandés. Si vous êtes sur une variante proche (Remix, Nuxt, autre CMS) ou un besoin hybride, écrivez-moi : on voit si une mission ponctuelle ou un audit a du sens avant d’engager une refonte complète.',
+      'Oui : les cartes reflètent mes socles les plus demandés. Si vous êtes sur une techno proche (Remix, Nuxt, autre CMS, Make/Zapier, stack Google ou Microsoft, autre LLM) ou un besoin hybride, écrivez-moi : on voit si une mission ciblée ou un audit a du sens avant d’engager une refonte.',
   },
   {
     question: 'Travaillez-vous en remote partout en France ?',
