@@ -23,9 +23,9 @@ const maintenance = NAV_SILOS.find((s) => s.href === '/maintenance');
 
 function LinkColumn({ title, links }: { title: string; links: { label: string; href: string }[] }) {
   return (
-    <div>
+    <div className="min-w-0">
       <p className="mb-4 text-xs font-medium tracking-wider text-white/50 uppercase">{title}</p>
-      <ul className="space-y-2 text-sm text-white/80">
+      <ul className="space-y-2 text-sm break-words text-white/80">
         {links.map((l) => (
           <li key={l.href}>
             <Link href={l.href} className="transition hover:text-white">
@@ -41,24 +41,28 @@ function LinkColumn({ title, links }: { title: string; links: { label: string; h
 export default function Footer() {
   return (
     <motion.footer
-      className="mt-32 border-t border-white/10 px-4 pt-16 pb-10 md:px-12 lg:px-20 xl:px-24"
+      className="mt-32 overflow-x-clip border-t border-white/10 px-4 pt-16 pb-10 md:px-12 lg:px-20 xl:px-24"
       initial={{ opacity: 0 }}
       whileInView={{ opacity: 1 }}
       viewport={{ once: true }}
       transition={{ duration: 0.5 }}
     >
-      <div className="mx-auto grid max-w-7xl gap-12 lg:grid-cols-6">
-        <div className="lg:col-span-2">
-          <Link href="/">
+      {/*
+        7 colonnes sur grand écran : marque (×2) + 5 blocs navigation.
+        Auparavant 6 colonnes pour 7 zones → dernière colonne rejetée en ligne suivante (décalage).
+      */}
+      <div className="mx-auto grid w-full min-w-0 max-w-7xl grid-cols-1 gap-10 sm:gap-12 lg:grid-cols-7 lg:gap-x-6 lg:gap-y-10">
+        <div className="min-w-0 lg:col-span-2">
+          <Link href="/" className="inline-block max-w-full">
             <Image
               src="/assets/logo-clickdev.png"
               alt={SITE_NAME}
-              className="h-8 w-auto max-h-9 max-w-[220px] object-contain object-left"
+              className="h-8 w-auto max-h-9 max-w-[min(220px,100%)] object-contain object-left"
               width={1024}
               height={276}
             />
           </Link>
-          <p className="mt-4 max-w-sm text-sm leading-relaxed text-white/70">{SITE_TAGLINE}</p>
+          <p className="mt-4 max-w-prose text-sm leading-relaxed text-white/70">{SITE_TAGLINE}</p>
         </div>
 
         {sites && (
@@ -67,7 +71,7 @@ export default function Footer() {
             links={[{ label: 'Vue d’ensemble', href: sites.href }, ...sites.children]}
           />
         )}
-        <div className="space-y-10">
+        <div className="min-w-0 space-y-10">
           {apps && (
             <LinkColumn
               title="Applications mobiles"
@@ -87,7 +91,7 @@ export default function Footer() {
             links={[{ label: 'Vue d’ensemble', href: seo.href }, ...seo.children]}
           />
         )}
-        <div className="space-y-10">
+        <div className="min-w-0 space-y-10">
           {crm && (
             <LinkColumn
               title="CRM & outils métiers"
@@ -101,11 +105,11 @@ export default function Footer() {
             />
           )}
         </div>
-        <div>
+        <div className="min-w-0">
           <p className="mb-4 text-xs font-medium tracking-wider text-white/50 uppercase">
             Entreprise
           </p>
-          <ul className="space-y-2 text-sm text-white/80">
+          <ul className="space-y-2 text-sm break-words text-white/80">
             <li>
               <Link href="/a-propos" className="transition hover:text-white">
                 Qui suis-je ?
@@ -154,10 +158,10 @@ export default function Footer() {
                 {SITE_PHONE}
               </a>
             </li>
-            <li className="flex gap-4 pt-2">
+            <li className="flex flex-wrap items-center gap-x-4 gap-y-2 pt-2">
               <a
                 href={SOCIAL_LINKS.linkedin}
-                className="text-white/70 transition hover:text-white"
+                className="shrink-0 text-white/70 transition hover:text-white"
                 aria-label="LinkedIn"
                 target="_blank"
                 rel="noreferrer"
@@ -166,7 +170,7 @@ export default function Footer() {
               </a>
               <a
                 href={SOCIAL_LINKS.github}
-                className="text-white/70 transition hover:text-white"
+                className="shrink-0 text-white/70 transition hover:text-white"
                 aria-label="GitHub"
                 target="_blank"
                 rel="noreferrer"
@@ -186,18 +190,21 @@ export default function Footer() {
         </div>
       </div>
 
-      <div className="mx-auto mt-14 flex max-w-7xl flex-col gap-4 border-t border-white/10 pt-8 text-xs text-white/50 md:flex-row md:items-center md:justify-between">
-        <p>
+      <div className="mx-auto mt-14 flex w-full min-w-0 max-w-7xl flex-col gap-3 border-t border-white/10 pt-8 text-xs text-white/50 sm:flex-row sm:items-center sm:justify-between sm:gap-4">
+        <p className="min-w-0 leading-relaxed">
           © {new Date().getFullYear()} {SITE_NAME}. {SITE_SIRET}
         </p>
-        <div className="flex flex-wrap gap-4">
-          <Link href="/mentions-legales" className="transition hover:text-white/80">
+        <nav
+          className="flex shrink-0 flex-wrap gap-x-6 gap-y-1 sm:justify-end"
+          aria-label="Informations légales"
+        >
+          <Link href="/mentions-legales" className="whitespace-nowrap transition hover:text-white/80">
             Mentions légales
           </Link>
-          <Link href="/confidentialite" className="transition hover:text-white/80">
+          <Link href="/confidentialite" className="whitespace-nowrap transition hover:text-white/80">
             Confidentialité
           </Link>
-        </div>
+        </nav>
       </div>
     </motion.footer>
   );
