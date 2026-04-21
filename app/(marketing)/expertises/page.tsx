@@ -1,21 +1,59 @@
-import PageBreadcrumb from '@/components/marketing/page-breadcrumb';
+import { ExpertisesBreadcrumb } from '@/components/expertises/expertises-breadcrumb';
+import { ExpertisesIndexFaq } from '@/components/expertises/expertises-index-faq';
+import { ExpertisesIndexGrid } from '@/components/expertises/expertises-index-grid';
+import { ExpertisesIndexHero } from '@/components/expertises/expertises-index-hero';
+import { PremiumFinalCta } from '@/components/silos/sites-internet/premium-final-cta';
 import { CollectionPageItemListJsonLd } from '@/components/seo/collection-page-item-list-json-ld';
 import { BreadcrumbJsonLd } from '@/components/seo/breadcrumb-json-ld';
+import { FaqPageJsonLd } from '@/components/seo/faq-page-json-ld';
+import { EXPERTISE_INDEX_FAQ, EXPERTISE_INDEX_GROUPS } from '@/lib/constants/expertises-index';
 import { HOME_STACK_ITEMS } from '@/lib/constants/home-content';
+import { SITE_NAME } from '@/lib/constants/site';
+import { getExpertiseArticle } from '@/lib/content/expertise-articles';
 import { listingPageMetadata } from '@/lib/seo/page-metadata';
 import type { Metadata } from 'next';
-import Link from 'next/link';
-
-export const metadata: Metadata = listingPageMetadata({
-  title: 'Expertises',
-  description: 'Technologies et stacks — pages courtes SEO par techno (Next.js, Shopify, IA, etc.).',
-  path: '/expertises',
-});
 
 const jsonLdItems = [
   { name: 'Accueil', path: '/' },
   { name: 'Expertises', path: '/expertises' },
 ];
+
+const pageTitle = `Expertises techniques — stack web, mobile & IA — ${SITE_NAME}`;
+
+const ctaDescription = (
+  <>
+    <p>
+      Décrivez votre contexte (stack actuelle, objectif, contraintes) : retour structuré sous{' '}
+      <strong className="font-medium text-white/85">24h ouvrées</strong> avec pistes réalistes.
+    </p>
+    <p className="mt-4 text-white/55">
+      Les fiches ci-dessus détaillent mon approche techno ; le devis traduit ça en périmètre et budget.
+    </p>
+  </>
+);
+
+export const metadata: Metadata = {
+  ...listingPageMetadata({
+    title: 'Expertises techniques (stack web, mobile & IA)',
+    description:
+      'Fiches SEO par techno : Next.js, WordPress, Shopify, WooCommerce, React Native, Laravel, Node.js, OpenAI, Claude, LangChain. Méthode, livrables et liens vers sites, apps, IA et CRM — développeur freelance.',
+    path: '/expertises',
+  }),
+  keywords: [
+    'expertise développeur freelance',
+    'Next.js freelance France',
+    'WordPress freelance',
+    'Shopify développeur',
+    'React Native freelance',
+    'Laravel freelance',
+    'Node.js freelance',
+    'OpenAI intégration',
+    'Claude API',
+    'LangChain',
+    'SEO technique freelance',
+    'développeur full-stack',
+  ],
+};
 
 export default function ExpertisesIndexPage() {
   const listItems = HOME_STACK_ITEMS.map((item) => ({
@@ -23,35 +61,40 @@ export default function ExpertisesIndexPage() {
     name: item.name,
   }));
 
+  const groups = EXPERTISE_INDEX_GROUPS.map((g) => ({
+    id: g.id,
+    title: g.title,
+    description: g.description,
+    items: g.slugs.map((slug) => {
+      const stack = HOME_STACK_ITEMS.find((i) => i.slug === slug);
+      const article = getExpertiseArticle(slug);
+      return {
+        slug,
+        name: stack?.name ?? slug,
+        teaser: article.metaDescription,
+      };
+    }),
+  }));
+
   return (
     <>
       <BreadcrumbJsonLd items={jsonLdItems} />
-      <CollectionPageItemListJsonLd
-        pagePath="/expertises"
-        pageTitle="Expertises — Clickdev"
-        items={listItems}
-      />
-      <div className="mx-auto max-w-3xl px-4 py-16 md:px-6 md:py-20">
-        <PageBreadcrumb items={jsonLdItems.map((j) => ({ label: j.name, href: j.path }))} />
-        <p className="font-mono text-[11px] tracking-widest text-white/45 uppercase">SEO</p>
-        <h1 className="mt-3 text-3xl font-semibold md:text-4xl">Expertises</h1>
-        <p className="mt-6 text-sm leading-relaxed text-white/75 md:text-base">
-          Pages courtes ciblées par techno (freelance Next.js, intégration Claude, etc.) avec liens
-          vers les offres correspondantes.
-        </p>
-        <ul className="mt-10 grid gap-3 sm:grid-cols-2">
-          {HOME_STACK_ITEMS.map((item) => (
-            <li key={item.slug}>
-              <Link
-                href={`/expertises/${item.slug}`}
-                className="block rounded-lg border border-white/10 bg-white/[0.03] px-4 py-3 text-sm font-medium transition hover:bg-white/[0.07]"
-              >
-                {item.name}
-              </Link>
-            </li>
-          ))}
-        </ul>
-      </div>
+      <CollectionPageItemListJsonLd pagePath="/expertises" pageTitle={pageTitle} items={listItems} />
+      <FaqPageJsonLd items={[...EXPERTISE_INDEX_FAQ]} />
+      <main className="bg-black text-white">
+        <ExpertisesBreadcrumb />
+        <ExpertisesIndexHero />
+        <ExpertisesIndexGrid groups={groups} />
+        <ExpertisesIndexFaq items={EXPERTISE_INDEX_FAQ} />
+        <PremiumFinalCta
+          title="Votre stack mérite un regard honnête"
+          description={ctaDescription}
+          primaryHref="/devis"
+          primaryLabel="Demander un devis"
+          secondaryHref="/contact"
+          secondaryLabel="Me contacter"
+        />
+      </main>
     </>
   );
 }
