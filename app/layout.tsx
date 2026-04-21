@@ -26,9 +26,9 @@ export const metadata: Metadata = {
   title: { default: 'Clickdev — David Rieu', template: '%s | Clickdev' },
   description:
     'Développeur freelance pour sites, applications et outils digitaux — de la startup au grand groupe.',
-  /** AVIF pour navigateurs récents ; `app/icon.png` + `app/apple-icon.png` (PNG) générés via `npm run icons:build`. */
+  /** Favicon principal + dérivés générés (`app/icon.png`, Apple, PWA) via `npm run icons:build`. */
   icons: {
-    icon: [{ url: '/favicon.avif', type: 'image/avif' }],
+    icon: [{ url: '/favicon.png', type: 'image/png' }],
   },
   openGraph: {
     type: 'website',

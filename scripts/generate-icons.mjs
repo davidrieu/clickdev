@@ -1,6 +1,7 @@
 /**
- * Génère les PNG (favicon navigateur, Apple, PWA manifest) à partir de public/favicon.avif.
- * Exécuter après mise à jour du fichier source : npm run icons:build
+ * Génère app/icon.png (48), app/apple-icon.png (180), icônes PWA manifest
+ * à partir de public/favicon.png (toute taille / ratio proche du carré).
+ * Après avoir remplacé le PNG : npm run icons:build
  */
 import sharp from 'sharp';
 import { existsSync } from 'fs';
@@ -9,14 +10,13 @@ import { fileURLToPath } from 'url';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const root = join(__dirname, '..');
-const src = join(root, 'public', 'favicon.avif');
+const src = join(root, 'public', 'favicon.png');
 
 if (!existsSync(src)) {
-  console.error('Missing public/favicon.avif — placez votre favicon AVIF dans public/ puis relancez.');
+  console.error('Fichier manquant : public/favicon.png — copiez votre favicon PNG dans public/ puis relancez.');
   process.exit(1);
 }
 
-/** Carré, conserve le ratio du logo sur fond transparent. */
 function toSquarePng(size, dest) {
   return sharp(src)
     .resize(size, size, {
@@ -29,11 +29,14 @@ function toSquarePng(size, dest) {
 }
 
 async function main() {
+  const meta = await sharp(src).metadata();
+  console.log(`Source public/favicon.png : ${meta.width}×${meta.height}px (${meta.format}, alpha: ${meta.hasAlpha})`);
+
   await toSquarePng(48, join(root, 'app', 'icon.png'));
   await toSquarePng(180, join(root, 'app', 'apple-icon.png'));
   await toSquarePng(192, join(root, 'public', 'assets', 'web-app-manifest-192x192.png'));
   await toSquarePng(512, join(root, 'public', 'assets', 'web-app-manifest-512x512.png'));
-  console.log('OK: app/icon.png, app/apple-icon.png, manifest 192/512 depuis public/favicon.avif');
+  console.log('OK : app/icon.png (48), app/apple-icon.png (180), manifest 192 / 512');
 }
 
 main().catch((e) => {

@@ -9,7 +9,7 @@
     "lint": "eslint .",
     "format": "prettier --write .",
     "typecheck": "tsc --noEmit",
-    "icons:build": "node scripts/generate-icons-from-avif.mjs",
+    "icons:build": "node scripts/generate-icons.mjs",
     "studio": "sanity dev",
     "studio:deploy": "sanity deploy"
   },
