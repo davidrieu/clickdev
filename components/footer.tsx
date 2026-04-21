@@ -1,8 +1,7 @@
 'use client';
 
 import { NAV_SILOS } from '@/lib/constants/sitemap';
-import { SITE_EMAIL, SITE_NAME, SITE_PHONE, SITE_TAGLINE, SOCIAL_LINKS } from '@/lib/constants/site';
-import { GithubIcon, LinkedinIcon } from 'lucide-react';
+import { SITE_EMAIL, SITE_NAME, SITE_PHONE, SITE_TAGLINE } from '@/lib/constants/site';
 import Image from 'next/image';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
@@ -50,8 +49,8 @@ export default function Footer() {
       transition={{ duration: 0.5 }}
     >
       {/*
-        6 colonnes : marque (×2) + sites + apps/IA + SEO + CRM/maintenance + contact.
-        Les liens « Entreprise » sont en bandeau bas pour équilibrer la grille.
+        6 colonnes : marque + contact (×2) + sites + apps/IA + SEO + CRM/maintenance.
+        Les liens « Entreprise » sont en bandeau bas.
       */}
       <div className="mx-auto grid w-full min-w-0 max-w-7xl grid-cols-1 gap-10 sm:gap-12 lg:grid-cols-6 lg:gap-x-6 lg:gap-y-10">
         <div className="min-w-0 lg:col-span-2">
@@ -65,6 +64,24 @@ export default function Footer() {
             />
           </Link>
           <p className="mt-4 max-w-prose text-sm leading-relaxed text-white/70">{SITE_TAGLINE}</p>
+          <div className="mt-8">
+            <p className="mb-3 text-xs font-medium tracking-wider text-white/50 uppercase">Contact</p>
+            <ul className="space-y-2 text-sm text-white/80">
+              <li>
+                <a href={`mailto:${SITE_EMAIL}`} className="transition hover:text-white">
+                  {SITE_EMAIL}
+                </a>
+              </li>
+              <li>
+                <a
+                  href={`tel:${SITE_PHONE.replace(/\s/g, '')}`}
+                  className="transition hover:text-white"
+                >
+                  {SITE_PHONE}
+                </a>
+              </li>
+            </ul>
+          </div>
         </div>
 
         {sites && (
@@ -106,52 +123,6 @@ export default function Footer() {
               links={[{ label: 'Vue d’ensemble', href: maintenance.href }, ...maintenance.children]}
             />
           )}
-        </div>
-        <div className="min-w-0">
-          <p className="mb-4 text-xs font-medium tracking-wider text-white/50 uppercase">Contact</p>
-          <ul className="space-y-2 text-sm text-white/80">
-            <li>
-              <a href={`mailto:${SITE_EMAIL}`} className="transition hover:text-white">
-                {SITE_EMAIL}
-              </a>
-            </li>
-            <li>
-              <a
-                href={`tel:${SITE_PHONE.replace(/\s/g, '')}`}
-                className="transition hover:text-white"
-              >
-                {SITE_PHONE}
-              </a>
-            </li>
-            <li className="flex flex-wrap items-center gap-x-4 gap-y-2 pt-2">
-              <a
-                href={SOCIAL_LINKS.linkedin}
-                className="shrink-0 text-white/70 transition hover:text-white"
-                aria-label="LinkedIn"
-                target="_blank"
-                rel="noreferrer"
-              >
-                <LinkedinIcon className="size-5" />
-              </a>
-              <a
-                href={SOCIAL_LINKS.github}
-                className="shrink-0 text-white/70 transition hover:text-white"
-                aria-label="GitHub"
-                target="_blank"
-                rel="noreferrer"
-              >
-                <GithubIcon className="size-5" />
-              </a>
-              <a
-                href={SOCIAL_LINKS.malt}
-                className="text-sm text-white/70 transition hover:text-white"
-                target="_blank"
-                rel="noreferrer"
-              >
-                Malt
-              </a>
-            </li>
-          </ul>
         </div>
       </div>
 
