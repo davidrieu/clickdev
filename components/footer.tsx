@@ -1,14 +1,7 @@
 'use client';
 
 import { NAV_SILOS } from '@/lib/constants/sitemap';
-import {
-  SITE_EMAIL,
-  SITE_NAME,
-  SITE_PHONE,
-  SITE_SIRET,
-  SITE_TAGLINE,
-  SOCIAL_LINKS,
-} from '@/lib/constants/site';
+import { SITE_EMAIL, SITE_NAME, SITE_PHONE, SITE_TAGLINE, SOCIAL_LINKS } from '@/lib/constants/site';
 import { GithubIcon, LinkedinIcon } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -20,6 +13,15 @@ const ia = NAV_SILOS.find((s) => s.href === '/ia');
 const seo = NAV_SILOS.find((s) => s.href === '/seo');
 const crm = NAV_SILOS.find((s) => s.href === '/crm-outils-metiers');
 const maintenance = NAV_SILOS.find((s) => s.href === '/maintenance');
+
+const ENTREPRISE_LINKS = [
+  { label: 'Qui suis-je ?', href: '/a-propos' },
+  { label: 'Réalisations', href: '/realisations' },
+  { label: 'Blog', href: '/blog' },
+  { label: 'Expertises', href: '/expertises' },
+  { label: 'Contact', href: '/contact' },
+  { label: 'Demander un devis', href: '/devis' },
+] as const;
 
 function LinkColumn({ title, links }: { title: string; links: { label: string; href: string }[] }) {
   return (
@@ -48,10 +50,10 @@ export default function Footer() {
       transition={{ duration: 0.5 }}
     >
       {/*
-        7 colonnes sur grand écran : marque (×2) + 5 blocs navigation.
-        Auparavant 6 colonnes pour 7 zones → dernière colonne rejetée en ligne suivante (décalage).
+        6 colonnes : marque (×2) + sites + apps/IA + SEO + CRM/maintenance + contact.
+        Les liens « Entreprise » sont en bandeau bas pour équilibrer la grille.
       */}
-      <div className="mx-auto grid w-full min-w-0 max-w-7xl grid-cols-1 gap-10 sm:gap-12 lg:grid-cols-7 lg:gap-x-6 lg:gap-y-10">
+      <div className="mx-auto grid w-full min-w-0 max-w-7xl grid-cols-1 gap-10 sm:gap-12 lg:grid-cols-6 lg:gap-x-6 lg:gap-y-10">
         <div className="min-w-0 lg:col-span-2">
           <Link href="/" className="inline-block max-w-full">
             <Image
@@ -106,44 +108,7 @@ export default function Footer() {
           )}
         </div>
         <div className="min-w-0">
-          <p className="mb-4 text-xs font-medium tracking-wider text-white/50 uppercase">
-            Entreprise
-          </p>
-          <ul className="space-y-2 text-sm break-words text-white/80">
-            <li>
-              <Link href="/a-propos" className="transition hover:text-white">
-                Qui suis-je ?
-              </Link>
-            </li>
-            <li>
-              <Link href="/realisations" className="transition hover:text-white">
-                Réalisations
-              </Link>
-            </li>
-            <li>
-              <Link href="/blog" className="transition hover:text-white">
-                Blog
-              </Link>
-            </li>
-            <li>
-              <Link href="/expertises" className="transition hover:text-white">
-                Expertises
-              </Link>
-            </li>
-            <li>
-              <Link href="/contact" className="transition hover:text-white">
-                Contact
-              </Link>
-            </li>
-            <li>
-              <Link href="/devis" className="transition hover:text-white">
-                Demander un devis
-              </Link>
-            </li>
-          </ul>
-          <p className="mt-8 mb-3 text-xs font-medium tracking-wider text-white/50 uppercase">
-            Contact
-          </p>
+          <p className="mb-4 text-xs font-medium tracking-wider text-white/50 uppercase">Contact</p>
           <ul className="space-y-2 text-sm text-white/80">
             <li>
               <a href={`mailto:${SITE_EMAIL}`} className="transition hover:text-white">
@@ -190,21 +155,26 @@ export default function Footer() {
         </div>
       </div>
 
-      <div className="mx-auto mt-14 flex w-full min-w-0 max-w-7xl flex-col gap-3 border-t border-white/10 pt-8 text-xs text-white/50 sm:flex-row sm:items-center sm:justify-between sm:gap-4">
-        <p className="min-w-0 leading-relaxed">
-          © {new Date().getFullYear()} {SITE_NAME}. {SITE_SIRET}
-        </p>
-        <nav
-          className="flex shrink-0 flex-wrap gap-x-6 gap-y-1 sm:justify-end"
-          aria-label="Informations légales"
-        >
-          <Link href="/mentions-legales" className="whitespace-nowrap transition hover:text-white/80">
-            Mentions légales
-          </Link>
-          <Link href="/confidentialite" className="whitespace-nowrap transition hover:text-white/80">
-            Confidentialité
-          </Link>
-        </nav>
+      <div className="mx-auto mt-14 w-full min-w-0 max-w-7xl border-t border-white/10 pt-8">
+        <div className="flex flex-col gap-6 lg:flex-row lg:items-start lg:justify-between lg:gap-8">
+          <p className="shrink-0 text-xs leading-relaxed text-white/50">
+            © {new Date().getFullYear()} {SITE_NAME}
+          </p>
+          <nav
+            className="flex min-w-0 flex-1 flex-wrap gap-x-5 gap-y-2 sm:gap-x-6 lg:justify-end"
+            aria-label="Liens entreprise"
+          >
+            {ENTREPRISE_LINKS.map((l) => (
+              <Link
+                key={l.href}
+                href={l.href}
+                className="text-sm text-white/65 transition hover:text-white"
+              >
+                {l.label}
+              </Link>
+            ))}
+          </nav>
+        </div>
       </div>
     </motion.footer>
   );
