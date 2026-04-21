@@ -9,7 +9,7 @@ import { FaqPageJsonLd } from '@/components/seo/faq-page-json-ld';
 import { EXPERTISE_INDEX_FAQ, EXPERTISE_INDEX_GROUPS } from '@/lib/constants/expertises-index';
 import { HOME_STACK_ITEMS } from '@/lib/constants/home-content';
 import { SITE_NAME } from '@/lib/constants/site';
-import { getExpertiseArticle } from '@/lib/content/expertise-articles';
+import { getExpertisePremiumPage } from '@/lib/constants/expertise-premium/registry';
 import { listingPageMetadata } from '@/lib/seo/page-metadata';
 import type { Metadata } from 'next';
 
@@ -71,11 +71,11 @@ export default function ExpertisesIndexPage() {
     description: g.description,
     items: g.slugs.map((slug) => {
       const stack = HOME_STACK_ITEMS.find((i) => i.slug === slug);
-      const article = getExpertiseArticle(slug);
+      const premium = getExpertisePremiumPage(slug);
       return {
         slug,
         name: stack?.name ?? slug,
-        teaser: article.metaDescription,
+        teaser: premium.metaDescription,
       };
     }),
   }));

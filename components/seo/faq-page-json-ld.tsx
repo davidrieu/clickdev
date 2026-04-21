@@ -1,6 +1,6 @@
 type FaqItem = { question: string; answer: string };
 
-export function FaqPageJsonLd({ items }: { items: FaqItem[] }) {
+export function FaqPageJsonLd({ items }: { items: readonly FaqItem[] }) {
   if (items.length === 0) {
     return null;
   }
