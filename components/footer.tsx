@@ -108,7 +108,7 @@ export default function Footer() {
           <ul className="space-y-2 text-sm text-white/80">
             <li>
               <Link href="/a-propos" className="transition hover:text-white">
-                À propos
+                Qui suis-je ?
               </Link>
             </li>
             <li>

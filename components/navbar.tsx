@@ -6,7 +6,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from '@/components/ui/accordion';
-import { NAV_FLAT_LINKS, NAV_PRIMARY_SILOS, NAV_SILOS } from '@/lib/constants/sitemap';
+import { NAV_FIRST_LINK, NAV_FLAT_LINKS, NAV_PRIMARY_SILOS, NAV_SILOS } from '@/lib/constants/sitemap';
 import { SITE_URL } from '@/lib/constants/site';
 import { MenuIcon, XIcon } from 'lucide-react';
 import Image from 'next/image';
@@ -31,15 +31,21 @@ export default function Navbar() {
         '@context': 'https://schema.org',
         '@type': 'ItemList',
         itemListElement: [
+          {
+            '@type': 'ListItem',
+            position: 1,
+            name: NAV_FIRST_LINK.label,
+            url: `${SITE_URL}${NAV_FIRST_LINK.href}`,
+          },
           ...NAV_PRIMARY_SILOS.map((silo, i) => ({
             '@type': 'ListItem',
-            position: i + 1,
+            position: i + 2,
             name: silo.label,
             url: `${SITE_URL}${silo.href}`,
           })),
           ...NAV_FLAT_LINKS.map((l, i) => ({
             '@type': 'ListItem',
-            position: NAV_PRIMARY_SILOS.length + i + 1,
+            position: NAV_PRIMARY_SILOS.length + i + 2,
             name: l.label,
             url: `${SITE_URL}${l.href}`,
           })),
@@ -72,6 +78,12 @@ export default function Navbar() {
         </Link>
 
         <div className="hidden items-center gap-1 xl:flex">
+          <Link
+            href={NAV_FIRST_LINK.href}
+            className="rounded-md px-3 py-2 text-sm font-medium text-white/90 transition hover:bg-white/10 hover:text-white"
+          >
+            {NAV_FIRST_LINK.label}
+          </Link>
           {NAV_PRIMARY_SILOS.map((silo) => (
             <div key={silo.href} className="group relative">
               <Link
@@ -141,6 +153,13 @@ export default function Navbar() {
           </button>
         </div>
         <div className="flex-1 overflow-y-auto px-4 py-6">
+          <Link
+            href={NAV_FIRST_LINK.href}
+            className="mb-6 block rounded-md border border-white/15 bg-white/[0.04] px-3 py-3 text-center text-base font-medium text-white transition hover:bg-white/10"
+            onClick={() => setIsOpen(false)}
+          >
+            {NAV_FIRST_LINK.label}
+          </Link>
           <Accordion multiple defaultValue={[]} className="space-y-2">
             {NAV_SILOS.map((silo) => (
               <AccordionItem key={silo.href} value={silo.href} className="border-white/15">

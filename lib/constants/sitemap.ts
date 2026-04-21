@@ -23,6 +23,9 @@ export type NavSilo = {
   children: NavChild[];
 };
 
+/** Premier lien de la barre de navigation (libellé « Qui suis-je ? », URL /a-propos). */
+export const NAV_FIRST_LINK: NavChild = { label: 'Qui suis-je ?', href: '/a-propos' };
+
 export const NAV_SILOS: NavSilo[] = [
   {
     label: 'Sites internet',
