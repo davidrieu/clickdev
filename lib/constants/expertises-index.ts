@@ -18,8 +18,8 @@ export const EXPERTISE_INDEX_GROUPS: {
     id: 'apps',
     title: 'Applications & back-end',
     description:
-      'Mobile cross-plateforme, APIs et monolithes Laravel : des bases solides pour scaler sans sacrifier la maintenabilité.',
-    slugs: ['react-native', 'laravel', 'nodejs'],
+      'Mobile cross-plateforme, APIs Node.js ou Python, monolithes Laravel : des bases solides pour scaler sans sacrifier la maintenabilité.',
+    slugs: ['react-native', 'laravel', 'nodejs', 'python'],
   },
   {
     id: 'ia',
@@ -35,7 +35,7 @@ export const EXPERTISE_INDEX_FAQ = [
   {
     question: 'À quoi servent les pages expertises ?',
     answer:
-      'Chaque page décrit comment j’utilise une techno concrète (Next.js, Shopify, Laravel, APIs OpenAI ou Claude, etc.) dans des projets réels : périmètre, bonnes pratiques, pièges à éviter et liens vers les offres associées (sites, apps, IA, CRM). C’est utile pour le référencement longue traîne et pour vous projeter vite.',
+      'Chaque page décrit comment j’utilise une techno concrète (Next.js, Shopify, Laravel, Python, APIs OpenAI ou Claude, etc.) dans des projets réels : périmètre, bonnes pratiques, pièges à éviter et liens vers les offres associées (sites, apps, IA, CRM). C’est utile pour le référencement longue traîne et pour vous projeter vite.',
   },
   {
     question: 'Puis-je vous solliciter sur une stack qui n’est pas listée ?',

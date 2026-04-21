@@ -117,6 +117,7 @@ const STACK_LABELS: Record<ExpertiseSlug, string> = {
   'react-native': 'React Native',
   laravel: 'Laravel',
   nodejs: 'Node.js',
+  python: 'Python',
   openai: 'OpenAI',
   'claude-api': 'Claude API',
   langchain: 'LangChain',

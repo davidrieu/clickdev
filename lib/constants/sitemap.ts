@@ -111,6 +111,7 @@ export const EXPERTISE_SLUGS = [
   'react-native',
   'laravel',
   'nodejs',
+  'python',
   'openai',
   'claude-api',
   'langchain',

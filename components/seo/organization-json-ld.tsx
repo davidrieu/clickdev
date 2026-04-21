@@ -13,7 +13,7 @@ export function OrganizationJsonLd() {
     url: origin,
     logo: {
       '@type': 'ImageObject',
-      url: `${origin}/assets/logo.svg`,
+      url: `${origin}/assets/logo-clickdev.png`,
     },
     sameAs,
     contactPoint: {

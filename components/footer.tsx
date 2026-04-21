@@ -51,11 +51,11 @@ export default function Footer() {
         <div className="lg:col-span-2">
           <Link href="/">
             <Image
-              src="/assets/logo.svg"
+              src="/assets/logo-clickdev.png"
               alt={SITE_NAME}
-              className="h-8.5 w-auto"
-              width={205}
-              height={48}
+              className="h-8 w-auto max-h-9 max-w-[220px] object-contain object-left"
+              width={1024}
+              height={276}
             />
           </Link>
           <p className="mt-4 max-w-sm text-sm leading-relaxed text-white/70">{SITE_TAGLINE}</p>

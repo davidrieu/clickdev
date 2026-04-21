@@ -151,6 +151,27 @@ const ARTICLES: Record<ExpertiseSlug, MarketingLongArticle> = {
       },
     ],
   },
+  python: {
+    metaDescription:
+      'Freelance Python : APIs, scripts métier, data pipelines, Django/FastAPI et automatisation — Clickdev.',
+    lead:
+      'Python sert aussi bien les APIs légères que les scripts métier, l’automatisation et les pipelines data. J’interviens sur du code structuré (typage, tests ciblés, packaging), les intégrations (queues, webhooks, fichiers) et le déploiement raisonnable (Docker, PaaS, VPS).',
+    sections: [
+      {
+        heading: 'Cas d’usage',
+        paragraphs: [
+          'Services REST internes, ETL fiables, outils CLI pour vos équipes, ou briques IA (appels modèles, pré/post-traitement) quand Python est le bon outil dans la chaîne.',
+        ],
+      },
+    ],
+    faq: [
+      {
+        question: 'Django ou FastAPI ?',
+        answer:
+          'Django accélère les produits avec admin et ORM ; FastAPI brille pour des APIs async minimalistes. Le choix dépend du périmètre, de l’équipe et des contraintes d’hébergement.',
+      },
+    ],
+  },
   openai: {
     metaDescription:
       'Intégration OpenAI : assistants, function calling, embeddings et garde-fous — Clickdev.',

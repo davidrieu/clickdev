@@ -68,11 +68,11 @@ export default function Navbar() {
       >
         <Link href="/" className="shrink-0">
           <Image
-            src="/assets/logo.svg"
+            src="/assets/logo-clickdev.png"
             alt="Clickdev"
-            className="h-8.5 w-auto"
-            width={205}
-            height={48}
+            className="h-8 max-h-9 w-auto max-w-[min(220px,52vw)] object-contain object-left"
+            width={1024}
+            height={276}
             priority
           />
         </Link>
