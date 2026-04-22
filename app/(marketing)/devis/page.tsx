@@ -1,5 +1,4 @@
-import DevisContent from '@/components/marketing/devis-content';
-import MarketingShell from '@/components/marketing/marketing-shell';
+import { DevisPremiumPage } from '@/components/devis/devis-premium-page';
 import { parseDevisProjectTypeQuery } from '@/lib/constants/devis';
 import { BreadcrumbJsonLd } from '@/components/seo/breadcrumb-json-ld';
 import { listingPageMetadata } from '@/lib/seo/page-metadata';
@@ -8,7 +7,7 @@ import type { Metadata } from 'next';
 export const metadata: Metadata = listingPageMetadata({
   title: 'Demander un devis',
   description:
-    'Demande de devis Clickdev : type de projet, budget, délai et message — retour cadré sous 24–48 h ouvrées, développeur web freelance en France.',
+    'Demande de devis Clickdev (layout pilier Sites internet) : cadrer votre besoin, budget et délai — retour sous 24–48 h ouvrées, développeur web freelance en France.',
   path: '/devis',
 });
 
@@ -28,14 +27,7 @@ export default async function DevisPage({ searchParams }: DevisPageProps) {
   return (
     <>
       <BreadcrumbJsonLd items={crumbs} />
-      <MarketingShell
-        eyebrow="Projet"
-        title="Demander un devis"
-        description="Décrivez ce que vous cherchez à lancer ou à améliorer. Plus le contexte est clair, plus le retour peut être actionnable (périmètre, approche, ordre de grandeur) — pas de baratin, une base pour décider d’un point commun ou non."
-        breadcrumb={crumbs.map((c) => ({ label: c.name, href: c.path }))}
-      >
-        <DevisContent initialProjectType={initialProjectType} />
-      </MarketingShell>
+      <DevisPremiumPage initialProjectType={initialProjectType} />
     </>
   );
 }

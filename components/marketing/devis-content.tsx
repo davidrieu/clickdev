@@ -12,9 +12,9 @@ export default function DevisContent({ initialProjectType }: Props) {
         id="devis-formulaire"
       >
         <p className="text-sm leading-relaxed text-white/80 md:text-base">
-          Remplissez les champs utiles : type de besoin, budget et délai aident à prioriser. Je recontacte
-          en général sous <strong className="font-medium text-white/90">24 à 48 h ouvrées</strong> pour un
-          retour structuré ou des questions de cadrage.
+          Tous les champs utiles aident : type, budget, délai, message. Le tout part par e-mail dès
+          l&apos;envoi — <strong className="font-medium text-white/90">sous 24–48 h ouvrées</strong> pour un
+          retour (ou des questions) de mon côté.
         </p>
         <DevisForm initialProjectType={initialProjectType} />
       </div>
