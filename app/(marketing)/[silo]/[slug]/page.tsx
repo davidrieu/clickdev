@@ -41,6 +41,10 @@ import SiteVitrinePremiumPage from '@/components/silos/sites-internet/site-vitri
 import SiteWordpressPremiumPage from '@/components/silos/sites-internet/site-wordpress-premium-page';
 import { CrmChildPremiumPage } from '@/components/silos/crm/crm-child-premium-page';
 import { SeoChildPremiumPage } from '@/components/silos/seo/seo-child-premium-page';
+import InfogerancePremiumPage from '@/components/silos/maintenance/infogerance-premium-page';
+import MaintenanceEcommercePremiumPage from '@/components/silos/maintenance/maintenance-ecommerce-premium-page';
+import MaintenanceWordpressPremiumPage from '@/components/silos/maintenance/maintenance-wordpress-premium-page';
+import TmaPremiumPage from '@/components/silos/maintenance/tma-premium-page';
 import { AGENTS_IA_FAQ_ITEMS } from '@/lib/constants/agents-ia-page';
 import { AUTOMATISATION_IA_FAQ_ITEMS } from '@/lib/constants/automatisation-ia-page';
 import { CHATBOT_IA_FAQ_ITEMS } from '@/lib/constants/chatbot-ia-page';
@@ -90,6 +94,26 @@ import { siteVitrinePageMetadata } from '@/lib/seo/site-vitrine-metadata';
 import { siteWordpressPageMetadata } from '@/lib/seo/site-wordpress-metadata';
 import { crmPremiumChildMetadata } from '@/lib/seo/crm-premium-child-metadata';
 import { seoPremiumChildMetadata } from '@/lib/seo/seo-premium-child-metadata';
+import { infogerancePageMetadata } from '@/lib/seo/infogerance-metadata';
+import { maintenanceEcommercePageMetadata } from '@/lib/seo/maintenance-ecommerce-metadata';
+import { maintenanceWordpressPageMetadata } from '@/lib/seo/maintenance-wordpress-metadata';
+import { tmaPageMetadata } from '@/lib/seo/tma-metadata';
+import {
+  INFOGERANCE_FAQ_ITEMS,
+  INFOGERANCE_JSONLD,
+  INFOGERANCE_PATH,
+} from '@/lib/constants/infogerance-page';
+import {
+  MAINTENANCE_ECOMMERCE_FAQ_ITEMS,
+  MAINTENANCE_ECOMMERCE_JSONLD,
+  MAINTENANCE_ECOMMERCE_PATH,
+} from '@/lib/constants/maintenance-ecommerce-page';
+import {
+  MAINTENANCE_WORDPRESS_FAQ_ITEMS,
+  MAINTENANCE_WORDPRESS_JSONLD,
+  MAINTENANCE_WORDPRESS_PATH,
+} from '@/lib/constants/maintenance-wordpress-page';
+import { TMA_FAQ_ITEMS, TMA_JSONLD, TMA_PATH } from '@/lib/constants/tma-page';
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 
@@ -169,6 +193,18 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   }
   if (silo === 'crm-outils-metiers' && isCrmPremiumSlug(slug)) {
     return crmPremiumChildMetadata(slug);
+  }
+  if (silo === 'maintenance' && slug === 'maintenance-wordpress') {
+    return maintenanceWordpressPageMetadata();
+  }
+  if (silo === 'maintenance' && slug === 'maintenance-ecommerce') {
+    return maintenanceEcommercePageMetadata();
+  }
+  if (silo === 'maintenance' && slug === 'tma') {
+    return tmaPageMetadata();
+  }
+  if (silo === 'maintenance' && slug === 'infogerance') {
+    return infogerancePageMetadata();
   }
   const article = getSiloChildArticle(silo, slug, child.label, entry.label);
   return listingPageMetadata({
@@ -386,6 +422,74 @@ export default async function SiloChildPage({ params }: Props) {
           faqItems={[...c.faqItems]}
         />
         <CrmChildPremiumPage slug={slug} />
+      </>
+    );
+  }
+
+  if (silo === 'maintenance' && slug === 'maintenance-wordpress') {
+    return (
+      <>
+        <SiloServiceChildJsonLd
+          pagePath={MAINTENANCE_WORDPRESS_PATH}
+          serviceName={MAINTENANCE_WORDPRESS_JSONLD.serviceName}
+          serviceDescription={MAINTENANCE_WORDPRESS_JSONLD.serviceDescription}
+          siloPath="/maintenance"
+          siloBreadcrumbName="Maintenance"
+          pageBreadcrumbName={MAINTENANCE_WORDPRESS_JSONLD.breadcrumbPageName}
+          faqItems={[...MAINTENANCE_WORDPRESS_FAQ_ITEMS]}
+        />
+        <MaintenanceWordpressPremiumPage />
+      </>
+    );
+  }
+
+  if (silo === 'maintenance' && slug === 'maintenance-ecommerce') {
+    return (
+      <>
+        <SiloServiceChildJsonLd
+          pagePath={MAINTENANCE_ECOMMERCE_PATH}
+          serviceName={MAINTENANCE_ECOMMERCE_JSONLD.serviceName}
+          serviceDescription={MAINTENANCE_ECOMMERCE_JSONLD.serviceDescription}
+          siloPath="/maintenance"
+          siloBreadcrumbName="Maintenance"
+          pageBreadcrumbName={MAINTENANCE_ECOMMERCE_JSONLD.breadcrumbPageName}
+          faqItems={[...MAINTENANCE_ECOMMERCE_FAQ_ITEMS]}
+        />
+        <MaintenanceEcommercePremiumPage />
+      </>
+    );
+  }
+
+  if (silo === 'maintenance' && slug === 'tma') {
+    return (
+      <>
+        <SiloServiceChildJsonLd
+          pagePath={TMA_PATH}
+          serviceName={TMA_JSONLD.serviceName}
+          serviceDescription={TMA_JSONLD.serviceDescription}
+          siloPath="/maintenance"
+          siloBreadcrumbName="Maintenance"
+          pageBreadcrumbName={TMA_JSONLD.breadcrumbPageName}
+          faqItems={[...TMA_FAQ_ITEMS]}
+        />
+        <TmaPremiumPage />
+      </>
+    );
+  }
+
+  if (silo === 'maintenance' && slug === 'infogerance') {
+    return (
+      <>
+        <SiloServiceChildJsonLd
+          pagePath={INFOGERANCE_PATH}
+          serviceName={INFOGERANCE_JSONLD.serviceName}
+          serviceDescription={INFOGERANCE_JSONLD.serviceDescription}
+          siloPath="/maintenance"
+          siloBreadcrumbName="Maintenance"
+          pageBreadcrumbName={INFOGERANCE_JSONLD.breadcrumbPageName}
+          faqItems={[...INFOGERANCE_FAQ_ITEMS]}
+        />
+        <InfogerancePremiumPage />
       </>
     );
   }

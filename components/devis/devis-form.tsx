@@ -1,7 +1,6 @@
 'use client';
 
 import { submitDevisRequest } from '@/app/actions/devis';
-import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import {
@@ -11,10 +10,22 @@ import {
   type DevisProjectType,
 } from '@/lib/constants/devis';
 import { devisFormSchema, type DevisFormValues } from '@/lib/validation/devis-schema';
+import { cn } from '@/lib/utils';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useTransition } from 'react';
 import { useForm } from 'react-hook-form';
 import { toast } from 'sonner';
+
+const siField = cn(
+  'h-11 w-full min-w-0 rounded-xl border border-white/15 bg-white/[0.05] px-4 text-sm text-white shadow-[inset_0_1px_0_0_rgba(255,255,255,0.05)] transition outline-none',
+  'placeholder:text-white/35',
+  'focus-visible:border-white/35 focus-visible:ring-2 focus-visible:ring-white/10',
+  'disabled:cursor-not-allowed disabled:opacity-50',
+  'md:text-sm',
+  'aria-invalid:border-red-400/55 aria-invalid:ring-red-500/20',
+);
+
+const labelCls = 'text-xs font-medium tracking-wide text-white/50 uppercase';
 
 type DevisFormProps = {
   initialProjectType?: DevisProjectType;
@@ -71,7 +82,7 @@ export default function DevisForm({ initialProjectType }: DevisFormProps) {
   }
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)} className="mt-8 space-y-8 md:mt-10" noValidate>
+    <form onSubmit={handleSubmit(onSubmit)} className="mt-6 space-y-6 md:mt-8" noValidate>
       <input
         type="text"
         tabIndex={-1}
@@ -81,43 +92,58 @@ export default function DevisForm({ initialProjectType }: DevisFormProps) {
         {...register('website')}
       />
 
-      <div className="grid gap-6 sm:grid-cols-2">
+      <div className="grid gap-5 sm:grid-cols-2 sm:gap-4">
         <div className="space-y-2">
-          <label htmlFor="devis-name" className="text-sm font-medium text-white/90">
-            Nom complet <span className="text-[#F26A06]">*</span>
+          <label htmlFor="devis-name" className={labelCls}>
+            Nom complet <span className="text-white/30">·</span> requis
           </label>
-          <Input id="devis-name" autoComplete="name" aria-invalid={!!errors.name} {...register('name')} />
-          {errors.name ? <p className="text-xs text-red-400">{errors.name.message}</p> : null}
+          <Input
+            id="devis-name"
+            autoComplete="name"
+            aria-invalid={!!errors.name}
+            className={siField}
+            {...register('name')}
+          />
+          {errors.name ? <p className="text-xs text-red-400/90">{errors.name.message}</p> : null}
         </div>
         <div className="space-y-2">
-          <label htmlFor="devis-email" className="text-sm font-medium text-white/90">
-            E-mail <span className="text-[#F26A06]">*</span>
+          <label htmlFor="devis-email" className={labelCls}>
+            E-mail <span className="text-white/30">·</span> requis
           </label>
           <Input
             id="devis-email"
             type="email"
             autoComplete="email"
             aria-invalid={!!errors.email}
+            className={siField}
             {...register('email')}
           />
-          {errors.email ? <p className="text-xs text-red-400">{errors.email.message}</p> : null}
+          {errors.email ? <p className="text-xs text-red-400/90">{errors.email.message}</p> : null}
         </div>
       </div>
 
       <div className="space-y-2">
-        <label htmlFor="devis-company" className="text-sm font-medium text-white/90">
-          Société <span className="text-white/40">(optionnel)</span>
+        <label htmlFor="devis-company" className={labelCls}>
+          Société <span className="font-normal text-white/35">(optionnel)</span>
         </label>
-        <Input id="devis-company" autoComplete="organization" {...register('company')} />
+        <Input
+          id="devis-company"
+          autoComplete="organization"
+          className={siField}
+          {...register('company')}
+        />
       </div>
 
       <div className="space-y-2">
-        <label htmlFor="devis-type" className="text-sm font-medium text-white/90">
-          Type de projet <span className="text-[#F26A06]">*</span>
+        <label htmlFor="devis-type" className={labelCls}>
+          Type de projet <span className="text-white/30">·</span> requis
         </label>
         <select
           id="devis-type"
-          className="border-input focus-visible:border-ring focus-visible:ring-ring/50 aria-invalid:border-destructive dark:bg-input/30 h-8 w-full rounded-lg border bg-transparent px-2.5 py-1 text-sm text-white outline-none focus-visible:ring-3 aria-invalid:ring-3"
+          className={cn(
+            siField,
+            'cursor-pointer appearance-auto bg-[rgb(10_10_12)] pr-3 [&>option]:bg-neutral-900 [&>option]:text-white',
+          )}
           aria-invalid={!!errors.projectType}
           {...register('projectType')}
         >
@@ -127,19 +153,20 @@ export default function DevisForm({ initialProjectType }: DevisFormProps) {
             </option>
           ))}
         </select>
-        {errors.projectType ? (
-          <p className="text-xs text-red-400">{errors.projectType.message}</p>
-        ) : null}
+        {errors.projectType ? <p className="text-xs text-red-400/90">{errors.projectType.message}</p> : null}
       </div>
 
-      <div className="grid gap-6 sm:grid-cols-2">
+      <div className="grid gap-5 sm:grid-cols-2 sm:gap-4">
         <div className="space-y-2">
-          <label htmlFor="devis-budget" className="text-sm font-medium text-white/90">
+          <label htmlFor="devis-budget" className={labelCls}>
             Budget indicatif
           </label>
           <select
             id="devis-budget"
-            className="border-input focus-visible:border-ring focus-visible:ring-ring/50 dark:bg-input/30 h-8 w-full rounded-lg border bg-transparent px-2.5 py-1 text-sm text-white outline-none focus-visible:ring-3"
+            className={cn(
+              siField,
+              'cursor-pointer appearance-auto bg-[rgb(10_10_12)] pr-3 [&>option]:bg-neutral-900 [&>option]:text-white',
+            )}
             {...register('budget')}
           >
             {DEVIS_BUDGET_OPTIONS.map((o) => (
@@ -150,12 +177,15 @@ export default function DevisForm({ initialProjectType }: DevisFormProps) {
           </select>
         </div>
         <div className="space-y-2">
-          <label htmlFor="devis-timeline" className="text-sm font-medium text-white/90">
+          <label htmlFor="devis-timeline" className={labelCls}>
             Délai souhaité
           </label>
           <select
             id="devis-timeline"
-            className="border-input focus-visible:border-ring focus-visible:ring-ring/50 dark:bg-input/30 h-8 w-full rounded-lg border bg-transparent px-2.5 py-1 text-sm text-white outline-none focus-visible:ring-3"
+            className={cn(
+              siField,
+              'cursor-pointer appearance-auto bg-[rgb(10_10_12)] pr-3 [&>option]:bg-neutral-900 [&>option]:text-white',
+            )}
             {...register('timeline')}
           >
             {DEVIS_TIMELINE_OPTIONS.map((o) => (
@@ -168,23 +198,36 @@ export default function DevisForm({ initialProjectType }: DevisFormProps) {
       </div>
 
       <div className="space-y-2">
-        <label htmlFor="devis-message" className="text-sm font-medium text-white/90">
-          Décrivez votre besoin <span className="text-[#F26A06]">*</span>
+        <label htmlFor="devis-message" className={labelCls}>
+          Décrire votre besoin <span className="text-white/30">·</span> requis
         </label>
         <Textarea
           id="devis-message"
-          rows={8}
-          placeholder="Contexte, objectifs, contraintes, stack actuelle…"
+          rows={7}
+          placeholder="Contexte, objectifs, contraintes, stack actuelle, interlocuteurs côté client…"
           aria-invalid={!!errors.message}
-          className="min-h-[180px] resize-y"
+          className={cn(
+            siField,
+            'min-h-[168px] resize-y py-3 text-sm leading-relaxed [field-sizing:fixed] sm:min-h-[200px]',
+          )}
           {...register('message')}
         />
-        {errors.message ? <p className="text-xs text-red-400">{errors.message.message}</p> : null}
+        {errors.message ? <p className="text-xs text-red-400/90">{errors.message.message}</p> : null}
       </div>
 
-      <Button type="submit" disabled={pending} className="bg-[#F26A06] text-white hover:bg-[#F26A06]/90">
-        {pending ? 'Envoi…' : 'Envoyer la demande'}
-      </Button>
+      <div className="pt-1">
+        <button
+          type="submit"
+          disabled={pending}
+          className="si-btn-pill-shine si-btn-pill-shine-on-light group relative isolate inline-flex w-full items-center justify-center overflow-hidden rounded-full bg-white px-8 py-3.5 text-sm font-semibold text-black shadow-[0_0_36px_-10px_rgba(255,255,255,0.35)] transition duration-300 enabled:hover:bg-white/95 enabled:hover:shadow-[0_0_48px_-8px_rgba(255,255,255,0.4)] disabled:cursor-not-allowed disabled:opacity-50 sm:w-auto sm:min-w-[220px]"
+        >
+          <span className="relative z-10">{pending ? 'Envoi en cours…' : 'Envoyer la demande'}</span>
+          <span
+            className="absolute inset-0 z-[2] -translate-x-full bg-black/[0.08] transition duration-500 group-hover:translate-x-0 group-disabled:translate-x-full"
+            aria-hidden
+          />
+        </button>
+      </div>
     </form>
   );
 }

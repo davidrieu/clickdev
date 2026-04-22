@@ -18,7 +18,7 @@ const ENTREPRISE_LINKS = [
   { label: 'Réalisations', href: '/realisations' },
   { label: 'Blog', href: '/blog' },
   { label: 'Expertises', href: '/expertises' },
-  { label: 'Contact', href: '/contact' },
+  { label: 'Contact', href: '/devis' },
   { label: 'Demander un devis', href: '/devis' },
 ] as const;
 

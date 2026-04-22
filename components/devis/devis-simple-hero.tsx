@@ -14,7 +14,7 @@ export function DevisSimpleHero() {
 
   return (
     <section
-      className="relative overflow-hidden pt-20 pb-10 md:pt-24 md:pb-14"
+      className="relative overflow-hidden py-24 md:py-28 lg:py-32"
       onPointerMoveCapture={onPointerMoveCapture}
       onPointerLeave={onPointerLeave}
     >

@@ -1,28 +1,26 @@
 import DevisForm from '@/components/devis/devis-form';
+import { ServiceCardGlow } from '@/components/premium/service-card-glow';
 import type { DevisProjectType } from '@/lib/constants/devis';
-import Link from 'next/link';
 
 type Props = { initialProjectType?: DevisProjectType };
 
-/** Bloc formulaire (colonne droite de la page devis, ou usage isolé). */
+/** Bloc formulaire (colonne droite) — même peau de carte que les blocs Sites internet. */
 export default function DevisContent({ initialProjectType }: Props) {
   return (
-    <div className="space-y-6">
-      <div className="rounded-2xl border border-white/10 bg-white/[0.04] p-6 shadow-[inset_0_1px_0_0_rgba(255,255,255,0.05)] md:p-8">
-        <h2 className="font-mono text-[11px] tracking-[0.28em] text-white/45 uppercase">Votre message</h2>
-        <p className="mt-3 text-sm leading-relaxed text-white/75 md:text-base">
-          Tous les champs utiles aident : type, budget, délai, description. Le tout part par e-mail dès
-          l&apos;envoi — <strong className="font-medium text-white/90">sous 24–48 h ouvrées</strong> pour un retour.
-        </p>
-        <DevisForm initialProjectType={initialProjectType} />
+    <div className="space-y-5">
+      <div className="group relative flex flex-col overflow-hidden rounded-2xl border border-white/[0.1] bg-gradient-to-br from-neutral-950 via-neutral-900/85 to-neutral-900 p-6 transition duration-500 hover:border-white/[0.16] md:p-8">
+        <ServiceCardGlow />
+        <div className="relative z-[2]">
+          <p className="font-mono text-[11px] tracking-[0.28em] text-white/50 uppercase">Formulaire</p>
+          <h2 className="si-serif-display mt-2 text-lg font-medium tracking-[-0.02em] text-white md:text-xl">Votre message</h2>
+          <p className="mt-3 text-sm leading-relaxed text-white/60 md:text-base">
+            Tous les champs utiles aident : type, budget, délai, description. Le tout part par e-mail dès
+            l&apos;envoi — <strong className="font-medium text-white/90">sous 24–48 h ouvrées</strong> pour un retour
+            ciblé.
+          </p>
+          <DevisForm initialProjectType={initialProjectType} />
+        </div>
       </div>
-      <p className="text-sm leading-relaxed text-white/55">
-        Un simple message sans ce formulaire ?{' '}
-        <Link href="/contact" className="font-medium text-[#F26A06] underline-offset-4 transition hover:underline">
-          Page contact
-        </Link>
-        .
-      </p>
     </div>
   );
 }
