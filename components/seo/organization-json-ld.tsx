@@ -1,4 +1,11 @@
-import { SITE_EMAIL, SITE_NAME, SOCIAL_LINKS } from '@/lib/constants/site';
+import {
+  SITE_ADDRESS_LOCALITY,
+  SITE_ADDRESS_POSTAL,
+  SITE_ADDRESS_STREET,
+  SITE_EMAIL,
+  SITE_NAME,
+  SOCIAL_LINKS,
+} from '@/lib/constants/site';
 import { organizationJsonLdId, schemaOrigin } from '@/lib/seo/schema-ids';
 
 export function OrganizationJsonLd() {
@@ -11,6 +18,13 @@ export function OrganizationJsonLd() {
     '@id': organizationJsonLdId(),
     name: SITE_NAME,
     url: origin,
+    address: {
+      '@type': 'PostalAddress',
+      streetAddress: SITE_ADDRESS_STREET,
+      addressLocality: SITE_ADDRESS_LOCALITY,
+      postalCode: SITE_ADDRESS_POSTAL,
+      addressCountry: 'FR',
+    },
     logo: {
       '@type': 'ImageObject',
       url: `${origin}/assets/logo-clickdev.png`,

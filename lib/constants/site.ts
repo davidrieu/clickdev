@@ -9,6 +9,14 @@ export const SITE_EMAIL = 'bonjour@clickdev.fr';
 
 export const SITE_PHONE = '+33 6 95 65 08 88';
 
+/** Adresse professionnelle (devis, mentions légales, JSON-LD). */
+export const SITE_ADDRESS_STREET = '48 rue de la Glacière' as const;
+export const SITE_ADDRESS_POSTAL = '75013' as const;
+export const SITE_ADDRESS_LOCALITY = 'Paris' as const;
+export const SITE_ADDRESS_CITY = '75013 Paris' as const;
+export const SITE_ADDRESS = `${SITE_ADDRESS_STREET}, ${SITE_ADDRESS_CITY}` as const;
+export const SITE_ADDRESS_MAPS_QUERY = '48 rue de la Glacière 75013 Paris' as const;
+
 export const SITE_SIRET = 'SIRET à renseigner';
 
 export const SOCIAL_LINKS = {

@@ -1,46 +1,8 @@
 import { DevisBreadcrumb } from '@/components/devis/devis-breadcrumb';
-import { DevisFormExpertiseSection } from '@/components/devis/devis-form-expertise-section';
-import { DevisIndexFaq } from '@/components/devis/devis-index-faq';
-import { DevisIndexHero } from '@/components/devis/devis-index-hero';
-import { DevisIndexSections } from '@/components/devis/devis-index-sections';
-import { PremiumFinalCta } from '@/components/silos/sites-internet/premium-final-cta';
-import { DEVIS_FAQ, DEVIS_INFO_GROUPS } from '@/lib/constants/devis-index';
+import { DevisCoordonnees } from '@/components/devis/devis-coordonnees';
+import { DevisSimpleHero } from '@/components/devis/devis-simple-hero';
+import DevisContent from '@/components/marketing/devis-content';
 import type { DevisProjectType } from '@/lib/constants/devis';
-import Link from 'next/link';
-
-const groups = DEVIS_INFO_GROUPS.map((g) => ({
-  id: g.id,
-  title: g.title,
-  description: g.description,
-  items: g.items.map((i) => ({ title: i.title, body: i.body })),
-}));
-
-const finalCtaDescription = (
-  <>
-    <p>
-      Les fiches{' '}
-      <Link href="/expertises" className="text-white/85 underline-offset-2 hover:underline">
-        Expertises
-      </Link>
-      {', '}
-      <Link href="/sites-internet" className="text-white/85 underline-offset-2 hover:underline">
-        Sites internet
-      </Link>
-      {', '}
-      <Link href="/ia" className="text-white/85 underline-offset-2 hover:underline">
-        IA
-      </Link>
-      {' '}
-      et le{' '}
-      <Link href="/contact" className="text-white/85 underline-offset-2 hover:underline">
-        contact direct
-      </Link>
-      : le reste de ce que vous avez parcouru, pour décider d&apos;un échange ou d&apos;un cadrage court avant devis
-      chiffré.
-    </p>
-    <p className="mt-4 text-white/55">Pas prêt ? Un mail suffit — pas d&apos;obligation de remplir ce formulaire.</p>
-  </>
-);
 
 type Props = { initialProjectType?: DevisProjectType };
 
@@ -48,18 +10,19 @@ export function DevisPremiumPage({ initialProjectType }: Props) {
   return (
     <main className="bg-black text-white">
       <DevisBreadcrumb />
-      <DevisIndexHero />
-      <DevisIndexSections groups={groups} />
-      <DevisFormExpertiseSection initialProjectType={initialProjectType} />
-      <DevisIndexFaq items={DEVIS_FAQ} />
-      <PremiumFinalCta
-        title="La suite, c’est votre décision"
-        description={finalCtaDescription}
-        primaryHref="/expertises"
-        primaryLabel="Parcourir les expertises"
-        secondaryHref="/contact"
-        secondaryLabel="Écrire directement"
-      />
+      <DevisSimpleHero />
+      <section className="border-t border-white/[0.08]">
+        <div className="mx-auto max-w-[1200px] px-4 py-12 md:px-8 md:py-16 lg:py-20">
+          <div className="grid gap-12 lg:grid-cols-12 lg:items-start lg:gap-16">
+            <div className="lg:col-span-5">
+              <DevisCoordonnees />
+            </div>
+            <div className="lg:col-span-7">
+              <DevisContent initialProjectType={initialProjectType} />
+            </div>
+          </div>
+        </div>
+      </section>
     </main>
   );
 }
