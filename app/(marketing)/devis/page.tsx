@@ -1,17 +1,18 @@
-import DevisForm from '@/components/devis/devis-form';
+import DevisContent from '@/components/marketing/devis-content';
+import MarketingShell from '@/components/marketing/marketing-shell';
 import { parseDevisProjectTypeQuery } from '@/lib/constants/devis';
-import PageBreadcrumb from '@/components/marketing/page-breadcrumb';
 import { BreadcrumbJsonLd } from '@/components/seo/breadcrumb-json-ld';
 import { listingPageMetadata } from '@/lib/seo/page-metadata';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = listingPageMetadata({
   title: 'Demander un devis',
-  description: 'Devis qualifié — décrivez votre projet : type, budget, délai et message.',
+  description:
+    'Demande de devis Clickdev : type de projet, budget, délai et message — retour cadré sous 24–48 h ouvrées, développeur web freelance en France.',
   path: '/devis',
 });
 
-const jsonLdItems = [
+const crumbs = [
   { name: 'Accueil', path: '/' },
   { name: 'Devis', path: '/devis' },
 ];
@@ -26,19 +27,15 @@ export default async function DevisPage({ searchParams }: DevisPageProps) {
 
   return (
     <>
-      <BreadcrumbJsonLd items={jsonLdItems} />
-      <article className="mx-auto max-w-2xl px-4 py-16 md:px-6 md:py-20">
-        <PageBreadcrumb items={jsonLdItems.map((j) => ({ label: j.name, href: j.path }))} />
-        <p className="font-mono text-[11px] tracking-widest text-white/45 uppercase">Projet</p>
-        <h1 className="mt-3 text-3xl font-semibold tracking-tight text-white md:text-4xl">
-          Demander un devis
-        </h1>
-        <p className="mt-6 text-sm leading-relaxed text-white/75 md:text-base">
-          Quelques champs pour cadrer le besoin. Le message part par e-mail (Resend) lorsque les
-          variables d’environnement sont renseignées.
-        </p>
-        <DevisForm initialProjectType={initialProjectType} />
-      </article>
+      <BreadcrumbJsonLd items={crumbs} />
+      <MarketingShell
+        eyebrow="Projet"
+        title="Demander un devis"
+        description="Décrivez ce que vous cherchez à lancer ou à améliorer. Plus le contexte est clair, plus le retour peut être actionnable (périmètre, approche, ordre de grandeur) — pas de baratin, une base pour décider d’un point commun ou non."
+        breadcrumb={crumbs.map((c) => ({ label: c.name, href: c.path }))}
+      >
+        <DevisContent initialProjectType={initialProjectType} />
+      </MarketingShell>
     </>
   );
 }

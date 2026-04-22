@@ -71,7 +71,7 @@ export default function DevisForm({ initialProjectType }: DevisFormProps) {
   }
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)} className="mt-10 space-y-8" noValidate>
+    <form onSubmit={handleSubmit(onSubmit)} className="mt-8 space-y-8 md:mt-10" noValidate>
       <input
         type="text"
         tabIndex={-1}
