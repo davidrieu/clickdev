@@ -1,5 +1,6 @@
 'use server';
 
+import { DEVIS_PROJECT_TYPES } from '@/lib/constants/devis';
 import { SITE_EMAIL } from '@/lib/constants/site';
 import { devisFormSchema } from '@/lib/validation/devis-schema';
 import { Resend } from 'resend';
@@ -30,14 +31,7 @@ function labelTimeline(value: string) {
 }
 
 function labelProjectType(value: string) {
-  const map: Record<string, string> = {
-    site: 'Site vitrine / corporate',
-    ecommerce: 'E-commerce / boutique en ligne',
-    app: 'Application web ou mobile',
-    outil: 'Outil métier / CRM / intégration',
-    autre: 'Autre',
-  };
-  return map[value] ?? value;
+  return DEVIS_PROJECT_TYPES.find((p) => p.value === value)?.label ?? value;
 }
 
 export async function submitDevisRequest(input: unknown): Promise<DevisActionResult> {

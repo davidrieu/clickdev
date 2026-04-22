@@ -1,6 +1,8 @@
 export const DEVIS_PROJECT_TYPES = [
   { value: 'site', label: 'Site vitrine / corporate' },
   { value: 'ecommerce', label: 'E-commerce / boutique en ligne' },
+  { value: 'seo-geo', label: 'SEO / GEO' },
+  { value: 'ia', label: 'IA' },
   { value: 'app', label: 'Application web ou mobile' },
   { value: 'outil', label: 'Outil métier / CRM / intégration' },
   { value: 'autre', label: 'Autre / je ne sais pas encore' },

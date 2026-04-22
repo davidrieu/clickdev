@@ -4,7 +4,7 @@ export const devisFormSchema = z.object({
   name: z.string().trim().min(2, 'Indiquez au moins 2 caractères.').max(120),
   email: z.string().trim().email('Adresse e-mail invalide.'),
   company: z.string().trim().max(160).optional().or(z.literal('')),
-  projectType: z.enum(['site', 'ecommerce', 'app', 'outil', 'autre'], {
+  projectType: z.enum(['site', 'ecommerce', 'seo-geo', 'ia', 'app', 'outil', 'autre'], {
     error: 'Choisissez un type de projet.',
   }),
   budget: z.string().max(32).optional().or(z.literal('')),
