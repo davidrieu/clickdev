@@ -2,7 +2,7 @@ import { JsonLdHome } from '@/components/seo/json-ld-home';
 import { WebSiteJsonLd } from '@/components/seo/website-json-ld';
 import HomePage from '@/components/sections/home/home-page';
 import { SITE_URL } from '@/lib/constants/site';
-import { getFeaturedCaseStudies, getLatestPosts } from '@/lib/sanity/fetch';
+import { getHomepageFeaturedCaseStudies, getLatestPosts } from '@/lib/sanity/fetch';
 import type { Metadata } from 'next';
 
 const ogImagePath = '/assets/web-app-manifest-512x512.png';
@@ -77,7 +77,7 @@ export const metadata: Metadata = {
 };
 
 export default async function Page() {
-  const [latestPosts, featuredCases] = await Promise.all([getLatestPosts(3), getFeaturedCaseStudies()]);
+  const [latestPosts, featuredCases] = await Promise.all([getLatestPosts(3), getHomepageFeaturedCaseStudies()]);
 
   return (
     <>

@@ -245,7 +245,13 @@ export default defineType({
       description:
         'Préférez le document **Projets phares** (menu) pour l’ordre d’affichage. Repli : les 5 dernières avec cette case cochée (tri par date) si le document n’est pas renseigné.',
     }),
-    defineField({ name: 'order', title: "Ordre manuel d'affichage", type: 'number', fieldset: 'extra' }),
+    defineField({
+      name: 'order',
+      title: "Ordre manuel d'affichage (accueil)",
+      type: 'number',
+      fieldset: 'extra',
+      description: 'Utilisé pour la grille d’accueil : projets cochés « Mise en avant » — chiffre plus petit = affiché en premier. Si vide, tri par date de publication en secours.',
+    }),
     defineField({ name: 'publishedAt', title: 'Date de publication', type: 'datetime', fieldset: 'extra' }),
 
     defineField({ name: 'metaTitle', title: 'Titre SEO', type: 'string', fieldset: 'seo' }),

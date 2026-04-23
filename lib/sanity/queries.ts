@@ -46,9 +46,16 @@ const caseStudyTeaserProjection = `{
   featuredMetric,
   metrics,
   featured,
+  order,
   "thumbnail": thumbnail.asset->url,
   publishedAt
 }`;
+
+/**
+ * Accueil : uniquement les fiches cochées « Mise en avant »,
+ * tri `order` asc (non renseigné en dernier), puis par date.
+ */
+export const homeFeaturedCaseStudiesQuery = `*[_type == "caseStudy" && defined(slug.current) && featured == true] | order(coalesce(order, 9999) asc, coalesce(publishedAt, _updatedAt) desc)[0...5]${caseStudyTeaserProjection}`;
 
 /** Jusqu’à 5 références déréférencées, ordre = ordre dans le Studio (document singleton). */
 export const portfolioHighlightsQuery = `*[_type == "portfolioHighlights" && _id == "portfolioHighlights"][0]{

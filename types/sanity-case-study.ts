@@ -14,6 +14,8 @@ export type SanityCaseStudyTeaser = {
   featuredMetric: string | null;
   metrics: SanityCaseStudyMetric[] | null;
   featured: boolean | null;
+  /** Tri manuel (accueil) — plus bas = affiché avant. */
+  order: number | null;
   thumbnail: string | null;
   publishedAt: string | null;
 };

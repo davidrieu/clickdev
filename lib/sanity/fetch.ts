@@ -15,6 +15,7 @@ import {
   caseStudySlugsQuery,
   caseStudySitemapEntriesQuery,
   featuredCaseStudiesQuery,
+  homeFeaturedCaseStudiesQuery,
   latestPostsQuery,
   recentMobileCaseStudiesQuery,
   recentWebCaseStudiesQuery,
@@ -87,6 +88,22 @@ export async function getPostBySlug(slug: string): Promise<SanityPostDocument | 
     return await sanityClient.fetch<SanityPostDocument | null>(postBySlugQuery, { slug });
   } catch {
     return null;
+  }
+}
+
+/**
+ * Page d’accueil — grille portfolio : 5 fiches **mises en avant** (`featured == true` dans Sanity),
+ * **sans** le document « Projets phares ». Tri : champ `order` (petit d’abord), puis date.
+ */
+export async function getHomepageFeaturedCaseStudies(): Promise<SanityCaseStudyTeaser[]> {
+  if (!sanityClient) {
+    return [];
+  }
+  try {
+    const rows = await sanityClient.fetch<SanityCaseStudyTeaser[]>(homeFeaturedCaseStudiesQuery);
+    return rows ?? [];
+  } catch {
+    return [];
   }
 }
 
