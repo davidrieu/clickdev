@@ -31,8 +31,8 @@ export function AboutHero() {
       />
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_80%_50%_at_50%_-20%,rgba(255,255,255,0.05),transparent)]" />
 
-      <div className="relative z-10 mx-auto grid max-w-[1400px] gap-12 px-4 md:grid-cols-12 md:items-center md:gap-10 md:px-8 lg:gap-14">
-        <div className="flex flex-col justify-center md:col-span-7 md:py-2 lg:py-4">
+      <div className="relative z-10 mx-auto grid max-w-[1400px] items-center gap-10 px-4 md:grid-cols-12 md:gap-12 md:px-8 lg:gap-14">
+        <div className="flex flex-col justify-center md:col-span-7 md:min-h-0 md:py-1 lg:py-2">
           <motion.div
             className="flex flex-col gap-2"
             initial={{ opacity: 0, y: 12 }}
@@ -102,53 +102,24 @@ export function AboutHero() {
           </motion.div>
         </div>
 
-        <div className="flex min-h-[240px] flex-col items-center justify-center gap-7 md:col-span-5 md:min-h-[min(420px,52vh)] md:items-end md:justify-center">
-          <div className="relative mx-auto aspect-[4/5] w-full max-w-[280px] overflow-hidden rounded-2xl border border-white/[0.1] bg-neutral-900 md:mx-0">
+        <div className="flex min-h-[min(22rem,52vh)] flex-col items-center justify-center md:col-span-5 md:min-h-full md:self-stretch">
+          <motion.div
+            className="relative aspect-[4/5] w-full max-w-[min(20rem,85vw)] overflow-hidden rounded-2xl border border-white/[0.1] bg-neutral-900 shadow-[0_32px_80px_-32px_rgba(0,0,0,0.85)] md:max-w-[20rem] lg:max-w-[18.5rem]"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.12, duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+          >
             <Image
               src={AUTHOR_PORTRAIT_PATH}
               alt={AUTHOR_PORTRAIT_ALT}
               fill
               className="object-cover"
-              sizes="(max-width: 768px) 72vw, 280px"
+              sizes="(max-width: 768px) 85vw, 320px"
               priority
             />
-          </div>
-          <AboutHeroCard />
+          </motion.div>
         </div>
       </div>
     </section>
-  );
-}
-
-function AboutHeroCard() {
-  return (
-    <motion.div
-      className="relative mx-auto w-full max-w-md md:mx-0 md:ml-auto"
-      initial={{ opacity: 0, y: 24 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ delay: 0.18, duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-      style={{ perspective: '1200px' }}
-    >
-      <div className="rounded-xl border border-white/[0.12] bg-gradient-to-br from-white/[0.08] to-white/[0.02] p-5 shadow-[0_28px_90px_-28px_rgba(0,0,0,0.9)] md:[transform:rotateY(-12deg)_rotateX(4deg)_rotateZ(-1.5deg)] md:[transform-origin:right_center]">
-        <p className="font-mono text-[9px] tracking-[0.22em] text-white/40 uppercase">Engagement</p>
-        <p className="si-serif-display mt-3 text-2xl font-medium leading-snug tracking-[-0.02em] text-white md:text-3xl">
-          Partenaire, pas seulement prestataire.
-        </p>
-        <div className="mt-5 space-y-2.5 border-t border-white/10 pt-5">
-          {['Performance & fiabilité', 'Vision produit & business', 'Accompagnement long terme'].map((label) => (
-            <div
-              key={label}
-              className="flex items-center gap-3 rounded-lg border border-white/[0.08] bg-black/30 px-3 py-2.5"
-            >
-              <span className="size-1.5 shrink-0 rounded-full bg-[rgb(165_150_255)] shadow-[0_0_12px_rgb(46_8_207/0.55)]" />
-              <span className="text-sm text-white/75">{label}</span>
-            </div>
-          ))}
-        </div>
-        <p className="mt-4 text-center font-mono text-[9px] tracking-[0.2em] text-white/30 uppercase">
-          numérique · humain · mesure
-        </p>
-      </div>
-    </motion.div>
   );
 }
