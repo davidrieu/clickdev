@@ -31,7 +31,7 @@ function CodeurHeroTrustLink() {
       rel="me noopener noreferrer"
       target="_blank"
       className="pointer-events-auto inline-flex max-w-full items-center gap-2.5 rounded-full border border-white/[0.12] bg-white/[0.04] px-3.5 py-1.5 text-left text-[11px] text-white/65 no-underline transition-none hover:border-white/[0.12] hover:bg-white/[0.04] hover:text-white/65 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white/25"
-      aria-label="Codeur.com — 5,0 sur 5, 6 avis (profil, nouvel onglet)"
+      aria-label="Codeur.com — 5,0 sur 5 (profil, nouvel onglet)"
     >
       <span className="shrink-0 font-medium tracking-tight">Codeur.com</span>
       <span className="inline-flex shrink-0 gap-0.5 text-amber-300/90" aria-hidden>
@@ -41,11 +41,7 @@ function CodeurHeroTrustLink() {
           </svg>
         ))}
       </span>
-      <span className="min-w-0 leading-snug">
-        <span className="font-medium tabular-nums text-white/80">5,0/5</span>
-        <span className="text-white/45"> · </span>
-        <span>6 avis</span>
-      </span>
+      <span className="min-w-0 font-medium leading-snug tabular-nums text-white/80">5,0/5</span>
     </a>
   );
 }
@@ -71,16 +67,15 @@ export function HpHero() {
       <div className="relative z-10 mx-auto grid max-w-[1400px] gap-12 px-4 md:grid-cols-12 md:items-center md:gap-8 md:px-8 lg:gap-12">
         <div className="flex flex-col justify-center md:col-span-6 md:py-4 lg:py-6">
           <motion.div
-            className="flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center sm:gap-4"
+            className="flex flex-wrap items-center gap-4"
             initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
           >
-            <Badge variant="secondary" className="w-fit border-white/20 bg-white/10 text-white/90">
+            <Badge variant="secondary" className="border-white/20 bg-white/10 text-white/90">
               <span className="mr-2 inline-flex size-2 animate-pulse rounded-full bg-emerald-400" aria-hidden />
               Je suis disponible — {monthLabel()}
             </Badge>
-            <CodeurHeroTrustLink />
           </motion.div>
 
           <motion.div
@@ -121,6 +116,15 @@ export function HpHero() {
             marques comme Accor ou Greenweez — à avoir des outils digitaux qui cartonnent vraiment. Sans
             jargon, sans prise de tête.
           </motion.p>
+
+          <motion.div
+            className="mt-6 w-fit"
+            initial={{ opacity: 0, y: 12 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.15, duration: 0.5 }}
+          >
+            <CodeurHeroTrustLink />
+          </motion.div>
 
           <motion.div
             className="mt-8 flex flex-wrap gap-3 md:mt-10"
