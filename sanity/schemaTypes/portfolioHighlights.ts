@@ -1,15 +1,15 @@
 import { defineField, defineType, defineArrayMember } from 'sanity';
 
 /**
- * Un seul document (id fixe) : ordre = ordre d’affichage sur l’accueil et
- * mêmes fiches sur les grilles marketing (5 max.).
+ * Priorité en tête de la liste /realisations (merge + ordre d’affichage).
+ * Les grilles 5 fiches (accueil, silos, expertises) viennent de « Mise en avant » + champ order sur chaque fiche, pas de ce document.
  */
 export default defineType({
   name: 'portfolioHighlights',
-  title: 'Projets phares (5 max., accueil + silos premium)',
+  title: 'Projets phares (ordre liste /realisations)',
   type: 'document',
   description:
-    "Choisissez jusqu’à 5 réalisations, dans l'ordre souhaité : elles s’affichent en page d’accueil et en bloc portfolio sur les pages filles. Si ce document est vide, le site affiche les 5 dernières fiches cochées « Mise en avant » à la case dédiée.",
+    "Mettez en tête de la page « Toutes les réalisations » des projets, dans l’ordre voulu (au plus 5). Les aperçus 5 fiches ailleurs sur le site n’utilisent pas ce document : ils s’appuient sur la case Mise en avant + le numéro d’ordre sur chaque fiche.",
   fields: [
     defineField({
       name: 'highlightedProjects',
@@ -27,7 +27,7 @@ export default defineType({
   preview: {
     prepare: () => ({
       title: 'Projets phares',
-      subtitle: "Jusqu'à 5 réalisations (accueil & grilles silo)",
+      subtitle: 'Jusqu’à 5 — tête de liste /realisations',
     }),
   },
 });

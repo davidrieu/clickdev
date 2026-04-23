@@ -14,7 +14,6 @@ import {
   caseStudyBySlugQuery,
   caseStudySlugsQuery,
   caseStudySitemapEntriesQuery,
-  featuredCaseStudiesQuery,
   homeFeaturedCaseStudiesQuery,
   latestPostsQuery,
   recentMobileCaseStudiesQuery,
@@ -92,10 +91,10 @@ export async function getPostBySlug(slug: string): Promise<SanityPostDocument | 
 }
 
 /**
- * Page d’accueil — grille portfolio : 5 fiches **mises en avant** (`featured == true` dans Sanity),
- * **sans** le document « Projets phares ». Tri : champ `order` (petit d’abord), puis date.
+ * Grille portfolio (accueil, piliers, filles, expertises premium, etc. — **pas** `/realisations` qui liste tout).
+ * 5 fiches avec **Mise en avant** cochée, tri `order` puis date. Sans document « Projets phares ».
  */
-export async function getHomepageFeaturedCaseStudies(): Promise<SanityCaseStudyTeaser[]> {
+export async function getFeaturedCaseStudies(): Promise<SanityCaseStudyTeaser[]> {
   if (!sanityClient) {
     return [];
   }
@@ -119,27 +118,6 @@ export async function getPortfolioHighlightTeasers(): Promise<SanityCaseStudyTea
     return list.length > 0 ? list : null;
   } catch {
     return null;
-  }
-}
-
-/**
- * 5 fiches (comme l’accueil) : d’abord le document **Projets phares** (ordre), sinon repli
- * : les 5 dernières avec case « Mise en avant » (`featured == true`) dans Sanity.
- */
-export async function getFeaturedCaseStudies(): Promise<SanityCaseStudyTeaser[]> {
-  if (!sanityClient) {
-    return [];
-  }
-
-  try {
-    const fromPicker = await getPortfolioHighlightTeasers();
-    if (fromPicker?.length) {
-      return fromPicker.slice(0, 5);
-    }
-    const rows = await sanityClient.fetch<SanityCaseStudyTeaser[]>(featuredCaseStudiesQuery);
-    return rows ?? [];
-  } catch {
-    return [];
   }
 }
 

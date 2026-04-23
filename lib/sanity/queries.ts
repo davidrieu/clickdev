@@ -52,8 +52,8 @@ const caseStudyTeaserProjection = `{
 }`;
 
 /**
- * Accueil : uniquement les fiches cochées « Mise en avant »,
- * tri `order` asc (non renseigné en dernier), puis par date.
+ * Grilles « extrait portfolio » (accueil, silos premium, expertises…) : mises en avant, tri `order` puis date.
+ * `/realisations` utilise `allCaseStudiesTeasersQuery` (liste complète).
  */
 export const homeFeaturedCaseStudiesQuery = `*[_type == "caseStudy" && defined(slug.current) && featured == true] | order(coalesce(order, 9999) asc, coalesce(publishedAt, _updatedAt) desc)[0...5]${caseStudyTeaserProjection}`;
 
@@ -61,9 +61,6 @@ export const homeFeaturedCaseStudiesQuery = `*[_type == "caseStudy" && defined(s
 export const portfolioHighlightsQuery = `*[_type == "portfolioHighlights" && _id == "portfolioHighlights"][0]{
   "projects": highlightedProjects[]->${caseStudyTeaserProjection}
 }.projects`;
-
-/** 5 dernières réalisations avec case « Mise en avant » cochée, tri date. */
-export const featuredCaseStudiesQuery = `*[_type == "caseStudy" && defined(slug.current) && featured == true] | order(coalesce(publishedAt, _updatedAt) desc)[0...5]${caseStudyTeaserProjection}`;
 
 /** Derniers projets « web » (site, e-commerce, marketplace) pour la page pilier /sites-internet. */
 export const recentWebCaseStudiesQuery = `*[_type == "caseStudy" && defined(slug.current) && category in ["website", "ecommerce", "marketplace"]] | order(coalesce(publishedAt, _updatedAt) desc)[0...5]${caseStudyTeaserProjection}`;
