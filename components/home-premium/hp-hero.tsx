@@ -3,7 +3,6 @@
 import Link from 'next/link';
 import { motion } from 'framer-motion';
 
-import { Badge } from '@/components/ui/badge';
 import { HeroSiteBuildWireframe } from '@/components/silos/sites-internet/premium-hero';
 import { StellarField, useSectionStellarPointer } from '@/components/silos/sites-internet/stellar-field';
 import { SOCIAL_LINKS } from '@/lib/constants/site';
@@ -19,10 +18,6 @@ const stats = [
   { value: '98%', label: 'clients satisfaits' },
   { value: 'TPE → CAC40', label: 'écosystèmes' },
 ];
-
-function monthLabel() {
-  return new Intl.DateTimeFormat('fr-FR', { month: 'long', year: 'numeric' }).format(new Date());
-}
 
 function CodeurHeroTrustLink() {
   return (
@@ -67,19 +62,7 @@ export function HpHero() {
       <div className="relative z-10 mx-auto grid max-w-[1400px] gap-12 px-4 md:grid-cols-12 md:items-center md:gap-8 md:px-8 lg:gap-12">
         <div className="flex flex-col justify-center md:col-span-6 md:py-4 lg:py-6">
           <motion.div
-            className="flex flex-wrap items-center gap-4"
-            initial={{ opacity: 0, y: 12 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-          >
-            <Badge variant="secondary" className="border-white/20 bg-white/10 text-white/90">
-              <span className="mr-2 inline-flex size-2 animate-pulse rounded-full bg-emerald-400" aria-hidden />
-              Je suis disponible — {monthLabel()}
-            </Badge>
-          </motion.div>
-
-          <motion.div
-            className="mt-6 flex items-center gap-4"
+            className="flex items-center gap-4"
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.04, duration: 0.5 }}
