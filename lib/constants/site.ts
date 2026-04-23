@@ -23,4 +23,5 @@ export const SOCIAL_LINKS = {
   linkedin: 'https://www.linkedin.com/in/david-rieu',
   github: 'https://github.com/davidrieu',
   malt: 'https://www.malt.fr/profile/davidrieu',
+  codeur: 'https://www.codeur.com/-clickdev',
 } as const;

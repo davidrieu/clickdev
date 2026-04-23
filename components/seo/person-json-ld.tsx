@@ -3,7 +3,12 @@ import { organizationJsonLdId, personJsonLdId, schemaOrigin } from '@/lib/seo/sc
 
 export function PersonJsonLd() {
   const origin = schemaOrigin();
-  const sameAs = [SOCIAL_LINKS.linkedin, SOCIAL_LINKS.github, SOCIAL_LINKS.malt].filter(Boolean);
+  const sameAs = [
+    SOCIAL_LINKS.linkedin,
+    SOCIAL_LINKS.github,
+    SOCIAL_LINKS.malt,
+    SOCIAL_LINKS.codeur,
+  ].filter(Boolean);
 
   const data = {
     '@context': 'https://schema.org',
