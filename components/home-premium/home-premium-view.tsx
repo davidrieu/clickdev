@@ -26,7 +26,6 @@ import {
   HOME_TRUST_MARQUEE_NAMES,
 } from '@/lib/constants/home-content';
 import type { HomeCasePreview } from '@/lib/constants/home-content';
-import { SOCIAL_LINKS } from '@/lib/constants/site';
 import { formatDateFr } from '@/lib/format/date';
 import type { SanityCaseStudyTeaser } from '@/types/sanity-case-study';
 import type { SanityPostTeaser } from '@/types/sanity-post';
@@ -747,16 +746,6 @@ function HpAbout() {
           Témoignages
         </motion.h3>
         <HomeTestimonialsSlider items={HOME_TESTIMONIALS} className="mt-10" />
-        <p className="mt-8 text-center text-[11px] text-white/38">
-          <a
-            href={SOCIAL_LINKS.codeur}
-            rel="me noopener noreferrer"
-            target="_blank"
-            className="text-white/45 underline-offset-2 transition-none hover:text-white/45"
-          >
-            Voir sur Codeur.com
-          </a>
-        </p>
       </div>
     </section>
   );

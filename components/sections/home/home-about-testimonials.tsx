@@ -2,7 +2,6 @@
 
 import { HomeTestimonialsSlider } from '@/components/home-premium/home-testimonials-slider';
 import { HOME_TESTIMONIALS } from '@/lib/constants/home-content';
-import { SOCIAL_LINKS } from '@/lib/constants/site';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
 
@@ -84,16 +83,6 @@ export default function HomeAboutTestimonials() {
           className="mt-12"
           cardClassName="border-white/10 bg-white/[0.03]"
         />
-        <p className="mt-8 text-center text-[11px] text-white/38">
-          <a
-            href={SOCIAL_LINKS.codeur}
-            rel="me noopener noreferrer"
-            target="_blank"
-            className="text-white/45 transition-none hover:text-white/45"
-          >
-            Voir sur Codeur.com
-          </a>
-        </p>
       </section>
     </>
   );
