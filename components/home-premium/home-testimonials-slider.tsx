@@ -48,10 +48,14 @@ function CodeurLink({ className }: { className?: string }) {
   );
 }
 
+/** Même peau visuelle que « Pour qui je travaille » (sans ServiceCardGlow). */
+const cardSurfaceClass =
+  'group relative flex h-full min-h-0 flex-col overflow-hidden rounded-2xl border border-white/[0.1] bg-gradient-to-br from-neutral-950 via-neutral-900/85 to-neutral-900 p-5 transition duration-500 hover:border-white/[0.16] md:p-6';
+
 type Props = {
   items: HomeTestimonial[];
   className?: string;
-  /** Classes appliquées à chaque carte (bordure, fond). */
+  /** Surcharge optionnelle (ex. variante ailleurs). */
   cardClassName?: string;
 };
 
@@ -104,23 +108,34 @@ export function HomeTestimonialsSlider({ items, className, cardClassName }: Prop
             className="grid grid-cols-1 gap-4 md:grid-cols-2 md:items-stretch md:gap-5"
           >
             {current.map((t) => (
-              <blockquote
-                id={`temoignage-${t.id}`}
+              <div
                 key={t.id}
                 className={cn(
-                  'flex h-full min-h-0 flex-col rounded-2xl border border-white/[0.08] bg-black/40 p-5 md:p-6',
-                  current.length === 1 && 'md:col-span-2 md:max-w-2xl md:justify-self-center',
-                  cardClassName
+                  'h-full',
+                  current.length === 1 && 'md:col-span-2 md:max-w-2xl md:justify-self-center'
                 )}
               >
-                <TestimonialFiveStars />
-                <p className="min-h-0 flex-1 whitespace-pre-line text-sm leading-relaxed text-white/80 md:text-base">
-                  «{t.quote}»
-                </p>
-                <p className="mt-4 border-t border-white/[0.06] pt-3">
-                  <CodeurLink />
-                </p>
-              </blockquote>
+                <motion.div
+                  className="h-full"
+                  whileHover={{ scale: 1.01 }}
+                  transition={{ type: 'spring', stiffness: 400, damping: 28 }}
+                >
+                  <blockquote
+                    id={`temoignage-${t.id}`}
+                    className={cn(cardSurfaceClass, cardClassName)}
+                  >
+                    <div className="relative z-[2] flex min-h-0 flex-1 flex-col">
+                      <TestimonialFiveStars />
+                      <p className="min-h-0 flex-1 whitespace-pre-line text-sm leading-relaxed text-white/75 [text-shadow:0_1px_10px_rgba(0,0,0,0.8)] md:text-base">
+                        «{t.quote}»
+                      </p>
+                      <p className="mt-4 border-t border-white/[0.1] pt-3">
+                        <CodeurLink />
+                      </p>
+                    </div>
+                  </blockquote>
+                </motion.div>
+              </div>
             ))}
           </motion.div>
         </AnimatePresence>

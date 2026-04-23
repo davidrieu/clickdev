@@ -78,11 +78,7 @@ export default function HomeAboutTestimonials() {
         >
           Témoignages
         </motion.h2>
-        <HomeTestimonialsSlider
-          items={HOME_TESTIMONIALS}
-          className="mt-12"
-          cardClassName="border-white/10 bg-white/[0.03]"
-        />
+        <HomeTestimonialsSlider items={HOME_TESTIMONIALS} className="mt-12" />
       </section>
     </>
   );
