@@ -33,35 +33,6 @@ export const MAINTENANCE_AUDIENCE_CARDS: MaintenanceAudienceCard[] = [
   },
 ];
 
-export type MaintenancePageTestimonial = { quote: string; name: string; role: string };
-
-export const MAINTENANCE_PAGE_TESTIMONIALS: MaintenancePageTestimonial[] = [
-  {
-    quote:
-      "On avait un WordPress bancal : mises à jour aléatoires, pages parfois blanches. Aujourd'hui il y a un rythme, un backup testé, et on sait à qui s'adresser.",
-    name: '[À REMPLACER] — Fondatrice',
-    role: 'E-commerce — PME',
-  },
-  {
-    quote:
-      "Lors d'un incident paiement, la réponse a été cadrée : post-mortem clair, correctif, pas de déploiement 'à l'aveugle' la nuit d'après.",
-    name: '[À REMPLACER] — Responsable digital',
-    role: 'Retail — e-commerce',
-  },
-  {
-    quote:
-      "J'ignorais ce qu'était un SLA : maintenant c'est écrit, avec des priorités P1/P2. C'est pro, et ça calme l'équipe le jour J.",
-    name: '[À REMPLACER] — Directeur des opérations',
-    role: 'SaaS B2B',
-  },
-  {
-    quote:
-      "Moins de 'tu peux regarder en urgence le serveur' et plus d'explications. Je dors mieux quand l'astreinte est cadrée.",
-    name: '[À REMPLACER] — CEO',
-    role: 'Start-up',
-  },
-];
-
 export const MAINTENANCE_STACK = [
   'WordPress',
   'WooCommerce',

@@ -48,35 +48,6 @@ export const SITES_INTERNET_AUDIENCE_CARDS: SitesInternetAudienceCard[] = [
   },
 ];
 
-export type SitesInternetPageTestimonial = { quote: string; name: string; role: string };
-
-export const SITES_INTERNET_PAGE_TESTIMONIALS: SitesInternetPageTestimonial[] = [
-  {
-    quote:
-      'Interlocuteur unique, très clair sur les arbitrages perf / SEO. On a livré dans les temps, et le site tient la charge des pics médias.',
-    name: '[À REMPLACER] — Product Manager',
-    role: 'Scale-up — SaaS B2B',
-  },
-  {
-    quote:
-      'Je ne connaissais rien à la technique : tout m’a été expliqué simplement. Le site reflète enfin notre image, et on reçoit des demandes qualifiées.',
-    name: '[À REMPLACER] — Dirigeante',
-    role: 'PME — services B2B',
-  },
-  {
-    quote:
-      'Site vitrine pro, rapide sur mobile, et je peux mettre à jour mes textes sans galère. Exactement ce qu’il nous fallait.',
-    name: '[À REMPLACER] — Artisan',
-    role: 'Artisanat — clientèle locale',
-  },
-  {
-    quote:
-      'Projet un peu atypique pour une association : budget serré, besoin clair. Résultat propre, et une vraie disponibilité.',
-    name: '[À REMPLACER] — Présidente',
-    role: 'Association — bénévolat',
-  },
-];
-
 export const SITES_INTERNET_STACK = [
   'Next.js',
   'React',
