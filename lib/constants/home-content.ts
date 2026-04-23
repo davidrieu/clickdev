@@ -207,7 +207,7 @@ export type HomeTestimonial = {
 };
 
 /** Témoignages issus d’évaluations Codeur (identités non affichées). */
-export const HOME_TESTIMONIALS: HomeTestimonial[] = [
+const RAW_HOME_TESTIMONIALS: HomeTestimonial[] = [
   {
     id: 'codeur-presta-switch',
     quote: `David m'a littéralement sauvé la vie !
@@ -256,7 +256,18 @@ Le tout en respectant mon budget et en étant toujours dispo ! Merci !`,
     id: 'codeur-recomm',
     quote: `Je recommande David les yeux fermés à n'importe quel entrepreneur ou personne qui souhaite avoir un site web propre, efficace, simple à utiliser. Après de nombreuses difficultés à trouver quelqu'un de compétent et professionnel, nous avons (enfin !) rencontré David ! Tout de suite il nous a mis à l'aise, chose qui n'était pas facile après nos deux dernières expériences avec des dev freelances... Il a été très à l'écoute de nos demandes et nous faisait de super propositions pour optimiser notre site. En bref, c'est une personne très agréable que je recommande vivement !`,
   },
+  {
+    id: 'codeur-patience-exigeante',
+    quote: `David est très à l'écoute et très patient surtout car je suis assez exigeante. Il a bien compris ce que j'attendais de lui et m'a filé de précieux conseils et outils auxquels je n'avais pas pensé.
+
+Merci pour ton professionnalisme et ton implication dans mon projet.`,
+  },
 ];
+
+/** Plus longs en premier (meilleure lecture en carrousel). */
+export const HOME_TESTIMONIALS: HomeTestimonial[] = [...RAW_HOME_TESTIMONIALS].sort(
+  (a, b) => b.quote.length - a.quote.length
+);
 
 /** Logos / noms affichés dans le bandeau confiance sous le hero. */
 export const HOME_TRUST_MARQUEE_NAMES = [
