@@ -12,13 +12,6 @@ const lineDraw = {
   animate: { scaleX: 1, transition: { duration: 0.9, ease: [0.22, 1, 0.36, 1] as const } },
 };
 
-const stats = [
-  { value: '80+', label: 'projets livrés' },
-  { value: '10 ans', label: "d'expérience" },
-  { value: '98%', label: 'clients satisfaits' },
-  { value: 'TPE → CAC40', label: 'écosystèmes' },
-];
-
 function CodeurHeroTrustLink() {
   return (
     <a
@@ -131,22 +124,6 @@ export function HpHero() {
             >
               <span className="relative z-10">Voir mes réalisations</span>
             </Link>
-          </motion.div>
-
-          <motion.div
-            className="mt-12 border-t border-white/[0.08] pt-10 md:mt-14"
-            initial={{ opacity: 0, y: 14 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.22, duration: 0.45 }}
-          >
-            <div className="grid grid-cols-2 gap-6 md:grid-cols-4 md:gap-8">
-              {stats.map((s) => (
-                <div key={s.label} className="text-left md:text-center">
-                  <p className="text-xl font-semibold tracking-tight text-white md:text-2xl">{s.value}</p>
-                  <p className="mt-1 text-xs text-white/55 md:text-sm">{s.label}</p>
-                </div>
-              ))}
-            </div>
           </motion.div>
         </div>
 
