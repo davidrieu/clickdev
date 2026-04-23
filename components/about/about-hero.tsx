@@ -1,7 +1,10 @@
 'use client';
 
+import Image from 'next/image';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
+
+import { AUTHOR_PORTRAIT_ALT, AUTHOR_PORTRAIT_PATH } from '@/lib/constants/author-portrait';
 
 import { StellarField, useSectionStellarPointer } from '@/components/silos/sites-internet/stellar-field';
 
@@ -99,7 +102,17 @@ export function AboutHero() {
           </motion.div>
         </div>
 
-        <div className="relative flex min-h-[240px] items-center justify-center md:col-span-5 md:min-h-[min(380px,48vh)] md:justify-end">
+        <div className="flex min-h-[240px] flex-col items-center justify-center gap-7 md:col-span-5 md:min-h-[min(420px,52vh)] md:items-end md:justify-center">
+          <div className="relative mx-auto aspect-[4/5] w-full max-w-[280px] overflow-hidden rounded-2xl border border-white/[0.1] bg-neutral-900 md:mx-0">
+            <Image
+              src={AUTHOR_PORTRAIT_PATH}
+              alt={AUTHOR_PORTRAIT_ALT}
+              fill
+              className="object-cover"
+              sizes="(max-width: 768px) 72vw, 280px"
+              priority
+            />
+          </div>
           <AboutHeroCard />
         </div>
       </div>

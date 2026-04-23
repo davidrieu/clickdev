@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 
+import { AUTHOR_PORTRAIT_ALT, AUTHOR_PORTRAIT_PATH } from '@/lib/constants/author-portrait';
 import { BLOG_AUTHOR, BLOG_PROJECT_CTA } from '@/lib/constants/blog-article';
 import { formatDateFr } from '@/lib/format/date';
 import type { SanityPostTeaser } from '@/types/sanity-post';
@@ -22,11 +23,14 @@ export function BlogPostSidebar({ currentSlug, posts }: Props) {
         <div className={card}>
           <p className="font-mono text-[10px] tracking-[0.22em] text-white/40 uppercase">Qui écrit</p>
           <div className="mt-4 flex gap-4">
-            <div
-              className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl border border-white/15 bg-white/[0.05] font-mono text-sm font-medium tracking-tight text-white/90"
-              aria-hidden
-            >
-              DR
+            <div className="relative h-12 w-12 shrink-0 overflow-hidden rounded-2xl border border-white/15 bg-neutral-900">
+              <Image
+                src={AUTHOR_PORTRAIT_PATH}
+                alt={AUTHOR_PORTRAIT_ALT}
+                fill
+                className="object-cover"
+                sizes="48px"
+              />
             </div>
             <div className="min-w-0 flex-1">
               <p className="text-sm font-semibold tracking-tight text-white">{BLOG_AUTHOR.name}</p>

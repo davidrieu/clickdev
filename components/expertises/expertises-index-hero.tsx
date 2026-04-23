@@ -1,9 +1,11 @@
 'use client';
 
+import Image from 'next/image';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
 
 import { StellarField, useSectionStellarPointer } from '@/components/silos/sites-internet/stellar-field';
+import { AUTHOR_PORTRAIT_ALT, AUTHOR_PORTRAIT_PATH } from '@/lib/constants/author-portrait';
 
 const lineDraw = {
   rest: { scaleX: 0, originX: 0.5 },
@@ -42,8 +44,24 @@ export function ExpertisesIndexHero() {
           </p>
         </motion.div>
 
+        <motion.div
+          className="relative mx-auto mt-5 aspect-[4/5] w-[min(7.5rem,32vw)] overflow-hidden rounded-2xl border border-white/[0.1] bg-neutral-900"
+          initial={{ opacity: 0, y: 14 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.1, duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+        >
+          <Image
+            src={AUTHOR_PORTRAIT_PATH}
+            alt={AUTHOR_PORTRAIT_ALT}
+            fill
+            className="object-cover"
+            sizes="120px"
+            priority
+          />
+        </motion.div>
+
         <motion.h1
-          className="si-serif-display mt-8 text-balance text-[clamp(2rem,4.5vw,3.5rem)] font-medium leading-[1.08] tracking-[-0.035em] text-white"
+          className="si-serif-display mt-6 text-balance text-[clamp(2rem,4.5vw,3.5rem)] font-medium leading-[1.08] tracking-[-0.035em] text-white md:mt-8"
           initial={{ opacity: 0, y: 26 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.06, duration: 0.65, ease: [0.22, 1, 0.36, 1] }}

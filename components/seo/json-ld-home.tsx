@@ -1,3 +1,4 @@
+import { AUTHOR_PORTRAIT_PATH } from '@/lib/constants/author-portrait';
 import { HOME_FAQ_ITEMS } from '@/lib/constants/home-content';
 import { SITE_EMAIL, SITE_NAME } from '@/lib/constants/site';
 import { organizationJsonLdId, personJsonLdId, schemaOrigin } from '@/lib/seo/schema-ids';
@@ -5,8 +6,10 @@ import { organizationJsonLdId, personJsonLdId, schemaOrigin } from '@/lib/seo/sc
 /** JSON-LD accueil : ProfessionalService + Person + FAQPage (un seul script, @graph). */
 export function JsonLdHome() {
   const origin = schemaOrigin();
+  const base = origin.replace(/\/$/, '');
   const orgId = organizationJsonLdId();
   const personId = personJsonLdId();
+  const personImage = `${base}${AUTHOR_PORTRAIT_PATH}`;
 
   const professionalService = {
     '@type': 'ProfessionalService',
@@ -37,6 +40,7 @@ export function JsonLdHome() {
     '@type': 'Person',
     '@id': personId,
     name: 'David Rieu',
+    image: personImage,
     jobTitle: 'Développeur web freelance',
     worksFor: {
       '@type': 'Organization',

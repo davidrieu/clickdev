@@ -1,8 +1,10 @@
+import { AUTHOR_PORTRAIT_PATH } from '@/lib/constants/author-portrait';
 import { SOCIAL_LINKS } from '@/lib/constants/site';
 import { organizationJsonLdId, personJsonLdId, schemaOrigin } from '@/lib/seo/schema-ids';
 
 export function PersonJsonLd() {
   const origin = schemaOrigin();
+  const portraitUrl = `${origin.replace(/\/$/, '')}${AUTHOR_PORTRAIT_PATH}`;
   const sameAs = [
     SOCIAL_LINKS.linkedin,
     SOCIAL_LINKS.github,
@@ -16,6 +18,7 @@ export function PersonJsonLd() {
     '@id': personJsonLdId(),
     name: 'David Rieu',
     url: `${origin}/a-propos`,
+    image: portraitUrl,
     jobTitle: 'Développeur freelance',
     description:
       'Développeur freelance pour sites web, applications mobiles, intégrations IA, SEO technique et outils métiers — Clickdev.',

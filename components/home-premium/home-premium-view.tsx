@@ -23,6 +23,7 @@ import {
   HOME_TESTIMONIALS,
   HOME_TRUST_MARQUEE_NAMES,
 } from '@/lib/constants/home-content';
+import { AUTHOR_PORTRAIT_ALT, AUTHOR_PORTRAIT_PATH } from '@/lib/constants/author-portrait';
 import { formatDateFr } from '@/lib/format/date';
 import type { SanityCaseStudyTeaser } from '@/types/sanity-case-study';
 import type { SanityPostTeaser } from '@/types/sanity-post';
@@ -543,8 +544,8 @@ function HpAbout() {
             viewport={{ once: true }}
           >
             <Image
-              src="/assets/david-rieu.jpg"
-              alt="David Rieu, développeur web freelance"
+              src={AUTHOR_PORTRAIT_PATH}
+              alt={AUTHOR_PORTRAIT_ALT}
               fill
               className="object-cover"
               sizes="(max-width: 1024px) 100vw, 50vw"
