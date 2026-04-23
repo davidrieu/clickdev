@@ -106,8 +106,8 @@ export async function getPortfolioHighlightTeasers(): Promise<SanityCaseStudyTea
 }
 
 /**
- * 6 visibles en accueil : d’abord le document **Projets phares** (ordre),
- * sinon repli : booléen `featured` + date de publication.
+ * 5 fiches (comme l’accueil) : d’abord le document **Projets phares** (ordre), sinon repli
+ * : les 5 dernières avec case « Mise en avant » (`featured == true`) dans Sanity.
  */
 export async function getFeaturedCaseStudies(): Promise<SanityCaseStudyTeaser[]> {
   if (!sanityClient) {
@@ -117,7 +117,7 @@ export async function getFeaturedCaseStudies(): Promise<SanityCaseStudyTeaser[]>
   try {
     const fromPicker = await getPortfolioHighlightTeasers();
     if (fromPicker?.length) {
-      return fromPicker.slice(0, 6);
+      return fromPicker.slice(0, 5);
     }
     const rows = await sanityClient.fetch<SanityCaseStudyTeaser[]>(featuredCaseStudiesQuery);
     return rows ?? [];

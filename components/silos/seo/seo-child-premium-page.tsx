@@ -1,6 +1,5 @@
 import { PremiumSiloServiceTemplate } from '@/components/silo-shared/premium-silo-service-template';
 import { SEO_PREMIUM_CHILDREN, type SeoPremiumSlug } from '@/lib/constants/seo-premium-children';
-import { prioritizeSeoCaseStudies } from '@/lib/content/seo-crm-case-studies';
 
 import { SEO_CHILD_EDITORIALS } from './seo-child-editorials';
 
@@ -26,7 +25,6 @@ export async function SeoChildPremiumPage({ slug }: { slug: SeoPremiumSlug }) {
       faqItems={c.faqItems}
       finalCta={c.finalCta}
       stackPillar={{ href: '/seo', label: 'SEO' }}
-      caseStudiesPick={prioritizeSeoCaseStudies}
     />
   );
 }

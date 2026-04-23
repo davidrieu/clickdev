@@ -29,13 +29,11 @@ import {
   APPLICATIONS_MOBILES_PILLAR_PROCESS,
   APPLICATIONS_MOBILES_PILLAR_STACK,
 } from '@/lib/constants/applications-mobiles-pillar-premium';
-import { prioritizeApplicationsPillarCaseStudies } from '@/lib/content/applications-pillar-cases';
-import { getAllCaseStudyTeasers } from '@/lib/sanity/fetch';
+import { getFeaturedCaseStudies } from '@/lib/sanity/fetch';
 
 /** Page pilier `/applications-mobiles` — layout premium aligné sur /sites-internet. */
 export default async function ApplicationsMobilesPremiumPage() {
-  const allStudies = await getAllCaseStudyTeasers();
-  const caseStudies = prioritizeApplicationsPillarCaseStudies(allStudies);
+  const caseStudies = await getFeaturedCaseStudies();
 
   const casesIntro = (
     <p className="mt-4 text-sm text-white/55 md:text-base">

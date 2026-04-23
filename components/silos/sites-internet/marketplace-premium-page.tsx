@@ -20,7 +20,6 @@ import {
   MARKETPLACE_PROCESS,
   MARKETPLACE_STACK,
 } from '@/lib/constants/marketplace-page';
-import { prioritizeMarketplaceCaseStudies } from '@/lib/content/marketplace-cases';
 import {
   SiteEcommerceAudienceSection,
   SiteEcommerceBenefitsSection,
@@ -29,12 +28,11 @@ import {
   SiteEcommerceProcessSection,
   SiteEcommerceStackSection,
 } from '@/components/silos/sites-internet/site-ecommerce-blocks';
-import { getRecentWebCaseStudies } from '@/lib/sanity/fetch';
+import { getFeaturedCaseStudies } from '@/lib/sanity/fetch';
 
 /** Page fille premium `/sites-internet/marketplace`. */
 export default async function MarketplacePremiumPage() {
-  const raw = await getRecentWebCaseStudies();
-  const caseStudies = prioritizeMarketplaceCaseStudies(raw);
+  const caseStudies = await getFeaturedCaseStudies();
 
   const casesIntro = (
     <p className="mt-4 text-sm text-white/55 md:text-base">

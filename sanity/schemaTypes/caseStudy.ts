@@ -243,7 +243,7 @@ export default defineType({
       initialValue: false,
       fieldset: 'extra',
       description:
-        'Déprécié : préférez le document **Projets phares** (menu) pour choisir les 6 visibles. Ce champ sert de repli si le document n’est pas renseigné.',
+        'Préférez le document **Projets phares** (menu) pour l’ordre d’affichage. Repli : les 5 dernières avec cette case cochée (tri par date) si le document n’est pas renseigné.',
     }),
     defineField({ name: 'order', title: "Ordre manuel d'affichage", type: 'number', fieldset: 'extra' }),
     defineField({ name: 'publishedAt', title: 'Date de publication', type: 'datetime', fieldset: 'extra' }),

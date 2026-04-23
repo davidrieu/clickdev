@@ -1,4 +1,4 @@
-import { getRecentWebCaseStudies } from '@/lib/sanity/fetch';
+import { getFeaturedCaseStudies } from '@/lib/sanity/fetch';
 
 import { PremiumBento } from './premium-bento';
 import { PremiumCases } from './premium-cases';
@@ -16,7 +16,7 @@ import { PremiumStackMarquee } from './premium-stack-marquee';
 
 /** Page pilier /sites-internet — layout premium (Sanity + FAQ unifiée + bloc SEO). */
 export default async function SitesInternetPremiumPage() {
-  const caseStudies = await getRecentWebCaseStudies();
+  const caseStudies = await getFeaturedCaseStudies();
 
   return (
     <main className="bg-black text-white">

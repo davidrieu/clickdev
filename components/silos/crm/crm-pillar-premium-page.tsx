@@ -29,12 +29,10 @@ import {
   CRM_PILLAR_PROCESS,
   CRM_PILLAR_STACK,
 } from '@/lib/constants/crm-pillar-premium';
-import { prioritizeCrmPillarCaseStudies } from '@/lib/content/seo-crm-case-studies';
-import { getAllCaseStudyTeasers } from '@/lib/sanity/fetch';
+import { getFeaturedCaseStudies } from '@/lib/sanity/fetch';
 
 export default async function CrmPillarPremiumPage() {
-  const allStudies = await getAllCaseStudyTeasers();
-  const caseStudies = prioritizeCrmPillarCaseStudies(allStudies);
+  const caseStudies = await getFeaturedCaseStudies();
 
   const casesIntro = (
     <p className="mt-4 text-sm text-white/55 md:text-base">

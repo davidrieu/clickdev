@@ -3,7 +3,7 @@ import Link from 'next/link';
 import { PremiumCases } from '@/components/silos/sites-internet/premium-cases';
 import { PremiumFinalCta } from '@/components/silos/sites-internet/premium-final-cta';
 import { MAINTENANCE_CASES_SECTION } from '@/lib/constants/maintenance-pillar-premium';
-import { getRecentWebCaseStudies } from '@/lib/sanity/fetch';
+import { getFeaturedCaseStudies } from '@/lib/sanity/fetch';
 
 import { MaintenanceAudience } from './maintenance-audience';
 import { MaintenanceBento } from './maintenance-bento';
@@ -18,7 +18,7 @@ import { MaintenanceStackMarquee } from './maintenance-stack-marquee';
 import { MaintenanceTrustMarquee } from './maintenance-trust-marquee';
 
 export default async function MaintenancePremiumPage() {
-  const caseStudies = await getRecentWebCaseStudies();
+  const caseStudies = await getFeaturedCaseStudies();
   const casesIntro = (
     <p className="mt-4 text-sm text-white/55 md:text-base">
       {MAINTENANCE_CASES_SECTION.intro}{' '}

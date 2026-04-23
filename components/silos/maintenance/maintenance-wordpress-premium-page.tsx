@@ -28,10 +28,10 @@ import {
   MAINTENANCE_WORDPRESS_PROCESS,
   MAINTENANCE_WORDPRESS_STACK,
 } from '@/lib/constants/maintenance-wordpress-page';
-import { getRecentWebCaseStudies } from '@/lib/sanity/fetch';
+import { getFeaturedCaseStudies } from '@/lib/sanity/fetch';
 
 export default async function MaintenanceWordpressPremiumPage() {
-  const caseStudies = await getRecentWebCaseStudies();
+const caseStudies = await getFeaturedCaseStudies();
   const casesIntro = (
     <p className="mt-4 text-sm text-white/55 md:text-base">
       {MAINTENANCE_WORDPRESS_CASES.intro}{' '}

@@ -28,10 +28,10 @@ import {
   INFOGERANCE_PROCESS,
   INFOGERANCE_STACK,
 } from '@/lib/constants/infogerance-page';
-import { getRecentWebCaseStudies } from '@/lib/sanity/fetch';
+import { getFeaturedCaseStudies } from '@/lib/sanity/fetch';
 
 export default async function InfogerancePremiumPage() {
-  const caseStudies = await getRecentWebCaseStudies();
+const caseStudies = await getFeaturedCaseStudies();
   const casesIntro = (
     <p className="mt-4 text-sm text-white/55 md:text-base">
       {INFOGERANCE_CASES.intro}{' '}

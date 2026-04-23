@@ -28,12 +28,10 @@ import {
   CHATBOT_IA_PROCESS,
   CHATBOT_IA_STACK,
 } from '@/lib/constants/chatbot-ia-page';
-import { prioritizeIaCaseStudies } from '@/lib/content/ia-case-studies';
-import { getAllCaseStudyTeasers } from '@/lib/sanity/fetch';
+import { getFeaturedCaseStudies } from '@/lib/sanity/fetch';
 
 export default async function ChatbotIaPremiumPage() {
-  const raw = await getAllCaseStudyTeasers();
-  const caseStudies = prioritizeIaCaseStudies(raw);
+  const caseStudies = await getFeaturedCaseStudies();
 
   const casesIntro = (
     <p className="mt-4 text-sm text-white/55 md:text-base">

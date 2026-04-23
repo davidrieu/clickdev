@@ -28,12 +28,10 @@ import {
   LANDING_PAGE_PROCESS,
   LANDING_PAGE_STACK,
 } from '@/lib/constants/landing-page';
-import { prioritizeVitrineCaseStudies } from '@/lib/content/site-vitrine-cases';
-import { getRecentWebCaseStudies } from '@/lib/sanity/fetch';
+import { getFeaturedCaseStudies } from '@/lib/sanity/fetch';
 
 export default async function LandingPagePremiumPage() {
-  const raw = await getRecentWebCaseStudies();
-  const caseStudies = prioritizeVitrineCaseStudies(raw);
+  const caseStudies = await getFeaturedCaseStudies();
 
   const casesIntro = (
     <p className="mt-4 text-sm text-white/55 md:text-base">

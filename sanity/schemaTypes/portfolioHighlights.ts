@@ -2,14 +2,14 @@ import { defineField, defineType, defineArrayMember } from 'sanity';
 
 /**
  * Un seul document (id fixe) : ordre = ordre d’affichage sur l’accueil et
- * sert de priorité globale sur les listes (extraits par catégorie, etc.).
+ * mêmes fiches sur les grilles marketing (5 max.).
  */
 export default defineType({
   name: 'portfolioHighlights',
-  title: 'Projets phares (6 max., accueil + extraits)',
+  title: 'Projets phares (5 max., accueil + silos premium)',
   type: 'document',
   description:
-    "Choisissez jusqu’à 6 réalisations, dans l'ordre souhaité : elles s’affichent en page d’accueil et ressortent en tête des extraits (sites web, app mobile) lorsque c’est pertinent. Si ce document est vide, le site utilise l’ancien tri (case à cocher « Mise en avant » + date de publication).",
+    "Choisissez jusqu’à 5 réalisations, dans l'ordre souhaité : elles s’affichent en page d’accueil et en bloc portfolio sur les pages filles. Si ce document est vide, le site affiche les 5 dernières fiches cochées « Mise en avant » à la case dédiée.",
   fields: [
     defineField({
       name: 'highlightedProjects',
@@ -21,13 +21,13 @@ export default defineType({
           to: [{ type: 'caseStudy' }],
         }),
       ],
-      validation: (Rule) => Rule.max(6),
+      validation: (Rule) => Rule.max(5),
     }),
   ],
   preview: {
     prepare: () => ({
       title: 'Projets phares',
-      subtitle: "Jusqu'à 6 réalisations (accueil & extraits)",
+      subtitle: "Jusqu'à 5 réalisations (accueil & grilles silo)",
     }),
   },
 });

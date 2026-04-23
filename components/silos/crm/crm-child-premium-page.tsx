@@ -1,6 +1,5 @@
 import { PremiumSiloServiceTemplate } from '@/components/silo-shared/premium-silo-service-template';
 import { CRM_PREMIUM_CHILDREN, type CrmPremiumSlug } from '@/lib/constants/crm-premium-children';
-import { prioritizeCrmCaseStudies } from '@/lib/content/seo-crm-case-studies';
 
 import { CRM_CHILD_EDITORIALS } from './crm-child-editorials';
 
@@ -26,7 +25,6 @@ export async function CrmChildPremiumPage({ slug }: { slug: CrmPremiumSlug }) {
       faqItems={c.faqItems}
       finalCta={c.finalCta}
       stackPillar={{ href: '/crm-outils-metiers', label: 'CRM & outils métiers' }}
-      caseStudiesPick={prioritizeCrmCaseStudies}
     />
   );
 }

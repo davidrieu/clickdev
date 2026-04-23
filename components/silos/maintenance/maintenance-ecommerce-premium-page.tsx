@@ -28,10 +28,10 @@ import {
   MAINTENANCE_ECOMMERCE_PROCESS,
   MAINTENANCE_ECOMMERCE_STACK,
 } from '@/lib/constants/maintenance-ecommerce-page';
-import { getRecentWebCaseStudies } from '@/lib/sanity/fetch';
+import { getFeaturedCaseStudies } from '@/lib/sanity/fetch';
 
 export default async function MaintenanceEcommercePremiumPage() {
-  const caseStudies = await getRecentWebCaseStudies();
+const caseStudies = await getFeaturedCaseStudies();
   const casesIntro = (
     <p className="mt-4 text-sm text-white/55 md:text-base">
       {MAINTENANCE_ECOMMERCE_CASES.intro}{' '}

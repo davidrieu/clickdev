@@ -28,10 +28,10 @@ import {
   TMA_PROCESS,
   TMA_STACK,
 } from '@/lib/constants/tma-page';
-import { getRecentWebCaseStudies } from '@/lib/sanity/fetch';
+import { getFeaturedCaseStudies } from '@/lib/sanity/fetch';
 
 export default async function TmaPremiumPage() {
-  const caseStudies = await getRecentWebCaseStudies();
+const caseStudies = await getFeaturedCaseStudies();
   const casesIntro = (
     <p className="mt-4 text-sm text-white/55 md:text-base">
       {TMA_CASES.intro}{' '}

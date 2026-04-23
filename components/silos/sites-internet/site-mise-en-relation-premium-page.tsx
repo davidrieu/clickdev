@@ -28,13 +28,11 @@ import {
   SITE_MISE_EN_RELATION_PROCESS,
   SITE_MISE_EN_RELATION_STACK,
 } from '@/lib/constants/site-mise-en-relation-page';
-import { prioritizeMiseEnRelationCaseStudies } from '@/lib/content/site-mise-en-relation-cases';
-import { getRecentWebCaseStudies } from '@/lib/sanity/fetch';
+import { getFeaturedCaseStudies } from '@/lib/sanity/fetch';
 
 /** Page fille premium `/sites-internet/site-mise-en-relation`. */
 export default async function SiteMiseEnRelationPremiumPage() {
-  const raw = await getRecentWebCaseStudies();
-  const caseStudies = prioritizeMiseEnRelationCaseStudies(raw);
+  const caseStudies = await getFeaturedCaseStudies();
 
   const casesIntro = (
     <p className="mt-4 text-sm text-white/55 md:text-base">

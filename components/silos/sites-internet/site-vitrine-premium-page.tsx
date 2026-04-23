@@ -28,12 +28,10 @@ import {
   SITE_VITRINE_PROCESS,
   SITE_VITRINE_STACK,
 } from '@/lib/constants/site-vitrine-page';
-import { prioritizeVitrineCaseStudies } from '@/lib/content/site-vitrine-cases';
-import { getRecentWebCaseStudies } from '@/lib/sanity/fetch';
+import { getFeaturedCaseStudies } from '@/lib/sanity/fetch';
 
 export default async function SiteVitrinePremiumPage() {
-  const raw = await getRecentWebCaseStudies();
-  const caseStudies = prioritizeVitrineCaseStudies(raw);
+  const caseStudies = await getFeaturedCaseStudies();
 
   const casesIntro = (
     <p className="mt-4 text-sm text-white/55 md:text-base">

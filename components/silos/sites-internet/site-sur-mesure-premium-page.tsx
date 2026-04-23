@@ -28,13 +28,11 @@ import {
   SITE_SUR_MESURE_PROCESS,
   SITE_SUR_MESURE_STACK,
 } from '@/lib/constants/site-sur-mesure-page';
-import { prioritizeSiteSurMesureCaseStudies } from '@/lib/content/site-sur-mesure-cases';
-import { getRecentWebCaseStudies } from '@/lib/sanity/fetch';
+import { getFeaturedCaseStudies } from '@/lib/sanity/fetch';
 
 /** Page fille premium `/sites-internet/site-sur-mesure`. */
 export default async function SiteSurMesurePremiumPage() {
-  const raw = await getRecentWebCaseStudies();
-  const caseStudies = prioritizeSiteSurMesureCaseStudies(raw);
+  const caseStudies = await getFeaturedCaseStudies();
 
   const casesIntro = (
     <p className="mt-4 text-sm text-white/55 md:text-base">

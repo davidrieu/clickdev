@@ -29,12 +29,10 @@ import {
   IA_PILLAR_PROCESS,
   IA_PILLAR_STACK,
 } from '@/lib/constants/ia-pillar-premium';
-import { prioritizeIaPillarCaseStudies } from '@/lib/content/ia-case-studies';
-import { getAllCaseStudyTeasers } from '@/lib/sanity/fetch';
+import { getFeaturedCaseStudies } from '@/lib/sanity/fetch';
 
 export default async function IaPillarPremiumPage() {
-  const allStudies = await getAllCaseStudyTeasers();
-  const caseStudies = prioritizeIaPillarCaseStudies(allStudies);
+  const caseStudies = await getFeaturedCaseStudies();
 
   const casesIntro = (
     <p className="mt-4 text-sm text-white/55 md:text-base">

@@ -28,12 +28,10 @@ import {
   REACT_NATIVE_APP_PROCESS,
   REACT_NATIVE_APP_STACK,
 } from '@/lib/constants/react-native-app-page';
-import { prioritizeMobileCaseStudies } from '@/lib/content/mobile-app-cases';
-import { getRecentMobileCaseStudies } from '@/lib/sanity/fetch';
+import { getFeaturedCaseStudies } from '@/lib/sanity/fetch';
 
 export default async function ReactNativePremiumPage() {
-  const raw = await getRecentMobileCaseStudies();
-  const caseStudies = prioritizeMobileCaseStudies(raw);
+  const caseStudies = await getFeaturedCaseStudies();
 
   const casesIntro = (
     <p className="mt-4 text-sm text-white/55 md:text-base">

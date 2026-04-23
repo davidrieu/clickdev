@@ -28,13 +28,11 @@ import {
   SITE_ECOMMERCE_PROCESS,
   SITE_ECOMMERCE_STACK,
 } from '@/lib/constants/site-ecommerce-page';
-import { prioritizeSiteEcommerceCaseStudies } from '@/lib/content/site-ecommerce-cases';
-import { getRecentWebCaseStudies } from '@/lib/sanity/fetch';
+import { getFeaturedCaseStudies } from '@/lib/sanity/fetch';
 
 /** Page fille premium `/sites-internet/site-ecommerce` — même ADN visuel que le pilier. */
 export default async function SiteEcommercePremiumPage() {
-  const raw = await getRecentWebCaseStudies();
-  const caseStudies = prioritizeSiteEcommerceCaseStudies(raw);
+  const caseStudies = await getFeaturedCaseStudies();
 
   const casesIntro = (
     <p className="mt-4 text-sm text-white/55 md:text-base">

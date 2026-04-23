@@ -17,9 +17,9 @@ type PortfolioGridItem =
 
 function buildPortfolioGridItems(teasers: SanityCaseStudyTeaser[]): PortfolioGridItem[] {
   if (teasers.length > 0) {
-    return teasers.slice(0, 6).map((data) => ({ kind: 'sanity' as const, data }));
+    return teasers.slice(0, 5).map((data) => ({ kind: 'sanity' as const, data }));
   }
-  return Array.from({ length: 6 }, (_, i) => ({
+  return Array.from({ length: 5 }, (_, i) => ({
     kind: 'static' as const,
     data: HOME_CASE_PREVIEWS[i % HOME_CASE_PREVIEWS.length],
     index: i,

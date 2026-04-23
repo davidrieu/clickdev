@@ -28,12 +28,10 @@ import {
   IA_GENERATIVE_ECOMMERCE_PROCESS,
   IA_GENERATIVE_ECOMMERCE_STACK,
 } from '@/lib/constants/ia-generative-ecommerce-page';
-import { prioritizeIaEcommerceCaseStudies } from '@/lib/content/ia-ecommerce-cases';
-import { getAllCaseStudyTeasers } from '@/lib/sanity/fetch';
+import { getFeaturedCaseStudies } from '@/lib/sanity/fetch';
 
 export default async function IaGenerativeEcommercePremiumPage() {
-  const raw = await getAllCaseStudyTeasers();
-  const caseStudies = prioritizeIaEcommerceCaseStudies(raw);
+  const caseStudies = await getFeaturedCaseStudies();
 
   const casesIntro = (
     <p className="mt-4 text-sm text-white/55 md:text-base">

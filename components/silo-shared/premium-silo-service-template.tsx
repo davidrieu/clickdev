@@ -15,8 +15,7 @@ import {
   SiteEcommerceProcessSection,
   SiteEcommerceStackSection,
 } from '@/components/silos/sites-internet/site-ecommerce-blocks';
-import type { SanityCaseStudyTeaser } from '@/types/sanity-case-study';
-import { getAllCaseStudyTeasers } from '@/lib/sanity/fetch';
+import { getFeaturedCaseStudies } from '@/lib/sanity/fetch';
 
 type BreadcrumbItem = { label: string; href?: string };
 
@@ -77,12 +76,10 @@ export type PremiumSiloServiceTemplateProps = {
   finalCta: FinalCta;
   /** Page pilier du silo (lien « Retour à … » dans le bloc stack). */
   stackPillar: { href: string; label: string };
-  caseStudiesPick: (studies: SanityCaseStudyTeaser[]) => SanityCaseStudyTeaser[];
 };
 
 export async function PremiumSiloServiceTemplate(props: PremiumSiloServiceTemplateProps) {
-  const raw = await getAllCaseStudyTeasers();
-  const caseStudies = props.caseStudiesPick(raw);
+  const caseStudies = await getFeaturedCaseStudies();
 
   const casesIntro = (
     <p className="mt-4 text-sm text-white/55 md:text-base">

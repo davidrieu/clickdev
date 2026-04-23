@@ -28,12 +28,10 @@ import {
   SITE_WORDPRESS_PROCESS,
   SITE_WORDPRESS_STACK,
 } from '@/lib/constants/site-wordpress-page';
-import { prioritizeWordpressCaseStudies } from '@/lib/content/site-wordpress-cases';
-import { getRecentWebCaseStudies } from '@/lib/sanity/fetch';
+import { getFeaturedCaseStudies } from '@/lib/sanity/fetch';
 
 export default async function SiteWordpressPremiumPage() {
-  const raw = await getRecentWebCaseStudies();
-  const caseStudies = prioritizeWordpressCaseStudies(raw);
+  const caseStudies = await getFeaturedCaseStudies();
 
   const casesIntro = (
     <p className="mt-4 text-sm text-white/55 md:text-base">
