@@ -6,7 +6,6 @@ import { PremiumFinalCta } from '@/components/silos/sites-internet/premium-final
 import { PremiumCases } from '@/components/silos/sites-internet/premium-cases';
 import { PremiumSitesChildBreadcrumb } from '@/components/silos/sites-internet/premium-sites-child-breadcrumb';
 import { PremiumSitesChildHero } from '@/components/silos/sites-internet/premium-sites-child-hero';
-import { PremiumSitesTestimonials } from '@/components/silos/sites-internet/premium-sites-testimonials';
 import { PremiumSitesTrustMarquee } from '@/components/silos/sites-internet/premium-sites-trust-marquee';
 import {
   SiteEcommerceAudienceSection,
@@ -106,7 +105,6 @@ export default async function PwaPremiumPage() {
         title={PWA_APP_CASES.title}
         intro={casesIntro}
       />
-      <PremiumSitesTestimonials />
       <SiteEcommerceFaqSection
         kicker={PWA_APP_FAQ.kicker}
         title={PWA_APP_FAQ.title}

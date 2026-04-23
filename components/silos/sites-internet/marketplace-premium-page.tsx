@@ -6,7 +6,6 @@ import { PremiumFinalCta } from '@/components/silos/sites-internet/premium-final
 import { PremiumCases } from '@/components/silos/sites-internet/premium-cases';
 import { PremiumSitesChildBreadcrumb } from '@/components/silos/sites-internet/premium-sites-child-breadcrumb';
 import { PremiumSitesChildHero } from '@/components/silos/sites-internet/premium-sites-child-hero';
-import { PremiumSitesTestimonials } from '@/components/silos/sites-internet/premium-sites-testimonials';
 import { PremiumSitesTrustMarquee } from '@/components/silos/sites-internet/premium-sites-trust-marquee';
 import {
   MARKETPLACE_AUDIENCE,
@@ -105,7 +104,6 @@ export default async function MarketplacePremiumPage() {
         title={MARKETPLACE_CASES.title}
         intro={casesIntro}
       />
-      <PremiumSitesTestimonials />
       <SiteEcommerceFaqSection
         kicker={MARKETPLACE_FAQ.kicker}
         title={MARKETPLACE_FAQ.title}

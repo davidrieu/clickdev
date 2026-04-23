@@ -15,7 +15,6 @@ import { MaintenanceHero } from './maintenance-hero';
 import { MaintenanceIntro } from './maintenance-intro';
 import { MaintenanceProcess } from './maintenance-process';
 import { MaintenanceStackMarquee } from './maintenance-stack-marquee';
-import { MaintenanceTestimonials } from './maintenance-testimonials';
 import { MaintenanceTrustMarquee } from './maintenance-trust-marquee';
 
 export default async function MaintenancePremiumPage() {
@@ -52,7 +51,6 @@ export default async function MaintenancePremiumPage() {
         title={MAINTENANCE_CASES_SECTION.title}
         intro={casesIntro}
       />
-      <MaintenanceTestimonials />
       <MaintenanceFaq />
       <PremiumFinalCta
         title="Prêt à cesser de jouer les héros du week-end sur la prod ?"

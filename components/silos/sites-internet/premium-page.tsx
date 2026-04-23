@@ -11,7 +11,6 @@ import { PremiumIntro } from './premium-intro';
 import { PremiumProcess } from './premium-process';
 import { PremiumSitesAudience } from './premium-sites-audience';
 import { PremiumSitesBreadcrumb } from './premium-sites-breadcrumb';
-import { PremiumSitesTestimonials } from './premium-sites-testimonials';
 import { PremiumSitesTrustMarquee } from './premium-sites-trust-marquee';
 import { PremiumStackMarquee } from './premium-stack-marquee';
 
@@ -32,7 +31,6 @@ export default async function SitesInternetPremiumPage() {
       <PremiumProcess />
       <PremiumStackMarquee />
       <PremiumCases caseStudies={caseStudies} />
-      <PremiumSitesTestimonials />
       <PremiumFaq />
       <PremiumFinalCta />
     </main>

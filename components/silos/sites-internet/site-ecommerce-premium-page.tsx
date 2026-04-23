@@ -2,7 +2,6 @@ import Link from 'next/link';
 
 import { PremiumFinalCta } from '@/components/silos/sites-internet/premium-final-cta';
 import { PremiumCases } from '@/components/silos/sites-internet/premium-cases';
-import { PremiumSitesTestimonials } from '@/components/silos/sites-internet/premium-sites-testimonials';
 import { PremiumSitesTrustMarquee } from '@/components/silos/sites-internet/premium-sites-trust-marquee';
 import { PremiumSitesChildBreadcrumb } from '@/components/silos/sites-internet/premium-sites-child-breadcrumb';
 import { PremiumChildEditorialShell } from '@/components/silos/sites-internet/premium-child-editorial-shell';
@@ -105,7 +104,6 @@ export default async function SiteEcommercePremiumPage() {
         title={SITE_ECOMMERCE_CASES.title}
         intro={casesIntro}
       />
-      <PremiumSitesTestimonials />
       <SiteEcommerceFaqSection
         kicker={SITE_ECOMMERCE_FAQ.kicker}
         title={SITE_ECOMMERCE_FAQ.title}

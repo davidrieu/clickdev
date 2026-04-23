@@ -5,7 +5,6 @@ import { PremiumFinalCta } from '@/components/silos/sites-internet/premium-final
 import { PremiumCases } from '@/components/silos/sites-internet/premium-cases';
 import { PremiumSitesChildBreadcrumb } from '@/components/silos/sites-internet/premium-sites-child-breadcrumb';
 import { PremiumSitesChildHero } from '@/components/silos/sites-internet/premium-sites-child-hero';
-import { PremiumSitesTestimonials } from '@/components/silos/sites-internet/premium-sites-testimonials';
 import { PremiumSitesTrustMarquee } from '@/components/silos/sites-internet/premium-sites-trust-marquee';
 import { SiteVitrineEditorialContent } from '@/components/silos/sites-internet/site-vitrine-editorial-content';
 import {
@@ -104,7 +103,6 @@ export default async function SiteVitrinePremiumPage() {
         title={SITE_VITRINE_CASES.title}
         intro={casesIntro}
       />
-      <PremiumSitesTestimonials />
       <SiteEcommerceFaqSection
         kicker={SITE_VITRINE_FAQ.kicker}
         title={SITE_VITRINE_FAQ.title}

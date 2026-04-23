@@ -5,7 +5,6 @@ import { PremiumFinalCta } from '@/components/silos/sites-internet/premium-final
 import { PremiumCases } from '@/components/silos/sites-internet/premium-cases';
 import { PremiumSitesChildBreadcrumb } from '@/components/silos/sites-internet/premium-sites-child-breadcrumb';
 import { PremiumSitesChildHero } from '@/components/silos/sites-internet/premium-sites-child-hero';
-import { PremiumSitesTestimonials } from '@/components/silos/sites-internet/premium-sites-testimonials';
 import { PremiumSitesTrustMarquee } from '@/components/silos/sites-internet/premium-sites-trust-marquee';
 import { LandingPageEditorialContent } from '@/components/silos/sites-internet/landing-page-editorial-content';
 import {
@@ -104,7 +103,6 @@ export default async function LandingPagePremiumPage() {
         title={LANDING_PAGE_CASES.title}
         intro={casesIntro}
       />
-      <PremiumSitesTestimonials />
       <SiteEcommerceFaqSection
         kicker={LANDING_PAGE_FAQ.kicker}
         title={LANDING_PAGE_FAQ.title}
