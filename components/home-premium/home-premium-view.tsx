@@ -537,12 +537,19 @@ function HpAbout() {
       <div className="relative z-10 mx-auto max-w-[1100px] px-4 md:px-8">
         <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
           <motion.div
-            className="aspect-[4/5] w-full max-w-md overflow-hidden rounded-2xl border border-white/[0.08] bg-gradient-to-br from-white/[0.08] to-white/[0.02] lg:mx-0"
+            className="relative aspect-[4/5] w-full max-w-md overflow-hidden rounded-2xl border border-white/[0.08] bg-neutral-900 lg:mx-0"
             initial={{ opacity: 0, scale: 0.98 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
-            aria-hidden
-          />
+          >
+            <Image
+              src="/assets/david-rieu.jpeg"
+              alt="David Rieu, développeur web freelance"
+              fill
+              className="object-cover"
+              sizes="(max-width: 1024px) 100vw, 50vw"
+            />
+          </motion.div>
           <div>
             <p className="font-mono text-[11px] tracking-[0.28em] text-white/45 uppercase">À propos</p>
             <h2 className="si-serif-display mt-3 text-[clamp(1.75rem,3.2vw,2.75rem)] font-medium tracking-[-0.02em] text-white">
