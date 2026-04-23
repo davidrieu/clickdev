@@ -26,6 +26,7 @@ import {
   HOME_TRUST_MARQUEE_NAMES,
 } from '@/lib/constants/home-content';
 import type { HomeCasePreview } from '@/lib/constants/home-content';
+import { SOCIAL_LINKS } from '@/lib/constants/site';
 import { formatDateFr } from '@/lib/format/date';
 import type { SanityCaseStudyTeaser } from '@/types/sanity-case-study';
 import type { SanityPostTeaser } from '@/types/sanity-post';
@@ -33,6 +34,22 @@ import { PlusIcon } from 'lucide-react';
 
 import { HpHero } from './hp-hero';
 import { PremiumSectionDivider } from './premium-section-divider';
+
+function HomeTestimonialFiveStars() {
+  return (
+    <span
+      className="mb-4 inline-flex gap-0.5 text-amber-300/90"
+      role="img"
+      aria-label="5 sur 5"
+    >
+      {Array.from({ length: 5 }, (_, i) => (
+        <svg key={i} className="size-3.5" viewBox="0 0 24 24" fill="currentColor" aria-hidden>
+          <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2Z" />
+        </svg>
+      ))}
+    </span>
+  );
+}
 
 function useAnimatedMetric(from: number, target: number, suffix = '', decimals = 0, enabled: boolean) {
   const [v, setV] = useState(from);
@@ -747,21 +764,30 @@ function HpAbout() {
         <div className="mt-10 grid gap-4 md:grid-cols-2 md:gap-5">
           {HOME_TESTIMONIALS.map((t, i) => (
             <motion.blockquote
-              key={`${t.name}-${i}`}
+              key={t.id}
               initial={{ opacity: 0, y: 14 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.05 }}
-              className="rounded-2xl border border-white/[0.08] bg-black/40 p-6"
+              className="flex flex-col rounded-2xl border border-white/[0.08] bg-black/40 p-6"
             >
-              <p className="text-sm leading-relaxed text-white/80 md:text-base">« {t.quote} »</p>
-              <footer className="mt-5 border-l-2 border-white/30 pl-4">
-                <cite className="not-italic text-sm font-medium text-white/90">{t.name}</cite>
-                <p className="mt-1 text-xs tracking-wider text-white/45 uppercase">{t.role}</p>
-              </footer>
+              <HomeTestimonialFiveStars />
+              <p className="whitespace-pre-line text-sm leading-relaxed text-white/80 md:text-base">
+                «{t.quote}»
+              </p>
             </motion.blockquote>
           ))}
         </div>
+        <p className="mt-8 text-center text-[11px] text-white/38">
+          <a
+            href={SOCIAL_LINKS.codeur}
+            rel="me noopener noreferrer"
+            target="_blank"
+            className="text-white/45 underline-offset-2 transition-none hover:text-white/45"
+          >
+            Voir sur Codeur.com
+          </a>
+        </p>
       </div>
     </section>
   );

@@ -202,35 +202,59 @@ export const HOME_FAQ_ITEMS: HomeFaqItem[] = [
 ];
 
 export type HomeTestimonial = {
+  id: string;
   quote: string;
-  name: string;
-  role: string;
 };
 
+/** Témoignages issus d’évaluations Codeur (identités non affichées). */
 export const HOME_TESTIMONIALS: HomeTestimonial[] = [
   {
-    quote:
-      'David a su parler notre langue à l’équipe marketing, pas seulement la tech. Le site livré est clair, et on peut le faire évoluer sans galère.',
-    name: 'Claire V.',
-    role: 'Responsable marketing — grand groupe retail',
+    id: 'codeur-presta-switch',
+    quote: `David m'a littéralement sauvé la vie !
+
+Après avoir travaillé 6 mois avec une dev peu compétente, j'ai dû me résoudre à changer de prestataire car mon site n'avançait pas. Cela a mis en péril mon projet.
+J'ai fait appel à David, traumatisée par ma première expérience, il m'a rassuré et m'a accompagné sur le projet. Il m'a fait mon site en 2 semaines en respectant bien les templates de ma DA et en me faisant des suggestions pour améliorer l'UX.
+En plus d'être rapide, il est super disponible et très pro. Et contrairement à d'autres devs, il s'occupe d'un client à la fois pour lui consacrer 100% de son temps.
+Je le recommande vivement et ferai appel à lui les yeux fermés sur mes prochains projets.
+Pour info, il a travaillé pour un site ecommerce sur Prestashop qui est maintenant clean et utilisable.
+Merci encore David !`,
   },
   {
+    id: 'codeur-ecoute',
     quote:
-      'Enfin un interlocuteur qui dit les choses cash : budget, délais, ce qui est possible ou pas. Aujourd’hui notre boutique en ligne est plus rapide, et nos clients le sentent.',
-    name: 'Marc D.',
-    role: 'Dirigeant — PME commerce',
+      "David est à l'écoute, compréhensif et sait contourner les difficultés. Excellente communication, disponible. Je recommande",
   },
   {
+    id: 'codeur-creativite',
     quote:
-      'Je ne connaissais rien au web. Il a tout expliqué patiemment, et aujourd’hui je mets à jour mes fiches produits toute seule.',
-    name: 'Julie M.',
-    role: 'Artisan d’art — boutique en ligne',
+      "Je suis très satisfait du travail réalisé par David qui a été force de proposition et a fait preuve de créativité. J'envisage de faire à nouveau appel à lui pour le référencement du site et le développement d'un deuxième site Internet.",
   },
   {
-    quote:
-      'Budget serré, projet un peu atypique pour une asso. Il a trouvé des solutions simples, et la doc pour la suite était claire pour nos bénévoles.',
-    name: 'Thomas R.',
-    role: 'Bénévole — association culturelle',
+    id: 'codeur-rapide-comm',
+    quote: 'Merci David ! Travail rapide, soigné, et excellente communication.',
+  },
+  {
+    id: 'codeur-besoin',
+    quote: 'David a répondu au besoin souhaité sans soucis',
+  },
+  {
+    id: 'codeur-restart',
+    quote: `Après une mauvaise expérience avec une équipe de dev, j'ai échangé avec David pour reprendre le peu déjà fait et terminer.
+Comprenant parfaitement mes enjeux et mon projet, David m'a conseillé de repartir de zéro en m'expliquant pourquoi, notamment pour les prochaines évolutions souhaitées. Tout au long du projet, il m'a fait des suggestions très pertinentes.
+En 2 semaines, j'ai un site opérationnel, je suis formée et peux modifier une grande partie des éléments à ma guise.
+Le tout en respectant mon budget et en étant toujours dispo ! Merci !`,
+  },
+  {
+    id: 'codeur-precision',
+    quote: `David a su donner vie au projet que j'avais en tête avec une grande précision. Il a été disponible tout au long de la création du site et n'a pas hésité à échanger fréquemment pour s'assurer que chaque étape avançait dans la bonne direction. Grâce à son expertise, la création du site a été rapide et efficace, et le tarif proposé est très compétitif. Je recommande vivement ses services pour tout projet de création de site internet.`,
+  },
+  {
+    id: 'codeur-pro',
+    quote: `David a pris en charge le développement de mon site internet avec un niveau de professionnalisme et d'attention aux détails exceptionnel. Il possède une expertise approfondie dans son domaine et a su répondre à mes besoins, en étant toujours à l'écoute et disponible pour ajuster et améliorer le projet. David m'a également guidé vers les meilleures technologies et solutions adaptées à ma situation, ce qui a considérablement optimisé la performance de mon site. Son approche proactive et son engagement à fournir un travail de qualité m'ont pleinement satisfait. Je retravaillerais avec plaisir.`,
+  },
+  {
+    id: 'codeur-recomm',
+    quote: `Je recommande David les yeux fermés à n'importe quel entrepreneur ou personne qui souhaite avoir un site web propre, efficace, simple à utiliser. Après de nombreuses difficultés à trouver quelqu'un de compétent et professionnel, nous avons (enfin !) rencontré David ! Tout de suite il nous a mis à l'aise, chose qui n'était pas facile après nos deux dernières expériences avec des dev freelances... Il a été très à l'écoute de nos demandes et nous faisait de super propositions pour optimiser notre site. En bref, c'est une personne très agréable que je recommande vivement !`,
   },
 ];
 
