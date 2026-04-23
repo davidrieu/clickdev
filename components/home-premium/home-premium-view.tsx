@@ -543,7 +543,7 @@ function HpAbout() {
             viewport={{ once: true }}
           >
             <Image
-              src="/assets/david-rieu.jpeg"
+              src="/assets/david-rieu.jpg"
               alt="David Rieu, développeur web freelance"
               fill
               className="object-cover"
