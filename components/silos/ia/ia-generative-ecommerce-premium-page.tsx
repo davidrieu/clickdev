@@ -59,6 +59,7 @@ export default async function IaGenerativeEcommercePremiumPage() {
         lead={IA_GENERATIVE_ECOMMERCE_HERO.lead}
         primaryCta={IA_GENERATIVE_ECOMMERCE_HERO.primaryCta}
         secondaryCta={IA_GENERATIVE_ECOMMERCE_HERO.secondaryCta}
+        mockupId="ia"
       />
       <PremiumSitesTrustMarquee />
       <SiteEcommerceBenefitsSection

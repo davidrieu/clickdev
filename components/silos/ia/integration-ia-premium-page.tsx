@@ -55,6 +55,7 @@ export default async function IntegrationIaPremiumPage() {
         lead={INTEGRATION_IA_HERO.lead}
         primaryCta={INTEGRATION_IA_HERO.primaryCta}
         secondaryCta={INTEGRATION_IA_HERO.secondaryCta}
+        mockupId="ia"
       />
       <PremiumSitesTrustMarquee />
       <SiteEcommerceBenefitsSection

@@ -59,6 +59,7 @@ export default async function AndroidPremiumPage() {
         lead={ANDROID_APP_HERO.lead}
         primaryCta={ANDROID_APP_HERO.primaryCta}
         secondaryCta={ANDROID_APP_HERO.secondaryCta}
+        mockupId="applications-mobiles"
       />
       <PremiumSitesTrustMarquee />
       <SiteEcommerceBenefitsSection

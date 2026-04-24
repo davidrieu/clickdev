@@ -54,6 +54,7 @@ export default async function SeoPillarPremiumPage() {
         lead={SEO_PILLAR_HERO.lead}
         primaryCta={SEO_PILLAR_HERO.primaryCta}
         secondaryCta={SEO_PILLAR_HERO.secondaryCta}
+        mockupId="seo"
       />
       <PremiumSitesTrustMarquee />
       <SiteEcommerceBenefitsSection

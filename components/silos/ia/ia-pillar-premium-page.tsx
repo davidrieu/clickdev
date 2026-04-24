@@ -54,6 +54,7 @@ export default async function IaPillarPremiumPage() {
         lead={IA_PILLAR_HERO.lead}
         primaryCta={IA_PILLAR_HERO.primaryCta}
         secondaryCta={IA_PILLAR_HERO.secondaryCta}
+        mockupId="ia"
       />
       <PremiumSitesTrustMarquee />
       <SiteEcommerceBenefitsSection

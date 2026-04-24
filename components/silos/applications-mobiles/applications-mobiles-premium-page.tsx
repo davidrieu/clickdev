@@ -55,6 +55,7 @@ export default async function ApplicationsMobilesPremiumPage() {
         lead={APPLICATIONS_MOBILES_PILLAR_HERO.lead}
         primaryCta={APPLICATIONS_MOBILES_PILLAR_HERO.primaryCta}
         secondaryCta={APPLICATIONS_MOBILES_PILLAR_HERO.secondaryCta}
+        mockupId="applications-mobiles"
       />
       <PremiumSitesTrustMarquee />
       <SiteEcommerceBenefitsSection

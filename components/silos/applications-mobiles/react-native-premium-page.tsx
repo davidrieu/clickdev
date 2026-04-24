@@ -59,6 +59,7 @@ export default async function ReactNativePremiumPage() {
         lead={REACT_NATIVE_APP_HERO.lead}
         primaryCta={REACT_NATIVE_APP_HERO.primaryCta}
         secondaryCta={REACT_NATIVE_APP_HERO.secondaryCta}
+        mockupId="applications-mobiles"
       />
       <PremiumSitesTrustMarquee />
       <SiteEcommerceBenefitsSection

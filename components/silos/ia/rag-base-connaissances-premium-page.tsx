@@ -59,6 +59,7 @@ export default async function RagBaseConnaissancesPremiumPage() {
         lead={RAG_BASE_CONNAISSANCES_HERO.lead}
         primaryCta={RAG_BASE_CONNAISSANCES_HERO.primaryCta}
         secondaryCta={RAG_BASE_CONNAISSANCES_HERO.secondaryCta}
+        mockupId="ia"
       />
       <PremiumSitesTrustMarquee />
       <SiteEcommerceBenefitsSection

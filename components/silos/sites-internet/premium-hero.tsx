@@ -3,6 +3,8 @@
 import Link from 'next/link';
 import { motion } from 'framer-motion';
 
+import { HeroSiloMockup } from '@/components/silos/hero/hero-silo-mockup';
+
 import { StellarField, useSectionStellarPointer } from './stellar-field';
 
 const lineDraw = {
@@ -99,7 +101,7 @@ export function PremiumHero() {
         </div>
 
         <div className="relative flex min-h-[280px] items-center justify-center md:col-span-6 md:min-h-[min(420px,52vh)] md:justify-end md:pl-2 lg:pl-4">
-          <HeroSiteBuildWireframe />
+          <HeroSiloMockup id="sites-internet" />
         </div>
       </div>
 
@@ -107,73 +109,7 @@ export function PremiumHero() {
   );
 }
 
-/**
- * Wireframe animé (CSS pur) : le site se construit bloc par bloc puis repart — boucle 8s.
- * @see globals.css .si-hero-wire-*
- */
+/** Rétrocompat. — préférer le composant HeroSiloMockup. */
 export function HeroSiteBuildWireframe() {
-  return (
-    <div
-      className="relative mx-auto w-full max-w-lg md:mx-0 md:ml-auto md:mr-0 md:max-w-md lg:max-w-lg"
-      style={{ perspective: '1200px' }}
-    >
-      <motion.div
-        className="origin-center"
-        initial={{ opacity: 0, y: 28 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.2, duration: 0.65, ease: [0.22, 1, 0.36, 1] }}
-      >
-        <div className="rounded-xl border border-white/[0.12] bg-gradient-to-br from-white/[0.08] to-white/[0.02] p-3 shadow-[0_28px_90px_-28px_rgba(0,0,0,0.9)] md:[transform:rotateY(-14deg)_rotateX(5deg)_rotateZ(-2deg)] md:[transform-origin:right_center]">
-          <div className="mb-3 flex items-center gap-2 border-b border-white/[0.08] pb-3">
-            <span className="size-2 rounded-full bg-white/25" aria-hidden />
-            <span className="size-2 rounded-full bg-white/15" aria-hidden />
-            <span className="size-2 rounded-full bg-white/10" aria-hidden />
-            <div className="ml-2 h-2 flex-1 max-w-[180px] rounded-full bg-white/[0.08]" aria-hidden />
-          </div>
-
-          <div className="space-y-3 rounded-lg border border-dashed border-white/[0.1] bg-black/35 p-4" aria-hidden>
-            <div className="si-hero-wire-header flex items-center justify-between gap-3 rounded border border-white/15 bg-white/[0.04] px-3 py-2.5">
-              <div className="h-2.5 w-16 rounded-sm bg-white/25" />
-              <div className="flex gap-2">
-                <div className="h-1.5 w-8 rounded-full bg-white/15" />
-                <div className="h-1.5 w-8 rounded-full bg-white/15" />
-                <div className="h-1.5 w-8 rounded-full bg-white/15" />
-              </div>
-            </div>
-
-            <div className="si-hero-wire-hero space-y-2 rounded border border-white/12 bg-white/[0.03] p-3">
-              <div className="h-3 w-[62%] max-w-[220px] rounded-sm bg-white/20" />
-              <div className="h-2 w-full max-w-[280px] rounded-full bg-white/12" />
-              <div className="h-2 w-[80%] max-w-[240px] rounded-full bg-white/10" />
-              <div className="mt-2 h-20 w-full rounded-md border border-white/[0.08] bg-gradient-to-br from-white/[0.06] to-transparent" />
-            </div>
-
-            <div className="si-hero-wire-section space-y-2">
-              <div className="si-hero-wire-line h-1.5 w-full rounded-full bg-white/12" />
-              <div className="si-hero-wire-line-d1 h-1.5 w-[92%] rounded-full bg-white/10" />
-              <div className="si-hero-wire-line-d2 h-1.5 w-[78%] rounded-full bg-white/10" />
-            </div>
-
-            <div className="si-hero-wire-columns grid grid-cols-2 gap-2">
-              <div className="h-20 rounded-md border border-white/12 bg-white/[0.04]" />
-              <div className="h-20 rounded-md border border-white/12 bg-white/[0.04]" />
-            </div>
-
-            <div className="si-hero-wire-footer flex items-center justify-between gap-2 rounded border border-white/10 bg-white/[0.03] px-3 py-2.5">
-              <div className="h-1.5 w-20 rounded-full bg-white/12" />
-              <div className="flex gap-1.5">
-                <div className="size-1.5 rounded-full bg-white/20" />
-                <div className="size-1.5 rounded-full bg-white/20" />
-                <div className="size-1.5 rounded-full bg-white/20" />
-              </div>
-            </div>
-          </div>
-
-          <p className="mt-3 text-center font-mono text-[9px] tracking-[0.2em] text-white/30 uppercase">
-            build — preview — ship
-          </p>
-        </div>
-      </motion.div>
-    </div>
-  );
+  return <HeroSiloMockup id="sites-internet" />;
 }

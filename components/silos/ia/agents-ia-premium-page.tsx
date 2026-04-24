@@ -55,6 +55,7 @@ export default async function AgentsIaPremiumPage() {
         lead={AGENTS_IA_HERO.lead}
         primaryCta={AGENTS_IA_HERO.primaryCta}
         secondaryCta={AGENTS_IA_HERO.secondaryCta}
+        mockupId="ia"
       />
       <PremiumSitesTrustMarquee />
       <SiteEcommerceBenefitsSection

@@ -3,7 +3,7 @@
 import Link from 'next/link';
 import { motion } from 'framer-motion';
 
-import { HeroSiteBuildWireframe } from '@/components/silos/sites-internet/premium-hero';
+import { HeroSiloMockup } from '@/components/silos/hero/hero-silo-mockup';
 import { StellarField, useSectionStellarPointer } from '@/components/silos/sites-internet/stellar-field';
 import { SOCIAL_LINKS } from '@/lib/constants/site';
 
@@ -127,7 +127,7 @@ export function HpHero() {
         </div>
 
         <div className="relative flex min-h-[260px] items-center justify-center md:col-span-6 md:min-h-[min(400px,50vh)] md:justify-end md:pl-2 lg:pl-4">
-          <HeroSiteBuildWireframe />
+          <HeroSiloMockup id="sites-internet" />
         </div>
       </div>
     </section>

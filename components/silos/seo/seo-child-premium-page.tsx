@@ -25,6 +25,7 @@ export async function SeoChildPremiumPage({ slug }: { slug: SeoPremiumSlug }) {
       faqItems={c.faqItems}
       finalCta={c.finalCta}
       stackPillar={{ href: '/seo', label: 'SEO' }}
+      heroMockupId="seo"
     />
   );
 }

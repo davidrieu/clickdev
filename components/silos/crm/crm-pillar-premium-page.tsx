@@ -54,6 +54,7 @@ export default async function CrmPillarPremiumPage() {
         lead={CRM_PILLAR_HERO.lead}
         primaryCta={CRM_PILLAR_HERO.primaryCta}
         secondaryCta={CRM_PILLAR_HERO.secondaryCta}
+        mockupId="crm-outils-metiers"
       />
       <PremiumSitesTrustMarquee />
       <SiteEcommerceBenefitsSection

@@ -25,6 +25,7 @@ export async function CrmChildPremiumPage({ slug }: { slug: CrmPremiumSlug }) {
       faqItems={c.faqItems}
       finalCta={c.finalCta}
       stackPillar={{ href: '/crm-outils-metiers', label: 'CRM & outils métiers' }}
+      heroMockupId="crm-outils-metiers"
     />
   );
 }

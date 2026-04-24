@@ -59,6 +59,7 @@ export default async function IosPremiumPage() {
         lead={IOS_APP_HERO.lead}
         primaryCta={IOS_APP_HERO.primaryCta}
         secondaryCta={IOS_APP_HERO.secondaryCta}
+        mockupId="applications-mobiles"
       />
       <PremiumSitesTrustMarquee />
       <SiteEcommerceBenefitsSection

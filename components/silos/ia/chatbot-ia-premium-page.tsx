@@ -55,6 +55,7 @@ export default async function ChatbotIaPremiumPage() {
         lead={CHATBOT_IA_HERO.lead}
         primaryCta={CHATBOT_IA_HERO.primaryCta}
         secondaryCta={CHATBOT_IA_HERO.secondaryCta}
+        mockupId="ia"
       />
       <PremiumSitesTrustMarquee />
       <SiteEcommerceBenefitsSection

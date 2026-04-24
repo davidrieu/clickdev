@@ -58,6 +58,7 @@ const caseStudies = await getFeaturedCaseStudies();
         lead={MAINTENANCE_ECOMMERCE_HERO.lead}
         primaryCta={MAINTENANCE_ECOMMERCE_HERO.primaryCta}
         secondaryCta={MAINTENANCE_ECOMMERCE_HERO.secondaryCta}
+        mockupId="maintenance"
       />
       <PremiumSitesTrustMarquee />
       <SiteEcommerceBenefitsSection

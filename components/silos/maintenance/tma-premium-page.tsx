@@ -58,6 +58,7 @@ const caseStudies = await getFeaturedCaseStudies();
         lead={TMA_HERO.lead}
         primaryCta={TMA_HERO.primaryCta}
         secondaryCta={TMA_HERO.secondaryCta}
+        mockupId="maintenance"
       />
       <PremiumSitesTrustMarquee />
       <SiteEcommerceBenefitsSection

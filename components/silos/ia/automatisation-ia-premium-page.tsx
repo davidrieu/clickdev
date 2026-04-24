@@ -55,6 +55,7 @@ export default async function AutomatisationIaPremiumPage() {
         lead={AUTOMATISATION_IA_HERO.lead}
         primaryCta={AUTOMATISATION_IA_HERO.primaryCta}
         secondaryCta={AUTOMATISATION_IA_HERO.secondaryCta}
+        mockupId="ia"
       />
       <PremiumSitesTrustMarquee />
       <SiteEcommerceBenefitsSection

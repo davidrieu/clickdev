@@ -59,6 +59,7 @@ export default async function PwaPremiumPage() {
         lead={PWA_APP_HERO.lead}
         primaryCta={PWA_APP_HERO.primaryCta}
         secondaryCta={PWA_APP_HERO.secondaryCta}
+        mockupId="applications-mobiles"
       />
       <PremiumSitesTrustMarquee />
       <SiteEcommerceBenefitsSection

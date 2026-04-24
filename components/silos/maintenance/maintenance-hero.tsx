@@ -3,7 +3,7 @@
 import Link from 'next/link';
 import { motion } from 'framer-motion';
 
-import { HeroSiteBuildWireframe } from '@/components/silos/sites-internet/premium-hero';
+import { HeroSiloMockup } from '@/components/silos/hero/hero-silo-mockup';
 import { StellarField, useSectionStellarPointer } from '@/components/silos/sites-internet/stellar-field';
 
 const lineDraw = {
@@ -100,7 +100,7 @@ export function MaintenanceHero() {
         </div>
 
         <div className="relative flex min-h-[280px] items-center justify-center md:col-span-6 md:min-h-[min(420px,52vh)] md:justify-end md:pl-2 lg:pl-4">
-          <HeroSiteBuildWireframe />
+          <HeroSiloMockup id="maintenance" />
         </div>
       </div>
     </section>

@@ -3,7 +3,7 @@
 import Link from 'next/link';
 import { motion } from 'framer-motion';
 
-import { HeroSiteBuildWireframe } from '@/components/silos/sites-internet/premium-hero';
+import { HeroSiloMockup, type HeroSiloMockupId } from '@/components/silos/hero/hero-silo-mockup';
 import { StellarField, useSectionStellarPointer } from '@/components/silos/sites-internet/stellar-field';
 
 const lineDraw = {
@@ -18,9 +18,11 @@ type Props = {
   lead: string;
   primaryCta: { href: string; label: string };
   secondaryCta: { href: string; label: string };
+  /** Aperçu visuel (wireframe) aligné sur le thème du service : pilier, pages filles, etc. */
+  mockupId?: HeroSiloMockupId;
 };
 
-/** Hero pages filles silo Sites internet — même structure que le pilier. */
+/** Hero piliers et filles (layout commun) : maquette à droite selon `mockupId`. */
 export function PremiumSitesChildHero({
   chapter,
   subline,
@@ -28,6 +30,7 @@ export function PremiumSitesChildHero({
   lead,
   primaryCta,
   secondaryCta,
+  mockupId = 'sites-internet',
 }: Props) {
   const { pointer, onPointerMoveCapture, onPointerLeave } = useSectionStellarPointer();
 
@@ -113,7 +116,7 @@ export function PremiumSitesChildHero({
         </div>
 
         <div className="relative flex min-h-[280px] items-center justify-center md:col-span-6 md:min-h-[min(420px,52vh)] md:justify-end md:pl-2 lg:pl-4">
-          <HeroSiteBuildWireframe />
+          <HeroSiloMockup id={mockupId} />
         </div>
       </div>
     </section>

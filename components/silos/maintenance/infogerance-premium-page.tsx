@@ -58,6 +58,7 @@ const caseStudies = await getFeaturedCaseStudies();
         lead={INFOGERANCE_HERO.lead}
         primaryCta={INFOGERANCE_HERO.primaryCta}
         secondaryCta={INFOGERANCE_HERO.secondaryCta}
+        mockupId="maintenance"
       />
       <PremiumSitesTrustMarquee />
       <SiteEcommerceBenefitsSection

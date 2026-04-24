@@ -5,6 +5,7 @@ import { PremiumChildEditorialShell } from '@/components/silos/sites-internet/pr
 import { PremiumFinalCta } from '@/components/silos/sites-internet/premium-final-cta';
 import { PremiumCases } from '@/components/silos/sites-internet/premium-cases';
 import { PremiumSitesChildBreadcrumb } from '@/components/silos/sites-internet/premium-sites-child-breadcrumb';
+import type { HeroSiloMockupId } from '@/components/silos/hero/hero-silo-mockup';
 import { PremiumSitesChildHero } from '@/components/silos/sites-internet/premium-sites-child-hero';
 import { PremiumSitesTrustMarquee } from '@/components/silos/sites-internet/premium-sites-trust-marquee';
 import {
@@ -76,6 +77,8 @@ export type PremiumSiloServiceTemplateProps = {
   finalCta: FinalCta;
   /** Page pilier du silo (lien « Retour à … » dans le bloc stack). */
   stackPillar: { href: string; label: string };
+  /** Aperçu visuel du hero (wireframe) aligné sur le silo. */
+  heroMockupId: HeroSiloMockupId;
 };
 
 export async function PremiumSiloServiceTemplate(props: PremiumSiloServiceTemplateProps) {
@@ -101,6 +104,7 @@ export async function PremiumSiloServiceTemplate(props: PremiumSiloServiceTempla
         lead={props.hero.lead}
         primaryCta={props.hero.primaryCta}
         secondaryCta={props.hero.secondaryCta}
+        mockupId={props.heroMockupId}
       />
       <PremiumSitesTrustMarquee />
       <SiteEcommerceBenefitsSection

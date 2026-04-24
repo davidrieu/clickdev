@@ -58,6 +58,7 @@ const caseStudies = await getFeaturedCaseStudies();
         lead={MAINTENANCE_WORDPRESS_HERO.lead}
         primaryCta={MAINTENANCE_WORDPRESS_HERO.primaryCta}
         secondaryCta={MAINTENANCE_WORDPRESS_HERO.secondaryCta}
+        mockupId="maintenance"
       />
       <PremiumSitesTrustMarquee />
       <SiteEcommerceBenefitsSection
