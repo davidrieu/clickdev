@@ -6,6 +6,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from '@/components/ui/accordion';
+import { NavStellarCta } from '@/components/nav-stellar-cta';
 import { NAV_FIRST_LINK, NAV_FLAT_LINKS, NAV_PRIMARY_SILOS, NAV_SILOS } from '@/lib/constants/sitemap';
 import { SITE_URL } from '@/lib/constants/site';
 import { cn } from '@/lib/utils';
@@ -39,7 +40,6 @@ export default function Navbar() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Empêche le scroll de fond (iOS / Android) quand le tiroir est ouvert
   useEffect(() => {
     if (!isOpen) {
       return;
@@ -113,118 +113,138 @@ export default function Navbar() {
     : { type: 'spring' as const, stiffness: 400, damping: 38, mass: 0.6 };
   const fadeTransition = { duration: reduceMotion ? 0.12 : 0.2 };
 
+  const barShell = cn(
+    'flex w-full min-w-0 max-w-full flex-wrap items-center justify-between gap-2.5 overflow-visible pl-1 pr-1.5 sm:gap-3 sm:pl-1.5 sm:pr-2.5',
+    'min-h-[3.5rem] sm:min-h-14'
+  );
+
+  const barSurface = cn(
+    'w-full overflow-visible rounded-3xl border border-white/12',
+    'bg-[oklch(0.09_0_0/0.7)]',
+    'shadow-[0_0_0_1px_rgba(255,255,255,0.04),inset_0_1px_0_0_rgba(255,255,255,0.06)]',
+    'backdrop-blur-2xl [backdrop-saturate:1.2]',
+    isScrolled
+      ? 'bg-[oklch(0.1_0_0/0.86)] shadow-[0_4px_48px_-12px_rgba(0,0,0,0.65),0_0_0_1px_rgba(255,255,255,0.05)]'
+      : null
+  );
+
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLd }} />
-      <header className="sticky top-0 z-50 w-full">
+      <header className="sticky top-0 z-50 w-full min-w-0">
         <nav
-          aria-label="Navigation principale"
           className={cn(
-            'w-full border-b border-transparent transition-[background,border-color,box-shadow,backdrop-filter] duration-300',
-            'pt-[env(safe-area-inset-top,0px)]',
-            isScrolled
-              ? 'border-white/[0.09] bg-[oklch(0.1_0_0/0.75)] shadow-[0_1px_0_0_rgba(255,255,255,0.05),0_12px_40px_-12px_rgba(0,0,0,0.6)] backdrop-blur-2xl'
-              : 'bg-gradient-to-b from-black/85 to-transparent pb-px backdrop-blur-sm'
+            'si-shell-1400 pb-2.5',
+            'pt-[max(0.65rem,env(safe-area-inset-top,0px))] sm:pb-3'
           )}
+          aria-label="Navigation principale"
         >
-          <div className="si-shell-1400 flex h-[3.5rem] min-h-[3.5rem] w-full min-w-0 max-w-full items-center justify-between gap-3 sm:h-16 sm:min-h-16">
-            <Link href="/" className="group relative shrink-0" onClick={closeMenu}>
-              <Image
-                src="/assets/logo-clickdev.png"
-                alt="Clickdev"
-                className="h-8 max-h-9 w-auto max-w-[min(200px,48vw)] object-contain object-left transition [transition-duration:200ms] group-hover:opacity-90"
-                width={1024}
-                height={276}
-                priority
-              />
-            </Link>
+          <div className={barSurface}>
+            <div className={barShell}>
+              <Link href="/" className="group relative shrink-0" onClick={closeMenu}>
+                <Image
+                  src="/assets/logo-clickdev.png"
+                  alt="Clickdev"
+                  className="h-7 max-h-9 w-auto max-w-[min(200px,52vw)] object-contain object-left [transition:opacity_200ms_ease] group-hover:opacity-90 sm:h-8"
+                  width={1024}
+                  height={276}
+                  priority
+                />
+              </Link>
 
-            <div className="hidden min-w-0 items-center gap-2.5 xl:flex">
-              <div className="inline-flex min-w-0 max-w-full items-center gap-0.5 overflow-x-auto rounded-full border border-white/[0.1] bg-white/[0.04] p-0.5 pl-1.5 pr-0.5 shadow-[inset_0_1px_0_0_rgba(255,255,255,0.05),0_1px_0_0_rgba(0,0,0,0.2)] [scrollbar-width:none] sm:pl-2 sm:pr-0.5 [&::-webkit-scrollbar]:hidden">
-                <Link
-                  href={NAV_FIRST_LINK.href}
-                  className={cn(
-                    'shrink-0 rounded-full px-2.5 py-1.5 text-[13px] font-medium text-white/78 transition',
-                    isNavActive(pathname, NAV_FIRST_LINK.href) ? 'bg-white/12 text-white' : 'hover:bg-white/10 hover:text-white'
-                  )}
-                >
-                  {NAV_FIRST_LINK.label}
-                </Link>
-                {NAV_PRIMARY_SILOS.map((silo) => (
-                  <div key={silo.href} className="group/silo relative">
+              <div className="hidden min-w-0 max-w-full flex-1 items-center justify-end overflow-visible pr-0.5 xl:flex">
+                <div className="relative z-20 me-1.5 inline-flex min-w-0 max-w-full items-center justify-end overflow-visible min-[1360px]:me-2">
+                  <div className="inline-flex min-w-0 max-w-full flex-nowrap items-center justify-end gap-0.5 overflow-visible rounded-full border border-white/10 bg-white/[0.05] p-0.5 pl-1.5 [box-shadow:inset_0_1px_0_0_rgba(255,255,255,0.04)] min-[1360px]:pl-2">
                     <Link
-                      href={silo.href}
+                      href={NAV_FIRST_LINK.href}
                       className={cn(
-                        'inline-flex max-w-[11.5rem] shrink-0 items-center gap-0.5 truncate rounded-full px-2.5 py-1.5 text-[13px] font-medium text-white/78 transition',
-                        isNavActive(pathname, silo.href) ? 'bg-white/12 text-white' : 'hover:bg-white/10 hover:text-white'
+                        'shrink-0 rounded-full px-2.5 py-1.5 text-[13px] font-medium text-white/78 [transition:background_160ms_ease,color_160ms_ease]',
+                        isNavActive(pathname, NAV_FIRST_LINK.href)
+                          ? 'bg-white/12 text-white'
+                          : 'hover:bg-white/10 hover:text-white'
                       )}
                     >
-                      {silo.label}
-                      <ChevronDown
-                        className="size-3.5 shrink-0 opacity-55 transition [transition-duration:200ms] group-hover/silo:translate-y-px"
-                        strokeWidth={2.2}
-                        aria-hidden
-                      />
+                      {NAV_FIRST_LINK.label}
                     </Link>
-                    <div
-                      className="pointer-events-none invisible absolute top-full left-0 z-[80] min-w-60 pt-2.5 opacity-0 transition [transition-property:visibility,opacity] [transition-duration:180ms] [transition-timing-function:var(--easing,linear)] group-hover/silo:pointer-events-auto group-hover/silo:visible group-hover/silo:opacity-100"
-                      role="menu"
-                      style={{ ['--easing' as string]: 'cubic-bezier(0.4,0,0.2,1)' }}
-                    >
-                      <div className="overflow-hidden rounded-2xl border border-white/[0.1] bg-[oklch(0.11_0_0/0.95)] p-1.5 shadow-[0_24px_50px_-12px_rgba(0,0,0,0.7)] ring-1 ring-inset ring-white/[0.04] backdrop-blur-2xl">
-                        {silo.children.map((c) => (
-                          <Link
-                            key={c.href}
-                            href={c.href}
-                            className="block rounded-xl px-3.5 py-2 text-sm text-white/80 transition [transition-duration:160ms] first:pt-2.5 last:pb-2.5 hover:bg-white/[0.08] hover:text-white"
-                            role="menuitem"
-                          >
-                            {c.label}
-                          </Link>
-                        ))}
+                    {NAV_PRIMARY_SILOS.map((silo) => (
+                      <div
+                        key={silo.href}
+                        className="group/silo relative z-0 shrink-0 hover:z-[100]"
+                      >
+                        <Link
+                          href={silo.href}
+                          className={cn(
+                            'inline-flex max-w-[10.5rem] items-center gap-0.5 truncate rounded-full px-2.5 py-1.5 text-[13px] font-medium text-white/78 [transition:background_160ms_ease,color_160ms_ease] min-[1600px]:max-w-[11.5rem]',
+                            isNavActive(pathname, silo.href)
+                              ? 'bg-white/12 text-white'
+                              : 'hover:bg-white/10 hover:text-white'
+                          )}
+                        >
+                          {silo.label}
+                          <ChevronDown
+                            className="size-3.5 shrink-0 opacity-55 [transition:transform_180ms_ease,opacity_180ms_ease] group-hover/silo:translate-y-px"
+                            strokeWidth={2.2}
+                            aria-hidden
+                          />
+                        </Link>
+                        <div
+                          className="pointer-events-none invisible absolute top-full left-0 z-[200] w-[min(20rem,calc(100vw-2rem))] min-w-60 pt-2.5 opacity-0 [transition:opacity_180ms_ease] [transition:visibility_0s_linear] group-hover/silo:pointer-events-auto group-hover/silo:visible group-hover/silo:opacity-100"
+                          role="menu"
+                        >
+                          <div className="max-h-[min(70vh,28rem)] origin-top overflow-y-auto overflow-x-hidden overscroll-y-contain rounded-2xl border border-white/10 bg-[oklch(0.11_0_0/0.96)] p-1.5 shadow-[0_24px_50px_-12px_rgba(0,0,0,0.75)] ring-1 ring-inset ring-white/[0.04] [scrollbar-gutter:stable] backdrop-blur-2xl">
+                            {silo.children.map((c) => (
+                              <Link
+                                key={c.href}
+                                href={c.href}
+                                className="block rounded-xl px-3.5 py-2 text-sm text-white/82 [transition:background_150ms_ease] first:pt-2.5 last:pb-2.5 hover:bg-white/[0.09] hover:text-white"
+                                role="menuitem"
+                              >
+                                {c.label}
+                              </Link>
+                            ))}
+                          </div>
+                        </div>
                       </div>
-                    </div>
+                    ))}
+                    {NAV_FLAT_LINKS.map((l) => (
+                      <Link
+                        key={l.href}
+                        href={l.href}
+                        className={cn(
+                          'shrink-0 rounded-full px-2.5 py-1.5 text-[13px] font-medium text-white/78 [transition:background_160ms_ease,color_160ms_ease]',
+                          isNavActive(pathname, l.href) ? 'bg-white/12 text-white' : 'hover:bg-white/10 hover:text-white'
+                        )}
+                      >
+                        {l.label}
+                      </Link>
+                    ))}
                   </div>
-                ))}
-                {NAV_FLAT_LINKS.map((l) => (
-                  <Link
-                    key={l.href}
-                    href={l.href}
-                    className={cn(
-                      'shrink-0 rounded-full px-2.5 py-1.5 text-[13px] font-medium text-white/78 transition',
-                      isNavActive(pathname, l.href) ? 'bg-white/12 text-white' : 'hover:bg-white/10 hover:text-white'
-                    )}
-                  >
-                    {l.label}
-                  </Link>
-                ))}
-              </div>
-              <Link
-                href="/devis"
-                className="inline-flex shrink-0 items-center justify-center gap-1.5 rounded-full border border-[#F26A06]/50 bg-gradient-to-b from-[#F26A06]/32 to-[#F26A06]/14 px-4 py-1.5 text-sm font-semibold text-white shadow-[0_0_0_1px_rgba(242,106,6,0.1),inset_0_1px_0_0_rgba(255,255,255,0.1)] transition [transition-duration:200ms] hover:border-[#F26A06]/70 hover:from-[#F26A06]/44 focus-visible:ring-2 focus-visible:ring-[#F26A06]/50 focus-visible:ring-offset-2 focus-visible:ring-offset-black/80"
-              >
-                Devis
-              </Link>
-            </div>
+                </div>
 
-            <button
-              type="button"
-              ref={menuButtonRef}
-              onClick={openMenu}
-              className="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-2xl border border-white/12 bg-white/[0.05] text-white shadow-[0_0_0_1px_rgba(255,255,255,0.04),inset_0_1px_0_0_rgba(255,255,255,0.06)] transition [transition-duration:200ms] hover:border-white/22 hover:bg-white/10 focus-visible:ring-2 focus-visible:ring-white/50 focus-visible:outline-none active:scale-[0.98] xl:hidden"
-              aria-expanded={isOpen}
-              aria-controls="mobile-menu-panel"
-              aria-label="Ouvrir le menu de navigation"
-            >
-              <span className="sr-only">Menu</span>
-              <span
-                className="flex w-[1.1rem] flex-col justify-center gap-[0.2rem] overflow-visible"
-                aria-hidden
+                <div className="relative z-0 min-w-0">
+                  <NavStellarCta href="/devis" layout="bar" />
+                </div>
+              </div>
+
+              <button
+                type="button"
+                ref={menuButtonRef}
+                onClick={openMenu}
+                className="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-2xl border border-white/12 bg-white/[0.05] text-white [transition:background_180ms_ease,border-color_180ms_ease,transform_180ms_ease] hover:border-white/20 hover:bg-white/10 focus-visible:ring-2 focus-visible:ring-white/50 focus-visible:outline-none active:scale-[0.98] xl:hidden"
+                aria-expanded={isOpen}
+                aria-controls="mobile-menu-panel"
+                aria-label="Ouvrir le menu de navigation"
               >
-                <span className="h-0.5 w-full rounded-full bg-white/95" />
-                <span className="h-0.5 w-[65%] rounded-full bg-white/80" />
-              </span>
-            </button>
+                <span className="sr-only">Menu</span>
+                <span
+                  className="flex w-[1.1rem] flex-col justify-center gap-[0.2rem] overflow-visible"
+                  aria-hidden
+                >
+                  <span className="h-0.5 w-full rounded-full bg-white/95" />
+                  <span className="h-0.5 w-[65%] rounded-full bg-white/80" />
+                </span>
+              </button>
+            </div>
           </div>
         </nav>
       </header>
@@ -264,11 +284,9 @@ export default function Navbar() {
               aria-labelledby={menuTitleId}
             >
               <div className="si-shell-1400 flex shrink-0 items-center justify-between border-b border-white/10 py-1 pr-0 sm:pr-1">
-                <div className="min-w-0 py-1">
-                  <p id={menuTitleId} className="font-mono text-[0.7rem] tracking-[0.22em] text-white/50 uppercase">
-                    Menu
-                  </p>
-                </div>
+                <p id={menuTitleId} className="font-mono text-[0.7rem] tracking-[0.22em] text-white/50 uppercase">
+                  Menu
+                </p>
                 <button
                   type="button"
                   ref={closeButtonRef}
@@ -286,7 +304,7 @@ export default function Navbar() {
               >
                 <Link
                   href={NAV_FIRST_LINK.href}
-                  className="mb-3 block w-full rounded-2xl border border-white/12 bg-white/[0.04] py-3.5 text-center text-base font-medium text-white/95 shadow-[inset_0_1px_0_0_rgba(255,255,255,0.04)] active:scale-[0.99] transition [transition-duration:200ms] hover:border-white/18 hover:bg-white/[0.08]"
+                  className="mb-3 block w-full rounded-2xl border border-white/12 bg-white/[0.04] py-3.5 text-center text-base font-medium text-white/95 [transition:background_180ms_ease] shadow-[inset_0_1px_0_0_rgba(255,255,255,0.04)] active:scale-[0.99] hover:border-white/16 hover:bg-white/[0.07]"
                   onClick={closeMenu}
                 >
                   {NAV_FIRST_LINK.label}
@@ -298,7 +316,7 @@ export default function Navbar() {
                 >
                   {NAV_SILOS.map((silo) => (
                     <AccordionItem key={silo.href} value={silo.href} className="border-white/[0.07] not-last:border-b">
-                      <AccordionTrigger className="!rounded-xl px-3 py-3 text-left text-base font-medium tracking-tight !no-underline text-white/90 hover:!no-underline hover:bg-white/[0.04] data-open:bg-white/[0.04] data-open:shadow-[inset_0_1px_0_0_rgba(255,255,255,0.04)]">
+                      <AccordionTrigger className="!rounded-xl px-3 py-3 text-left !no-underline text-base font-medium tracking-tight text-white/90 [transition:background_160ms_ease] hover:!no-underline hover:bg-white/[0.04] data-open:bg-white/[0.04] data-open:shadow-[inset_0_1px_0_0_rgba(255,255,255,0.04)]">
                         {silo.label}
                       </AccordionTrigger>
                       <AccordionContent className="px-0 pb-1.5">
@@ -309,7 +327,9 @@ export default function Navbar() {
                             onClick={closeMenu}
                           >
                             <span>Vue d’ensemble</span>
-                            <span className="text-xs text-white/35">↗</span>
+                            <span className="text-xs text-white/35" aria-hidden>
+                              ↗
+                            </span>
                           </Link>
                           {silo.children.map((c) => (
                             <Link
@@ -332,7 +352,7 @@ export default function Navbar() {
                     <Link
                       key={l.href}
                       href={l.href}
-                      className="block rounded-2xl px-3.5 py-3 text-base font-medium text-white/90 hover:bg-white/[0.06] hover:text-white"
+                      className="block rounded-2xl px-3.5 py-3 text-base font-medium text-white/90 transition hover:bg-white/[0.06] hover:text-white"
                       onClick={closeMenu}
                     >
                       {l.label}
@@ -342,17 +362,15 @@ export default function Navbar() {
               </div>
 
               <div
-                className="shrink-0 border-t border-white/10 bg-gradient-to-t from-[#040405] to-transparent px-0 py-2 pt-1 backdrop-blur-sm"
+                className="shrink-0 border-t border-white/10 bg-gradient-to-t from-[#040405] to-transparent px-0 py-2 pt-1 [backdrop-filter:blur(8px)]"
                 style={{ paddingBottom: 'max(1rem, env(safe-area-inset-bottom, 0px))' }}
               >
                 <div className="si-shell-1400">
-                  <Link
+                  <NavStellarCta
                     href="/devis"
-                    className="block w-full rounded-2xl border border-[#F26A06]/50 bg-gradient-to-b from-[#F26A06]/35 to-[#F26A06]/12 py-3.5 text-center text-sm font-semibold text-white shadow-[0_0_0_1px_rgba(242,106,6,0.12),inset_0_1px_0_0_rgba(255,255,255,0.1)] transition [transition-duration:200ms] hover:from-[#F26A06]/45"
-                    onClick={closeMenu}
-                  >
-                    Demander un devis
-                  </Link>
+                    onNavigate={closeMenu}
+                    layout="sheet"
+                  />
                 </div>
               </div>
             </motion.aside>

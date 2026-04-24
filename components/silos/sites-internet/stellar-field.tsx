@@ -1,7 +1,7 @@
 'use client';
 
 import type { PointerEvent } from 'react';
-import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
+import { useCallback, useEffect, useLayoutEffect, useMemo, useRef, useState } from 'react';
 import { useReducedMotion } from 'framer-motion';
 
 export type StellarPointer = { x: number; y: number } | null;
@@ -63,6 +63,11 @@ type Props = {
    * @default false
    */
   shootingMeteors?: boolean;
+  /**
+   * Frappe des météores : facteur d’espace sur les délais (plus bas = météores plus fréquents, ex. 0,45 pour CTA nav).
+   * @default 1
+   */
+  shootingIntervalScale?: number;
 };
 
 /** Champ d’étoiles CSS (`.si-cta-star`) ; optionnellement repoussé par le pointeur / le doigt. */
@@ -72,12 +77,15 @@ export function StellarField({
   pointer = null,
   interactive = false,
   shootingMeteors = false,
+  shootingIntervalScale = 1,
 }: Props) {
   const reduce = useReducedMotion();
   const containerRef = useRef<HTMLDivElement>(null);
   const [size, setSize] = useState({ w: 1, h: 1 });
-  const sizeRef = useRef(size);
-  sizeRef.current = size;
+  const sizeRef = useRef({ w: 1, h: 1 });
+  useLayoutEffect(() => {
+    sizeRef.current = size;
+  }, [size]);
   const [shootBurst, setShootBurst] = useState<ShootBurst | null>(null);
   const shootKeyRef = useRef(0);
   const stars = useMemo(() => buildStars(count), [count]);
@@ -97,8 +105,12 @@ export function StellarField({
   /** Étoiles filantes : tir aléatoire toutes les 2–3 s (désactivé si reduced motion ou si `shootingMeteors` est false). */
   useEffect(() => {
     if (reduce || !shootingMeteors) {
-      setShootBurst(null);
-      return;
+      const t = setTimeout(() => {
+        setShootBurst(null);
+      }, 0);
+      return () => {
+        clearTimeout(t);
+      };
     }
     let cancelled = false;
     let timeoutId: ReturnType<typeof setTimeout>;
@@ -126,9 +138,12 @@ export function StellarField({
       });
     };
 
+    const s = Math.max(0.15, Math.min(1.2, shootingIntervalScale));
+
     const schedule = (isFirst = false) => {
       /* Tir suivant après la fin approx. de la traînée (anim ~3,2–4,6 s) pour limiter les chevauchements. */
-      const waitMs = isFirst ? 450 + Math.random() * 1300 : 3200 + Math.random() * 1400;
+      const base = isFirst ? 450 + Math.random() * 1300 : 3200 + Math.random() * 1400;
+      const waitMs = base * s;
       timeoutId = setTimeout(() => {
         if (cancelled) return;
         fire();
@@ -141,7 +156,7 @@ export function StellarField({
       cancelled = true;
       clearTimeout(timeoutId);
     };
-  }, [reduce, shootingMeteors]);
+  }, [reduce, shootingMeteors, shootingIntervalScale]);
 
   const minSide = Math.min(size.w, size.h);
   const active = interactive && !reduce && pointer != null;
