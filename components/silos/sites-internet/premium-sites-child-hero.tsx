@@ -33,7 +33,7 @@ export function PremiumSitesChildHero({
 
   return (
     <section
-      className="relative overflow-hidden pt-24 pb-0 md:pt-28 lg:pt-32"
+      className="relative pt-24 pb-0 md:pt-28 lg:pt-32"
       onPointerMoveCapture={onPointerMoveCapture}
       onPointerLeave={onPointerLeave}
     >

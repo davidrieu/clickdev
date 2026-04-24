@@ -39,7 +39,7 @@ export function HpHero() {
 
   return (
     <section
-      className="relative overflow-hidden bg-transparent pt-20 pb-0 md:pt-24 lg:pt-28"
+      className="relative bg-transparent pt-20 pb-0 md:pt-24 lg:pt-28"
       onPointerMoveCapture={onPointerMoveCapture}
       onPointerLeave={onPointerLeave}
     >
