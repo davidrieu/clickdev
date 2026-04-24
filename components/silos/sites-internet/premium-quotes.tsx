@@ -8,7 +8,7 @@ export function PremiumQuotes() {
   return (
     <section className="relative border-t border-white/[0.06] bg-black py-28 md:py-44 lg:py-52">
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_70%_40%_at_50%_100%,rgba(46,8,207,0.12),transparent)]" />
-      <div className="relative mx-auto max-w-[900px] px-4 md:px-8">
+      <div className="relative si-shell-900">
         <motion.p
           className="font-mono text-[11px] tracking-[0.28em] text-white/40 uppercase"
           initial={{ opacity: 0 }}

@@ -43,7 +43,7 @@ function ExpertiseGroupSection({ group, index }: { group: ExpertiseIndexGroupPro
       <StellarField count={starCount} className="opacity-[0.42]" interactive pointer={pointer} />
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_80%_55%_at_50%_0%,rgba(255,255,255,0.03),transparent)]" />
 
-      <div className="relative z-10 mx-auto max-w-[1200px] px-4 md:px-8">
+      <div className="relative z-10 si-shell-1200">
         <motion.div
           className="mx-auto max-w-[720px] text-center"
           initial={{ opacity: 0, y: 20 }}

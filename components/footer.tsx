@@ -24,9 +24,9 @@ const ENTREPRISE_LINKS = [
 
 function LinkColumn({ title, links }: { title: string; links: { label: string; href: string }[] }) {
   return (
-    <div className="min-w-0">
+    <div className="min-w-0 text-center sm:text-left">
       <p className="mb-4 text-xs font-medium tracking-wider text-white/50 uppercase">{title}</p>
-      <ul className="space-y-2 text-sm break-words text-white/80">
+      <ul className="space-y-2 text-sm break-words text-white/80 sm:text-left">
         {links.map((l) => (
           <li key={l.href}>
             <Link href={l.href} className="transition hover:text-white">
@@ -42,7 +42,7 @@ function LinkColumn({ title, links }: { title: string; links: { label: string; h
 export default function Footer() {
   return (
     <motion.footer
-      className="mt-32 overflow-x-clip border-t border-white/10 px-4 pt-16 pb-10 md:px-12 lg:px-20 xl:px-24"
+      className="mt-32 border-t border-white/10"
       initial={{ opacity: 0 }}
       whileInView={{ opacity: 1 }}
       viewport={{ once: true }}
@@ -52,8 +52,9 @@ export default function Footer() {
         6 colonnes : marque + contact (×2) + sites + apps/IA + SEO + CRM/maintenance.
         Les liens « Entreprise » sont en bandeau bas.
       */}
-      <div className="mx-auto grid w-full min-w-0 max-w-7xl grid-cols-1 gap-10 sm:gap-12 lg:grid-cols-6 lg:gap-x-6 lg:gap-y-10">
-        <div className="min-w-0 lg:col-span-2">
+      <div className="si-shell-1400 pt-16 pb-10">
+        <div className="grid w-full min-w-0 grid-cols-1 gap-10 sm:gap-12 sm:text-left lg:grid-cols-6 lg:gap-x-6 lg:gap-y-10">
+        <div className="flex min-w-0 flex-col items-center text-center sm:items-start sm:text-left lg:col-span-2">
           <Link href="/" className="inline-block max-w-full">
             <Image
               src="/assets/logo-clickdev.png"
@@ -124,15 +125,16 @@ export default function Footer() {
             />
           )}
         </div>
+        </div>
       </div>
 
-      <div className="mx-auto mt-14 w-full min-w-0 max-w-7xl border-t border-white/10 pt-8">
-        <div className="flex flex-col gap-6 lg:flex-row lg:items-start lg:justify-between lg:gap-8">
+      <div className="si-shell-1400 border-t border-white/10 pb-10 pt-8">
+        <div className="flex w-full min-w-0 flex-col items-center gap-6 text-center sm:items-stretch sm:text-left lg:flex-row lg:items-start lg:justify-between lg:gap-8">
           <p className="shrink-0 text-xs leading-relaxed text-white/50">
             © {new Date().getFullYear()} {SITE_NAME}
           </p>
           <nav
-            className="flex min-w-0 flex-1 flex-wrap gap-x-5 gap-y-2 sm:gap-x-6 lg:justify-end"
+            className="flex min-w-0 flex-1 flex-wrap justify-center gap-x-5 gap-y-2 sm:justify-start sm:gap-x-6 lg:justify-end"
             aria-label="Liens entreprise"
           >
             {ENTREPRISE_LINKS.map((l) => (

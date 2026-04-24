@@ -26,7 +26,7 @@ export function PremiumCompare() {
     >
       <PremiumSectionDivider />
       <StellarField count={36} className="opacity-[0.5]" interactive pointer={pointer} />
-      <div className="relative z-10 mx-auto max-w-[960px] px-4 md:px-8">
+      <div className="relative z-10 si-shell-960">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}

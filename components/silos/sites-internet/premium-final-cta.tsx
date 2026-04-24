@@ -66,7 +66,7 @@ export function PremiumFinalCta({
         aria-hidden
       />
 
-      <div className="relative z-10 mx-auto max-w-[760px] px-4 text-center md:px-8">
+      <div className="relative z-10 si-shell-760 text-center">
         <motion.h2 className="si-serif-display text-balance text-[clamp(2rem,5.2vw,3.85rem)] font-medium leading-[1.06] tracking-[-0.03em] text-white">
           {words.map((w, i) => (
             <motion.span

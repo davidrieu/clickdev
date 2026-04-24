@@ -64,7 +64,7 @@ export function SeoPremiumBento() {
     >
       <PremiumSectionDivider />
       <StellarField count={36} className="opacity-[0.5]" interactive pointer={pointer} />
-      <div className="relative z-10 mx-auto max-w-[1400px] px-4 md:px-8">
+      <div className="relative z-10 si-shell-1400">
         <motion.div
           initial={{ opacity: 0, y: 28 }}
           whileInView={{ opacity: 1, y: 0 }}

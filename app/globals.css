@@ -122,9 +122,54 @@
   }
   html {
     @apply font-sans;
+    overflow-x: clip;
   }
   body {
-    @apply bg-black font-sans text-sm text-white antialiased;
+    @apply min-w-0 bg-black font-sans text-sm text-white antialiased;
+    overflow-x: clip;
+  }
+}
+
+@layer components {
+  /**
+   * Conteneurs : même gouttière (xs → sm → md → lg) + centrage, pour toutes les pages.
+   * Utiliser seul ou avec relative z-10 / grid, etc.
+   */
+  .si-shell-1400 {
+    @apply mx-auto w-full min-w-0 max-w-[1400px] px-4 sm:px-5 md:px-8 lg:px-10;
+  }
+  .si-shell-1200 {
+    @apply mx-auto w-full min-w-0 max-w-[1200px] px-4 sm:px-5 md:px-8 lg:px-9;
+  }
+  .si-shell-1100 {
+    @apply mx-auto w-full min-w-0 max-w-[1100px] px-4 sm:px-5 md:px-8;
+  }
+  .si-shell-920 {
+    @apply mx-auto w-full min-w-0 max-w-[920px] px-4 sm:px-5 md:px-8 lg:px-10;
+  }
+  .si-shell-900 {
+    @apply mx-auto w-full min-w-0 max-w-[900px] px-4 sm:px-5 md:px-8;
+  }
+  .si-shell-960 {
+    @apply mx-auto w-full min-w-0 max-w-[960px] px-4 sm:px-5 md:px-8;
+  }
+  .si-shell-820 {
+    @apply mx-auto w-full min-w-0 max-w-[820px] px-4 sm:px-5 md:px-8;
+  }
+  .si-shell-800 {
+    @apply mx-auto w-full min-w-0 max-w-[800px] px-4 sm:px-5 md:px-8;
+  }
+  .si-shell-760 {
+    @apply mx-auto w-full min-w-0 max-w-[760px] px-4 sm:px-5 md:px-8;
+  }
+  .si-shell-prose {
+    @apply mx-auto w-full min-w-0 max-w-[42rem] px-4 sm:px-5 md:px-8;
+  }
+  .si-shell-2xl {
+    @apply mx-auto w-full min-w-0 max-w-2xl px-4 sm:px-5 md:px-8;
+  }
+  .si-shell-devis {
+    @apply mx-auto w-full min-w-0 max-w-[1200px] px-4 sm:px-5 md:px-8 lg:px-9;
   }
 }
 

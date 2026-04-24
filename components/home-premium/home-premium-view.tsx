@@ -73,7 +73,7 @@ function HpTrustMarquee() {
   const row = useMemo(() => [...HOME_TRUST_MARQUEE_NAMES, ...HOME_TRUST_MARQUEE_NAMES], []);
   return (
     <div className="relative z-10 mt-14 border-y border-white/[0.07] bg-black md:mt-20">
-      <div className="mx-auto flex w-full max-w-[1400px] flex-col items-center px-4 py-8 md:px-8 md:py-10">
+      <div className="si-shell-1400 flex flex-col items-center py-8 md:py-10">
         <h2 className="text-center font-mono text-[11px] tracking-[0.28em] text-white/45 uppercase">
           Ils me font confiance
         </h2>
@@ -99,7 +99,7 @@ function HpAudienceGrid() {
     >
       <PremiumSectionDivider />
       <StellarField count={34} className="opacity-[0.48]" interactive pointer={pointer} />
-      <div className="relative z-10 mx-auto max-w-[1400px] px-4 md:px-8">
+      <div className="relative z-10 si-shell-1400">
         <motion.div
           initial={{ opacity: 0, y: 22 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -165,7 +165,7 @@ function HpServices() {
       onPointerLeave={onPointerLeave}
     >
       <StellarField count={40} className="opacity-[0.55]" interactive pointer={pointer} />
-      <div className="relative z-10 mx-auto max-w-[1400px] px-4 md:px-8">
+      <div className="relative z-10 si-shell-1400">
         <motion.div
           initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -236,7 +236,7 @@ function HpPortfolioGrid({ caseStudies }: { caseStudies: SanityCaseStudyTeaser[]
     >
       <PremiumSectionDivider />
       <StellarField count={48} className="opacity-[0.68]" interactive pointer={pointer} />
-      <div className="relative z-10 mx-auto max-w-[1400px] px-4 md:px-8">
+      <div className="relative z-10 si-shell-1400">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -277,7 +277,7 @@ function HpMetrics() {
     >
       <PremiumSectionDivider />
       <StellarField count={36} className="opacity-[0.5]" interactive pointer={pointer} />
-      <div className="relative z-10 mx-auto max-w-[1100px] px-4 md:px-8">
+      <div className="relative z-10 si-shell-1100">
         <motion.h2
           className="si-serif-display text-balance text-center text-[clamp(1.85rem,4vw,3.5rem)] font-medium leading-[1.1] tracking-[-0.03em] text-white"
           initial={{ opacity: 0, y: 32 }}
@@ -413,7 +413,7 @@ function HpProcess() {
     >
       <PremiumSectionDivider />
       <StellarField count={44} className="opacity-[0.65]" interactive pointer={pointer} />
-      <div className="relative z-10 mx-auto max-w-[900px] px-4 md:px-8">
+      <div className="relative z-10 si-shell-900">
         <motion.div
           initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -468,7 +468,7 @@ function HpStackMarquee() {
   return (
     <section className="relative overflow-hidden bg-black py-24 md:py-36 lg:py-44">
       <PremiumSectionDivider />
-      <div className="mx-auto grid max-w-[1400px] gap-12 px-4 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.35fr)] lg:items-center lg:gap-16 lg:px-8">
+      <div className="si-shell-1400 grid gap-12 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.35fr)] lg:items-center lg:gap-16">
         <motion.div initial={{ opacity: 0, y: 18 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
           <p className="font-mono text-[11px] tracking-[0.28em] text-white/45 uppercase">Stack</p>
           <h2 className="si-serif-display mt-4 text-[clamp(1.75rem,3vw,2.75rem)] font-medium tracking-[-0.02em] text-white">
@@ -535,7 +535,7 @@ function HpAbout() {
     >
       <PremiumSectionDivider />
       <StellarField count={38} className="opacity-[0.55]" interactive pointer={pointer} />
-      <div className="relative z-10 mx-auto max-w-[1100px] px-4 md:px-8">
+      <div className="relative z-10 si-shell-1100">
         <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
           <motion.div
             className="relative aspect-[4/5] w-full max-w-md overflow-hidden rounded-2xl border border-white/[0.08] bg-neutral-900 lg:mx-0"
@@ -628,7 +628,7 @@ function HpFaq() {
     >
       <PremiumSectionDivider />
       <StellarField count={32} className="opacity-[0.45]" interactive pointer={pointer} />
-      <div className="relative z-10 mx-auto max-w-2xl px-4 md:px-8">
+      <div className="relative z-10 si-shell-2xl">
         <motion.h2
           className="si-serif-display text-center text-[clamp(1.75rem,3.2vw,2.75rem)] font-medium tracking-[-0.02em] text-white"
           initial={{ opacity: 0, y: 16 }}
@@ -706,7 +706,7 @@ function HpBlog({ posts }: { posts: SanityPostTeaser[] }) {
     >
       <PremiumSectionDivider />
       <StellarField count={40} className="opacity-[0.55]" interactive pointer={pointer} />
-      <div className="relative z-10 mx-auto max-w-[1100px] px-4 md:px-8">
+      <div className="relative z-10 si-shell-1100">
         <motion.h2
           className="si-serif-display text-center text-[clamp(1.75rem,3.2vw,2.75rem)] font-medium tracking-[-0.02em] text-white"
           initial={{ opacity: 0, y: 16 }}

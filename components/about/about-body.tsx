@@ -76,7 +76,7 @@ export function AboutBody() {
       >
         <StellarField count={32} className="opacity-[0.45]" interactive pointer={pointer} />
         <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_70%_45%_at_50%_30%,rgba(255,255,255,0.04),transparent)]" />
-        <div className="relative z-10 mx-auto max-w-[820px] px-4 md:px-8">
+        <div className="relative z-10 si-shell-820">
           <motion.p
             className="si-serif-display text-balance text-[clamp(1.35rem,2.8vw,1.85rem)] leading-snug font-medium tracking-[-0.02em] text-white/90"
             initial={{ opacity: 0, y: 24 }}
@@ -147,7 +147,7 @@ function AboutSectionBlock({
       />
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_75%_50%_at_50%_20%,rgba(255,255,255,0.035),transparent)]" />
 
-      <div className="relative z-10 mx-auto max-w-[820px] px-4 text-center md:px-8">
+      <div className="relative z-10 si-shell-820 text-center">
         <motion.p
           className="font-mono text-[10px] tracking-[0.26em] text-white/40 uppercase"
           initial={{ opacity: 0, y: 12 }}

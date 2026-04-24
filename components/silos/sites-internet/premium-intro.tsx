@@ -43,7 +43,7 @@ export function PremiumIntro() {
       onPointerLeave={onPointerLeave}
     >
       <StellarField count={38} className="opacity-[0.5]" interactive pointer={pointer} />
-      <div className="relative z-10 mx-auto max-w-[1100px] px-4 md:px-8">
+      <div className="relative z-10 si-shell-1100">
         <motion.h2
           className="si-serif-display text-balance text-[clamp(1.85rem,4.2vw,3.75rem)] leading-[1.12] font-medium tracking-[-0.03em] text-white"
           initial={{ opacity: 0, y: 32 }}

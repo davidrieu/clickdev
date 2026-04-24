@@ -59,13 +59,14 @@ export default function Navbar() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLd }} />
       <motion.nav
         aria-label="Navigation principale"
-        className={`sticky top-0 z-50 flex h-[72px] w-full items-center justify-between px-4 transition-colors md:px-12 lg:px-20 xl:px-24 ${
+        className={`sticky top-0 z-50 h-[72px] w-full transition-colors ${
           isScrolled ? 'bg-[rgba(13,13,13,0.85)] backdrop-blur-[20px]' : ''
         }`}
         initial={{ y: -24, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ type: 'spring', stiffness: 250, damping: 70, mass: 1 }}
       >
+        <div className="si-shell-1400 flex h-full min-h-0 items-center justify-between">
         <Link href="/" className="shrink-0">
           <Image
             src="/assets/logo-clickdev.png"
@@ -133,6 +134,7 @@ export default function Navbar() {
         >
           <MenuIcon className="size-6.5" />
         </button>
+        </div>
       </motion.nav>
 
       <div
@@ -141,7 +143,7 @@ export default function Navbar() {
         }`}
         aria-hidden={!isOpen}
       >
-        <div className="flex h-[72px] items-center justify-between border-b border-white/10 px-4">
+        <div className="si-shell-1400 flex h-[72px] items-center justify-between border-b border-white/10">
           <span className="text-sm font-medium tracking-wide text-white/70">Menu</span>
           <button
             type="button"
@@ -152,7 +154,7 @@ export default function Navbar() {
             <XIcon className="size-6" />
           </button>
         </div>
-        <div className="flex-1 overflow-y-auto px-4 py-6">
+        <div className="si-shell-1400 min-h-0 flex-1 overflow-y-auto py-6">
           <Link
             href={NAV_FIRST_LINK.href}
             className="mb-6 block rounded-md border border-white/15 bg-white/[0.04] px-3 py-3 text-center text-base font-medium text-white transition hover:bg-white/10"

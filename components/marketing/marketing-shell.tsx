@@ -22,7 +22,7 @@ export default function MarketingShell({
   return (
     <main className="relative">
       <MarketingAmbientBackdrop />
-      <div className="relative z-0 mx-auto max-w-6xl px-4 pb-24 pt-6 md:px-8 md:pt-10">
+      <div className="relative z-0 si-shell-1200 pb-24 pt-6 md:pt-10">
         <article className="mx-auto max-w-[52rem]">
           {breadcrumb && breadcrumb.length > 0 ? (
             <div className="mb-8">

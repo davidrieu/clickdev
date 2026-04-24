@@ -29,7 +29,7 @@ export function MaintenanceHero() {
       />
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_80%_50%_at_50%_-20%,rgba(255,255,255,0.05),transparent)]" />
 
-      <div className="relative z-10 mx-auto grid max-w-[1400px] gap-12 px-4 md:grid-cols-12 md:items-center md:gap-8 md:px-8 lg:gap-12">
+      <div className="relative z-10 si-shell-1400 grid gap-12 md:grid-cols-12 md:items-center md:gap-8 lg:gap-12">
         <div className="flex flex-col justify-center md:col-span-6 md:py-4 lg:py-6">
           <motion.div
             className="flex flex-col gap-2"

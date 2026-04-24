@@ -35,7 +35,7 @@ export function SiteEcommerceBenefitsSection({
     >
       <PremiumSectionDivider />
       <StellarField count={38} className="opacity-[0.5]" interactive pointer={pointer} />
-      <div className="relative z-10 mx-auto max-w-[1400px] px-4 md:px-8">
+      <div className="relative z-10 si-shell-1400">
         <motion.div
           initial={{ opacity: 0, y: 22 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -107,7 +107,7 @@ export function SiteEcommerceAudienceSection({
     >
       <PremiumSectionDivider />
       <StellarField count={34} className="opacity-[0.48]" interactive pointer={pointer} />
-      <div className="relative z-10 mx-auto max-w-[1400px] px-4 md:px-8">
+      <div className="relative z-10 si-shell-1400">
         <motion.div
           initial={{ opacity: 0, y: 22 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -182,7 +182,7 @@ export function SiteEcommerceCompareSection({
     >
       <PremiumSectionDivider />
       <StellarField count={36} className="opacity-[0.5]" interactive pointer={pointer} />
-      <div className="relative z-10 mx-auto max-w-[1100px] px-4 md:px-8">
+      <div className="relative z-10 si-shell-1100">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
@@ -291,7 +291,7 @@ export function SiteEcommerceProcessSection({
     >
       <PremiumSectionDivider />
       <StellarField count={44} className="opacity-[0.65]" interactive pointer={pointer} />
-      <div className="relative z-10 mx-auto max-w-[900px] px-4 md:px-8">
+      <div className="relative z-10 si-shell-900">
         <motion.div
           initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -387,7 +387,7 @@ export function SiteEcommerceStackSection({
     >
       <PremiumSectionDivider />
       <StellarField count={40} className="opacity-[0.55]" interactive pointer={pointer} />
-      <div className="relative z-10 mx-auto grid max-w-[1400px] gap-14 px-4 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.4fr)] lg:items-center lg:gap-16 lg:px-8">
+      <div className="relative z-10 si-shell-1400 grid gap-14 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.4fr)] lg:items-center lg:gap-16">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -474,7 +474,7 @@ export function SiteEcommerceFaqSection({
     >
       <PremiumSectionDivider />
       <StellarField count={36} className="opacity-[0.5]" interactive pointer={pointer} />
-      <div className="relative z-10 mx-auto max-w-[800px] px-4 md:px-8">
+      <div className="relative z-10 si-shell-800">
         <motion.div
           initial={{ opacity: 0, y: 18 }}
           whileInView={{ opacity: 1, y: 0 }}

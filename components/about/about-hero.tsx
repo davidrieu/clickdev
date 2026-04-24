@@ -31,7 +31,7 @@ export function AboutHero() {
       />
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_80%_50%_at_50%_-20%,rgba(255,255,255,0.05),transparent)]" />
 
-      <div className="relative z-10 mx-auto grid max-w-[1400px] items-center gap-10 px-4 md:grid-cols-12 md:gap-12 md:px-8 lg:gap-14">
+      <div className="relative z-10 si-shell-1400 grid items-center gap-10 md:grid-cols-12 md:gap-12 lg:gap-14">
         <div className="flex flex-col justify-center md:col-span-7 md:min-h-0 md:py-1 lg:py-2">
           <motion.div
             className="flex flex-col gap-2"

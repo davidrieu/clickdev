@@ -21,7 +21,7 @@ export function MaintenanceStackMarquee() {
     >
       <PremiumSectionDivider />
       <StellarField count={40} className="opacity-[0.55]" interactive pointer={pointer} />
-      <div className="relative z-10 mx-auto grid max-w-[1400px] gap-14 px-4 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.4fr)] lg:items-center lg:gap-16 lg:px-8">
+      <div className="relative z-10 si-shell-1400 grid gap-14 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.4fr)] lg:items-center lg:gap-16">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}

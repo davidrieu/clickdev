@@ -24,7 +24,7 @@ export function ExpertisesIndexHero() {
       <StellarField count={46} className="opacity-[0.85]" interactive pointer={pointer} shootingMeteors />
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_80%_50%_at_50%_-15%,rgba(255,255,255,0.055),transparent)]" />
 
-      <div className="relative z-10 mx-auto max-w-[920px] px-4 text-center md:px-8">
+      <div className="relative z-10 si-shell-920 text-center">
         <motion.div
           className="flex flex-col items-center gap-2"
           initial={{ opacity: 0, y: 12 }}

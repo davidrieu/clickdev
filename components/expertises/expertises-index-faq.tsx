@@ -22,7 +22,7 @@ export function ExpertisesIndexFaq({ items }: { items: readonly FaqItem[] }) {
       <StellarField count={34} className="opacity-[0.48]" interactive pointer={pointer} />
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_70%_50%_at_50%_20%,rgba(255,255,255,0.035),transparent)]" />
 
-      <div className="relative z-10 mx-auto max-w-[760px] px-4 md:px-8">
+      <div className="relative z-10 si-shell-760">
         <motion.div
           className="text-center"
           initial={{ opacity: 0, y: 16 }}
