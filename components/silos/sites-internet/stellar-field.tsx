@@ -227,3 +227,34 @@ export function useSectionStellarPointer() {
 
   return { pointer, onPointerMoveCapture, onPointerLeave };
 }
+
+/**
+ * Pointeur 0–1 sur une hauteur de ciel = `heightVh` vh (aligné sur un Stellar en absolu du même
+ * hauteur), y = (scrollY + clientY) / (heightVh × 1px par vh).
+ */
+export function useSkyStellarPointer(heightVh: number) {
+  const [pointer, setPointer] = useState<StellarPointer>(null);
+
+  useEffect(() => {
+    const onMove = (e: globalThis.PointerEvent) => {
+      const w = document.documentElement.clientWidth;
+      if (w < 1) return;
+      const vh = window.innerHeight;
+      const fieldH = Math.max(1, (heightVh * vh) / 100);
+      const y = (window.scrollY + e.clientY) / fieldH;
+      setPointer({
+        x: e.clientX / w,
+        y: Math.min(1, Math.max(0, y)),
+      });
+    };
+    const listener = (ev: globalThis.Event) => {
+      onMove(ev as globalThis.PointerEvent);
+    };
+    window.addEventListener('pointermove', listener, { passive: true });
+    return () => {
+      window.removeEventListener('pointermove', listener);
+    };
+  }, [heightVh]);
+
+  return { pointer };
+}

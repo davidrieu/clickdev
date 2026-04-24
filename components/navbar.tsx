@@ -120,12 +120,12 @@ export default function Navbar() {
   );
 
   const barSurface = cn(
-    'w-full overflow-visible rounded-3xl border border-white/12',
-    'bg-[oklch(0.09_0_0/0.7)]',
-    'shadow-[0_0_0_1px_rgba(255,255,255,0.04),inset_0_1px_0_0_rgba(255,255,255,0.06)]',
-    'backdrop-blur-2xl [backdrop-saturate:1.2]',
+    'w-full overflow-visible rounded-3xl border border-white/10',
+    'bg-oklch(0.08_0_0/0.22)',
+    'shadow-[0_0_0_1px_rgba(255,255,255,0.05),inset_0_1px_0_0_rgba(255,255,255,0.07)]',
+    'backdrop-blur-2xl [backdrop-saturate:1.15]',
     isScrolled
-      ? 'bg-[oklch(0.1_0_0/0.86)] shadow-[0_4px_48px_-12px_rgba(0,0,0,0.65),0_0_0_1px_rgba(255,255,255,0.05)]'
+      ? 'border-white/[0.12] bg-oklch(0.1_0_0/0.4) shadow-[0_2px_24px_-8px_rgba(0,0,0,0.35),0_0_0_1px_rgba(255,255,255,0.05)]'
       : null
   );
 
