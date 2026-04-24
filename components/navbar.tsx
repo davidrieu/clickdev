@@ -114,8 +114,9 @@ export default function Navbar() {
   const fadeTransition = { duration: reduceMotion ? 0.12 : 0.2 };
 
   const barShell = cn(
-    'flex w-full min-w-0 max-w-full flex-wrap items-center justify-between gap-2.5 overflow-visible pl-1 pr-1.5 sm:gap-3 sm:pl-1.5 sm:pr-2.5',
-    'min-h-[3.5rem] sm:min-h-14'
+    'flex w-full min-w-0 max-w-full flex-wrap items-center justify-between gap-2.5 overflow-visible',
+    'px-2.5 py-2.5 sm:gap-3 sm:px-3.5 sm:py-3.5',
+    'min-h-[3.5rem] sm:min-h-[3.75rem]'
   );
 
   const barSurface = cn(

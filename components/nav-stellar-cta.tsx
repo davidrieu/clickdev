@@ -6,16 +6,17 @@ import Link from 'next/link';
 import type { ReactNode } from 'react';
 
 type NavStellarCtaProps = {
-  /** CTA cliquable (barre) ou remplacé par un <button> côté mobile. */
   href: string;
   onNavigate?: () => void;
   className?: string;
-  /** Remplace le libellé par ex. le bouton d’en-tête tiroir (mobile) */
   children?: ReactNode;
-  /** CTA pleine largeur, coins plus marqués (pied de tiroir) */
   layout?: 'bar' | 'sheet';
 };
 
+/**
+ * CTA : fond blanc, texte noir. Le StellarField remplit la zone *autour* (padding du wrapper) ;
+ * le bouton op masque l’intérieur — les étoiles et météores ne s’affichent qu’en auréole.
+ */
 export function NavStellarCta({
   href,
   onNavigate,
@@ -28,44 +29,41 @@ export function NavStellarCta({
   const label = children ?? 'Demander un devis';
 
   return (
-    <Link
-      href={href}
-      onClick={onNavigate}
+    <div
+      className={cn(
+        'relative z-0 inline-flex items-center justify-center overflow-visible',
+        layout === 'bar' && 'p-2.5 sm:p-3',
+        layout === 'sheet' && 'w-full max-w-full p-2.5 sm:p-3.5',
+      )}
       onPointerMoveCapture={onPointerMoveCapture}
       onPointerLeave={onPointerLeave}
-      className={cn(
-        'relative z-0 inline-flex min-w-0 shrink-0 items-center justify-center overflow-hidden',
-        'border font-semibold text-white no-underline transition [transition-duration:200ms] hover:opacity-95',
-        'border-[#F26A06]/45 bg-gradient-to-b from-[#F26A06]/28 to-[#1a0a00]/50',
-        'shadow-[0_0_0_1px_rgba(242,106,6,0.12),inset_0_1px_0_0_rgba(255,255,255,0.1)]',
-        'hover:border-[#F26A06]/60 hover:from-[#F26A06]/38',
-        'focus-visible:ring-2 focus-visible:ring-[#F26A06]/50 focus-visible:ring-offset-2 focus-visible:ring-offset-black/90 focus-visible:outline-none',
-        layout === 'bar' &&
-          'min-h-9 max-w-full rounded-full py-1.5 px-3.5 text-[12px] whitespace-nowrap sm:px-4 sm:text-sm',
-        layout === 'sheet' &&
-          'w-full max-w-full rounded-2xl py-3.5 text-center text-sm',
-        className
-      )}
     >
       <StellarField
         count={100}
-        className="z-0 opacity-[0.88]"
+        className="z-0 opacity-90"
         interactive
         pointer={pointer}
         shootingMeteors
         shootingIntervalScale={0.42}
       />
-      <span
+      <Link
+        href={href}
+        onClick={onNavigate}
         className={cn(
-          'pointer-events-none relative z-10 w-full',
-          'drop-shadow-[0_1px_2px_rgba(0,0,0,0.65)]',
-          'leading-tight',
-          layout === 'sheet' && 'px-2',
-          'font-semibold'
+          'relative z-10 inline-flex min-w-0 items-center justify-center no-underline',
+          'border border-black/10 bg-white font-semibold text-black',
+          'shadow-sm [transition:background_160ms_ease,box-shadow_160ms_ease]',
+          'hover:border-black/12 hover:bg-neutral-100',
+          'focus-visible:ring-2 focus-visible:ring-[#F26A06] focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-950/80 focus-visible:outline-none',
+          layout === 'bar' &&
+            'min-h-9 max-w-full rounded-full py-1.5 px-3.5 text-[12px] whitespace-nowrap sm:px-4 sm:text-sm',
+          layout === 'sheet' &&
+            'w-full max-w-full rounded-2xl py-3.5 text-center text-sm',
+          className
         )}
       >
-        {label}
-      </span>
-    </Link>
+        <span className="font-semibold leading-tight text-black">{label}</span>
+      </Link>
+    </div>
   );
 }
