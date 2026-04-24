@@ -307,13 +307,15 @@ export default function Navbar() {
                 className="si-shell-1400 min-h-0 flex-1 overflow-y-auto overflow-x-hidden overscroll-y-contain pr-0 pt-5 [scrollbar-gutter:stable] sm:pr-1"
                 style={{ paddingBottom: 'max(0.5rem, env(safe-area-inset-bottom, 0px))' }}
               >
-                <Link
-                  href={NAV_FIRST_LINK.href}
-                  className="mb-3 block w-full rounded-2xl border border-white/12 bg-white/[0.05] py-3.5 text-center text-base font-medium text-white/95 no-underline [transition:background_180ms_ease,border-color_180ms_ease] shadow-[inset_0_1px_0_0_rgba(255,255,255,0.04)] active:scale-[0.99] visited:text-white/95 hover:border-white/16 hover:bg-white/[0.08] hover:text-white hover:no-underline focus-visible:text-white"
-                  onClick={closeMenu}
-                >
-                  {NAV_FIRST_LINK.label}
-                </Link>
+                <div className="mb-3 space-y-0.5 overflow-hidden rounded-2xl border border-white/[0.1] bg-white/[0.03] p-0.5 shadow-[inset_0_1px_0_0_rgba(255,255,255,0.04)]">
+                  <Link
+                    href={NAV_FIRST_LINK.href}
+                    className="block w-full rounded-2xl px-3.5 py-3 text-left text-base font-medium !text-white/90 no-underline [transition:background_160ms_ease] visited:text-white/90 hover:!bg-white/[0.06] hover:!text-white hover:!no-underline"
+                    onClick={closeMenu}
+                  >
+                    {NAV_FIRST_LINK.label}
+                  </Link>
+                </div>
                 <Accordion
                   defaultValue={[]}
                   multiple
