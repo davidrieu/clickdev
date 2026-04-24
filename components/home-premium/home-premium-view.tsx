@@ -799,7 +799,7 @@ export type HomePremiumViewProps = {
 
 export function HomePremiumView({ latestPosts, featuredCaseStudies }: HomePremiumViewProps) {
   return (
-    <main className="bg-black text-white">
+    <main className="text-white">
       <p className="sr-only">
         Je suis David Rieu, développeur web freelance en France. Je conçois des sites internet, des applications
         mobiles, j’intègre l’IA quand ça a du sens, je fais du SEO et de la GEO, et je développe des outils métiers sur

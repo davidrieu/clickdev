@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { motion } from 'framer-motion';
 
 import { HeroSiteBuildWireframe } from '@/components/silos/sites-internet/premium-hero';
+import { StellarField, useSectionStellarPointer } from '@/components/silos/sites-internet/stellar-field';
 import { SOCIAL_LINKS } from '@/lib/constants/site';
 
 const lineDraw = {
@@ -34,8 +35,22 @@ function CodeurHeroTrustLink() {
 }
 
 export function HpHero() {
+  const { pointer, onPointerMoveCapture, onPointerLeave } = useSectionStellarPointer();
+
   return (
-    <section className="relative overflow-hidden bg-transparent pt-20 pb-0 md:pt-24 lg:pt-28">
+    <section
+      className="relative overflow-hidden bg-transparent pt-20 pb-0 md:pt-24 lg:pt-28"
+      onPointerMoveCapture={onPointerMoveCapture}
+      onPointerLeave={onPointerLeave}
+    >
+      <StellarField
+        count={48}
+        className="opacity-[0.88]"
+        interactive
+        pointer={pointer}
+        shootingMeteors
+      />
+      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_80%_50%_at_50%_-20%,rgba(255,255,255,0.05),transparent)]" />
       <div className="relative z-10 si-shell-1400 grid gap-12 md:grid-cols-12 md:items-center md:gap-8 lg:gap-12">
         <div className="flex flex-col justify-center md:col-span-6 md:py-2 lg:py-4">
           <motion.div
