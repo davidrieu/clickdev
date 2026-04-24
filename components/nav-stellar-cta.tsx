@@ -25,7 +25,7 @@ export function NavStellarCta({ href, onNavigate, className, children, layout = 
         'border border-black/10 bg-white font-semibold text-black',
         'shadow-sm [transition:background_160ms_ease,box-shadow_160ms_ease]',
         'hover:border-black/12 hover:bg-neutral-100',
-        'focus-visible:ring-2 focus-visible:ring-[#F26A06] focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-950/80 focus-visible:outline-none',
+        'focus-visible:ring-2 focus-visible:ring-white/35 focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-950 focus-visible:outline-none',
         layout === 'bar' &&
           'min-h-9 max-w-full rounded-full py-1.5 px-3.5 text-[12px] whitespace-nowrap sm:px-4 sm:text-sm',
         layout === 'sheet' &&

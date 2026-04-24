@@ -259,7 +259,7 @@ export default function Navbar() {
           >
             <motion.div
               role="presentation"
-              className="absolute inset-0 cursor-default bg-[oklch(0.04_0_0/0.6)] backdrop-blur-sm"
+              className="absolute inset-0 cursor-default bg-[oklch(0.04_0_0/0.55)] backdrop-blur-md [backdrop-saturate:0.9]"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
@@ -268,12 +268,13 @@ export default function Navbar() {
             />
             <motion.aside
               id="mobile-menu-panel"
-              className="relative z-10 flex h-full min-h-0 w-full min-w-0 max-w-md flex-1 flex-col border-l border-white/[0.1] bg-[#060607]/[0.97] shadow-[0_0_0_1px_rgba(255,255,255,0.04),-24px_0_64px_rgba(0,0,0,0.55)] backdrop-blur-2xl"
+              className="relative z-10 flex h-full min-h-0 w-full min-w-0 max-w-md flex-1 flex-col border-l border-white/[0.08] bg-[#070708]/[0.98] shadow-[0_0_0_1px_rgba(255,255,255,0.04),-24px_0_64px_rgba(0,0,0,0.55)] backdrop-blur-2xl [backdrop-saturate:1.1]"
               style={{
                 paddingTop: 'max(0.75rem, env(safe-area-inset-top, 0px))',
                 backgroundImage: [
-                  'radial-gradient(100%_90%_at_100%_0%, rgba(242,106,6,0.14) 0%, transparent 50%)',
-                  'linear-gradient(180deg, oklch(0.1 0 0) 0%, #050505 100%)',
+                  'radial-gradient(100%_88%_at_0%_0%, rgba(255,255,255,0.08) 0%, transparent 52%)',
+                  'radial-gradient(100%_70%_at_100%_0%, rgba(255,255,255,0.04) 0%, transparent 48%)',
+                  'linear-gradient(180deg, oklch(0.11 0 0) 0%, #040405 100%)',
                 ].join(', '),
               }}
               initial={reduceMotion ? { x: 24, opacity: 0 } : { x: '100%' }}
@@ -284,9 +285,12 @@ export default function Navbar() {
               aria-modal="true"
               aria-labelledby={menuTitleId}
             >
-              <div className="si-shell-1400 flex shrink-0 items-center justify-between border-b border-white/10 py-1 pr-0 sm:pr-1">
-                <p id={menuTitleId} className="font-mono text-[0.7rem] tracking-[0.22em] text-white/50 uppercase">
-                  Menu
+              <div className="si-shell-1400 flex shrink-0 items-center justify-between border-b border-white/[0.08] bg-white/[0.02] py-2.5 pr-0 sm:pr-1">
+                <p
+                  id={menuTitleId}
+                  className="font-mono text-[0.7rem] tracking-[0.22em] text-white/45 uppercase"
+                >
+                  Navigation
                 </p>
                 <button
                   type="button"
@@ -305,7 +309,7 @@ export default function Navbar() {
               >
                 <Link
                   href={NAV_FIRST_LINK.href}
-                  className="mb-3 block w-full rounded-2xl border border-white/12 bg-white/[0.04] py-3.5 text-center text-base font-medium text-white/95 [transition:background_180ms_ease] shadow-[inset_0_1px_0_0_rgba(255,255,255,0.04)] active:scale-[0.99] hover:border-white/16 hover:bg-white/[0.07]"
+                  className="mb-3 block w-full rounded-2xl border border-white/12 bg-white/[0.05] py-3.5 text-center text-base font-medium text-white/95 no-underline [transition:background_180ms_ease,border-color_180ms_ease] shadow-[inset_0_1px_0_0_rgba(255,255,255,0.04)] active:scale-[0.99] visited:text-white/95 hover:border-white/16 hover:bg-white/[0.08] hover:text-white hover:no-underline focus-visible:text-white"
                   onClick={closeMenu}
                 >
                   {NAV_FIRST_LINK.label}
@@ -313,22 +317,22 @@ export default function Navbar() {
                 <Accordion
                   defaultValue={[]}
                   multiple
-                  className="space-y-0 rounded-2xl border border-white/[0.08] bg-white/[0.02] p-0.5"
+                  className="space-y-0 overflow-hidden rounded-2xl border border-white/[0.1] bg-white/[0.03] p-0.5 shadow-[inset_0_1px_0_0_rgba(255,255,255,0.04)]"
                 >
                   {NAV_SILOS.map((silo) => (
                     <AccordionItem key={silo.href} value={silo.href} className="border-white/[0.07] not-last:border-b">
-                      <AccordionTrigger className="!rounded-xl px-3 py-3 text-left !no-underline text-base font-medium tracking-tight text-white/90 [transition:background_160ms_ease] hover:!no-underline hover:bg-white/[0.04] data-open:bg-white/[0.04] data-open:shadow-[inset_0_1px_0_0_rgba(255,255,255,0.04)]">
+                      <AccordionTrigger className="!rounded-xl border-0 !px-3 !py-3 text-left !no-underline !text-base font-medium !leading-snug !tracking-tight !text-white [transition:background_160ms_ease] hover:!no-underline hover:!text-white hover:bg-white/[0.04] data-open:!text-white data-open:bg-white/[0.04] data-open:shadow-[inset_0_1px_0_0_rgba(255,255,255,0.04)] [&_[data-slot=accordion-trigger-icon]]:!text-white/50 focus-visible:!border-white/20 focus-visible:!ring-2 focus-visible:!ring-white/35 focus-visible:!ring-offset-2 focus-visible:!ring-offset-zinc-950">
                         {silo.label}
                       </AccordionTrigger>
                       <AccordionContent className="px-0 pb-1.5">
                         <div className="flex flex-col gap-0.5 px-1.5 pb-2.5">
                           <Link
                             href={silo.href}
-                            className="flex items-center justify-between gap-2 rounded-xl px-3 py-2.5 text-sm font-medium text-[#F26A06]/90 hover:bg-white/10 hover:text-white"
+                            className="flex items-center justify-between gap-2 rounded-xl border border-white/[0.05] bg-white/[0.03] px-3 py-2.5 text-sm font-medium !text-white/90 no-underline [transition:background_150ms_ease] visited:text-white/90 hover:!border-white/10 hover:!bg-white/[0.08] hover:!text-white hover:!no-underline"
                             onClick={closeMenu}
                           >
                             <span>Vue d’ensemble</span>
-                            <span className="text-xs text-white/35" aria-hidden>
+                            <span className="text-xs text-white/40" aria-hidden>
                               ↗
                             </span>
                           </Link>
@@ -336,7 +340,7 @@ export default function Navbar() {
                             <Link
                               key={c.href}
                               href={c.href}
-                              className="rounded-xl px-3 py-2.5 text-sm text-white/78 hover:bg-white/[0.08] hover:text-white"
+                              className="rounded-xl px-3 py-2.5 text-sm !text-white/80 no-underline [transition:background_120ms_ease] visited:text-white/80 hover:!bg-white/[0.08] hover:!text-white hover:!no-underline"
                               onClick={closeMenu}
                             >
                               {c.label}
@@ -348,12 +352,12 @@ export default function Navbar() {
                   ))}
                 </Accordion>
 
-                <div className="mt-5 space-y-0.5 rounded-2xl border border-white/[0.08] bg-white/[0.02] p-0.5">
+                <div className="mt-5 space-y-0.5 overflow-hidden rounded-2xl border border-white/[0.1] bg-white/[0.03] p-0.5 shadow-[inset_0_1px_0_0_rgba(255,255,255,0.04)]">
                   {NAV_FLAT_LINKS.map((l) => (
                     <Link
                       key={l.href}
                       href={l.href}
-                      className="block rounded-2xl px-3.5 py-3 text-base font-medium text-white/90 transition hover:bg-white/[0.06] hover:text-white"
+                      className="block rounded-2xl px-3.5 py-3 text-base font-medium !text-white/90 no-underline [transition:background_160ms_ease] visited:text-white/90 hover:!bg-white/[0.06] hover:!text-white hover:!no-underline"
                       onClick={closeMenu}
                     >
                       {l.label}
@@ -363,7 +367,7 @@ export default function Navbar() {
               </div>
 
               <div
-                className="shrink-0 border-t border-white/10 bg-gradient-to-t from-[#040405] to-transparent px-0 py-2 pt-1 [backdrop-filter:blur(8px)]"
+                className="shrink-0 border-t border-white/[0.08] bg-gradient-to-t from-[#030304] via-[#050505]/90 to-[#050505]/[0.97] px-0 py-2.5 pt-2 [backdrop-filter:blur(10px)]"
                 style={{ paddingBottom: 'max(1rem, env(safe-area-inset-bottom, 0px))' }}
               >
                 <div className="si-shell-1400">

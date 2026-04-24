@@ -2,25 +2,14 @@
 
 import { motion } from 'framer-motion';
 
-import { StellarField, useSectionStellarPointer } from '@/components/silos/sites-internet/stellar-field';
-
 const lineDraw = {
   rest: { scaleX: 0, originX: 0.5 },
   animate: { scaleX: 1, transition: { duration: 0.85, ease: [0.22, 1, 0.36, 1] as const } },
 };
 
 export function DevisSimpleHero() {
-  const { pointer, onPointerMoveCapture, onPointerLeave } = useSectionStellarPointer();
-
   return (
-    <section
-      className="relative overflow-hidden py-24 md:py-28 lg:py-32"
-      onPointerMoveCapture={onPointerMoveCapture}
-      onPointerLeave={onPointerLeave}
-    >
-      <StellarField count={40} className="opacity-[0.82]" interactive pointer={pointer} shootingMeteors />
-      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_80%_50%_at_50%_-15%,rgba(255,255,255,0.05),transparent)]" />
-
+    <section className="relative overflow-hidden bg-transparent py-24 md:py-28 lg:py-32">
       <div className="relative z-10 si-shell-920 text-center">
         <motion.div
           className="flex flex-col items-center gap-2"

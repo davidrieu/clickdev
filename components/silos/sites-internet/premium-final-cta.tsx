@@ -6,8 +6,6 @@ import { motion, useReducedMotion } from 'framer-motion';
 
 import { PremiumSectionDivider } from '@/components/home-premium/premium-section-divider';
 
-import { StellarField, useSectionStellarPointer } from './stellar-field';
-
 const DEFAULT_TITLE = 'Prêt à passer d’un site qui subit à un site qui performe ?';
 
 const defaultDescription = (
@@ -42,16 +40,10 @@ export function PremiumFinalCta({
 }: PremiumFinalCtaProps) {
   const reduce = useReducedMotion();
   const words = useMemo(() => title.split(' '), [title]);
-  const { pointer, onPointerMoveCapture, onPointerLeave } = useSectionStellarPointer();
 
   return (
-    <section
-      className="relative overflow-hidden bg-black py-28 md:py-40 lg:py-52"
-      onPointerMoveCapture={onPointerMoveCapture}
-      onPointerLeave={onPointerLeave}
-    >
+    <section className="relative overflow-hidden bg-black py-28 md:py-40 lg:py-52">
       <PremiumSectionDivider />
-      <StellarField count={56} interactive pointer={pointer} />
 
       <motion.div
         className="pointer-events-none absolute -left-24 top-1/4 size-[380px] rounded-full bg-white/10 blur-3xl"
@@ -99,9 +91,9 @@ export function PremiumFinalCta({
         >
           <Link
             href={primaryHref}
-            className="si-btn-pill-shine si-btn-pill-shine-on-light si-cta-primary-glow relative isolate inline-flex overflow-hidden rounded-full bg-white px-10 py-4 text-sm font-semibold text-black transition hover:bg-white/95"
+            className="inline-flex items-center justify-center rounded-full border border-black/10 bg-white px-10 py-4 text-sm font-semibold text-black shadow-sm transition [transition:background_160ms_ease] hover:border-black/12 hover:bg-neutral-100"
           >
-            <span className="relative z-10">{primaryLabel}</span>
+            {primaryLabel}
           </Link>
           <Link
             href={secondaryHref}
