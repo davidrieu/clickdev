@@ -22,7 +22,7 @@ export function MaintenanceTrustMarquee() {
   const row = useMemo(() => [...MAINTENANCE_TRUST_MARQUEE_NAMES, ...MAINTENANCE_TRUST_MARQUEE_NAMES], []);
 
   return (
-    <div className="relative z-10 border-y border-white/[0.07] bg-black">
+    <div className="relative z-10 mt-14 border-y border-white/[0.07] bg-black md:mt-20">
       <div className="si-shell-1400 flex flex-col items-center py-8 md:py-10">
         <h2 className="text-center font-mono text-[11px] tracking-[0.28em] text-white/45 uppercase">
           Des contextes exigeants — mêmes exigences côté prod
