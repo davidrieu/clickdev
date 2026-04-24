@@ -86,51 +86,58 @@ function MockupSitesInternet() {
   );
 }
 
+/** Téléphone seul (pas de « fenêtre » desktop) — proportions proches 9:19, plus étroit qu’avant. */
 function MockupApplicationsMobiles() {
   return (
-    <MockupFrame caption="Concevoir — coder — publier le store">
-      <div className="flex justify-center" aria-hidden>
-        <div className="w-[min(11.5rem,88%)]">
-          <div className="rounded-[1.6rem] border-2 border-white/14 bg-zinc-950/80 p-1.5 ring-1 ring-inset ring-white/8">
-            <div className="mb-1.5 flex h-1.5 justify-center">
-              <div className="h-0.5 w-10 rounded-full bg-white/15" />
+    <div
+      className="relative mx-auto flex w-full max-w-[7.5rem] flex-col items-center justify-center sm:max-w-[8.25rem] md:mx-0 md:ml-auto md:max-w-[8.5rem] md:pr-0 lg:max-w-[8.75rem]"
+      style={{ perspective: '1200px' }}
+    >
+      <motion.div
+        className="origin-right w-full"
+        initial={fadeIn}
+        animate={{ opacity: 1, y: 0 }}
+        transition={transition}
+      >
+        <div className="rounded-[2.15rem] border-2 border-white/18 bg-zinc-950/95 p-[5px] shadow-[0_22px_70px_-18px_rgba(0,0,0,0.92),inset_0_0_0_1px_rgba(255,255,255,0.05)] ring-1 ring-inset ring-white/10 md:[transform:rotateY(-13deg)_rotateX(4deg)] md:[transform-origin:right_center]">
+          {/** Encoche : pas de barre de navigation en dessous, contenu d’appli direct */}
+          <div className="mb-1 flex justify-center">
+            <div className="h-1.5 w-[4.1rem] rounded-b-xl rounded-t-md bg-zinc-900" aria-hidden>
+              <div className="mx-auto h-0.5 w-7 rounded-b-full bg-white/12" />
             </div>
-            <div className="si-hero-wire-header flex items-center justify-between gap-1 rounded-lg border border-white/12 bg-white/[0.04] px-2.5 py-1.5">
-              <div className="h-1.5 w-8 rounded-full bg-white/25" />
-              <div className="flex flex-1 justify-end gap-1.5">
-                <div className="size-2.5 rounded-md bg-white/10" />
-                <div className="size-2.5 rounded-md bg-white/10" />
-                <div className="size-2.5 rounded-md bg-white/10" />
-              </div>
+          </div>
+          <div className="flex min-h-[9.2rem] flex-col gap-1.5 overflow-hidden rounded-[1.4rem] border border-white/6 bg-zinc-950/90 px-2.5 py-1.5" aria-hidden>
+            <div className="si-hero-wire-hero flex-1 space-y-1.5 rounded-lg border border-white/8 bg-gradient-to-b from-white/[0.05] to-transparent p-1.5">
+              <div className="h-0.5 w-7 rounded-sm bg-white/20" />
+              <div className="h-0.5 w-full max-w-full rounded-full bg-white/6" />
+              <div className="h-0.5 w-[90%] rounded-full bg-white/4" />
+              <div className="mt-0.5 h-4 w-full rounded border border-white/5 bg-white/[0.04]" />
+              <div className="h-3 w-3/4 max-w-full rounded border border-dashed border-white/8" />
             </div>
-            <div className="si-hero-wire-hero mt-2 min-h-[5.2rem] rounded-lg border border-white/12 bg-gradient-to-b from-white/[0.06] to-white/[0.01] p-2.5">
-              <div className="h-1.5 w-20 rounded-sm bg-white/20" />
-              <div className="mt-2 h-1 w-[78%] rounded-full bg-white/10" />
-              <div className="mt-1.5 h-1 w-3/4 rounded-full bg-white/8" />
-              <div className="mt-3 h-6 w-full rounded-md border border-white/8 bg-white/[0.04]" />
+            <div className="si-hero-wire-section space-y-0.5">
+              <div className="h-0.5 w-full rounded-full bg-white/5" />
+              <div className="h-0.5 w-[88%] rounded-full bg-white/4" />
             </div>
-            <div className="si-hero-wire-section mt-1.5 space-y-1">
-              <div className="h-0.5 w-full rounded-full bg-white/8" />
-              <div className="h-0.5 w-[90%] rounded-full bg-white/6" />
-              <div className="h-0.5 w-4/5 rounded-full bg-white/5" />
+            <div className="si-hero-wire-columns grid grid-cols-2 gap-1">
+              <div className="h-5 rounded border border-white/6 bg-white/[0.04]" />
+              <div className="h-5 rounded border border-white/6 bg-white/[0.04]" />
             </div>
-            <div className="si-hero-wire-columns mt-1.5 grid grid-cols-2 gap-1.5">
-              <div className="h-9 rounded-md border border-white/10 bg-white/[0.04]" />
-              <div className="h-9 rounded-md border border-white/10 bg-white/[0.04]" />
-            </div>
-            <div className="si-hero-wire-footer mt-1.5 flex items-center justify-between rounded-lg border border-white/10 bg-white/[0.03] px-2.5 py-1.5">
-              <div className="h-0.5 w-8 rounded-full bg-white/8" />
-              <div className="flex flex-1 justify-end gap-1.5">
-                <div className="size-2.5 rounded-full border border-white/10 bg-white/[0.04]" />
-                <div className="size-2.5 rounded-full border border-white/8 bg-white/[0.04]" />
-                <div className="size-2.5 rounded-full border border-white/6 bg-white/[0.04]" />
-                <div className="size-2.5 rounded-full border border-white/4 bg-white/[0.04]" />
+            <div className="si-hero-wire-footer mt-0.5 flex items-end justify-between gap-1.5 border-t border-white/6 pt-1.5">
+              <div className="h-0.5 w-4 flex-1 rounded-sm bg-white/3" />
+              <div className="flex items-center gap-1">
+                <div className="h-0.5 w-0.5 rounded-full bg-white/15" />
+                <div className="h-0.5 w-0.5 rounded-full bg-white/10" />
+                <div className="h-0.5 w-0.5 rounded-full bg-white/8" />
+                <div className="h-0.5 w-0.5 rounded-full bg-white/5" />
               </div>
             </div>
           </div>
         </div>
-      </div>
-    </MockupFrame>
+      </motion.div>
+      <p className="mt-2.5 text-center font-mono text-[9px] tracking-[0.2em] text-white/30 uppercase">
+        Concevoir — coder — publier le store
+      </p>
+    </div>
   );
 }
 
