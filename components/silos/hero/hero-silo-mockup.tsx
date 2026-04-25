@@ -86,11 +86,11 @@ function MockupSitesInternet() {
   );
 }
 
-/** Téléphone seul (pas de « fenêtre » desktop) — proportions proches 9:19, plus étroit qu’avant. */
+/** Téléphone seul (pas de « fenêtre » desktop) — proportions 9:19, lisible + présence. */
 function MockupApplicationsMobiles() {
   return (
     <div
-      className="relative mx-auto flex w-full max-w-[7.5rem] flex-col items-center justify-center sm:max-w-[8.25rem] md:mx-0 md:ml-auto md:max-w-[8.5rem] md:pr-0 lg:max-w-[8.75rem]"
+      className="relative mx-auto flex w-full max-w-[9.5rem] flex-col items-center justify-center sm:max-w-[10.5rem] md:mx-0 md:ml-auto md:max-w-[11.25rem] md:pr-0 lg:max-w-[12rem]"
       style={{ perspective: '1200px' }}
     >
       <motion.div
@@ -99,36 +99,37 @@ function MockupApplicationsMobiles() {
         animate={{ opacity: 1, y: 0 }}
         transition={transition}
       >
-        <div className="rounded-[2.15rem] border-2 border-white/18 bg-zinc-950/95 p-[5px] shadow-[0_22px_70px_-18px_rgba(0,0,0,0.92),inset_0_0_0_1px_rgba(255,255,255,0.05)] ring-1 ring-inset ring-white/10 md:[transform:rotateY(-13deg)_rotateX(4deg)] md:[transform-origin:right_center]">
+        <div className="rounded-[2.4rem] border-2 border-white/18 bg-zinc-950/95 p-1.5 shadow-[0_24px_80px_-20px_rgba(0,0,0,0.92),inset_0_0_0_1px_rgba(255,255,255,0.05)] ring-1 ring-inset ring-white/10 md:[transform:rotateY(-13deg)_rotateX(4deg)] md:[transform-origin:right_center]">
           {/** Encoche : pas de barre de navigation en dessous, contenu d’appli direct */}
-          <div className="mb-1 flex justify-center">
-            <div className="h-1.5 w-[4.1rem] rounded-b-xl rounded-t-md bg-zinc-900" aria-hidden>
-              <div className="mx-auto h-0.5 w-7 rounded-b-full bg-white/12" />
+          <div className="mb-1.5 flex justify-center">
+            <div className="h-1.5 w-24 sm:w-28 rounded-b-xl rounded-t-md bg-zinc-900" aria-hidden>
+              <div className="mx-auto h-0.5 w-9 rounded-b-full bg-white/12" />
             </div>
           </div>
-          <div className="flex min-h-[9.2rem] flex-col gap-1.5 overflow-hidden rounded-[1.4rem] border border-white/6 bg-zinc-950/90 px-2.5 py-1.5" aria-hidden>
-            <div className="si-hero-wire-hero flex-1 space-y-1.5 rounded-lg border border-white/8 bg-gradient-to-b from-white/[0.05] to-transparent p-1.5">
-              <div className="h-0.5 w-7 rounded-sm bg-white/20" />
+          <div className="flex min-h-[12.5rem] flex-col gap-2 overflow-hidden rounded-[1.5rem] border border-white/6 bg-zinc-950/90 px-3 py-2 sm:min-h-[13.5rem] md:min-h-[14.5rem]" aria-hidden>
+            <div className="si-hero-wire-hero min-h-0 flex-1 space-y-2 rounded-lg border border-white/8 bg-gradient-to-b from-white/[0.05] to-transparent p-2">
+              <div className="h-0.5 w-8 rounded-sm bg-white/20" />
               <div className="h-0.5 w-full max-w-full rounded-full bg-white/6" />
               <div className="h-0.5 w-[90%] rounded-full bg-white/4" />
-              <div className="mt-0.5 h-4 w-full rounded border border-white/5 bg-white/[0.04]" />
-              <div className="h-3 w-3/4 max-w-full rounded border border-dashed border-white/8" />
+              <div className="mt-0.5 h-7 w-full rounded border border-white/5 bg-white/[0.04]" />
+              <div className="h-4 w-[82%] max-w-full rounded border border-dashed border-white/8" />
             </div>
-            <div className="si-hero-wire-section space-y-0.5">
+            <div className="si-hero-wire-section space-y-1">
               <div className="h-0.5 w-full rounded-full bg-white/5" />
               <div className="h-0.5 w-[88%] rounded-full bg-white/4" />
+              <div className="h-0.5 w-4/5 rounded-full bg-white/3" />
             </div>
-            <div className="si-hero-wire-columns grid grid-cols-2 gap-1">
-              <div className="h-5 rounded border border-white/6 bg-white/[0.04]" />
-              <div className="h-5 rounded border border-white/6 bg-white/[0.04]" />
+            <div className="si-hero-wire-columns grid grid-cols-2 gap-1.5">
+              <div className="h-6 rounded border border-white/6 bg-white/[0.04]" />
+              <div className="h-6 rounded border border-white/6 bg-white/[0.04]" />
             </div>
-            <div className="si-hero-wire-footer mt-0.5 flex items-end justify-between gap-1.5 border-t border-white/6 pt-1.5">
-              <div className="h-0.5 w-4 flex-1 rounded-sm bg-white/3" />
-              <div className="flex items-center gap-1">
-                <div className="h-0.5 w-0.5 rounded-full bg-white/15" />
-                <div className="h-0.5 w-0.5 rounded-full bg-white/10" />
-                <div className="h-0.5 w-0.5 rounded-full bg-white/8" />
-                <div className="h-0.5 w-0.5 rounded-full bg-white/5" />
+            <div className="si-hero-wire-footer mt-0.5 flex items-end justify-between gap-1.5 border-t border-white/6 pt-2">
+              <div className="h-0.5 w-6 flex-1 rounded-sm bg-white/3" />
+              <div className="flex items-center gap-1.5">
+                <div className="size-1.5 rounded-full border border-white/8 bg-white/[0.04]" />
+                <div className="size-1.5 rounded-full border border-white/6 bg-white/[0.04]" />
+                <div className="size-1.5 rounded-full border border-white/4 bg-white/[0.04]" />
+                <div className="size-1.5 rounded-full border border-white/5 bg-white/[0.04]" />
               </div>
             </div>
           </div>
