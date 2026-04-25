@@ -86,50 +86,80 @@ function MockupSitesInternet() {
   );
 }
 
-/** Téléphone seul (pas de « fenêtre » desktop) — proportions 9:19, lisible + présence. */
+/**
+ * Smartphone (ratio 9:19) : jante, écran noir, **une** ligne statut 9:41 + îlot + batterie, puis contenu d’appli
+ * (carte principale, lignes, grille 2×2, barre d’icônes, home indicator) — mêmes animations .si-hero-wire-*.
+ */
 function MockupApplicationsMobiles() {
   return (
     <div
-      className="relative mx-auto flex w-full max-w-[9.5rem] flex-col items-center justify-center sm:max-w-[10.5rem] md:mx-0 md:ml-auto md:max-w-[11.25rem] md:pr-0 lg:max-w-[12rem]"
+      className="relative mx-auto flex w-full max-w-[min(15rem,90vw)] flex-col items-stretch sm:max-w-[min(16.5rem,86vw)] md:mx-0 md:ml-auto md:max-w-[min(17.5rem,40vw)] md:pr-0 lg:max-w-[18rem]"
       style={{ perspective: '1200px' }}
     >
       <motion.div
-        className="origin-right w-full"
+        className="origin-right w-full md:[transform:rotateY(-12deg)_rotateX(3deg)] md:[transform-origin:right_center]"
         initial={fadeIn}
         animate={{ opacity: 1, y: 0 }}
         transition={transition}
       >
-        <div className="rounded-[2.4rem] border-2 border-white/18 bg-zinc-950/95 p-1.5 shadow-[0_24px_80px_-20px_rgba(0,0,0,0.92),inset_0_0_0_1px_rgba(255,255,255,0.05)] ring-1 ring-inset ring-white/10 md:[transform:rotateY(-13deg)_rotateX(4deg)] md:[transform-origin:right_center]">
-          {/** Encoche : pas de barre de navigation en dessous, contenu d’appli direct */}
-          <div className="mb-1.5 flex justify-center">
-            <div className="h-1.5 w-24 sm:w-28 rounded-b-xl rounded-t-md bg-zinc-900" aria-hidden>
-              <div className="mx-auto h-0.5 w-9 rounded-b-full bg-white/12" />
-            </div>
-          </div>
-          <div className="flex min-h-[12.5rem] flex-col gap-2 overflow-hidden rounded-[1.5rem] border border-white/6 bg-zinc-950/90 px-3 py-2 sm:min-h-[13.5rem] md:min-h-[14.5rem]" aria-hidden>
-            <div className="si-hero-wire-hero min-h-0 flex-1 space-y-2 rounded-lg border border-white/8 bg-gradient-to-b from-white/[0.05] to-transparent p-2">
-              <div className="h-0.5 w-8 rounded-sm bg-white/20" />
-              <div className="h-0.5 w-full max-w-full rounded-full bg-white/6" />
-              <div className="h-0.5 w-[90%] rounded-full bg-white/4" />
-              <div className="mt-0.5 h-7 w-full rounded border border-white/5 bg-white/[0.04]" />
-              <div className="h-4 w-[82%] max-w-full rounded border border-dashed border-white/8" />
-            </div>
-            <div className="si-hero-wire-section space-y-1">
-              <div className="h-0.5 w-full rounded-full bg-white/5" />
-              <div className="h-0.5 w-[88%] rounded-full bg-white/4" />
-              <div className="h-0.5 w-4/5 rounded-full bg-white/3" />
-            </div>
-            <div className="si-hero-wire-columns grid grid-cols-2 gap-1.5">
-              <div className="h-6 rounded border border-white/6 bg-white/[0.04]" />
-              <div className="h-6 rounded border border-white/6 bg-white/[0.04]" />
-            </div>
-            <div className="si-hero-wire-footer mt-0.5 flex items-end justify-between gap-1.5 border-t border-white/6 pt-2">
-              <div className="h-0.5 w-6 flex-1 rounded-sm bg-white/3" />
-              <div className="flex items-center gap-1.5">
-                <div className="size-1.5 rounded-full border border-white/8 bg-white/[0.04]" />
-                <div className="size-1.5 rounded-full border border-white/6 bg-white/[0.04]" />
-                <div className="size-1.5 rounded-full border border-white/4 bg-white/[0.04]" />
-                <div className="size-1.5 rounded-full border border-white/5 bg-white/[0.04]" />
+        <div className="mx-auto w-[10.5rem] max-w-full [aspect-ratio:9/19.2] min-h-0 sm:w-48 md:w-[12.5rem] lg:w-[13rem]">
+          <div className="flex h-full flex-col overflow-hidden rounded-[2.35rem] border-2 border-white/18 bg-gradient-to-b from-zinc-700/90 to-zinc-950 p-1.5 shadow-[0_32px_110px_-28px_rgba(0,0,0,0.95),inset_0_1px_0_0_rgba(255,255,255,0.12),inset_0_0_0_1px_rgba(0,0,0,0.2)]">
+            <div
+              className="relative flex min-h-0 flex-1 flex-col overflow-hidden rounded-[1.7rem] bg-[#0a0a0a] ring-1 ring-inset ring-white/5"
+              aria-hidden
+            >
+              {/** Ligne de statut : heure — îlot — signaux + batterie */}
+              <div className="si-hero-wire-header relative z-0 flex h-6 shrink-0 items-center border-b border-white/10 bg-[#0a0a0a] px-2.5">
+                <span className="w-9 text-[0.5rem] font-medium tabular-nums text-white/50 sm:text-[0.55rem]">9:41</span>
+                <div
+                  className="pointer-events-none absolute top-1.5 left-1/2 h-3 w-14 -translate-x-1/2 rounded-full bg-zinc-950/95 ring-1 ring-inset ring-white/12"
+                  aria-hidden
+                />
+                <div className="ms-auto flex items-center gap-0.5">
+                  <div className="flex h-1.5 items-end justify-end gap-[1px] pr-0.5" aria-hidden>
+                    <div className="h-0.5 w-0.5 bg-white/35" />
+                    <div className="h-0.5 w-0.5 bg-white/35" />
+                    <div className="h-0.5 w-0.5 bg-white/35" />
+                    <div className="h-0.5 w-0.5 bg-white/35" />
+                  </div>
+                  <div className="h-1.5 w-4 rounded-sm border border-white/20 bg-zinc-900" aria-hidden>
+                    <div className="h-full w-[0.6rem] rounded-l-sm bg-emerald-400/30" />
+                  </div>
+                </div>
+              </div>
+
+              <div className="min-h-0 flex-1 space-y-1.5 overflow-hidden px-2.5 py-1.5">
+                <p className="text-center font-mono text-[0.45rem] tracking-[0.22em] text-white/25 sm:text-[0.5rem]">App · build</p>
+                <div className="si-hero-wire-hero space-y-1.5 rounded-2xl border border-white/10 bg-gradient-to-b from-white/10 to-white/5 p-2">
+                  <div className="mx-auto h-0.5 w-8 rounded-full bg-white/20" />
+                  <div className="h-1.5 w-3/4 max-w-full rounded-sm bg-white/18" />
+                  <div className="h-0.5 w-[91%] max-w-full rounded-sm bg-white/12" />
+                  <div className="h-16 w-full rounded-lg border border-white/8 bg-gradient-to-b from-white/12 to-white/5" />
+                </div>
+                <div className="si-hero-wire-section space-y-1.5">
+                  <div className="h-0.5 w-full rounded-sm bg-white/10" />
+                  <div className="h-0.5 w-[90%] rounded-sm bg-white/8" />
+                </div>
+                <div className="si-hero-wire-columns grid grid-cols-2 gap-1.5">
+                  {[0, 1, 2, 3].map((i) => (
+                    <div
+                      key={i}
+                      className="h-10 rounded-xl border border-white/10 bg-gradient-to-b from-white/8 to-white/[0.02]"
+                    />
+                  ))}
+                </div>
+              </div>
+
+              <div className="si-hero-wire-footer flex shrink-0 items-stretch justify-between gap-0.5 border-t border-white/8 bg-[#0a0a0a] px-0.5 py-1">
+                {Array.from({ length: 4 }, (_, i) => (
+                  <div
+                    key={i}
+                    className="flex h-5 min-w-0 flex-1 items-center justify-center rounded-md border border-white/10 bg-white/[0.04]"
+                  />
+                ))}
+              </div>
+              <div className="flex justify-center border-t border-white/5 bg-[#0a0a0a] py-1.5">
+                <div className="h-0.5 w-9 rounded-full bg-white/25" />
               </div>
             </div>
           </div>
