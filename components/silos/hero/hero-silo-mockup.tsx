@@ -93,7 +93,7 @@ function MockupSitesInternet() {
 function MockupApplicationsMobiles() {
   return (
     <div
-      className="relative mx-auto flex w-full max-w-[min(15rem,90vw)] flex-col items-stretch sm:max-w-[min(16.5rem,86vw)] md:mx-0 md:ml-auto md:max-w-[min(17.5rem,40vw)] md:pr-0 lg:max-w-[18rem]"
+      className="relative mx-auto flex w-full max-w-[min(17rem,92vw)] flex-col items-stretch sm:max-w-[min(18.5rem,88vw)] md:mx-0 md:ml-auto md:max-w-[min(20rem,42vw)] md:pr-0 lg:max-w-[20.5rem]"
       style={{ perspective: '1200px' }}
     >
       <motion.div
@@ -102,7 +102,7 @@ function MockupApplicationsMobiles() {
         animate={{ opacity: 1, y: 0 }}
         transition={transition}
       >
-        <div className="mx-auto w-[10.5rem] max-w-full [aspect-ratio:9/19.2] min-h-0 sm:w-48 md:w-[12.5rem] lg:w-[13rem]">
+        <div className="mx-auto w-[11.75rem] max-w-full [aspect-ratio:9/19.2] min-h-0 sm:w-[12.5rem] md:w-[14rem] lg:w-[15rem]">
           <div className="flex h-full flex-col overflow-hidden rounded-[2.35rem] border-2 border-white/18 bg-gradient-to-b from-zinc-700/90 to-zinc-950 p-1.5 shadow-[0_32px_110px_-28px_rgba(0,0,0,0.95),inset_0_1px_0_0_rgba(255,255,255,0.12),inset_0_0_0_1px_rgba(0,0,0,0.2)]">
             <div
               className="relative flex min-h-0 flex-1 flex-col overflow-hidden rounded-[1.7rem] bg-[#0a0a0a] ring-1 ring-inset ring-white/5"
@@ -166,7 +166,7 @@ function MockupApplicationsMobiles() {
         </div>
       </motion.div>
       <p className="mt-2.5 text-center font-mono text-[9px] tracking-[0.2em] text-white/30 uppercase">
-        Concevoir — coder — publier le store
+        Concevoir — coder — publier
       </p>
     </div>
   );
