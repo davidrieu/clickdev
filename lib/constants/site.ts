@@ -7,7 +7,7 @@ export const SITE_TAGLINE =
 
 export const SITE_EMAIL = 'bonjour@clickdev.fr';
 
-export const SITE_PHONE = '+33 6 95 65 08 88';
+export const SITE_PHONE = '+33 7 56 85 76 49';
 
 /** Adresse professionnelle (devis, mentions légales, JSON-LD). */
 export const SITE_ADDRESS_STREET = '48 rue de la Glacière' as const;

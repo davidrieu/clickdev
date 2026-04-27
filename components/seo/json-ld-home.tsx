@@ -18,7 +18,7 @@ export function JsonLdHome() {
     description:
       'Développeur freelance spécialisé en sites web, applications mobiles, SEO, GEO et intégrations IA.',
     url: origin,
-    telephone: '+33695650888',
+    telephone: '+33756857649',
     email: SITE_EMAIL,
     address: {
       '@type': 'PostalAddress',
